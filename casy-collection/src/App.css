@@ -1,15 +1,15 @@
-@import url('https://fonts.googleapis.com/css?family=Raleway:300,400,500');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500|Raleway:300,400,500');
+
+:root {
+  --gallery-gap: 15px;
+}
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
   font-weight: 100;
-}
-
-body {
-  min-height: 100vh;
 }
 
 *::before,
@@ -32,12 +32,12 @@ body {
   align-items: center;
 }
 
-h1 {
+.main-heading__text {
   font-family: raleway;
   position: relative;
 }
 
-h1::before {
+.main-heading__text::before {
   --before-spill: 10%;
   content: '';
   background: indianred;
@@ -50,7 +50,7 @@ h1::before {
   transition: width 250ms ease-out, top 250ms 300ms ease-in;
 }
 
-.main-heading:hover h1::before {
+.main-heading:hover .main-heading__text::before {
   width: calc(100% + var(--before-spill) * 2);
   top: 105%;
 }
@@ -58,9 +58,11 @@ h1::before {
 section {
   background: snow;
   min-height: 50vh;
+  /* width: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 section:nth-of-type(even) {
@@ -68,8 +70,8 @@ section:nth-of-type(even) {
 }
 
 .image-gallery {
+  margin: var(--gallery-gap);
   max-width: 1000px;
-  margin: 20px auto;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -77,11 +79,11 @@ section:nth-of-type(even) {
 }
 
 .image-gallery__picture {
-  position: relative;
+  flex: 1 1 30%;
+  height: 200px;
   overflow: hidden;
-  max-width: 300px;
-  max-height: 200px;
-  margin: 20px 10px;
+  position: relative;
+  margin: var(--gallery-gap);
 }
 
 .image-gallery__title {
@@ -100,7 +102,7 @@ section:nth-of-type(even) {
   top: 80%;
   left: 0;
   width: 50%;
-  height: 12%;
+  height: 9%;
   transition: width 250ms ease-in-out;
 }
 
@@ -111,6 +113,7 @@ section:nth-of-type(even) {
 .image-gallery__picture img {
   object-fit: cover;
   width: 100%;
+  height: 100%;
   transition: transform 300ms ease-in;
 }
 
@@ -118,13 +121,12 @@ section:nth-of-type(even) {
   transform: scale(1.15);
 }
 
-@media (max-width: 970px) {
+/* @media (max-width: 970px) {
   .image-gallery {
     flex-direction: column;
   }
-
   .image-gallery__picture {
     max-width: 390px;
     max-height: 290px;
   }
-}
+} */

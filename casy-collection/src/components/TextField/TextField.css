@@ -1,0 +1,59 @@
+:root {
+  --tf-spd: 150ms;
+  --tf-pri: #9dc9f3;
+  --tf-brdr-wd: 55%;
+  --tf-arrow-siz: 40px;
+}
+
+.text-field__main-heading {
+  font-size: 55px;
+  margin: 15px 0 25px;
+}
+
+.text-field__sub-heading {
+  font-size: 25px;
+  margin: 15px 0;
+}
+
+.text-field__content {
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.text-field {
+  padding: 20px;
+  width: 400px;
+  position: relative;
+  z-index: 2;
+}
+
+.text-field::before {
+  border: 6px solid var(--tf-pri);
+  background: transparent;
+  content: '';
+  position: absolute;
+  width: var(--tf-brdr-wd);
+  height: 100%;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: background-color var(--tf-spd) ease-in,
+    width var(--tf-spd) ease-in;
+}
+
+.text-field:hover::before {
+  background: var(--tf-pri);
+  width: 100%;
+}
+
+.text-field__right-arrow {
+  margin: 0;
+  padding: 0;
+  transform: translate(calc(var(--tf-brdr-wd) - var(--tf-arrow-siz)));
+  font-size: var(--tf-arrow-siz);
+  transition: transform var(--tf-spd) ease-in;
+}
+
+.text-field:hover .text-field__right-arrow {
+  transform: translate(calc(100% - var(--tf-arrow-siz)));
+}

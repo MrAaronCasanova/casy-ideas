@@ -1,0 +1,49 @@
+:root {
+  --hambger-spd: 150ms;
+  --hambger-menu-ht: 30px;
+  --hambger-menu-wd: 50px;
+  --hambger-bar-ht: 4px;
+}
+
+.hamburger__wrapper {
+  /* ---------For Editing Layout---------- */
+  border: 2px solid red;
+  /* ------------------------------------- */
+  width: var(--hambger-menu-wd);
+  height: var(--hambger-menu-ht);
+  position: relative;
+}
+
+.hamburger__menu {
+  background: black;
+  position: absolute;
+  width: 100%;
+  height: var(--hambger-bar-ht);
+  top: 50%;
+  transform: translateY(-50%);
+  /* transition: top var(--hambger-spd) ease-in; */
+}
+
+.hamburger__menu::before,
+.hamburger__menu::after {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: black;
+  transition: top var(--hambger-spd) ease-in;
+}
+
+.hamburger__menu::before {
+  /* top: calc(var(--hambger-menu-ht) / -2.75); */
+  top: calc((((var(--hambger-menu-ht) / 2) - var(--hambger-bar-ht)) * -1));
+}
+
+.hamburger__menu::after {
+  top: calc(var(--hambger-menu-ht) / 2.75);
+}
+
+.hamburger__wrapper:hover .hamburger__menu::before,
+.hamburger__wrapper:hover .hamburger__menu::after {
+  top: 0;
+}
