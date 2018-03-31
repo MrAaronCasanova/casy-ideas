@@ -120,13 +120,3 @@ section:nth-of-type(even) {
 .image-gallery__picture:hover img {
   transform: scale(1.15);
 }
-
-/* @media (max-width: 970px) {
-  .image-gallery {
-    flex-direction: column;
-  }
-  .image-gallery__picture {
-    max-width: 390px;
-    max-height: 290px;
-  }
-} */
