@@ -1,20 +1,20 @@
 import React from 'react';
-import './TextField.css';
+import styles from './TextField.css';
 
 const TextField = () => {
   return (
-    <div className="text-field">
-      <h2 className="text-field__main-heading">&#x02116; 923</h2>
-      <h3 className="text-field__sub-heading">
+    <div className={styles.textField}>
+      <h2 className={styles.mainHeading}>&#x02116; 923</h2>
+      <h3 className={styles.subHeading}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit.
       </h3>
-      <p className="text-field__content">
+      <p className={styles.content}>
         Quia cum, corrupti assumenda autem fugiat nisi illo officia porro sint
         sunt fugit sed quas, quasi harum deserunt, suscipit consectetur
         repudiandae architecto!
       </p>
       <div>
-        <p className="text-field__right-arrow">&#x021A0;</p>
+        <p className={styles.rightArrow}>&#x021A0;</p>
       </div>
     </div>
   );

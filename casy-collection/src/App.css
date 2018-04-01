@@ -17,13 +17,13 @@
   box-sizing: border-box;
 }
 
-.page-wrapper {
+.pageWrapper {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
 }
 
-.main-heading {
+.mainHeading {
   height: 120px;
   box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.164);
   z-index: 1;
@@ -32,12 +32,12 @@
   align-items: center;
 }
 
-.main-heading__text {
+.mainHeadingText {
   font-family: raleway;
   position: relative;
 }
 
-.main-heading__text::before {
+.mainHeadingText::before {
   --before-spill: 10%;
   content: '';
   background: indianred;
@@ -50,7 +50,7 @@
   transition: width 250ms ease-out, top 250ms 300ms ease-in;
 }
 
-.main-heading:hover .main-heading__text::before {
+.mainHeading:hover .mainHeadingText::before {
   width: calc(100% + var(--before-spill) * 2);
   top: 105%;
 }
@@ -69,7 +69,7 @@ section:nth-of-type(even) {
   background: white;
 }
 
-.image-gallery {
+.imageGallery {
   margin: var(--gallery-gap);
   max-width: 1000px;
   display: flex;
@@ -78,7 +78,7 @@ section:nth-of-type(even) {
   flex-wrap: wrap;
 }
 
-.image-gallery__picture {
+.imageGalleryPicture {
   flex: 1 1 30%;
   height: 200px;
   overflow: hidden;
@@ -86,7 +86,7 @@ section:nth-of-type(even) {
   margin: var(--gallery-gap);
 }
 
-.image-gallery__title {
+.imageGalleryTitle {
   position: absolute;
   bottom: 20px;
   left: 20px;
@@ -95,7 +95,7 @@ section:nth-of-type(even) {
   color: snow;
 }
 
-.image-gallery__title::before {
+.imageGalleryTitle::before {
   content: '';
   background: snow;
   position: absolute;
@@ -106,17 +106,28 @@ section:nth-of-type(even) {
   transition: width 250ms ease-in-out;
 }
 
-.image-gallery__picture:hover .image-gallery__title::before {
+.imageGalleryPicture:hover .imageGalleryTitle::before {
   width: 100%;
 }
 
-.image-gallery__picture img {
+.imageGalleryPicture img {
   object-fit: cover;
   width: 100%;
   height: 100%;
   transition: transform 300ms ease-in;
 }
 
-.image-gallery__picture:hover img {
+.imageGalleryPicture:hover img {
   transform: scale(1.15);
+}
+
+.togglers {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.togglers > * {
+  margin: 20px;
 }

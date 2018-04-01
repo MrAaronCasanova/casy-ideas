@@ -1,8 +1,7 @@
-:root {
-  --dwn-btn-spd: 130ms;
-}
-
-.down-btn {
+.downBtn {
+  /* ---- CSS Variables Section ----- */
+  --trans-spd: 130ms;
+  /* -------------------------------- */
   margin-left: 20px;
   font-size: 50px;
   padding: 2px 17px;
@@ -10,14 +9,14 @@
   border: 3px solid #2f77bb;
   position: relative;
   z-index: 2;
-  transition: color var(--dwn-btn-spd) ease-in;
+  transition: color var(--trans-spd) ease-in;
 }
 
-.down-btn:hover {
+.downBtn:hover {
   color: white;
 }
 
-.down-btn::before {
+.downBtn::before {
   content: '';
   background: #2f77bb;
   position: absolute;
@@ -26,9 +25,9 @@
   bottom: 0;
   left: 0;
   z-index: -1;
-  transition: height var(--dwn-btn-spd) ease-in;
+  transition: height var(--trans-spd) ease-in;
 }
 
-.down-btn:hover::before {
+.downBtn:hover::before {
   height: 100%;
 }
