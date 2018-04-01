@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import styles from './App.css';
-import DownButton from './components/Navigation/AnchorButtons/DownButton/DownButton';
-import TextField from './components/TextField/TextField';
-import FlattenToggler from './components/Navigation/NavTogglers/FlattenToggler/FlattenToggler';
-import ToXToggler from './components/Navigation/NavTogglers/ToXToggler/ToXToggler';
+import DownButton from './components/NavigationComponents/AnchorButtons/DownButton/DownButton';
+import TextField from './components/TextComponents/TextField/TextField';
+import FlattenToggler from './components/NavigationComponents/NavTogglers/FlattenToggler/FlattenToggler';
+import ToXToggler from './components/NavigationComponents/NavTogglers/ToXToggler/ToXToggler';
+import HalvingGallery from './components/ImageComponents/ImageGalleries/HalvingGallery/HalvingGallery';
 
 class App extends Component {
   render() {
@@ -60,6 +61,9 @@ class App extends Component {
               <FlattenToggler />
             </div>
           </section>
+
+          <section />
+          <HalvingGallery />
         </div>
       </div>
     );
