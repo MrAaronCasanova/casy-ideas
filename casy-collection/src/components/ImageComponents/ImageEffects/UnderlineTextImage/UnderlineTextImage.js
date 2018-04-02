@@ -17,12 +17,3 @@ const UnderlineTextImage = props => {
 };
 
 export default UnderlineTextImage;
-
-{
-  /* <div className={`${styles.imageGalleryPicture} ${props.large}`}>
-  <h2 className={styles.imageGalleryTitle}>{props.category.title}</h2>
-  <a href="/">
-    <img src={props.category.src} alt={props.category.alt} />
-  </a>
-</div>; */
-}

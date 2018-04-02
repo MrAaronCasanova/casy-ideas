@@ -62,8 +62,9 @@ class App extends Component {
             </div>
           </section>
 
-          <section />
-          <HalvingGallery />
+          <section>
+            <HalvingGallery />
+          </section>
         </div>
       </div>
     );
