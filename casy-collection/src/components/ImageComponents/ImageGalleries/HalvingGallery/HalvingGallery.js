@@ -55,29 +55,89 @@ const categories = [
     title: 'Placeholder7',
     src: 'https://source.unsplash.com/random/800x606',
     alt: 'Buttons Section'
+  },
+  {
+    title: 'Placeholder8',
+    src: 'https://source.unsplash.com/random/800x607',
+    alt: 'Buttons Section'
+  },
+  {
+    title: 'Placeholder9',
+    src: 'https://source.unsplash.com/random/800x608',
+    alt: 'Buttons Section'
+  },
+  {
+    title: 'Placeholder10',
+    src: 'https://source.unsplash.com/random/800x609',
+    alt: 'Buttons Section'
+  },
+  {
+    title: 'Placeholder11',
+    src: 'https://source.unsplash.com/random/800x610',
+    alt: 'Buttons Section'
+  },
+  {
+    title: 'Placeholder12',
+    src: 'https://source.unsplash.com/random/800x611',
+    alt: 'Buttons Section'
+  },
+  {
+    title: 'Placeholder13',
+    src: 'https://source.unsplash.com/random/800x6012',
+    alt: 'Buttons Section'
+  },
+  {
+    title: 'Placeholder14',
+    src: 'https://source.unsplash.com/random/800x613',
+    alt: 'Buttons Section'
+  },
+  {
+    title: 'Placeholder15',
+    src: 'https://source.unsplash.com/random/800x614',
+    alt: 'Buttons Section'
   }
 ];
+
+// let items = [
+//   'hello',
+//   'world',
+//   'my',
+//   'name',
+//   'is',
+//   'aaron',
+//   'casanova',
+//   'and',
+//   'I',
+//   'like',
+//   'to',
+//   '...',
+//   '...',
+//   '...',
+//   '...',
+//   '...',
+//   '...',
+//   '...',
+//   '...',
+//   '...',
+//   '...',
+//   '...'
+// ];
 
 const HalvingGallery = () => {
   let count = 0;
   return (
     <div className={styles.HalvingGallery}>
       <div className={styles.imageContainer}>
-        {categories.map(category => {
+        {/* {categories.map(category => {
           count++;
-          console.log(count);
-          if (count < 4) {
-            return (
-              <UnderlineTextImage
-                large={styles.largeThree}
-                key={category.title}
-                category={category}
-              />
-            );
-          } else if (count < 6) {
-            if (count === 5) {
-              count = 0;
-            }
+          console.log('-----------------');
+          console.log(`Count: ${count}`);
+          console.log(`Three: ${count % 3}`);
+          console.log(`Four: ${count % 4}`);
+          console.log(`Five: ${count % 5}`);
+          console.log('-----------------');
+          if (count % 3 === 0 || count % 4 === 0 || count % 5 === 0) {
+            console.log('^^^---in here!!!---^^^');
             return (
               <UnderlineTextImage
                 large={styles.largeTwo}
@@ -86,6 +146,20 @@ const HalvingGallery = () => {
               />
             );
           }
+          return (
+            <UnderlineTextImage
+              large={styles.largeThree}
+              key={category.title}
+              category={category}
+            />
+          );
+        })} */}
+        {categories.map(category => {
+          return (
+            <div key={category.title} className={styles.imageItem}>
+              <UnderlineTextImage category={category} />
+            </div>
+          );
         })}
       </div>
     </div>

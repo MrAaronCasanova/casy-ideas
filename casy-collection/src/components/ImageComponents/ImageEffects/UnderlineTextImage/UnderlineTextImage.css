@@ -1,51 +1,57 @@
-.imageGallery {
-  margin: var(--gallery-gap);
-  max-width: 1000px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-}
-
-.imageGalleryPicture {
-  flex: 1 1 30%;
-  height: 200px;
+.imageContainer {
+  /* ---- CSS Variables Section ----- */
+  --img-height: 200px;
+  --trans-speed: 300ms;
+  --bottom-left-dist: 25px;
+  --underline-gap: 10px;
+  --underline-size: 4px;
+  /* -------------------------------- */
   overflow: hidden;
   position: relative;
-  margin: var(--gallery-gap);
+  width: 100%;
+  height: 100%;
 }
 
-.imageGalleryTitle {
+.image {
+  /*
+  note: display: block & vertical-align: middle||bottom
+  Overide images default inline
+  (gets rid of visible 2px background color of container);
+  
+  vertical-align: middle;
+  display: block; // not using block in case I want to use flexbox
+  */
+  vertical-align: middle;
+  object-fit: cover;
+  width: 100%;
+  height: var(--img-height);
+  transition: transform var(--trans-speed) ease-in;
+}
+
+.imageContainer:hover .image {
+  transform: scale(1.15);
+}
+
+.text {
   position: absolute;
-  bottom: 20px;
-  left: 20px;
-  padding-bottom: 15px;
+  bottom: var(--bottom-left-dist);
+  left: var(--bottom-left-dist);
+  padding-bottom: var(--underline-gap);
   z-index: 1;
   color: snow;
 }
 
-.imageGalleryTitle::before {
+.text::before {
   content: '';
   background: snow;
   position: absolute;
-  top: 80%;
-  left: 0;
+  top: 100%;
+  transform: translateY(-50%);
   width: 50%;
-  height: 9%;
-  transition: width 250ms ease-in-out;
+  height: var(--underline-size);
+  transition: width var(--trans-speed) ease-in;
 }
 
-.imageGalleryPicture:hover .imageGalleryTitle::before {
+.imageContainer:hover .text::before {
   width: 100%;
-}
-
-.imageGalleryPicture img {
-  object-fit: cover;
-  width: 100%;
-  height: 100%;
-  transition: transform 300ms ease-in;
-}
-
-.imageGalleryPicture:hover img {
-  transform: scale(1.15);
 }

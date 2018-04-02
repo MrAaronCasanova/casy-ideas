@@ -35,30 +35,26 @@ Special Note: must use overflow-x:hidden on main root because the negative margi
   margin: calc(var(--gap) * -1);
 }
 
-/* .imageContainer > * {
-  background: lightsteelblue;
+.imageItem {
+  /* ---------For Editing Layout---------- */
+  background: #c5c5c5;
+  /* ------------------------------------- */
   margin: var(--gap);
   flex: calc(var(--pri-img-width) - var(--gap) * 2);
-} */
-
-.largeThree {
-  margin: var(--gap);
-  flex: calc(var(--pri-img-width) - var(--gap) * 2);
+  /* max-height: 200px; */
 }
 
-.largeTwo {
-  margin: var(--gap);
-  flex: calc(var(--sec-img-width) - var(--gap) * 2);
+.imageItem:nth-of-type(5n + 4),
+.imageItem:nth-of-type(5n) {
+  --pri-img-width: var(--sec-img-width);
 }
 
-/* @media (max-width: 820px) {
-  .smallTwo {
-    margin: var(--gap);
-    flex: calc(var(--pri-img-width) - var(--gap) * 2);
+@media (max-width: 820px) {
+  .imageItem {
+    --pri-img-width: var(--sec-img-width);
   }
 
-  .smallOne {
-    margin: var(--gap);
-    flex: calc(var(--sec-img-width) - var(--gap) * 2);
+  .imageItem:nth-of-type(3n) {
+    --pri-img-width: 100%;
   }
-} */
+}
