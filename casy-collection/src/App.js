@@ -1,15 +1,25 @@
 import React, { Component } from 'react';
-import styles from './App.css';
+import { BrowserRouter, Route, Link, Switch } from 'react-router-dom';
+// BroswerRouter is an object that interacts with the url history
+// Route executes whatever the BrowserRouter passes
+// ------ Components ------ //
 import DownButton from './components/NavigationComponents/AnchorButtons/DownButton/DownButton';
 import TextField from './components/TextComponents/TextField/TextField';
 import FlattenToggler from './components/NavigationComponents/NavTogglers/FlattenToggler/FlattenToggler';
 import ToXToggler from './components/NavigationComponents/NavTogglers/ToXToggler/ToXToggler';
 import HalvingGallery from './components/ImageComponents/ImageGalleries/HalvingGallery/HalvingGallery';
+import Home from './components/Routes/Home';
+import Posts from './components/Routes/Posts';
+import Profiles from './components/Routes/Profiles';
+// ------------------------ //
+// ------ Styles ------ //
+import styles from './App.css';
+// -------------------- //
 
 class App extends Component {
   render() {
     return (
-      <div className={styles.hamburger}>
+      <BrowserRouter>
         <div className={styles.pageWrapper}>
           <div className={styles.mainHeading}>
             <h1 className={styles.mainHeadingText}>Casy's Collection</h1>
@@ -19,12 +29,12 @@ class App extends Component {
             <div className={styles.imageGallery}>
               <div className={styles.imageGalleryPicture}>
                 <h2 className={styles.imageGalleryTitle}>Navbars</h2>
-                <a href="components/navs/navbars/navbar1/navbar1-index.html">
+                <Link to="/profiles">
                   <img
                     src="https://images.pexels.com/photos/697662/pexels-photo-697662.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                     alt="Section Button"
                   />
-                </a>
+                </Link>
               </div>
               <div className={styles.imageGalleryPicture}>
                 <h2 className={styles.imageGalleryTitle}>Images</h2>
@@ -65,10 +75,24 @@ class App extends Component {
           <section>
             <HalvingGallery />
           </section>
+          <section>
+            <Link to="/">Home</Link>
+            <Link to="/posts">Posts</Link>
+            <Link to="/profiles">Profiles</Link>
+          </section>
+          <section>
+            <Switch>
+              <Route path="/" exact component={Home} />
+              <Route path="/posts" component={Posts} />
+              <Route path="/profiles" component={Profiles} />
+            </Switch>
+          </section>
         </div>
-      </div>
+      </BrowserRouter>
     );
   }
 }
 
 export default App;
+
+// Just finished video 027
