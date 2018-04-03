@@ -25,38 +25,6 @@
   min-height: 100vh;
 }
 
-.mainHeading {
-  height: 120px;
-  box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.164);
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.mainHeadingText {
-  font-family: raleway;
-  position: relative;
-}
-
-.mainHeadingText::before {
-  --before-spill: 10%;
-  content: '';
-  background: indianred;
-  position: absolute;
-  width: 0;
-  height: 4px;
-  top: 50%;
-  left: calc(var(--before-spill) * -1);
-  z-index: -1;
-  transition: width 250ms ease-out, top 250ms 300ms ease-in;
-}
-
-.mainHeading:hover .mainHeadingText::before {
-  width: calc(100% + var(--before-spill) * 2);
-  top: 105%;
-}
-
 section {
   background: snow;
   min-height: 50vh;
@@ -132,4 +100,13 @@ section:nth-of-type(even) {
 
 .togglers > * {
   margin: 20px;
+}
+
+.HomeLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.deleteMe {
+  display: flex;
 }

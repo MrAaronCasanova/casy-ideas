@@ -8,6 +8,8 @@ import TextField from './components/TextComponents/TextField/TextField';
 import FlattenToggler from './components/NavigationComponents/NavTogglers/FlattenToggler/FlattenToggler';
 import ToXToggler from './components/NavigationComponents/NavTogglers/ToXToggler/ToXToggler';
 import HalvingGallery from './components/ImageComponents/ImageGalleries/HalvingGallery/HalvingGallery';
+import PoppingImage from './components/ImageComponents/ImageEffects/PoppingImage/PoppingImage';
+import SingleTitleNav from './components/NavigationComponents/Navbars/SingleTitleNav/SingleTitleNav';
 import Home from './components/Routes/Home';
 import Posts from './components/Routes/Posts';
 import Profiles from './components/Routes/Profiles';
@@ -21,11 +23,15 @@ class App extends Component {
     return (
       <BrowserRouter>
         <div className={styles.pageWrapper}>
-          <div className={styles.mainHeading}>
-            <h1 className={styles.mainHeadingText}>Casy's Collection</h1>
-          </div>
+          <Link className={styles.HomeLink} to="/profiles">
+            <SingleTitleNav />
+          </Link>
 
           <section>
+            <HalvingGallery />
+          </section>
+
+          {/* <section>
             <div className={styles.imageGallery}>
               <div className={styles.imageGalleryPicture}>
                 <h2 className={styles.imageGalleryTitle}>Navbars</h2>
@@ -55,7 +61,7 @@ class App extends Component {
                 </a>
               </div>
             </div>
-          </section>
+          </section> */}
 
           <section>
             <DownButton />
@@ -73,9 +79,6 @@ class App extends Component {
           </section>
 
           <section>
-            <HalvingGallery />
-          </section>
-          <section>
             <Link to="/">Home</Link>
             <Link to="/posts">Posts</Link>
             <Link to="/profiles">Profiles</Link>
@@ -86,6 +89,12 @@ class App extends Component {
               <Route path="/posts" component={Posts} />
               <Route path="/profiles" component={Profiles} />
             </Switch>
+          </section>
+          <section>
+            <div className={styles.deleteMe}>
+              <PoppingImage />
+              <PoppingImage />
+            </div>
           </section>
         </div>
       </BrowserRouter>
