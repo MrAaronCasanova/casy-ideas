@@ -12,6 +12,7 @@ import Profiles from './components/Routes/Profiles';
 import Buttons from './components/Routes/Buttons';
 import Cards from './components/Routes/Cards/Cards';
 import Navigation from './components/Routes/Navigation/Navigation';
+import NotFound from './components/Routes/NotFound/NotFound';
 // -------------------- //
 // ------ Styles ------ //
 import styles from './App.css';
@@ -21,11 +22,14 @@ class App extends Component {
   render() {
     return (
       <BrowserRouter>
+        {/* ------ Page Wrapper ------ */}
         <div className={styles.pageWrapper}>
+          {/* ------ Main Nav ------ */}
           <Link className={styles.HomeLink} to="/">
             <SingleTitleNav />
           </Link>
 
+          {/* ------ Main Nav Links ------ */}
           <ul className={styles.flexLinks}>
             <Link to="/">Home</Link>
             <Link to="/posts">Posts</Link>
@@ -35,6 +39,7 @@ class App extends Component {
             <Link to="/navigation">Navigation</Link>
           </ul>
 
+          {/* ------ Routes ------ */}
           <Switch>
             <Route path="/" exact component={Home} />
             <Route path="/posts" component={Posts} />
@@ -42,6 +47,7 @@ class App extends Component {
             <Route path="/buttons" component={Buttons} />
             <Route path="/cards" component={Cards} />
             <Route path="/navigation" component={Navigation} />
+            <Route component={NotFound} />
           </Switch>
         </div>
       </BrowserRouter>
@@ -51,4 +57,4 @@ class App extends Component {
 
 export default App;
 
-// Just finished video 027
+// on video 029
