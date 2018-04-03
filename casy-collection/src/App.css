@@ -28,7 +28,6 @@
 .section {
   background: snow;
   min-height: 50vh;
-  /* width: 100%; */
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -37,18 +36,6 @@
 
 .section:nth-of-type(odd) {
   background: white;
-}
-
-.togglers {
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.togglers > * {
-  z-index: 1;
-  margin: 20px;
 }
 
 .HomeLink {
@@ -72,8 +59,4 @@
 
 .flexLinks > *:hover {
   opacity: 0.5;
-}
-
-.deleteMe {
-  display: flex;
 }

@@ -1,0 +1,14 @@
+.togglers {
+  border: 2px solid indianred;
+  border-radius: 4px;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.togglers > * {
+  z-index: 1;
+  margin: 20px;
+}

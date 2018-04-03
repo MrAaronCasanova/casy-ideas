@@ -1,4 +1,4 @@
-.PoppingImage {
+.PoppingCard {
   /* ---- CSS Variables Section ----- */
   --card-width: 400px;
   --card-height: 400px;
@@ -9,8 +9,6 @@
   --trans-speed: 150ms;
   --pop-distance: 12px;
   /* -------------------------------- */
-  margin: 20px;
-  /* ^^^ delete this margin, only needed for testing cards side by side */
   overflow: hidden;
   width: var(--card-width);
   height: var(--card-height);
@@ -41,7 +39,7 @@
   margin: 20px;
 }
 
-.PoppingImage:hover {
+.PoppingCard:hover {
   transform: translateY(calc(var(--pop-distance) * -1));
   box-shadow: 0 var(--pop-distance) 28px rgba(0, 0, 0, var(--shadow-opacity));
 }

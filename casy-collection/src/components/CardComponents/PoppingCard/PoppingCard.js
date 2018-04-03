@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './PoppingImage.css';
+import styles from './PoppingCard.css';
 
-const PoppingImage = () => {
+const PoppingCard = () => {
   return (
-    <div className={styles.PoppingImage}>
+    <div className={styles.PoppingCard}>
       <div className={styles.imageHalf}>
         <img
           className={styles.image}
@@ -24,4 +24,4 @@ const PoppingImage = () => {
   );
 };
 
-export default PoppingImage;
+export default PoppingCard;
