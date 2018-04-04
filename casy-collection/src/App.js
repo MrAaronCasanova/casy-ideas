@@ -19,6 +19,29 @@ import styles from './App.css';
 // -------------------- //
 
 class App extends Component {
+  state = {
+    open: false,
+    nav: `${styles.flexLinks} ${styles.close}`,
+    placeHolderToggler: '☰'
+  };
+
+  closeMenu = () => {
+    console.log(this.state.open);
+    const update = { ...this.state };
+    if (update.open) {
+      update.nav = `${styles.flexLinks} ${styles.close}`;
+      update.placeHolderToggler = '☰';
+      update.open = false;
+    } else {
+      update.nav = styles.flexLinks;
+      update.placeHolderToggler = '✕';
+      update.open = true;
+    }
+    this.setState({
+      ...update
+    });
+  };
+
   render() {
     return (
       <BrowserRouter>
@@ -27,16 +50,31 @@ class App extends Component {
           {/* ------ Main Nav ------ */}
           <Link className={styles.HomeLink} to="/">
             <SingleTitleNav />
+            <div className={styles.placeHolderToggler} onClick={this.closeMenu}>
+              {this.state.placeHolderToggler}
+            </div>
           </Link>
 
           {/* ------ Main Nav Links ------ */}
-          <ul className={styles.flexLinks}>
-            <Link to="/">Home</Link>
-            <Link to="/posts">Posts</Link>
-            <Link to="/profiles">Profiles</Link>
-            <Link to="/buttons">Buttons</Link>
-            <Link to="/cards">Cards</Link>
-            <Link to="/navigation">Navigation</Link>
+          <ul className={this.state.nav}>
+            <Link className={styles.flexLink} to="/">
+              Home
+            </Link>
+            <Link className={styles.flexLink} to="/posts">
+              Posts
+            </Link>
+            <Link className={styles.flexLink} to="/profiles">
+              Profiles
+            </Link>
+            <Link className={styles.flexLink} to="/buttons">
+              Buttons
+            </Link>
+            <Link className={styles.flexLink} to="/cards">
+              Cards
+            </Link>
+            <Link className={styles.flexLink} to="/navigation">
+              Navigation
+            </Link>
           </ul>
 
           {/* ------ Routes ------ */}
