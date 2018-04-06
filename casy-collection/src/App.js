@@ -12,6 +12,7 @@ import Profiles from './components/Routes/Profiles';
 import Buttons from './components/Routes/Buttons/Buttons';
 import Cards from './components/Routes/Cards/Cards';
 import Navigation from './components/Routes/Navigation/Navigation';
+import LandingPages from './components/Routes/LandingPages/LandingPages';
 import NotFound from './components/Routes/NotFound/NotFound';
 // -------------------- //
 // ------ Styles ------ //
@@ -57,23 +58,50 @@ class App extends Component {
 
           {/* ------ Main Nav Links ------ */}
           <ul className={this.state.nav}>
-            <Link className={styles.flexLink} to="/">
+            <Link onClick={this.closeMenu} className={styles.flexLink} to="/">
               Home
             </Link>
-            <Link className={styles.flexLink} to="/posts">
+            <Link
+              onClick={this.closeMenu}
+              className={styles.flexLink}
+              to="/posts"
+            >
               Posts
             </Link>
-            <Link className={styles.flexLink} to="/profiles">
+            <Link
+              onClick={this.closeMenu}
+              className={styles.flexLink}
+              to="/profiles"
+            >
               Profiles
             </Link>
-            <Link className={styles.flexLink} to="/buttons">
+            <Link
+              onClick={this.closeMenu}
+              className={styles.flexLink}
+              to="/buttons"
+            >
               Buttons
             </Link>
-            <Link className={styles.flexLink} to="/cards">
+            <Link
+              onClick={this.closeMenu}
+              className={styles.flexLink}
+              to="/cards"
+            >
               Cards
             </Link>
-            <Link className={styles.flexLink} to="/navigation">
+            <Link
+              onClick={this.closeMenu}
+              className={styles.flexLink}
+              to="/navigation"
+            >
               Navigation
+            </Link>
+            <Link
+              onClick={this.closeMenu}
+              className={styles.flexLink}
+              to="/landing-pages"
+            >
+              Landing Pages
             </Link>
           </ul>
 
@@ -85,6 +113,7 @@ class App extends Component {
             <Route path="/buttons" component={Buttons} />
             <Route path="/cards" component={Cards} />
             <Route path="/navigation" component={Navigation} />
+            <Route path="/landing-pages" component={LandingPages} />
             <Route component={NotFound} />
           </Switch>
         </div>
