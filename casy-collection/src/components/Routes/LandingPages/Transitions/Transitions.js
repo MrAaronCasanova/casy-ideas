@@ -16,31 +16,16 @@ class Transitions extends React.Component {
   render() {
     return (
       <div className={styles.Transitions}>
-        <Transition
-          in={this.state.show}
-          timeout={2000}
-          mountOnEnter
-          unmountOnExit
-        >
+        <Transition in={this.state.show} timeout={1000}>
           {state => (
-            <div
-              style={{
-                background: 'red',
-                height: '100px',
-                transition: 'all 2000ms ease',
-                opacity: state === 'exited' || state === 'exiting' ? 0 : 1
-              }}
-            >
-              {state}
-            </div>
+            <div className={`${styles.square} ${styles[state]}`}>{`${
+              styles.square
+            } ${styles[state]}`}</div>
           )}
         </Transition>
         <div className={styles.showBtn} onClick={this.showBtn}>
-          Transition
+          Show or Hide
         </div>
-        {/* <div className={styles.showBtn} onClick={this.showBtn}>
-          CSSTransition
-        </div> */}
       </div>
     );
   }
