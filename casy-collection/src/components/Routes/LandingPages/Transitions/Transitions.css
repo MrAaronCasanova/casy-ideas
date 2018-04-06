@@ -1,0 +1,22 @@
+.Transitions {
+  height: 50vh;
+  /* ---------For Editing Layout---------- */
+  border: 2px solid red;
+  /* ------------------------------------- */
+}
+
+.showBtn {
+  display: inline-block;
+  margin: 10px 10px 0 0;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  background: #20759c;
+  color: white;
+  cursor: pointer;
+  transition: 250ms;
+}
+.showBtn:hover {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
+  background: #2785b1;
+}
