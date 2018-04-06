@@ -16,7 +16,25 @@ class Transitions extends React.Component {
   render() {
     return (
       <div className={styles.Transitions}>
-        <Transition in={this.state.show} timeout={1000}>
+        <Transition
+          in={this.state.show}
+          timeout={{
+            enter: 2000,
+            exit: 2000
+          }}
+          // false boolean skips entering||exiting state
+          enter={false}
+          exit={true}
+          onEnter={node => {
+            // won't log because enter={false}
+            // code would normally run at the entering state
+            console.log(node);
+          }}
+          onExit={node => {
+            console.log(node);
+            console.log('bye bye');
+          }}
+        >
           {state => (
             <div className={`${styles.square} ${styles[state]}`}>{`${
               styles.square
