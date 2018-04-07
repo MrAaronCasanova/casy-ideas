@@ -4,6 +4,8 @@ import DownButton from '../../NavigationComponents/AnchorButtons/DownButton/Down
 import DarkenButton from '../../ButtonComponents/DarkenButton/DarkenButton';
 import OutlineButton from '../../ButtonComponents/OutlineButton/OutlineButton';
 import BlockButton from '../../ButtonComponents/BlockButton/BlockButton';
+import DarkenButtonGroup from '../../ButtonComponents/DarkenButtonGroup/DarkenButtonGroup';
+import OutlineButtonGroup from '../../ButtonComponents/OutlineButtonGroup/OutlineButtonGroup';
 
 const Buttons = () => {
   return (
@@ -23,6 +25,14 @@ const Buttons = () => {
       <div>
         <h2>BlockButton</h2>
         <BlockButton />
+      </div>
+      <div>
+        <h2>OutlineButtonGroup</h2>
+        <OutlineButtonGroup />
+      </div>
+      <div>
+        <h2>DarkenButtonGroup</h2>
+        <DarkenButtonGroup />
       </div>
     </div>
   );

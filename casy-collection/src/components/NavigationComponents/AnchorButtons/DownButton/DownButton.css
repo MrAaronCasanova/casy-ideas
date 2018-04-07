@@ -8,6 +8,7 @@
   border: 3px solid #2f77bb;
   position: relative;
   z-index: 2;
+  cursor: pointer;
   transition: color var(--trans-spd) ease-in;
 }
 

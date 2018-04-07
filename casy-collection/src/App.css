@@ -6,6 +6,10 @@
   overflow-x: hidden;
 }
 
+:focus {
+  outline: none;
+}
+
 * {
   margin: 0;
   padding: 0;
