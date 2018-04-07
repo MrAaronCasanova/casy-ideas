@@ -1,0 +1,21 @@
+.BlockButton {
+  /* ---- CSS Variables Section ----- */
+  --btn-color: #5f9ea0;
+  --hover-color: #538b8d;
+  --font-color: #fff;
+  --trans-speed: 250ms;
+  /* -------------------------------- */
+  display: block;
+  width: 100%;
+  font-size: 30px;
+  padding: 10px 30px;
+  border: 0;
+  border-radius: 5px;
+  background: var(--btn-color);
+  color: var(--font-color);
+  transition: background var(--trans-speed);
+}
+
+.BlockButton:hover {
+  background: var(--hover-color);
+}

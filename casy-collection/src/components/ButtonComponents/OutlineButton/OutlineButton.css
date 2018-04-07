@@ -1,0 +1,20 @@
+.OutlineButton {
+  /* ---- CSS Variables Section ----- */
+  --pri-color: #5f9ea0;
+  --sec-color: #f8f8f8;
+  --trans-speed: 250ms;
+  /* -------------------------------- */
+  font-size: 30px;
+  padding: 8px 24px;
+  border-radius: 5px;
+  border: 2px solid var(--pri-color);
+  color: var(--pri-color);
+  background: var(--sec-color);
+  transition: background var(--trans-speed),
+    color calc(var(--trans-speed) * 1.2);
+}
+
+.OutlineButton:hover {
+  color: var(--sec-color);
+  background: var(--pri-color);
+}

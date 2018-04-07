@@ -1,6 +1,6 @@
 import React from 'react';
 import styles from './Cards.css';
-import TextField from '../../TextComponents/TextField/TextField';
+import GrowingBorder from '../../CardComponents/GrowingBorder/GrowingBorder';
 import PoppingCard from '../../CardComponents/PoppingCard/PoppingCard';
 
 const Cards = () => {
@@ -10,8 +10,8 @@ const Cards = () => {
         <PoppingCard />
         <PoppingCard />
       </div>
-      <div className={styles.TextField}>
-        <TextField />
+      <div className={styles.GrowingBorder}>
+        <GrowingBorder />
       </div>
     </div>
   );

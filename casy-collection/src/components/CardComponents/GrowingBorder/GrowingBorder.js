@@ -1,9 +1,9 @@
 import React from 'react';
-import styles from './TextField.css';
+import styles from './GrowingBorder.css';
 
-const TextField = () => {
+const GrowingBorder = () => {
   return (
-    <div className={styles.textField}>
+    <div className={styles.GrowingBorder}>
       <h2 className={styles.mainHeading}>&#x02116; 923</h2>
       <h3 className={styles.subHeading}>
         Lorem ipsum dolor sit amet consectetur adipisicing elit.
@@ -20,4 +20,4 @@ const TextField = () => {
   );
 };
 
-export default TextField;
+export default GrowingBorder;
