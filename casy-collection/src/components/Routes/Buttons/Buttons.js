@@ -6,6 +6,7 @@ import OutlineButton from '../../ButtonComponents/OutlineButton/OutlineButton';
 import BlockButton from '../../ButtonComponents/BlockButton/BlockButton';
 import DarkenButtonGroup from '../../ButtonComponents/DarkenButtonGroup/DarkenButtonGroup';
 import OutlineButtonGroup from '../../ButtonComponents/OutlineButtonGroup/OutlineButtonGroup';
+import SlideArrowButton from '../../ButtonComponents/SlideArrowButton/SlideArrowButton';
 
 const Buttons = () => {
   return (
@@ -33,6 +34,10 @@ const Buttons = () => {
       <div>
         <h2>DarkenButtonGroup</h2>
         <DarkenButtonGroup />
+      </div>
+      <div>
+        <h2>SlideArrowButton</h2>
+        <SlideArrowButton />
       </div>
     </div>
   );

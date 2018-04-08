@@ -7,7 +7,7 @@ import SingleTitleNav from './components/NavigationComponents/Navbars/SingleTitl
 // ------------------------ //
 // ------ Routs ------- //
 import Home from './components/Routes/Home';
-import Posts from './components/Routes/Posts';
+import Posts from './components/Routes/Posts/Posts';
 import Profiles from './components/Routes/Profiles';
 import Buttons from './components/Routes/Buttons/Buttons';
 import Cards from './components/Routes/Cards/Cards';
