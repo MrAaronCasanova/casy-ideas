@@ -125,4 +125,6 @@ class App extends Component {
 export default App;
 
 // on video 029
-// on video 038
+// on video 038 CSSTransition Basics
+// watch vid 52 for CSSTransition in action (folder 5)
+// move on to folder 6

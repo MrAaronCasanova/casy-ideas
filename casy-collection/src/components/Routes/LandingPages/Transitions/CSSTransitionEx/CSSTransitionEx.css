@@ -23,26 +23,25 @@
 }
 
 .square {
-  background: indianred;
-  height: 100px;
-  opacity: 1;
-  transition: all 1000ms ease;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 99;
+  width: calc(250px + (500 - 250) * (100vw - 320px) / (960-320));
+  height: 100vh;
+  background: cadetblue;
+  transform: translateX(101%);
+  transition: all 300ms ease;
 }
 
-.square.entering {
-  opacity: 1;
+.squareEnter,
+.squareEnterActive,
+.squareEnterDone {
   transform: translateX(0%);
 }
 
-.square.entered {
-  background: lightsteelblue;
-}
-
-.square.exiting {
-  background: cadetblue;
-}
-
-.square.exited {
-  opacity: 0;
-  transform: translateX(-100%);
+.squareExit,
+.squareExitActive,
+.squareExitDone {
+  transform: translateX(101%);
 }
