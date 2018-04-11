@@ -18,6 +18,8 @@ import NotFound from './components/Routes/NotFound/NotFound';
 import styles from './App.css';
 // -------------------- //
 
+import { RoutesData } from './DumbyData';
+
 class App extends Component {
   state = {
     open: false,
@@ -58,7 +60,7 @@ class App extends Component {
           {/* ------ Main Nav Links ------ */}
           <ul className={this.state.nav}>
             <Link onClick={this.closeMenu} className={styles.flexLink} to="/">
-              Home
+              Home {RoutesData.home.name}
             </Link>
             <Link
               onClick={this.closeMenu}
