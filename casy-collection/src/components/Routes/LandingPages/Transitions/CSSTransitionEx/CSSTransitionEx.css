@@ -23,7 +23,7 @@
 }
 
 .square {
-  position: absolute;
+  position: fixed;
   top: 0;
   right: 0;
   z-index: 99;
@@ -31,7 +31,7 @@
   height: 100vh;
   background: cadetblue;
   transform: translateX(101%);
-  transition: all 300ms ease;
+  transition: all 400ms ease;
 }
 
 .squareEnter,

@@ -18,7 +18,7 @@ class CSSTransitionEx extends Component {
       <div className={styles.CSSTransition}>
         <CSSTransition
           in={this.state.show}
-          timeout={300}
+          timeout={400}
           classNames={{
             enter: styles.squareEnter,
             enterActive: styles.squareEnterActive,

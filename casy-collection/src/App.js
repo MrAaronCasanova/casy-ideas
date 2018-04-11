@@ -7,7 +7,6 @@ import SingleTitleNav from './components/NavigationComponents/Navbars/SingleTitl
 // ------------------------ //
 // ------ Routs ------- //
 import Home from './components/Routes/Home';
-import Posts from './components/Routes/Posts/Posts';
 import Profiles from './components/Routes/Profiles';
 import Buttons from './components/Routes/Buttons/Buttons';
 import Cards from './components/Routes/Cards/Cards';
@@ -64,13 +63,6 @@ class App extends Component {
             <Link
               onClick={this.closeMenu}
               className={styles.flexLink}
-              to="/posts"
-            >
-              Posts
-            </Link>
-            <Link
-              onClick={this.closeMenu}
-              className={styles.flexLink}
               to="/profiles"
             >
               Profiles
@@ -108,7 +100,6 @@ class App extends Component {
           {/* ------ Routes ------ */}
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/posts" component={Posts} />
             <Route path="/profiles" component={Profiles} />
             <Route path="/buttons" component={Buttons} />
             <Route path="/cards" component={Cards} />
