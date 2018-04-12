@@ -51,12 +51,12 @@ class App extends Component {
         {/* ------ Page Wrapper ------ */}
         <div className={styles.pageWrapper}>
           {/* ------ Main Nav ------ */}
-          <Link className={styles.HomeLink} to="/">
+          {/* <Link className={styles.HomeLink} to="/">
             <SingleTitleNav />
             <div className={styles.placeHolderToggler} onClick={this.closeMenu}>
               {this.state.placeHolderToggler}
             </div>
-          </Link>
+          </Link> */}
           {/* ;alksjd;lkfja;lksjd;fklja */}
           <Profiles logo={CompanyInfo.name} routes={RoutesData} />
           {/* klajs;dlkjf;akjsd;lkfj;ak */}
