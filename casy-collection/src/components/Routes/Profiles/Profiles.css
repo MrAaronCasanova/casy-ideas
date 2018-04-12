@@ -1,0 +1,83 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500|Raleway:300,400,500');
+* {
+  /* Delete this text decoration later */
+  text-decoration: none;
+}
+.profiles {
+  /* ---- CSS Variables Section ----- */
+  --nav-height: 120px;
+  --underline-color: indianred;
+  --underline-gap: 140%;
+  --underline-thickness: 4px;
+  --extended-underline: 20px;
+  --trans-speed: 250ms;
+  --trans-delay: 300ms;
+  /* -------------------------------- */
+  width: 100%;
+  min-height: var(--nav-height);
+  box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.164);
+  padding-top: 20px;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.logo {
+  font-family: raleway;
+  position: relative;
+}
+
+.logo::before {
+  content: '';
+  background: var(--underline-color);
+  position: absolute;
+  width: 0;
+  height: var(--underline-thickness);
+  top: 50%;
+  left: calc(var(--extended-underline) * -1);
+  z-index: -1;
+  transition: width var(--trans-speed) ease-out,
+    top var(--trans-speed) var(--trans-delay) ease-in;
+}
+
+.profiles:hover .logo::before {
+  width: calc(100% + var(--extended-underline) * 2);
+  top: var(--underline-gap);
+}
+
+.links {
+  text-align: center;
+  list-style: none;
+  text-decoration: none;
+  margin: 20px 20px 0;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+}
+
+.link {
+  flex: auto;
+  text-decoration: none;
+  color: #242424;
+  padding: 25px;
+}
+
+@media (max-width: 960px) {
+  .links {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .link {
+    border-top: 2px solid #e4e4e4;
+  }
+}
+
+.dropDown {
+  width: 100%;
+  height: 200px;
+  background: lightsteelblue;
+}

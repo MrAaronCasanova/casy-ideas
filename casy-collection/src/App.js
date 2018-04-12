@@ -7,7 +7,7 @@ import SingleTitleNav from './components/NavigationComponents/Navbars/SingleTitl
 // ------------------------ //
 // ------ Routs ------- //
 import Home from './components/Routes/Home';
-import Profiles from './components/Routes/Profiles';
+import Profiles from './components/Routes/Profiles/Profiles';
 import Buttons from './components/Routes/Buttons/Buttons';
 import Cards from './components/Routes/Cards/Cards';
 import Navigation from './components/Routes/Navigation/Navigation';
@@ -19,6 +19,7 @@ import styles from './App.css';
 // -------------------- //
 
 import { RoutesData } from './DumbyData';
+import { CompanyInfo } from './DumbyData';
 
 class App extends Component {
   state = {
@@ -56,11 +57,14 @@ class App extends Component {
               {this.state.placeHolderToggler}
             </div>
           </Link>
+          {/* ;alksjd;lkfja;lksjd;fklja */}
+          <Profiles logo={CompanyInfo.name} routes={RoutesData} />
+          {/* klajs;dlkjf;akjsd;lkfj;ak */}
 
           {/* ------ Main Nav Links ------ */}
           <ul className={this.state.nav}>
             <Link onClick={this.closeMenu} className={styles.flexLink} to="/">
-              Home {RoutesData.home.name}
+              Home
             </Link>
             <Link
               onClick={this.closeMenu}
