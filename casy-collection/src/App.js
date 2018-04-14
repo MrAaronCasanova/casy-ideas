@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 // BroswerRouter is an object that interacts with the url history
 // Route executes whatever the BrowserRouter passes
 // ------ Components ------ //
-import Profiles from './components/Routes/Profiles/Profiles';
+import CenteredDropNav from './components/NavigationComponents/Navbars/CenteredDropNav/CenteredDropNav';
 // ------------------------ //
 // ------ Routs ------- //
 import Home from './components/Routes/Home';
@@ -27,12 +27,11 @@ class App extends Component {
         {/* ------ Page Wrapper ------ */}
         <div className={styles.pageWrapper}>
           {/* ------ Main Nav ------ */}
-          <Profiles logo={CompanyInfo.name} routes={RoutesData} />
+          <CenteredDropNav logo={CompanyInfo.name} routes={RoutesData} />
 
           {/* ------ Routes ------ */}
           <Switch>
             <Route path="/" exact component={Home} />
-            <Route path="/profiles" component={Profiles} />
             <Route path="/buttons" component={Buttons} />
             <Route path="/cards" component={Cards} />
             <Route path="/navigation" component={Navigation} />
@@ -53,6 +52,6 @@ export default App;
 // move on to folder 6
 
 // ------ Todo ------ //
-// if statement for nav links
+// if statement for nav links (no need for NotFound Comp)
 // refactor/rename entire nav
 // change Profiles to actual Nav Component

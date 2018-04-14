@@ -9,11 +9,6 @@ export const RoutesData = [
     path: '/'
   },
   {
-    name: 'Profiles',
-    component: 'Profiles',
-    path: '/profiles'
-  },
-  {
     name: 'Buttons',
     component: 'Buttons',
     path: '/buttons'
