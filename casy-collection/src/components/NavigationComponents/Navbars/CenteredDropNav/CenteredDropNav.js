@@ -7,19 +7,34 @@ import styles from './CenteredDropNav.css';
 import HamToX from '../../NavTogglers/HamToX/HamToX';
 class CenteredDropNav extends Component {
   state = {
-    show: false
+    showDropdown: false
   };
 
-  showBtn = () => {
+  toggleBtn = () => {
     this.setState({
-      show: !this.state.show ? true : false
+      showDropdown: !this.state.showDropdown
+      // showDropdown: !this.state.showDropdown ? true : false
     });
   };
 
-  hideMenu = () => {
+  hideDropdown = () => {
     this.setState({
-      show: false
+      showDropdown: false
     });
+  };
+
+  createLink = (route, i) => {
+    return (
+      <li key={i} className={styles.link}>
+        <Link
+          className={styles.a}
+          to={`${route.path}`}
+          onClick={this.hideDropdown}
+        >
+          {route.name}
+        </Link>
+      </li>
+    );
   };
 
   // Recommend to also removeListener on unmount,
@@ -27,7 +42,7 @@ class CenteredDropNav extends Component {
   componentDidMount() {
     window.addEventListener('resize', () => {
       if (window.innerWidth > 960) {
-        this.hideMenu();
+        this.hideDropdown();
       }
     });
   }
@@ -36,17 +51,17 @@ class CenteredDropNav extends Component {
     return (
       <div className={styles.centeredDropNav}>
         <div className={styles.navBar}>
-          <div className={styles.showBtn} onClick={this.showBtn}>
-            <HamToX show={this.state.show} />
+          <div className={styles.toggleBtn} onClick={this.toggleBtn}>
+            <HamToX showDropdown={this.state.showDropdown} />
           </div>
-          <Link className={styles.logoLink} to={this.props.routes[0].path}>
-            <h1 className={styles.logo} onClick={this.hideMenu}>
+          <h1 className={styles.logo} onClick={this.hideDropdown}>
+            <Link className={styles.logoLink} to={this.props.routes[0].path}>
               {this.props.logo}
-            </h1>
-          </Link>
+            </Link>
+          </h1>
         </div>
         <CSSTransition
-          in={this.state.show}
+          in={this.state.showDropdown}
           timeout={700}
           classNames={{
             enter: styles.dropDownEnter,
@@ -58,19 +73,7 @@ class CenteredDropNav extends Component {
           }}
         >
           <ul className={styles.links}>
-            {this.props.routes.map((route, i) => {
-              return (
-                <li key={i} className={styles.link}>
-                  <Link
-                    className={styles.a}
-                    to={`${route.path}`}
-                    onClick={this.hideMenu}
-                  >
-                    {route.name}
-                  </Link>
-                </li>
-              );
-            })}
+            {this.props.routes.map((route, i) => this.createLink(route, i))}
           </ul>
         </CSSTransition>
       </div>

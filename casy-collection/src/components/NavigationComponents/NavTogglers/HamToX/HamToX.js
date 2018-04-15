@@ -7,14 +7,14 @@ const HamToX = props => {
     <div className={styles.hamToX}>
       <div className={styles.wrapper}>
         <CSSTransition
-          in={props.show}
+          in={props.showDropdown}
           timeout={450}
           classNames={{
             enter: styles.xEnter,
             enterDone: styles.xEnterDone
           }}
         >
-          <div className={`${styles.menu} ${styles.toX}`} />
+          <div className={styles.menu} />
         </CSSTransition>
       </div>
     </div>
