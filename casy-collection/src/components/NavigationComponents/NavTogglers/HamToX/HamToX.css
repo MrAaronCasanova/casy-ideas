@@ -1,8 +1,8 @@
 .hamToX {
   /* ---- CSS Variables Section ----- */
-  --menu-height: 30px;
-  --menu-width: 50px;
-  --bar-height: 4px;
+  --menu-height: 22px;
+  --menu-width: 30px;
+  --bar-height: 2px;
   --trans-speed: 450ms;
   --rotate: 0deg;
   /* -------------------------------- */
