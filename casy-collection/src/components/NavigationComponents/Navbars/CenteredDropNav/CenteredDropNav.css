@@ -56,8 +56,11 @@
   position: absolute;
   width: 0;
   height: var(--underline-thickness);
-  top: 50%;
-  left: calc(var(--extended-underline) * -1);
+  /* top: 50%; */
+  /* left: calc(var(--extended-underline) * -1); */
+  top: calc(var(--underline-gap) * -0.33);
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: -1;
   transition: width var(--trans-speed) ease-out,
     top var(--trans-speed) var(--trans-delay) ease-in;

@@ -23,18 +23,23 @@ class CenteredDropNav extends Component {
     });
   };
 
-  createLink = (route, i) => {
-    return (
-      <li key={i} className={styles.link}>
-        <Link
-          className={styles.a}
-          to={`${route.path}`}
-          onClick={this.hideDropdown}
-        >
-          {route.name}
-        </Link>
-      </li>
-    );
+  createLinks = () => {
+    return this.props.routes.map((route, i) => {
+      if (route.path) {
+        return (
+          <li key={i} className={styles.link}>
+            <Link
+              className={styles.a}
+              to={`${route.path}`}
+              onClick={this.hideDropdown}
+            >
+              {route.name}
+            </Link>
+          </li>
+        );
+      }
+      return null;
+    });
   };
 
   // Recommend to also removeListener on unmount,
@@ -72,9 +77,7 @@ class CenteredDropNav extends Component {
             exitDone: styles.dropDownExitDone
           }}
         >
-          <ul className={styles.links}>
-            {this.props.routes.map((route, i) => this.createLink(route, i))}
-          </ul>
+          <ul className={styles.links}>{this.createLinks()}</ul>
         </CSSTransition>
       </div>
     );

@@ -1,18 +1,11 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 // BroswerRouter is an object that interacts with the url history
 // Route executes whatever the BrowserRouter passes
 // ------ Components ------ //
 import CenteredDropNav from './components/NavigationComponents/Navbars/CenteredDropNav/CenteredDropNav';
+import Routes from './components/Routes/Routes';
 // ------------------------ //
-// ------ Routs ------- //
-import Home from './components/Routes/Home';
-import Buttons from './components/Routes/Buttons/Buttons';
-import Cards from './components/Routes/Cards/Cards';
-import Navigation from './components/Routes/Navigation/Navigation';
-import LandingPages from './components/Routes/LandingPages/LandingPages';
-import NotFound from './components/Routes/NotFound/NotFound';
-// -------------------- //
 // ------ Styles ------ //
 import styles from './App.css';
 // -------------------- //
@@ -26,18 +19,12 @@ class App extends Component {
       <BrowserRouter>
         {/* ------ Page Wrapper ------ */}
         <div className={styles.pageWrapper}>
-          {/* ------ Main Nav ------ */}
+          {/* ------ Header ------ */}
           <CenteredDropNav logo={CompanyInfo.name} routes={RoutesData} />
-
           {/* ------ Routes ------ */}
-          <Switch>
-            <Route path="/" exact component={Home} />
-            <Route path="/buttons" component={Buttons} />
-            <Route path="/cards" component={Cards} />
-            <Route path="/navigation" component={Navigation} />
-            <Route path="/landing-pages" component={LandingPages} />
-            <Route component={NotFound} />
-          </Switch>
+          <Routes />
+          {/* ------ Footer ------ */}
+          Footer
         </div>
       </BrowserRouter>
     );

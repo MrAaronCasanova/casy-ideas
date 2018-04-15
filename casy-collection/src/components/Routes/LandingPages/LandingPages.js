@@ -7,9 +7,9 @@ import styles from './LandingPages.css';
 const LandingPages = () => {
   return (
     <div className={styles.LandingPages}>
+      <LayeredText />
       {/* <HourGlassText /> */}
       <Transitions />
-      <LayeredText />
     </div>
   );
 };
