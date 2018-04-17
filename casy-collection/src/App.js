@@ -39,6 +39,4 @@ export default App;
 // move on to folder 6
 
 // ------ Todo ------ //
-// if statement for nav links (no need for NotFound Comp)
-// refactor/rename entire nav
 // change Profiles to actual Nav Component

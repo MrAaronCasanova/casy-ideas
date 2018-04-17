@@ -1,0 +1,48 @@
+.outlineFillCard {
+  /* ---- CSS Variables Section ----- */
+  --card-width: 400px;
+  --card-height: 400px;
+  /* -------------------------------- */
+  min-width: var(--card-width);
+  min-height: var(--card-height);
+  background: #ececec;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+
+.icon {
+  color: #c2956e;
+  font-size: 80px;
+  margin: 35px;
+}
+
+.subHeading,
+.mainHeading {
+  color: #444444;
+}
+
+.subHeading {
+  letter-spacing: 2px;
+  font-size: 30px;
+  font-weight: 500;
+  margin: 12px;
+}
+
+.hr {
+  width: 50%;
+  height: 2px;
+  background: #c5c5c5;
+}
+
+.mainHeading {
+  letter-spacing: 4px;
+  margin: 12px;
+  font-weight: bold;
+  font-size: 30px;
+}
+
+.fill {
+  color: red;
+}

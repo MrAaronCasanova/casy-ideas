@@ -2,6 +2,7 @@ import React from 'react';
 import styles from './Cards.css';
 import GrowingBorder from '../../CardComponents/GrowingBorder/GrowingBorder';
 import PoppingCard from '../../CardComponents/PoppingCard/PoppingCard';
+import OutlineFillCard from '../../CardComponents/OutlineFillCard/OutlineFillCard';
 
 const Cards = () => {
   return (
@@ -12,6 +13,9 @@ const Cards = () => {
       </div>
       <div className={styles.GrowingBorder}>
         <GrowingBorder />
+      </div>
+      <div>
+        <OutlineFillCard />
       </div>
     </div>
   );
