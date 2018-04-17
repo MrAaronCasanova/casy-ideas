@@ -1,37 +1,40 @@
 .outlineFillCard {
   /* ---- CSS Variables Section ----- */
-  --card-width: 400px;
-  --card-height: 400px;
+  --card-width: 250px;
+  --card-height: 250px;
+  --pri-color: #444;
+  --sec-color: #c2956e;
   /* -------------------------------- */
   min-width: var(--card-width);
   min-height: var(--card-height);
-  background: #ececec;
+  padding: 20px 20px 50px;
+  background: #f3f3f3;
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: center; */
+  transition: all 250ms;
 }
 
 .icon {
-  color: #c2956e;
-  font-size: 80px;
-  margin: 35px;
+  color: var(--sec-color);
+  font-size: 60px;
+  margin: 15px;
 }
 
 .subHeading,
 .mainHeading {
-  color: #444444;
+  color: var(--pri-color);
 }
 
 .subHeading {
   letter-spacing: 2px;
-  font-size: 30px;
+  font-size: 22px;
   font-weight: 500;
-  margin: 12px;
+  margin: 10px;
 }
 
 .hr {
-  width: 50%;
+  width: 60%;
   height: 2px;
   background: #c5c5c5;
 }
@@ -41,8 +44,16 @@
   margin: 12px;
   font-weight: bold;
   font-size: 30px;
+  color: var(--sec-color);
 }
 
 .fill {
-  color: red;
+  color: var(--pri-color);
+  margin-top: -35px;
+  font-weight: bold;
+  letter-spacing: 6px;
+}
+
+.outlineFillCard:hover {
+  transform: scale(1.06);
 }

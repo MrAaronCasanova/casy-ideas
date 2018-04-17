@@ -14,7 +14,9 @@ const Cards = () => {
       <div className={styles.GrowingBorder}>
         <GrowingBorder />
       </div>
-      <div>
+      <div className={styles.PoppingCard}>
+        <OutlineFillCard />
+        <OutlineFillCard />
         <OutlineFillCard />
       </div>
     </div>
