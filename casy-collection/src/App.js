@@ -42,3 +42,4 @@ export default App;
 // ------ Todo ------ //
 // rename OutlineFillCard
 // make OFCard resuable
+// tidy up LayeredText Component on LandingPages

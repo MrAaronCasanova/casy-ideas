@@ -1,15 +1,21 @@
 import React from 'react';
-import HourGlassText from '../../LandingPages/HourGlassText/HourGlassText';
-import LayeredText from '../../LandingPages/LayeredText/LayeredText';
-import Transitions from './Transitions/Transitions';
 import styles from './LandingPages.css';
+import LayeredText from '../../LandingPages/LayeredText/LayeredText';
+import ApiccoLanding from '../../LandingPages/ApiccoLanding/ApiccoLanding';
+// import HourGlassText from '../../LandingPages/HourGlassText/HourGlassText';
+// import Transitions from './Transitions/Transitions';
 
 const LandingPages = () => {
   return (
     <div className={styles.LandingPages}>
-      <LayeredText />
+      <div>
+        <LayeredText />
+      </div>
+      <div>
+        <ApiccoLanding />
+      </div>
       {/* <HourGlassText /> */}
-      <Transitions />
+      {/* <Transitions /> */}
     </div>
   );
 };

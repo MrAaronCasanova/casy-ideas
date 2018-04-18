@@ -1,3 +1,7 @@
 .LandingPages {
   min-height: 100vh;
 }
+
+.LandingPages > * {
+  min-height: 100vh;
+}
