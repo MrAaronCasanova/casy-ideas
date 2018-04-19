@@ -38,8 +38,11 @@ export default App;
 // watch vid 52 for CSSTransition in action (folder 5)
 // move on to folder 6
 // vid 49 explains some useful reusable code tips
+// vid 118 setup node express and react
 
 // ------ Todo ------ //
 // rename OutlineFillCard
 // make OFCard resuable
 // tidy up LayeredText Component on LandingPages
+// finish ressiz text on apiccoLanding
+// cleaned up layered text
