@@ -15,8 +15,11 @@
 
 .bgColorContainer {
   padding: 20px;
-  height: 75vh;
-  background: rgba(44, 137, 224, 0.301);
+  /* height: 75vh; */
+  height: calc(300px + (720 - 300) * (100vh - 320px) / (960 - 320));
+  /* background: rgba(0, 255, 170, 0.418); */
+  background: rgba(255, 192, 155, 0.452);
+  /* background: rgba(44, 137, 224, 0.301); */
   position: relative;
 }
 
@@ -30,22 +33,30 @@
   font-family: 'Abril Fatface', cursive;
   /* font-family: 'Poppins', sans-serif; */
   font-weight: normal;
+  font-size: calc(15px + (19 - 15) * (100vw - 320px) / (960 - 320));
   padding: 10px 8px 20px;
+  cursor: pointer;
+}
+
+.contentContainer {
+  width: 100%;
+  position: relative;
 }
 
 .mainHeading {
+  cursor: pointer;
   font-family: 'Abril Fatface', cursive;
   /* font-family: 'Poppins', sans-serif; */
-  display: inline-block;
-  font-size: 70px;
-  /* margin: 1vh 0 0 4vw; */
   border-bottom: var(--line-thickness) solid var(--black);
+  margin: 0;
   position: absolute;
-  top: 15vh;
-  left: 6vw;
+  font-size: calc(30px + (70 - 30) * (100vw - 320px) / (960 - 320));
+  top: calc(20px + (80 - 20) * (100vh - 320px) / (960 - 320));
+  left: calc(20px + (80 - 20) * (100vw - 320px) / (960 - 320));
 }
 
 .mainHeading::after {
+  cursor: auto;
   content: '';
   background: var(--black);
   position: absolute;
@@ -59,29 +70,67 @@
 .circle {
   --circle-size: calc(150px + (200 - 150) * (100vw - 320px) / (960 - 320));
   position: absolute;
-  top: 15vh;
-  left: 70vw;
+  top: calc(20px + (85 - 20) * (100vh - 320px) / (960 - 320));
+  left: calc(125px + (650 - 125) * (100vw - 320px) / (960 - 320));
   width: var(--circle-size);
   height: var(--circle-size);
+  /* wanted to try scaling size by vh */
+  /* transform: scale(calc(20px + (200 - 20) * (100vh - 320px) / (960 - 320))); */
 }
 
 .img {
   /* opacity: 0.8; */
-  width: 25vw;
-  height: 40vh;
+  width: calc(120px + (250 - 120) * (100vw - 320px) / (960 - 320));
+  height: calc(170px + (400 - 170) * (100vh - 320px) / (960 - 320));
   display: inline-block;
   object-fit: cover;
   position: absolute;
 }
 
 .man {
-  top: 40vh;
-  left: 14vw;
-  /* transform: translateX(50px); */
+  top: calc(135px + (300 - 135) * (100vh - 320px) / (960 - 320));
+  left: calc(10px + (100 - 10) * (100vw - 320px) / (960 - 320));
+  filter: brightness(130%);
 }
 .piano {
-  top: 55vh;
-  left: 42vw;
+  top: calc(200px + (450 - 200) * (100vh - 320px) / (960 - 320));
+  left: calc(160px + (400 - 160) * (100vw - 320px) / (960 - 320));
   z-index: -1;
-  /* transform: translateX(50px); */
+}
+
+.link {
+  --link-color: #706454;
+  font-family: 'Abril Fatface', cursive;
+  text-decoration: none;
+  color: var(--link-color);
+  font-weight: normal;
+  white-space: nowrap;
+  font-size: calc(16px + (35 - 16) * (100vw - 320px) / (1360 - 320));
+  position: absolute;
+  top: calc(210px + (560 - 210) * (100vh - 360px) / (960 - 360));
+  left: calc(460px + (670 - 460) * (100vw - 600px) / (960 - 600));
+}
+
+.link::after {
+  content: '';
+  position: absolute;
+  background: var(--link-color);
+  width: 100%;
+  height: calc(2px + (4 - 2) * (100vh - 360px) / (960 - 360));
+  top: 115%;
+  left: 50%;
+  transform: translateX(-50%) scaleX(1);
+  transform-origin: left;
+  transition: all 350ms;
+}
+
+.link:hover::after {
+  transform: translateX(-50%) scaleX(0);
+}
+
+@media (max-width: 600px) {
+  .link {
+    top: calc(180px + (340 - 180) * (100vh - 360px) / (960 - 360));
+    left: calc(160px + (265 - 160) * (100vw - 320px) / (600 - 320));
+  }
 }
