@@ -10,7 +10,7 @@
 
 .mainContainer {
   position: relative;
-  background: indianred;
+  background: #be3823;
   height: 100%;
   width: 100%;
 }
@@ -21,7 +21,7 @@
 
 .backgroundText {
   font-size: 27em;
-  color: snow;
+  color: #efecc3;
   text-align: center;
   padding: 0.1em 0;
 }

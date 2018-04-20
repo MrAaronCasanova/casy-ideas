@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700');
+
+.PokeLandingPage {
+  /* ---- CSS Variables Section ----- */
+  --black: #363636;
+  --line-thickness: 5px;
+  /* -------------------------------- */
+  font-family: 'Poppins', sans-serif;
+  position: relative;
+}
+
+.bgColorContainer {
+  padding: 20px;
+  height: 75vh;
+  background: rgba(44, 137, 224, 0.301);
+  overflow: hidden;
+}
+
+.navContainer {
+  list-style: none;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.navContainer > * {
+  font-weight: normal;
+  padding: 10px 8px 20px;
+}
+
+.mainHeading {
+  display: inline-block;
+  font-size: 70px;
+  margin: 1vh 0 0 4vw;
+  border-bottom: var(--line-thickness) solid var(--black);
+  position: relative;
+}
+
+.mainHeading::before {
+  content: '';
+  background: #000;
+  border-radius: 50%;
+  position: absolute;
+  top: 4vw;
+  right: -45vw;
+  height: 20vw;
+  width: 20vw;
+  transform: translateX(100%);
+  opacity: 0.8;
+}
+
+.mainHeading::after {
+  content: '';
+  background: var(--black);
+  position: absolute;
+  top: 100%;
+  right: -15%;
+  height: var(--line-thickness);
+  width: 100vw;
+  transform: translateX(100%);
+}
+
+.img {
+  /* opacity: 0.8; */
+  width: 25vw;
+  height: 40vh;
+  display: inline-block;
+  object-fit: cover;
+  position: absolute;
+}
+
+.record {
+  top: 45vh;
+  left: 25vw;
+  /* transform: translateX(50px); */
+}
+.piano {
+  top: 55vh;
+  left: 55vw;
+  z-index: -1;
+  /* transform: translateX(50px); */
+}
