@@ -9,7 +9,7 @@ const SpacedLandingPage = () => {
         src="https://images.pexels.com/photos/347761/pexels-photo-347761.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
         alt="moon"
       />
-      <div className={styles.circle} style={{ color: 'red' }}>
+      <div className={styles.circle}>
         <div className={styles.boxOne}>
           <div className={styles.circleContent}>
             <h2 className={styles.circleHeading}>SPACED</h2>
