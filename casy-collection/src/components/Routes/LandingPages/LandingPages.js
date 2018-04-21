@@ -4,6 +4,7 @@ import ViewExampleBtn from './../../MiscComponents/ViewExampleBtn';
 import LayeredText from '../../LandingPages/LayeredText/LayeredText';
 import ApiccoLanding from '../../LandingPages/ApiccoLanding/ApiccoLanding';
 import PokeLandingPage from './../../LandingPages/PokeLandingPage/PokeLandingPage';
+import SpacedLandingPage from './../../LandingPages/SpacedLandingPage/SpacedLandingPage';
 // import HourGlassText from '../../LandingPages/HourGlassText/HourGlassText';
 // import Transitions from './Transitions/Transitions';
 
@@ -20,6 +21,11 @@ const LandingPages = () => {
       </div>
       <div>
         <PokeLandingPage />
+        <ViewExampleBtn href="https://dribbble.com/shots/3078965-Poke-Header-Panel" />
+      </div>
+      <div>
+        <SpacedLandingPage />
+        <ViewExampleBtn href="https://dribbble.com/shots/4209495-SPACED" />
       </div>
       {/* <HourGlassText /> */}
       {/* <Transitions /> */}

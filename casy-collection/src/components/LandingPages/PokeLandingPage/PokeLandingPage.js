@@ -1,6 +1,8 @@
 import React from 'react';
 import styles from './PokeLandingPage.css';
 
+import { Link } from 'react-router-dom';
+
 const PokeLandingPage = () => {
   return (
     <div className={styles.PokeLandingPage}>
@@ -29,9 +31,9 @@ const PokeLandingPage = () => {
             alt="piano"
           />
           <h3>
-            <a className={styles.link} href="#">
+            <Link className={styles.link} to="/landing-pages">
               Rag Time
-            </a>
+            </Link>
           </h3>
         </div>
       </div>
