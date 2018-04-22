@@ -22,20 +22,22 @@
 }
 
 .circle {
-  /* ---- CSS Variables Section ----- */
-  --circle-size: calc(275px + (440 - 275) * (100vw - 320px) / (960 - 320));
+  /* ---- Moved Scale To JS ----- */
+  /* --circle-size: calc(275px + (440 - 275) * (100vw - 320px) / (960 - 320)); */
+  /* width: 300px;
+  height: 300px; */
+  /* width: var(--circle-size);
+  height: var(--circle-size); */
   /* -------------------------------- */
   color: var(--circle-color);
   border: 5px solid;
   background: transparent;
   position: absolute;
-  top: calc(20px + (230 - 20) * (100vh - 360px) / (960 - 360));
-  left: 50%;
-  transform: translateX(-50%);
-  /* width: 300px;
-  height: 300px; */
-  /* width: var(--circle-size);
-  height: var(--circle-size); */
+  top: calc(26px + (230 - 26) * (100vh - 320px) / (960 - 320));
+  left: calc(20px + (260 - 20) * (100vw - 320px) / (960 - 320));
+  /* left: calc(50px + (300 - 50) * (100vw - 320) / (960 - 320)); */
+  /* left: 50%; */
+  /* transform: translateX(-50%); */
   border-radius: 50%;
   overflow: hidden;
 }
@@ -64,8 +66,11 @@
 }
 
 .circleHeading {
-  font-size: calc(22px + (40 - 22) * (100vw - 320px) / (960 - 320));
-  margin-bottom: calc(25px + (55 - 25) * (100vw - 320px) / (960 - 320));
+  /* ---- Moved Scale To JS ----- */
+  /* font-size: calc(22px + (40 - 22) * (100vw - 320px) / (960 - 320)); */
+  /* margin-bottom: calc(25px + (55 - 25) * (100vw - 320px) / (960 - 320)); */
+  /* -------------------------------- */
+  margin-bottom: 40px;
   position: relative;
 }
 
@@ -80,7 +85,9 @@
 }
 
 .circleText {
-  font-size: calc(14px + (25 - 14) * (100vw - 320px) / (960 - 320));
+  /* ---- Moved Scale To JS ----- */
+  /* font-size: calc(14px + (25 - 14) * (100vw - 320px) / (960 - 320)); */
+  /* -------------------------------- */
 }
 
 .flipText {
@@ -90,8 +97,8 @@
   text-align: right;
   font-size: calc(12px + (18 - 12) * (100vw - 320px) / (960 - 320));
   color: var(--circle-color);
-  background: blue;
   position: absolute;
-  bottom: calc(85px + (180 - 85) * (100vh - 360px) / (960 - 360));
-  left: calc(180px + (760 - 180) * (100vw - 320px) / (960 - 320));
+  bottom: calc(130px + (180 - 130) * (100vh - 360px) / (960 - 360));
+  /* bottom: calc(85px + (180 - 85) * (100vh - 360px) / (960 - 360)); */
+  left: calc(207px + (650 - 207) * (100vw - 320px) / (960 - 320));
 }

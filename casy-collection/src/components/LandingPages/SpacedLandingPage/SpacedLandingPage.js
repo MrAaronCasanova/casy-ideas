@@ -2,22 +2,37 @@ import React, { Component } from 'react';
 import styles from './SpacedLandingPage.css';
 
 let getScale = () => {
-  let scaleWidth = window.screen.availWidth;
-  let scaleHeight = window.screen.availHeight;
+  let scaleWidth = window.innerWidth;
+  let scaleHeight = window.innerHeight;
   let scale = scaleWidth > scaleHeight ? scaleHeight : scaleWidth;
   return scale;
 };
 
+let circleSizeScale = scale => {
+  return 275 + (500 - 275) * (scale - 360) / (960 - 360);
+};
+
+let circleHeadingScale = scale => {
+  return 27 + (40 - 27) * (scale - 320) / (960 - 320);
+};
+
+let circleTextScale = scale => {
+  return 16 + (32 - 16) * (scale - 320) / (960 - 320);
+};
+
 class SpacedLandingPage extends Component {
   state = {
-    scale: 1,
-    widthHeight: null
+    circleSizeScale: null,
+    circleHeadingScale: null,
+    circleTextScale: null
   };
 
   componentWillMount() {
     let scale = getScale();
     this.setState({
-      widthHeight: 275 + (500 - 275) * (scale - 360) / (960 - 360)
+      circleSizeScale: circleSizeScale(scale),
+      circleHeadingScale: circleHeadingScale(scale),
+      circleTextScale: circleTextScale(scale)
     });
   }
 
@@ -25,14 +40,14 @@ class SpacedLandingPage extends Component {
     window.addEventListener('resize', () => {
       let scale = getScale();
       this.setState({
-        widthHeight: 275 + (500 - 275) * (scale - 360) / (960 - 360)
+        circleSizeScale: circleSizeScale(scale),
+        circleHeadingScale: circleHeadingScale(scale),
+        circleTextScale: circleTextScale(scale)
       });
     });
   }
 
   render() {
-    // console.log(this.state.scale);
-    console.log(this.state.widthHeight);
     return (
       <div className={styles.SpacedLandingPage}>
         <img
@@ -43,16 +58,28 @@ class SpacedLandingPage extends Component {
         <div
           className={styles.circle}
           style={{
-            width: `${this.state.widthHeight}px`,
-            height: `${this.state.widthHeight}px`
+            width: `${this.state.circleSizeScale}px`,
+            height: `${this.state.circleSizeScale}px`
           }}
-          // style={{ transform: `scale(${this.state.scale})` }}
-          // style={{ transform: `scale(${scaleHeight})` }}
         >
           <div className={styles.boxOne}>
             <div className={styles.circleContent}>
-              <h2 className={styles.circleHeading}>SPACED</h2>
-              <p className={styles.circleText}>To space and back, safely</p>
+              <h2
+                className={styles.circleHeading}
+                style={{
+                  fontSize: `${this.state.circleHeadingScale}px`
+                }}
+              >
+                SPACED
+              </h2>
+              <p
+                className={styles.circleText}
+                style={{
+                  fontSize: `${this.state.circleTextScale}px`
+                }}
+              >
+                To space and back, safely
+              </p>
             </div>
           </div>
         </div>
