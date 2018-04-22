@@ -1,20 +1,31 @@
 import React, { Component } from 'react';
 import styles from './SpacedLandingPage.css';
 
+let getScale = () => {
+  let scaleWidth = window.screen.availWidth;
+  let scaleHeight = window.screen.availHeight;
+  let scale = scaleWidth > scaleHeight ? scaleHeight : scaleWidth;
+  return scale;
+};
+
 class SpacedLandingPage extends Component {
   state = {
     scale: 1,
-    widthHeight: 275
+    widthHeight: null
   };
+
+  componentWillMount() {
+    let scale = getScale();
+    this.setState({
+      widthHeight: 275 + (500 - 275) * (scale - 360) / (960 - 360)
+    });
+  }
 
   componentDidMount() {
     window.addEventListener('resize', () => {
-      let scaleWidth = window.screen.availWidth;
-      let scaleHeight = window.screen.availHeight;
-      let scale = scaleWidth > scaleHeight ? scaleHeight : scaleWidth;
+      let scale = getScale();
       this.setState({
-        scale: 0.4 + (1 - 0.4) * (scale - 360) / (960 - 360),
-        widthHeight: 275 + (350 - 275) * (scale - 360) / (960 - 360)
+        widthHeight: 275 + (500 - 275) * (scale - 360) / (960 - 360)
       });
     });
   }
