@@ -33,7 +33,7 @@
   border: 5px solid;
   background: transparent;
   position: absolute;
-  top: calc(26px + (230 - 26) * (100vh - 320px) / (960 - 320));
+  top: calc(19px + (230 - 19) * (100vh - 320px) / (960 - 320));
   left: calc(20px + (260 - 20) * (100vw - 320px) / (960 - 320));
   /* left: calc(50px + (300 - 50) * (100vw - 320) / (960 - 320)); */
   /* left: 50%; */
@@ -90,7 +90,7 @@
   /* -------------------------------- */
 }
 
-.flipText {
+/* .flipText {
   white-space: nowrap;
   text-transform: uppercase;
   transform: rotate(90deg);
@@ -99,6 +99,29 @@
   color: var(--circle-color);
   position: absolute;
   bottom: calc(130px + (180 - 130) * (100vh - 360px) / (960 - 360));
-  /* bottom: calc(85px + (180 - 85) * (100vh - 360px) / (960 - 360)); */
   left: calc(207px + (650 - 207) * (100vw - 320px) / (960 - 320));
+} */
+.flipText {
+  white-space: nowrap;
+  text-transform: uppercase;
+  transform: rotate(90deg);
+  text-align: right;
+  font-size: calc(12px + (18 - 12) * (100vw - 320px) / (960 - 320));
+  color: var(--circle-color);
+  position: absolute;
+  /* top: 92px; */
+  /* left: calc(207px + (650 - 207) * (100vw - 320px) / (960 - 320)); */
+  /* bottom: calc(85px + (180 - 85) * (100vh - 360px) / (960 - 360)); */
+  top: calc(92px + (135 - 92) * (100vw - 320px) / (960 - 320));
+  right: calc(-71px + (-109 - -71) * (100vw - 320px) / (960 - 320));
+}
+
+.horzText {
+  white-space: nowrap;
+  text-transform: uppercase;
+  font-size: calc(12px + (18 - 12) * (100vw - 320px) / (960 - 320));
+  color: var(--circle-color);
+  position: absolute;
+  top: 0;
+  right: 6px;
 }

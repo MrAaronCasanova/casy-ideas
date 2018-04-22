@@ -87,6 +87,10 @@ class SpacedLandingPage extends Component {
           <p>1st space airline company</p>
           <p>few steps to the moon</p>
         </div>
+        <div className={styles.horzText}>
+          <p>1st space airline company</p>
+          <p>few steps to the moon</p>
+        </div>
       </div>
     );
   }
