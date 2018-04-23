@@ -4,11 +4,20 @@
   /* -------------------------------- */
   height: 100vh;
   overflow: hidden;
-  background: #000;
-  /* ---------For Editing Layout---------- */
-  border: 2px solid red;
-  /* ------------------------------------- */
+  background: #060606;
   position: relative;
+}
+
+.SpacedLandingPage::after {
+  content: '';
+  background: rgba(105, 105, 105, 0.281);
+  /* background: rgba(150, 127, 85, 0.219); */
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 0;
 }
 
 .image {
@@ -22,24 +31,15 @@
 }
 
 .circle {
-  /* ---- Moved Scale To JS ----- */
-  /* --circle-size: calc(275px + (440 - 275) * (100vw - 320px) / (960 - 320)); */
-  /* width: 300px;
-  height: 300px; */
-  /* width: var(--circle-size);
-  height: var(--circle-size); */
-  /* -------------------------------- */
   color: var(--circle-color);
   border: 5px solid;
   background: transparent;
   position: absolute;
   top: calc(19px + (230 - 19) * (100vh - 320px) / (960 - 320));
   left: calc(20px + (260 - 20) * (100vw - 320px) / (960 - 320));
-  /* left: calc(50px + (300 - 50) * (100vw - 320) / (960 - 320)); */
-  /* left: 50%; */
-  /* transform: translateX(-50%); */
   border-radius: 50%;
   overflow: hidden;
+  z-index: 1;
 }
 
 .boxOne {
@@ -66,10 +66,6 @@
 }
 
 .circleHeading {
-  /* ---- Moved Scale To JS ----- */
-  /* font-size: calc(22px + (40 - 22) * (100vw - 320px) / (960 - 320)); */
-  /* margin-bottom: calc(25px + (55 - 25) * (100vw - 320px) / (960 - 320)); */
-  /* -------------------------------- */
   margin-bottom: 40px;
   position: relative;
 }
@@ -84,23 +80,11 @@
   height: 4px;
 }
 
-.circleText {
-  /* ---- Moved Scale To JS ----- */
-  /* font-size: calc(14px + (25 - 14) * (100vw - 320px) / (960 - 320)); */
-  /* -------------------------------- */
+.flipText,
+.horzText {
+  z-index: 1;
 }
 
-/* .flipText {
-  white-space: nowrap;
-  text-transform: uppercase;
-  transform: rotate(90deg);
-  text-align: right;
-  font-size: calc(12px + (18 - 12) * (100vw - 320px) / (960 - 320));
-  color: var(--circle-color);
-  position: absolute;
-  bottom: calc(130px + (180 - 130) * (100vh - 360px) / (960 - 360));
-  left: calc(207px + (650 - 207) * (100vw - 320px) / (960 - 320));
-} */
 .flipText {
   white-space: nowrap;
   text-transform: uppercase;
@@ -109,9 +93,6 @@
   font-size: calc(12px + (18 - 12) * (100vw - 320px) / (960 - 320));
   color: var(--circle-color);
   position: absolute;
-  /* top: 92px; */
-  /* left: calc(207px + (650 - 207) * (100vw - 320px) / (960 - 320)); */
-  /* bottom: calc(85px + (180 - 85) * (100vh - 360px) / (960 - 360)); */
   top: calc(92px + (135 - 92) * (100vw - 320px) / (960 - 320));
   right: calc(-71px + (-109 - -71) * (100vw - 320px) / (960 - 320));
 }
