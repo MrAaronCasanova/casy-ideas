@@ -5,6 +5,7 @@ import LayeredText from '../../LandingPages/LayeredText/LayeredText';
 import ApiccoLanding from '../../LandingPages/ApiccoLanding/ApiccoLanding';
 import PokeLandingPage from './../../LandingPages/PokeLandingPage/PokeLandingPage';
 import SpacedLandingPage from './../../LandingPages/SpacedLandingPage/SpacedLandingPage';
+import Styled from './../../LandingPages/Styled/Styled';
 // import HourGlassText from '../../LandingPages/HourGlassText/HourGlassText';
 // import Transitions from './Transitions/Transitions';
 
@@ -26,6 +27,10 @@ const LandingPages = () => {
       <div>
         <SpacedLandingPage />
         <ViewExampleBtn href="https://dribbble.com/shots/4209495-SPACED" />
+      </div>
+      <div>
+        <Styled />
+        <ViewExampleBtn href="soundcloud.com/casymusic" />
       </div>
       {/* <HourGlassText /> */}
       {/* <Transitions /> */}
