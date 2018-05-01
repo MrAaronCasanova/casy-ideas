@@ -1,5 +1,5 @@
 export const CompanyInfo = {
-  name: 'Casy.js'
+  name: 'Casy.js!'
 };
 
 export const RoutesData = [
