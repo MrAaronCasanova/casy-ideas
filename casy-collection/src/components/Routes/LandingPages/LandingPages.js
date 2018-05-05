@@ -6,6 +6,7 @@ import ApiccoLanding from '../../LandingPages/ApiccoLanding/ApiccoLanding';
 import PokeLandingPage from './../../LandingPages/PokeLandingPage/PokeLandingPage';
 import SpacedLandingPage from './../../LandingPages/SpacedLandingPage/SpacedLandingPage';
 import WhiskeyLanding from './../../LandingPages/WhiskeyLanding/WhiskeyLanding';
+import BikeLanding from './../../LandingPages/BikeLanding/BikeLanding';
 // import HourGlassText from '../../LandingPages/HourGlassText/HourGlassText';
 // import Transitions from './Transitions/Transitions';
 
@@ -31,6 +32,10 @@ const LandingPages = () => {
       <div>
         <WhiskeyLanding />
         <ViewExampleBtn href="https://dribbble.com/shots/4526027-Foundation-Marketplace-Product-Transition-Animation" />
+      </div>
+      <div>
+        <BikeLanding />
+        <ViewExampleBtn href="https://dribbble.com/shots/4495118-Conceptual-Web-UI-Concept-Product" />
       </div>
       {/* <HourGlassText /> */}
       {/* <Transitions /> */}
