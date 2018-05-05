@@ -100,16 +100,57 @@ const NavSearch = styled.div`
 
 const CardBody = styled.div`
   flex: 1 1 80%;
+  display: flex;
 `;
 
-const CardFooter = styled.div`
+const BodyTextWrapper = styled.div`
+  flex: 1 1 50%;
+
+  h2 {
+    /* ------------------------------ */
+    padding-top: 100px;
+    text-align: center;
+    /* ------------------------------ */
+    font-size: 50px;
+    color: #4e7e64;
+    font-weight: bold;
+  }
+`;
+
+const BodyImgWrapper = styled.div`
+  flex: 1 1 50%;
+  padding: 20px;
+  transform: translateX(40%);
+
+  img {
+    width: 100%;
+    height: 100%;
+  }
+`;
+
+const CardFooter = styled.ul`
   flex: 1 1 10%;
+  list-style: none;
+  display: flex;
+  margin-left: 100px;
+
+  & > * {
+    font-weight: bold;
+    padding: 20px;
+  }
 `;
 
 const CardSide = styled.div`
+  padding: 20px;
+  text-align: center;
+  font-size: 30px;
   color: #fff;
   background: #4e7e64;
   height: 100%;
+
+  span {
+    padding: 0 30px;
+  }
 `;
 
 const BikeLanding = () => {
@@ -133,11 +174,27 @@ const BikeLanding = () => {
               </span>
             </NavSearch>
           </NavWrapper>
-          <CardBody>body</CardBody>
-          <CardFooter>footer</CardFooter>
+          <CardBody>
+            <BodyTextWrapper>
+              <h2>Life Is Art</h2>
+            </BodyTextWrapper>
+            <BodyImgWrapper>
+              <img
+                src="https://images.pexels.com/photos/301614/pexels-photo-301614.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                alt="open water"
+              />
+            </BodyImgWrapper>
+          </CardBody>
+          <CardFooter>
+            <li>Facebook</li>
+            <li>Instagram</li>
+            <li>Twitter</li>
+          </CardFooter>
         </LeftWrap>
         <RightWrap>
-          <CardSide>side</CardSide>
+          <CardSide>
+            Login <span>☰</span>
+          </CardSide>
         </RightWrap>
       </CardWrapper>
       <Os>O</Os>
