@@ -64,7 +64,7 @@ const NavItemsWrapper = styled.div`
   color: #fff;
   flex: 1 1 50%;
   background: #4e7e64;
-  padding: 20px;
+  padding: 20px 40px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -81,6 +81,7 @@ const NavItems = styled.ul`
 
   li {
     padding: 20px;
+    font-size: 20px;
   }
 `;
 
@@ -103,29 +104,71 @@ const CardBody = styled.div`
   display: flex;
 `;
 
-const BodyTextWrapper = styled.div`
+const BodyContentWrapper = styled.div`
   flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding-left: 15%;
 
   h2 {
-    /* ------------------------------ */
-    padding-top: 100px;
-    text-align: center;
-    /* ------------------------------ */
-    font-size: 50px;
+    line-height: 0.85;
+    font-size: 65px;
     color: #4e7e64;
     font-weight: bold;
+  }
+
+  p {
+    padding: 40px 0;
+    color: #cecece;
+    font-weight: bold;
+  }
+`;
+
+const ArrowWrapper = styled.div`
+  display: flex;
+  div {
+    background: #dddddd;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    color: #fff;
+    text-align: center;
+    line-height: 50px;
+
+    &:nth-of-type(2) {
+      margin-left: 50px;
+    }
   }
 `;
 
 const BodyImgWrapper = styled.div`
   flex: 1 1 50%;
-  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
   transform: translateX(40%);
+  position: relative;
 
   img {
     width: 100%;
     height: 100%;
   }
+`;
+
+const NumberBox = styled.div`
+  position: absolute;
+  bottom: 60px;
+  left: -40px;
+  width: 150px;
+  height: 150px;
+  background: #4e7e64;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
+  color: #ffffff;
+  font-size: 60px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 const CardFooter = styled.ul`
@@ -161,9 +204,9 @@ const BikeLanding = () => {
         <LeftWrap>
           <NavWrapper>
             <NavItemsWrapper>
-              <Logo>BIKE</Logo>
+              <Logo>LIFE</Logo>
               <NavItems>
-                <li>Bike</li>
+                <li>Life</li>
                 <li>Outdoor</li>
                 <li>Prize</li>
               </NavItems>
@@ -175,14 +218,23 @@ const BikeLanding = () => {
             </NavSearch>
           </NavWrapper>
           <CardBody>
-            <BodyTextWrapper>
-              <h2>Life Is Art</h2>
-            </BodyTextWrapper>
+            <BodyContentWrapper>
+              <h2>
+                Life<br />
+                Is Art.
+              </h2>
+              <p>Love the life you live. Live the life you love.</p>
+              <ArrowWrapper>
+                <div>◀</div>
+                <div>▶</div>
+              </ArrowWrapper>
+            </BodyContentWrapper>
             <BodyImgWrapper>
               <img
                 src="https://images.pexels.com/photos/301614/pexels-photo-301614.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
                 alt="open water"
               />
+              <NumberBox>03</NumberBox>
             </BodyImgWrapper>
           </CardBody>
           <CardFooter>
