@@ -7,6 +7,7 @@ import PokeLandingPage from './../../LandingPages/PokeLandingPage/PokeLandingPag
 import SpacedLandingPage from './../../LandingPages/SpacedLandingPage/SpacedLandingPage';
 import WhiskeyLanding from './../../LandingPages/WhiskeyLanding/WhiskeyLanding';
 import BikeLanding from './../../LandingPages/BikeLanding/BikeLanding';
+import BoxyLanding from './../../LandingPages/BoxyLanding/BoxyLanding';
 // import HourGlassText from '../../LandingPages/HourGlassText/HourGlassText';
 // import Transitions from './Transitions/Transitions';
 
@@ -36,6 +37,10 @@ const LandingPages = () => {
       <div>
         <BikeLanding />
         <ViewExampleBtn href="https://dribbble.com/shots/4495118-Conceptual-Web-UI-Concept-Product" />
+      </div>
+      <div>
+        <BoxyLanding />
+        <ViewExampleBtn href="https://dribbble.com/shots/4495009-Web-Design" />
       </div>
       {/* <HourGlassText /> */}
       {/* <Transitions /> */}
