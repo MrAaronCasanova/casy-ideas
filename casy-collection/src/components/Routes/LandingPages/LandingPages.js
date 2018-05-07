@@ -8,6 +8,7 @@ import SpacedLandingPage from './../../LandingPages/SpacedLandingPage/SpacedLand
 import WhiskeyLanding from './../../LandingPages/WhiskeyLanding/WhiskeyLanding';
 import BikeLanding from './../../LandingPages/BikeLanding/BikeLanding';
 import BoxyLanding from './../../LandingPages/BoxyLanding/BoxyLanding';
+import FinnyLanding from './../../LandingPages/FinnyLanding/FinnyLanding';
 // import HourGlassText from '../../LandingPages/HourGlassText/HourGlassText';
 // import Transitions from './Transitions/Transitions';
 
@@ -41,6 +42,10 @@ const LandingPages = () => {
       <div>
         <BoxyLanding />
         <ViewExampleBtn href="https://dribbble.com/shots/4495009-Web-Design" />
+      </div>
+      <div>
+        <FinnyLanding />
+        <ViewExampleBtn href="https://dribbble.com/shots/2613990-Finnerztaffen" />
       </div>
       {/* <HourGlassText /> */}
       {/* <Transitions /> */}
