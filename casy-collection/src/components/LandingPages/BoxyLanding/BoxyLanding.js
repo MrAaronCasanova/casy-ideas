@@ -9,6 +9,30 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  position: relative;
+`;
+
+const TopText = styled.h3`
+  margin-bottom: 50px;
+  font-weight: bold;
+  letter-spacing: 5px;
+  color: #565656;
+`;
+
+const SideText = TopText.extend`
+  margin: 0;
+  position: absolute;
+  top: 31%;
+  left: 0;
+  transform: rotate(90deg);
+`;
+
+const CircleLogo = styled.div`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: #000;
+  color: white;
 `;
 
 const OutlineBox = styled.div`
@@ -113,6 +137,11 @@ const ContentBox = styled.div`
 const BoxyLanding = () => {
   return (
     <Wrapper>
+      <TopText>We're Lost</TopText>
+      <SideText>
+        Thank God<br />I Found You
+      </SideText>
+      <CircleLogo>YOLO</CircleLogo>
       <OutlineBox>
         <ImagesSection>
           <ImagesWrapper>
