@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
-  margin-left: 70px;
+  margin-left: 130px;
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -19,7 +19,8 @@ const LogoText = styled.h2`
 
 const MainHeading = styled.h2`
   font-family: 'Josefin Sans', sans-serif;
-  font-size: 110px;
+  font-size: 160px;
+  line-height: 0.9;
   position: relative;
   margin-bottom: 80px;
 
@@ -46,6 +47,12 @@ const CTAButton = styled.button`
   font-weight: bold;
   padding: 8px 15px;
   margin-bottom: 100px;
+  transition: all 250ms;
+
+  &:hover {
+    background-color: #000;
+    color: #fff;
+  }
 `;
 
 const NavContainer = styled.ul`
@@ -67,24 +74,26 @@ const NavContainer = styled.ul`
 const ImgOne = styled.img`
   position: absolute;
   top: 35px;
-  right: 100px;
+  right: 15vw;
   z-index: 1;
-  width: 25vw;
+  width: 29vw;
   height: 250px;
   object-fit: cover;
 `;
+
 const ImgTwo = styled.img`
-  right: 35px;
+  right: 10vw;
   top: 20%;
   position: absolute;
   width: 40vw;
-  height: 550px;
+  height: 600px;
   object-fit: cover;
 `;
+
 const ImgThree = styled.img`
   position: absolute;
-  right: 35px;
-  top: 74%;
+  right: 10vw;
+  top: 77%;
   width: 25vw;
   height: 250px;
   object-fit: cover;
