@@ -33,6 +33,14 @@ const CircleLogo = styled.div`
   border-radius: 50%;
   background: #000;
   color: white;
+  font-size: 16px;
+  line-height: 50px;
+  letter-spacing: 8px;
+  padding-left: 8px;
+  text-align: center;
+  position: absolute;
+  right: 12%;
+  top: 15%;
 `;
 
 const OutlineBox = styled.div`
@@ -141,7 +149,7 @@ const BoxyLanding = () => {
       <SideText>
         Thank God<br />I Found You
       </SideText>
-      <CircleLogo>YOLO</CircleLogo>
+      <CircleLogo>LA</CircleLogo>
       <OutlineBox>
         <ImagesSection>
           <ImagesWrapper>
