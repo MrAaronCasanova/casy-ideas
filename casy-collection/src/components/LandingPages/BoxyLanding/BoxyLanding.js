@@ -6,6 +6,7 @@ const Wrapper = styled.div`
   height: 100vh;
   background: #fff;
   display: flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
 `;
@@ -17,17 +18,21 @@ const OutlineBox = styled.div`
   display: flex;
 `;
 
-const ImagesWrapper = styled.div`
+const ImagesSection = styled.section`
   flex: 1 1 50%;
+`;
+
+const ImagesWrapper = styled.div`
+  position: relative;
+  transform: rotate(-45deg) translate(-20px, 35px);
 `;
 
 const LargeImgWrapper = styled.div`
   border: 30px solid white;
   width: 30vw;
   height: 30vw;
-  transform: rotate(-45deg) translate(-20px, 35px);
-  overflow: hidden;
   position: relative;
+  overflow: hidden;
 
   img {
     transform: rotate(45deg) translate(-25%, -10%);
@@ -55,7 +60,7 @@ const SmallImgWrapper = styled.div`
   }
 `;
 
-const ContentWrapper = styled.div`
+const ContentSection = styled.section`
   flex: 1 1 50%;
   text-align: right;
   display: flex;
@@ -94,25 +99,39 @@ const ContentWrapper = styled.div`
   }
 `;
 
+const ContentBox = styled.div`
+  position: absolute;
+  top: 65%;
+  left: 41%;
+  transform: rotate(45deg) translate(-50%, 500%);
+  background: white;
+  padding: 20px 50px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  white-space: nowrap;
+`;
+
 const BoxyLanding = () => {
   return (
     <Wrapper>
       <OutlineBox>
-        <ImagesWrapper>
-          <LargeImgWrapper>
-            <img
-              src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=92b82a18bf4bfbdfe1bd7eed8cd4ba49&auto=format&fit=crop&w=675&q=80"
-              alt="dog"
-            />
-            <SmallImgWrapper>
+        <ImagesSection>
+          <ImagesWrapper>
+            <LargeImgWrapper>
               <img
-                src="https://images.unsplash.com/photo-1517213849290-bbbfffdc6da3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=943dfad4aa75252116f83032204a5608&auto=format&fit=crop&w=800&q=80"
-                alt="cat"
+                src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=92b82a18bf4bfbdfe1bd7eed8cd4ba49&auto=format&fit=crop&w=675&q=80"
+                alt="dog"
               />
-            </SmallImgWrapper>
-          </LargeImgWrapper>
-        </ImagesWrapper>
-        <ContentWrapper>
+              <SmallImgWrapper>
+                <img
+                  src="https://images.unsplash.com/photo-1517213849290-bbbfffdc6da3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=943dfad4aa75252116f83032204a5608&auto=format&fit=crop&w=800&q=80"
+                  alt="cat"
+                />
+              </SmallImgWrapper>
+            </LargeImgWrapper>
+            <ContentBox>CREATE A SHARED RITUAL</ContentBox>
+          </ImagesWrapper>
+        </ImagesSection>
+        <ContentSection>
           <div>
             <p>
               Friday 20 April<br />AM
@@ -126,7 +145,7 @@ const BoxyLanding = () => {
               cum architecto nisi
             </h6>
           </div>
-        </ContentWrapper>
+        </ContentSection>
       </OutlineBox>
     </Wrapper>
   );
