@@ -101,13 +101,13 @@ const ContentSection = styled.section`
 
 const ContentBox = styled.div`
   position: absolute;
-  top: 65%;
-  left: 41%;
-  transform: rotate(45deg) translate(-50%, 500%);
-  background: white;
-  padding: 20px 50px;
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  top: 85%;
+  left: -20%;
+  transform: rotate(45deg);
   white-space: nowrap;
+  background: white;
+  padding: 25px 40px;
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 `;
 
 const BoxyLanding = () => {
