@@ -6,7 +6,7 @@ import ApiccoLanding from '../../LandingPages/ApiccoLanding/ApiccoLanding';
 import PokeLandingPage from './../../LandingPages/PokeLandingPage/PokeLandingPage';
 import SpacedLandingPage from './../../LandingPages/SpacedLandingPage/SpacedLandingPage';
 import WhiskeyLanding from './../../LandingPages/WhiskeyLanding/WhiskeyLanding';
-import BikeLanding from './../../LandingPages/BikeLanding/BikeLanding';
+import LifeLanding from './../../LandingPages/LifeLanding/LifeLanding';
 import BoxyLanding from './../../LandingPages/BoxyLanding/BoxyLanding';
 import FinnyLanding from './../../LandingPages/FinnyLanding/FinnyLanding';
 // import HourGlassText from '../../LandingPages/HourGlassText/HourGlassText';
@@ -36,17 +36,17 @@ const LandingPages = () => {
         <ViewExampleBtn href="https://dribbble.com/shots/4526027-Foundation-Marketplace-Product-Transition-Animation" />
       </div>
       <div>
-        <BikeLanding />
+        <LifeLanding />
         <ViewExampleBtn href="https://dribbble.com/shots/4495118-Conceptual-Web-UI-Concept-Product" />
       </div>
-      <div>
+      {/* <div>
         <BoxyLanding />
         <ViewExampleBtn href="https://dribbble.com/shots/4495009-Web-Design" />
-      </div>
-      <div>
+      </div> */}
+      {/* <div>
         <FinnyLanding />
         <ViewExampleBtn href="https://dribbble.com/shots/2613990-Finnerztaffen" />
-      </div>
+      </div> */}
       {/* <HourGlassText /> */}
       {/* <Transitions /> */}
     </div>

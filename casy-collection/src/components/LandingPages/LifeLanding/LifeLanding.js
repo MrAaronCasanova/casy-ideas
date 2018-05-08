@@ -1,48 +1,53 @@
-import React from 'react';
+import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
   position: relative;
-  height: 100vh;
+  z-index: -2;
+  min-height: 100vh;
   background: #cfdcd3;
   overflow: hidden;
+  position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 `;
 
 const Os = styled.div`
-  padding: 0;
-  margin: 0;
-  font-size: 1100px;
+  z-index: -1;
+  font-size: calc(
+    280px + (2500 - 280) * (${props => `${props.scale}px`} - 320px) /
+      (2500 - 320)
+  );
   font-weight: bold;
-  /* font-weight: 400; */
   color: #dce7e1;
 
   &:first-child {
-    align-self: flex-start;
-    transform: translate(-30%, -35%);
+    position: absolute;
+    top: 0;
+    left: 0;
+    transform: translate(-33%, -33%);
   }
   &:last-child {
-    align-self: flex-end;
-    transform: translate(25%, -95%);
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    transform: translate(33%, 33%);
   }
 `;
 
 const CardWrapper = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 1;
-  width: 85vw;
-  height: 70vh;
+  width: calc(300px + (2200 - 300) * (100vw - 320px) / (2500 - 320));
+  min-height: 70vh;
   background: #fff;
   border-radius: 8px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
   overflow: hidden;
   display: flex;
+  @media (max-width: 500px) {
+    flex-direction: column;
+  }
 `;
 
 const LeftWrap = styled.div`
@@ -196,62 +201,90 @@ const CardSide = styled.div`
   }
 `;
 
-const BikeLanding = () => {
-  return (
-    <Wrapper>
-      <Os>O</Os>
-      <CardWrapper>
-        <LeftWrap>
-          <NavWrapper>
-            <NavItemsWrapper>
-              <Logo>LIFE</Logo>
-              <NavItems>
-                <li>Life</li>
-                <li>Outdoor</li>
-                <li>Prize</li>
-              </NavItems>
-            </NavItemsWrapper>
-            <NavSearch>
-              <span>
-                Search...<span>🔍</span>
-              </span>
-            </NavSearch>
-          </NavWrapper>
-          <CardBody>
-            <BodyContentWrapper>
-              <h2>
-                Life<br />
-                Is Art.
-              </h2>
-              <p>Love the life you live. Live the life you love.</p>
-              <ArrowWrapper>
-                <div>◀</div>
-                <div>▶</div>
-              </ArrowWrapper>
-            </BodyContentWrapper>
-            <BodyImgWrapper>
-              <img
-                src="https://images.pexels.com/photos/301614/pexels-photo-301614.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                alt="open water"
-              />
-              <NumberBox>03</NumberBox>
-            </BodyImgWrapper>
-          </CardBody>
-          <CardFooter>
-            <li>Facebook</li>
-            <li>Instagram</li>
-            <li>Twitter</li>
-          </CardFooter>
-        </LeftWrap>
-        <RightWrap>
-          <CardSide>
-            Login <span>☰</span>
-          </CardSide>
-        </RightWrap>
-      </CardWrapper>
-      <Os>O</Os>
-    </Wrapper>
-  );
-};
+class LifeLanding extends Component {
+  state = {
+    scale: null
+  };
 
-export default BikeLanding;
+  getScale = () => {
+    let scaleWidth = window.innerWidth;
+    let scaleHeight = window.innerHeight;
+    let scale = scaleWidth > scaleHeight ? scaleHeight : scaleWidth;
+    return scale;
+    // return `${scale}px`;
+  };
+
+  componentWillMount() {
+    let scale = this.getScale();
+    this.setState({
+      scale
+    });
+
+    window.addEventListener('resize', () => {
+      let scale = this.getScale();
+      this.setState({
+        scale
+      });
+    });
+  }
+
+  render() {
+    return (
+      <Wrapper>
+        <Os scale={this.state.scale}>O</Os>
+        <CardWrapper>
+          <LeftWrap>
+            <NavWrapper>
+              <NavItemsWrapper>
+                <Logo>LIFE</Logo>
+                <NavItems>
+                  <li>Life</li>
+                  <li>Outdoor</li>
+                  <li>Prize</li>
+                </NavItems>
+              </NavItemsWrapper>
+              <NavSearch>
+                <span>
+                  Search...<span>🔍</span>
+                </span>
+              </NavSearch>
+            </NavWrapper>
+            <CardBody>
+              <BodyContentWrapper>
+                <h2>
+                  Life<br />
+                  Is Art.
+                </h2>
+                <p>Love the life you live. Live the life you love.</p>
+                <ArrowWrapper>
+                  <div>◀</div>
+                  <div>▶</div>
+                </ArrowWrapper>
+              </BodyContentWrapper>
+              <BodyImgWrapper>
+                <img
+                  src="https://images.pexels.com/photos/301614/pexels-photo-301614.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                  alt="open water"
+                />
+                <NumberBox>03</NumberBox>
+              </BodyImgWrapper>
+            </CardBody>
+            <CardFooter>
+              <li>Facebook</li>
+              <li>Instagram</li>
+              <li>Twitter</li>
+            </CardFooter>
+          </LeftWrap>
+          <RightWrap>
+            <CardSide>
+              Login <span>☰</span>
+            </CardSide>
+          </RightWrap>
+        </CardWrapper>
+        <Os scale={this.state.scale}>O</Os>
+      </Wrapper>
+    );
+  }
+}
+
+export default LifeLanding;
