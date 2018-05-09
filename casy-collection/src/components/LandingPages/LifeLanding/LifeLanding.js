@@ -236,7 +236,6 @@ const CardFooter = styled.ul`
 
   & > * {
     font-weight: bold;
-    /* padding: 20px; */
     padding: 20px 20px calc(20px + (60 - 20) * (100vw - 320px) / (2500 - 320))
       20px;
     font-size: calc(14px + (20 - 14) * (100vw - 320px) / (2500 - 320));
