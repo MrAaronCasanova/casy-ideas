@@ -39,10 +39,10 @@ const LandingPages = () => {
         <LifeLanding />
         <ViewExampleBtn href="https://dribbble.com/shots/4495118-Conceptual-Web-UI-Concept-Product" />
       </div>
-      {/* <div>
+      <div>
         <BoxyLanding />
         <ViewExampleBtn href="https://dribbble.com/shots/4495009-Web-Design" />
-      </div> */}
+      </div>
       {/* <div>
         <FinnyLanding />
         <ViewExampleBtn href="https://dribbble.com/shots/2613990-Finnerztaffen" />

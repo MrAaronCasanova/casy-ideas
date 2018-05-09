@@ -232,11 +232,13 @@ const NumberBox = styled.div`
 const CardFooter = styled.ul`
   list-style: none;
   display: flex;
-  margin-left: calc(0px + (100 - 0) * (100vw - 320px) / (2500 - 320));
+  margin-left: calc(0px + (200 - 0) * (100vw - 320px) / (2500 - 320));
 
   & > * {
     font-weight: bold;
-    padding: 20px;
+    /* padding: 20px; */
+    padding: 20px 20px calc(20px + (60 - 20) * (100vw - 320px) / (2500 - 320))
+      20px;
     font-size: calc(14px + (20 - 14) * (100vw - 320px) / (2500 - 320));
   }
 
