@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
-  /* min-height: 100vh;
+  min-height: 100vh;
   background: #fff;
   display: flex;
   flex-direction: column;
@@ -13,15 +13,6 @@ const Wrapper = styled.div`
   padding: 20px calc(40px + (150 - 40) * (100vw - 320px) / (2500 - 320));
   @media (max-width: 900px) {
     padding: 20px calc(40px + (250 - 40) * (100vw - 320px) / (2500 - 320));
-  } */
-  min-height: 100vh;
-  display: grid;
-  grid-template-columns: 1fr 5fr 5fr 1fr;
-  grid-template-rows: 1fr 5fr 1fr;
-
-  @media (max-width: 900px) {
-    grid-template-columns: 1fr 5fr 1fr;
-    grid-template-rows: 1fr 5fr 5fr 1fr;
   }
 `;
 
@@ -57,43 +48,27 @@ const CircleLogo = styled.div`
 `;
 
 const OutlineBox = styled.div`
-  /* border: 2px solid #d4d4d4;
+  border: 2px solid #d4d4d4;
   width: 100%;
   height: 100%;
   display: flex;
   @media (max-width: 900px) {
     flex-direction: column;
     justify-content: center;
-  } */
-  grid-column: 2/4;
-  grid-row: 2/3;
-  border: 2px solid #d4d4d4;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-
-  @media (max-width: 900px) {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
-    grid-column: 2/3;
-    grid-row: 2/4;
   }
 `;
 
 const ImagesSection = styled.section`
-  /* flex: 1 1 50%;
+  flex: 1 1 50%;
   display: flex;
   justify-content: center;
-  align-items: center; */
-  /* ---------For Editing Layout---------- */
-  border: 2px solid red;
-  /* ------------------------------------- */
-  display: grid;
-  grid-template-rows: 5fr 1fr;
+  align-items: center;
 `;
 
 const ImagesWrapper = styled.div`
-  /* position: relative;
+  position: relative;
   z-index: 1;
+  /* transform: rotate(-45deg); */
   transform: rotate(-45deg)
     translate(
       calc(0px + (-100 - 0) * (100vw - 900px) / (2500 - 900)),
@@ -108,11 +83,11 @@ const ImagesWrapper = styled.div`
 
   @media (max-width: 900px) {
     transform: rotate(-45deg) translate(0, 0);
-  } */
+  }
 `;
 
 const LargeImgWrapper = styled.div`
-  /* border: calc(
+  border: calc(
       10px + (100 - 10) * (${props => props.scale} - 320px) / (2500 - 320)
     )
     solid white;
@@ -125,16 +100,6 @@ const LargeImgWrapper = styled.div`
     transform: rotate(45deg) translate(-25%, -10%);
     width: 150%;
     height: 150%;
-    object-fit: cover;
-  } */
-  grid-column: 1/2;
-  grid-row: 1/2;
-  width: calc(20px + (600 - 20) * (${props =>
-    props.scale} - 320px) / (2500 - 320));
-
-  img {
-    width: 100%;
-    height: 100%;
     object-fit: cover;
   }
 `;
@@ -164,35 +129,8 @@ const SmallImgWrapper = styled.div`
   }
 `;
 
-const ContentBox = styled.div`
-  /* position: absolute;
-  top: 80%;
-  left: -31%;
-  transform: rotate(45deg)
-    translateX(calc(-40px + (-20 - -40) * (100vw - 900px) / (2500 - 900)));
-  white-space: nowrap;
-  background: white;
-  padding: calc(
-      10px + (55 - 10) * (${props => props.scale} - 320px) / (2500 - 320)
-    )
-    calc(20px + (60 - 20) * (${props => props.scale} - 320px) / (2500 - 320));
-  font-size: calc(
-    16px + (60 - 16) * (${props => props.scale} - 320px) / (2500 - 320)
-  );
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-
-  @media (max-width: 900px) {
-    top: 72%;
-    left: -49%;
-    transform: rotate(45deg)
-      translateX(calc(0px + (30 - 0) * (100vw - 320px) / (900 - 320)));
-  } */
-  grid-column: 1/2;
-  grid-row: 2/3;
-`;
-
 const ContentSection = styled.section`
-  /* padding: 40px 0;
+  padding: 40px 0;
   flex: 1 1 50%;
   text-align: right;
   display: flex;
@@ -204,7 +142,7 @@ const ContentSection = styled.section`
       calc(50px + (-20 - 50) * (100vw - 900px) / (2500 - 900)),
       0%
     );
-    
+    /* transform: translate(14%, -5%); */
     background: #ffffff;
     padding: 20px;
     display: flex;
@@ -224,6 +162,7 @@ const ContentSection = styled.section`
   h2 {
     margin-bottom: 50px;
     font-family: 'Libre Baskerville', serif;
+    /* font-size: 100px; */
     font-size: calc(
       73px + (350 - 73) * (${props => props.scale} - 900px) / (2500 - 900)
     );
@@ -235,6 +174,7 @@ const ContentSection = styled.section`
     font-size: calc(
       20px + (80 - 20) * (${props => props.scale} - 900px) / (2500 - 900)
     );
+    /* font-size: 16px; */
     font-weight: bold;
     width: calc(230px + (700 - 230) * (100vw - 900px) / (2500 - 900));
     color: #888888;
@@ -268,24 +208,31 @@ const ContentSection = styled.section`
       );
       width: calc(150px + (500 - 150) * (100vw - 320px) / (900 - 320));
     }
-  } */
+  }
+`;
 
-  display: grid;
-  grid-template-rows: 1fr 3fr 9fr 4fr;
-
-  p {
-    grid-row: 2/3;
-  }
-  h2 {
-    grid-row: 3/4;
-  }
-  h6 {
-    grid-row: 4/5;
-  }
+const ContentBox = styled.div`
+  position: absolute;
+  top: 80%;
+  left: -31%;
+  transform: rotate(45deg)
+    translateX(calc(-40px + (-20 - -40) * (100vw - 900px) / (2500 - 900)));
+  white-space: nowrap;
+  background: white;
+  padding: calc(
+      10px + (55 - 10) * (${props => props.scale} - 320px) / (2500 - 320)
+    )
+    calc(20px + (60 - 20) * (${props => props.scale} - 320px) / (2500 - 320));
+  font-size: calc(
+    16px + (60 - 16) * (${props => props.scale} - 320px) / (2500 - 320)
+  );
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
 
   @media (max-width: 900px) {
-    grid-column: 1/2;
-    grid-row: 2/3;
+    top: 72%;
+    left: -49%;
+    transform: rotate(45deg)
+      translateX(calc(0px + (30 - 0) * (100vw - 320px) / (900 - 320)));
   }
 `;
 
@@ -318,42 +265,12 @@ class BoxyLanding extends Component {
   render() {
     return (
       <Wrapper>
-        <OutlineBox>
-          <ImagesSection>
-            <LargeImgWrapper scale={this.state.scale}>
-              <img
-                src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=92b82a18bf4bfbdfe1bd7eed8cd4ba49&auto=format&fit=crop&w=675&q=80"
-                alt="dog"
-              />
-              <SmallImgWrapper scale={this.state.scale}>
-                <img
-                  src="https://images.unsplash.com/photo-1517213849290-bbbfffdc6da3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=943dfad4aa75252116f83032204a5608&auto=format&fit=crop&w=800&q=80"
-                  alt="cat"
-                />
-              </SmallImgWrapper>
-            </LargeImgWrapper>
-            <ContentBox>hello</ContentBox>
-          </ImagesSection>
-          <ContentSection>
-            <p>
-              Friday 20 April<br />AM
-            </p>
-            <h2>
-              To Build<br />Relationships
-            </h2>
-            <h6>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-              voluptatibus ut eveniet soluta ipsum quam enim libero obcaecati
-              cum architecto nisi
-            </h6>
-          </ContentSection>
-        </OutlineBox>
         {/* <TopText>We're Lost</TopText> */}
         {/* <SideText>
           Thank God<br />I Found You
         </SideText> */}
         {/* <CircleLogo>LA</CircleLogo> */}
-        {/* <OutlineBox>
+        <OutlineBox>
           <ImagesSection>
             <ImagesWrapper scale={this.state.scale}>
               <LargeImgWrapper scale={this.state.scale}>
@@ -388,7 +305,7 @@ class BoxyLanding extends Component {
               </h6>
             </div>
           </ContentSection>
-        </OutlineBox> */}
+        </OutlineBox>
       </Wrapper>
     );
   }
