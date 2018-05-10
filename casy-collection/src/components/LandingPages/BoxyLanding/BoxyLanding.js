@@ -18,14 +18,24 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns:
     calc(120px + (800 - 120) * (100vw - 900px) / (2500 - 900))
-    auto auto calc(120px + (800 - 120) * (100vw - 900px) / (2500 - 900));
-  grid-template-rows: 1fr auto 1fr;
+    auto
+    auto
+    calc(120px + (800 - 120) * (100vw - 900px) / (2500 - 900));
+  grid-template-rows:
+    minmax(40px, auto)
+    auto
+    minmax(40px, auto);
 
   @media (max-width: 900px) {
     grid-template-columns:
       calc(40px + (120 - 40) * (100vw - 320px) / (900 - 320))
-      auto calc(40px + (120 - 40) * (100vw - 320px) / (900 - 320));
-    grid-template-rows: 1fr auto auto 1fr;
+      auto
+      calc(40px + (120 - 40) * (100vw - 320px) / (900 - 320));
+    grid-template-rows:
+      minmax(95px, auto)
+      auto
+      auto
+      minmax(95px, auto);
   }
 `;
 
@@ -141,14 +151,21 @@ const LargeImgWrapper = styled.div`
     props.scale} - 320px) / (2500 - 320));
   height: calc(200px + (600 - 200) * (${props =>
     props.scale} - 320px) / (2500 - 320));
-  justify-self: center;
-  align-self: center;
-
-  img {
-    width: 150%;
-    height: 150%;
-    object-fit: cover;
-    transform: rotate(45deg) translate(-25%, -10%);
+    justify-self: center;
+    align-self: center;
+    
+    img {
+      width: 150%;
+      height: 150%;
+      object-fit: cover;
+      transform: rotate(45deg) translate(-25%, -10%);
+    }
+    
+  @media (max-width: 900px) {
+    width: calc(163px + (450 - 163) * (${props =>
+      props.scale} - 320px) / (900 - 320));
+    height: calc(163px + (450 - 163) * (${props =>
+      props.scale} - 320px) / (900 - 320));
   }
 `;
 
