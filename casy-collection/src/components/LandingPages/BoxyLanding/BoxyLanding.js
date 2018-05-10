@@ -3,24 +3,18 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
-  /* min-height: 100vh;
-  background: #fff;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  padding: 20px calc(40px + (150 - 40) * (100vw - 320px) / (2500 - 320));
-  @media (max-width: 900px) {
-    padding: 20px calc(40px + (250 - 40) * (100vw - 320px) / (2500 - 320));
-  } */
   min-height: 100vh;
   display: grid;
   grid-template-columns:
-    calc(120px + (800 - 120) * (100vw - 900px) / (2500 - 900))
+    minmax(100px, auto)
     auto
     auto
-    calc(120px + (800 - 120) * (100vw - 900px) / (2500 - 900));
+    minmax(100px, auto);
+  /* grid-template-columns:
+    calc(120px + (200 - 120) * (100vw - 900px) / (1400 - 900))
+    auto
+    auto
+    calc(120px + (200 - 120) * (100vw - 900px) / (1400 - 900)); */
   grid-template-rows:
     minmax(40px, auto)
     auto
@@ -71,14 +65,6 @@ const CircleLogo = styled.div`
 `;
 
 const OutlineBox = styled.div`
-  /* border: 2px solid #d4d4d4;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  @media (max-width: 900px) {
-    flex-direction: column;
-    justify-content: center;
-  } */
   grid-column: 2/4;
   grid-row: 2/3;
   border: 2px solid #d4d4d4;
@@ -94,51 +80,17 @@ const OutlineBox = styled.div`
 `;
 
 const ImagesSection = styled.section`
-  /* flex: 1 1 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center; */
   display: grid;
   grid-template-rows: auto auto;
-  /* grid-template-rows: 5fr 1fr; */
-`;
-
-const ImagesWrapper = styled.div`
-  /* position: relative;
-  z-index: 1;
-  transform: rotate(-45deg)
-    translate(
-      calc(0px + (-100 - 0) * (100vw - 900px) / (2500 - 900)),
-      calc(0px + (-100 - 0) * (100vw - 900px) / (2500 - 900))
-    );
-  width: calc(
-    190px + (1000 - 190) * (${props => props.scale} - 320px) / (2500 - 320)
+  transform: translate(
+    calc(
+      -25px + (-60 - -25) * (${props => props.scale} - 320px) / (1400 - 320)
+    ),
+    calc(15px + (0 - 15) * (${props => props.scale} - 320px) / (1400 - 320))
   );
-  height: calc(
-    190px + (1000 - 190) * (${props => props.scale} - 320px) / (2500 - 320)
-  );
-
-  @media (max-width: 900px) {
-    transform: rotate(-45deg) translate(0, 0);
-  } */
 `;
 
 const LargeImgWrapper = styled.div`
-  /* border: calc(
-      10px + (100 - 10) * (${props => props.scale} - 320px) / (2500 - 320)
-    )
-    solid white;
-  width: 100%;
-  height: 100%;
-  position: relative;
-  overflow: hidden;
-
-  img {
-    transform: rotate(45deg) translate(-25%, -10%);
-    width: 150%;
-    height: 150%;
-    object-fit: cover;
-  } */
   border: calc(
       10px + (100 - 10) * (${props => props.scale} - 320px) / (2500 - 320)
     )
@@ -147,25 +99,29 @@ const LargeImgWrapper = styled.div`
   transform: rotate(-45deg);
   grid-column: 1/2;
   grid-row: 1/2;
-  width: calc(200px + (600 - 200) * (${props =>
-    props.scale} - 320px) / (2500 - 320));
-  height: calc(200px + (600 - 200) * (${props =>
-    props.scale} - 320px) / (2500 - 320));
-    justify-self: center;
-    align-self: center;
-    
-    img {
-      width: 150%;
-      height: 150%;
-      object-fit: cover;
-      transform: rotate(45deg) translate(-25%, -10%);
-    }
-    
+  width: calc(
+    220px + (580 - 220) * (${props => props.scale} - 320px) / (1400 - 320)
+  );
+  height: calc(
+    220px + (580 - 220) * (${props => props.scale} - 320px) / (1400 - 320)
+  );
+  align-self: center;
+  justify-self: center;
+
+  img {
+    width: 150%;
+    height: 150%;
+    object-fit: cover;
+    transform: rotate(45deg) translate(-25%, -10%);
+  }
+
   @media (max-width: 900px) {
-    width: calc(163px + (450 - 163) * (${props =>
-      props.scale} - 320px) / (900 - 320));
-    height: calc(163px + (450 - 163) * (${props =>
-      props.scale} - 320px) / (900 - 320));
+    width: calc(
+      163px + (450 - 163) * (${props => props.scale} - 320px) / (900 - 320)
+    );
+    height: calc(
+      163px + (450 - 163) * (${props => props.scale} - 320px) / (900 - 320)
+    );
   }
 `;
 
@@ -195,168 +151,112 @@ const SmallImgWrapper = styled.div`
 `;
 
 const ContentBox = styled.div`
-  /* position: absolute;
-  top: 80%;
-  left: -31%;
-  transform: rotate(45deg)
-    translateX(calc(-40px + (-20 - -40) * (100vw - 900px) / (2500 - 900)));
-  white-space: nowrap;
-  background: white;
-  padding: calc(
-      10px + (55 - 10) * (${props => props.scale} - 320px) / (2500 - 320)
-    )
-    calc(20px + (60 - 20) * (${props => props.scale} - 320px) / (2500 - 320));
-  font-size: calc(
-    16px + (60 - 16) * (${props => props.scale} - 320px) / (2500 - 320)
-  );
-  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-  
-  @media (max-width: 900px) {
-    top: 72%;
-    left: -49%;
-    transform: rotate(45deg)
-    translateX(calc(0px + (30 - 0) * (100vw - 320px) / (900 - 320)));
-  } */
-
   grid-column: 1/2;
   grid-row: 2/3;
   align-self: center;
   justify-self: center;
   z-index: 1;
+  white-space: nowrap;
   background: white;
   text-align: center;
   padding: 10px 20px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-  
-  @media(max-width: 900px) {
-    transform: translateY(calc(0px + (-10 - 0) * (${props =>
-      props.scale} - 320px) / (900 - 320)));
+  transform: translateY(
+    calc(-50px + (-10 - -50) * (${props => props.scale} - 320px) / (1400 - 320))
+  );
+  font-size: calc(
+    15px + (30 - 15) * (${props => props.scale} - 320px) / (1400 - 320)
+  );
+
+  @media (max-width: 900px) {
+    transform: translateY(
+      calc(0px + (-10 - 0) * (${props => props.scale} - 320px) / (900 - 320))
+    );
     font-size: calc(
       12px + (50 - 12) * (${props => props.scale} - 320px) / (2500 - 320)
     );
-
   }
-  
 `;
 
 const ContentSection = styled.section`
-  /* padding: 40px 0;
-  flex: 1 1 50%;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  grid-template-columns: min-content;
+  /* grid-template-columns: auto; */
   text-align: right;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  padding: 20px 20px 20px 0;
 
-  div {
-    transform: translate(
-      calc(50px + (-20 - 50) * (100vw - 900px) / (2500 - 900)),
-      0%
+  p,
+  h2,
+  h6 {
+    justify-self: end;
+    align-content: center;
+    padding: calc(
+      10px + (30 - 10) * (${props => props.scale} - 320px) / (1400 - 320)
     );
-    
-    background: #ffffff;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-end;
+    background: white;
+    /* transform: translateX(
+      calc(60px + (40 - 60) * (${props => props.scale} - 320px) / (1400 - 320))
+    ); */
+    transform: translateX(
+      calc(80px + (30 - 80) * (${props => props.scale} - 320px) / (1400 - 320))
+    );
+    background: pink;
   }
 
   p {
     font-weight: bold;
-    margin-bottom: 40px;
+    color: slategrey;
     font-size: calc(
-      25px + (80 - 25) * (${props => props.scale} - 900px) / (2500 - 900)
+      16px + (25 - 16) * (${props => props.scale} - 320px) / (1400 - 320)
     );
   }
-
   h2 {
-    margin-bottom: 50px;
     font-family: 'Libre Baskerville', serif;
-    font-size: calc(
-      73px + (350 - 73) * (${props => props.scale} - 900px) / (2500 - 900)
+    letter-spacing: calc(
+      6px + (1 - 6) * (${props => props.scale} - 320px) / (1400 - 320)
     );
-    line-height: 0.9;
-    font-weight: 400;
-  }
-
-  h6 {
     font-size: calc(
-      20px + (80 - 20) * (${props => props.scale} - 900px) / (2500 - 900)
+      40px + (60 - 40) * (${props => props.scale} - 320px) / (1400 - 320)
     );
     font-weight: bold;
-    width: calc(230px + (700 - 230) * (100vw - 900px) / (2500 - 900));
-    color: #888888;
   }
-  
+  h6 {
+    font-size: calc(
+      10px + (15 - 10) * (${props => props.scale} - 320px) / (1400 - 320)
+    );
+    color: #888888;
+    width: calc(200px + (400 - 200) * (100vw - 901px) / (1400 - 901));
+    /* justify-self: end; */
+  }
+
   @media (max-width: 900px) {
-    div {
-      transform: translate(0, 0);
-      text-align: left;
-    }
+    /* grid-column: 1/2;
+      grid-row: 2/3; */
     p {
-      margin-bottom: 10px;
-      text-align: right;
-      font-size: calc(
-        12px + (25 - 12) * (${props => props.scale} - 320px) / (900 - 320)
-        );
-      }
-      
-      h2 {
-        margin-bottom: 25px;
-        align-self: flex-start;
-        font-size: calc(
-          27px + (90 - 27) * (${props => props.scale} - 320px) / (900 - 320)
-          );
-        }
-        
-        h6 {
-          align-self: flex-start;
-          font-size: calc(
-            10px + (22 - 10) * (${props => props.scale} - 320px) / (900 - 320)
-            );
-            width: calc(150px + (500 - 150) * (100vw - 320px) / (900 - 320));
-          }
-        } */
-    
-    display: grid;
-    grid-template-rows: auto auto auto;
-    text-align: right;
-    
-    p {
-      color: slategrey;
+      padding: calc(20px + (30 - 20) * (100vw - 320px) / (900 - 320)) 20px 20px
+        20px;
+      font-size: calc(12px + (20 - 12) * (100vw - 320px) / (900 - 320));
+      margin-right: calc(0px + (50 - 0) * (100vw - 320px) / (900 - 320));
     }
     h2 {
-      font-weight: bold;
+      margin-left: calc(0px + (50 - 0) * (100vw - 320px) / (900 - 320));
+      font-size: calc(25px + (70 - 25) * (100vw - 320px) / (900 - 320));
+      line-height: 0.9;
+      padding: 20px 20px calc(20px + (60 - 20) * (100vw - 320px) / (900 - 320))
+        20px;
+      text-align: left;
     }
     h6 {
-      color: #888888;
+      font-size: calc(12px + (20 - 12) * (100vw - 320px) / (900 - 320));
+      margin-left: calc(0px + (50 - 0) * (100vw - 320px) / (900 - 320));
+      width: calc(170px + (400 - 170) * (100vw - 320px) / (900 - 320));
+      text-align: left;
+      padding: 20px 20px calc(20px + (60 - 20) * (100vw - 320px) / (900 - 320))
+        20px;
     }
-    
-    @media (max-width: 900px) {
-      /* grid-column: 1/2;
-      grid-row: 2/3; */
-      p {
-        padding: calc(20px + (30 - 20) * (100vw - 320px) / (900 - 320)) 20px 20px 20px;
-        font-size: calc(12px + (20 - 12) * (100vw - 320px) / (900 - 320));
-        margin-right: calc(0px + (50 - 0) * (100vw - 320px) / (900 - 320));
-      }
-      h2 {
-        font-family: 'Libre Baskerville', serif;
-        margin-left: calc(0px + (50 - 0) * (100vw - 320px) / (900 - 320));
-        font-size: calc(25px + (70 - 25) * (100vw - 320px) / (900 - 320));
-        line-height: .9;
-        padding: 20px 20px calc(20px + (60 - 20) * (100vw - 320px) / (900 - 320)) 20px;
-        text-align: left;
-      }
-      h6 {
-        font-size: calc(12px + (20 - 12) * (100vw - 320px) / (900 - 320));
-        margin-left: calc(0px + (50 - 0) * (100vw - 320px) / (900 - 320));
-        width: calc(170px + (400 - 170) * (100vw - 320px) / (900 - 320));
-        text-align: left;
-        padding: 20px 20px calc(20px + (60 - 20) * (100vw - 320px) / (900 - 320)) 20px;
-      }
-    }
-    `;
+  }
+`;
 
 class BoxyLanding extends Component {
   state = {
@@ -388,7 +288,7 @@ class BoxyLanding extends Component {
     return (
       <Wrapper>
         <OutlineBox>
-          <ImagesSection>
+          <ImagesSection scale={this.state.scale}>
             <LargeImgWrapper scale={this.state.scale}>
               <img
                 src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=92b82a18bf4bfbdfe1bd7eed8cd4ba49&auto=format&fit=crop&w=675&q=80"
@@ -405,7 +305,7 @@ class BoxyLanding extends Component {
               CREATE A SHARED RITUAL
             </ContentBox>
           </ImagesSection>
-          <ContentSection>
+          <ContentSection scale={this.state.scale}>
             <p>
               Friday 20 April<br />AM
             </p>
