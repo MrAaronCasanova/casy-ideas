@@ -16,12 +16,14 @@ const Wrapper = styled.div`
   } */
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 1fr 5fr 5fr 1fr;
-  grid-template-rows: 1fr 5fr 1fr;
+  grid-template-columns: 1fr auto auto 1fr;
+  grid-template-rows: 1fr auto 1fr;
 
   @media (max-width: 900px) {
-    grid-template-columns: 1fr 5fr 1fr;
-    grid-template-rows: 1fr 5fr 5fr 1fr;
+    grid-template-columns:
+      calc(40px + (120 - 40) * (100vw - 320px) / (900 - 320))
+      auto calc(40px + (120 - 40) * (100vw - 320px) / (900 - 320));
+    grid-template-rows: 1fr auto auto 1fr;
   }
 `;
 
@@ -69,11 +71,11 @@ const OutlineBox = styled.div`
   grid-row: 2/3;
   border: 2px solid #d4d4d4;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: auto auto;
 
   @media (max-width: 900px) {
-    grid-template-columns: 1fr;
-    grid-template-rows: 1fr 1fr;
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
     grid-column: 2/3;
     grid-row: 2/4;
   }
@@ -127,15 +129,26 @@ const LargeImgWrapper = styled.div`
     height: 150%;
     object-fit: cover;
   } */
+  border: calc(
+      10px + (100 - 10) * (${props => props.scale} - 320px) / (2500 - 320)
+    )
+    solid pink;
+  overflow: hidden;
+  transform: rotate(-45deg);
   grid-column: 1/2;
   grid-row: 1/2;
-  width: calc(20px + (600 - 20) * (${props =>
+  width: calc(200px + (600 - 200) * (${props =>
     props.scale} - 320px) / (2500 - 320));
+  height: calc(200px + (600 - 200) * (${props =>
+    props.scale} - 320px) / (2500 - 320));
+  justify-self: center;
+  align-self: center;
 
   img {
-    width: 100%;
-    height: 100%;
+    width: 150%;
+    height: 150%;
     object-fit: cover;
+    transform: rotate(45deg) translate(-25%, -10%);
   }
 `;
 
@@ -187,8 +200,20 @@ const ContentBox = styled.div`
     transform: rotate(45deg)
       translateX(calc(0px + (30 - 0) * (100vw - 320px) / (900 - 320)));
   } */
+  /* ---------For Editing Layout---------- */
+  border: 2px solid red;
+  /* ------------------------------------- */
   grid-column: 1/2;
   grid-row: 2/3;
+  align-self: center;
+  justify-self: center;
+  z-index: 1;
+  background: white;
+  text-align: center;
+  padding: 10px 20px;
+  font-size: calc(
+    12px + (60 - 12) * (${props => props.scale} - 320px) / (2500 - 320)
+  );
 `;
 
 const ContentSection = styled.section`
@@ -332,7 +357,9 @@ class BoxyLanding extends Component {
                 />
               </SmallImgWrapper>
             </LargeImgWrapper>
-            <ContentBox>hello</ContentBox>
+            <ContentBox scale={this.state.scale}>
+              CREATE A SHARED RITUAL
+            </ContentBox>
           </ImagesSection>
           <ContentSection>
             <p>
