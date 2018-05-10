@@ -16,7 +16,9 @@ const Wrapper = styled.div`
   } */
   min-height: 100vh;
   display: grid;
-  grid-template-columns: 1fr auto auto 1fr;
+  grid-template-columns:
+    calc(120px + (800 - 120) * (100vw - 900px) / (2500 - 900))
+    auto auto calc(120px + (800 - 120) * (100vw - 900px) / (2500 - 900));
   grid-template-rows: 1fr auto 1fr;
 
   @media (max-width: 900px) {
@@ -86,11 +88,9 @@ const ImagesSection = styled.section`
   display: flex;
   justify-content: center;
   align-items: center; */
-  /* ---------For Editing Layout---------- */
-  border: 2px solid red;
-  /* ------------------------------------- */
   display: grid;
-  grid-template-rows: 5fr 1fr;
+  grid-template-rows: auto auto;
+  /* grid-template-rows: 5fr 1fr; */
 `;
 
 const ImagesWrapper = styled.div`
@@ -132,7 +132,7 @@ const LargeImgWrapper = styled.div`
   border: calc(
       10px + (100 - 10) * (${props => props.scale} - 320px) / (2500 - 320)
     )
-    solid pink;
+    solid white;
   overflow: hidden;
   transform: rotate(-45deg);
   grid-column: 1/2;
@@ -193,16 +193,14 @@ const ContentBox = styled.div`
     16px + (60 - 16) * (${props => props.scale} - 320px) / (2500 - 320)
   );
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-
+  
   @media (max-width: 900px) {
     top: 72%;
     left: -49%;
     transform: rotate(45deg)
-      translateX(calc(0px + (30 - 0) * (100vw - 320px) / (900 - 320)));
+    translateX(calc(0px + (30 - 0) * (100vw - 320px) / (900 - 320)));
   } */
-  /* ---------For Editing Layout---------- */
-  border: 2px solid red;
-  /* ------------------------------------- */
+
   grid-column: 1/2;
   grid-row: 2/3;
   align-self: center;
@@ -211,9 +209,17 @@ const ContentBox = styled.div`
   background: white;
   text-align: center;
   padding: 10px 20px;
-  font-size: calc(
-    12px + (60 - 12) * (${props => props.scale} - 320px) / (2500 - 320)
-  );
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+  
+  @media(max-width: 900px) {
+    transform: translateY(calc(0px + (-10 - 0) * (${props =>
+      props.scale} - 320px) / (900 - 320)));
+    font-size: calc(
+      12px + (50 - 12) * (${props => props.scale} - 320px) / (2500 - 320)
+    );
+
+  }
+  
 `;
 
 const ContentSection = styled.section`
@@ -264,7 +270,7 @@ const ContentSection = styled.section`
     width: calc(230px + (700 - 230) * (100vw - 900px) / (2500 - 900));
     color: #888888;
   }
-
+  
   @media (max-width: 900px) {
     div {
       transform: translate(0, 0);
@@ -275,44 +281,65 @@ const ContentSection = styled.section`
       text-align: right;
       font-size: calc(
         12px + (25 - 12) * (${props => props.scale} - 320px) / (900 - 320)
-      );
+        );
+      }
+      
+      h2 {
+        margin-bottom: 25px;
+        align-self: flex-start;
+        font-size: calc(
+          27px + (90 - 27) * (${props => props.scale} - 320px) / (900 - 320)
+          );
+        }
+        
+        h6 {
+          align-self: flex-start;
+          font-size: calc(
+            10px + (22 - 10) * (${props => props.scale} - 320px) / (900 - 320)
+            );
+            width: calc(150px + (500 - 150) * (100vw - 320px) / (900 - 320));
+          }
+        } */
+    
+    display: grid;
+    grid-template-rows: auto auto auto;
+    text-align: right;
+    
+    p {
+      color: slategrey;
     }
-
     h2 {
-      margin-bottom: 25px;
-      align-self: flex-start;
-      font-size: calc(
-        27px + (90 - 27) * (${props => props.scale} - 320px) / (900 - 320)
-      );
+      font-weight: bold;
     }
-
     h6 {
-      align-self: flex-start;
-      font-size: calc(
-        10px + (22 - 10) * (${props => props.scale} - 320px) / (900 - 320)
-      );
-      width: calc(150px + (500 - 150) * (100vw - 320px) / (900 - 320));
+      color: #888888;
     }
-  } */
-
-  display: grid;
-  grid-template-rows: 1fr 3fr 9fr 4fr;
-
-  p {
-    grid-row: 2/3;
-  }
-  h2 {
-    grid-row: 3/4;
-  }
-  h6 {
-    grid-row: 4/5;
-  }
-
-  @media (max-width: 900px) {
-    grid-column: 1/2;
-    grid-row: 2/3;
-  }
-`;
+    
+    @media (max-width: 900px) {
+      /* grid-column: 1/2;
+      grid-row: 2/3; */
+      p {
+        padding: calc(20px + (30 - 20) * (100vw - 320px) / (900 - 320)) 20px 20px 20px;
+        font-size: calc(12px + (20 - 12) * (100vw - 320px) / (900 - 320));
+        margin-right: calc(0px + (50 - 0) * (100vw - 320px) / (900 - 320));
+      }
+      h2 {
+        font-family: 'Libre Baskerville', serif;
+        margin-left: calc(0px + (50 - 0) * (100vw - 320px) / (900 - 320));
+        font-size: calc(25px + (70 - 25) * (100vw - 320px) / (900 - 320));
+        line-height: .9;
+        padding: 20px 20px calc(20px + (60 - 20) * (100vw - 320px) / (900 - 320)) 20px;
+        text-align: left;
+      }
+      h6 {
+        font-size: calc(12px + (20 - 12) * (100vw - 320px) / (900 - 320));
+        margin-left: calc(0px + (50 - 0) * (100vw - 320px) / (900 - 320));
+        width: calc(170px + (400 - 170) * (100vw - 320px) / (900 - 320));
+        text-align: left;
+        padding: 20px 20px calc(20px + (60 - 20) * (100vw - 320px) / (900 - 320)) 20px;
+      }
+    }
+    `;
 
 class BoxyLanding extends Component {
   state = {
