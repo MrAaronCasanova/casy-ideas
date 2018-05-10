@@ -6,10 +6,15 @@ const Wrapper = styled.div`
   min-height: 100vh;
   display: grid;
   grid-template-columns:
-    minmax(40px, auto)
+    minmax(100px, auto)
     auto
     auto
-    minmax(40px, auto);
+    minmax(100px, auto);
+  /* grid-template-columns:
+    calc(120px + (200 - 120) * (100vw - 900px) / (1400 - 900))
+    auto
+    auto
+    calc(120px + (200 - 120) * (100vw - 900px) / (1400 - 900)); */
   grid-template-rows:
     minmax(40px, auto)
     auto
@@ -17,9 +22,9 @@ const Wrapper = styled.div`
 
   @media (max-width: 900px) {
     grid-template-columns:
-      minmax(5px, auto)
+      calc(40px + (120 - 40) * (100vw - 320px) / (900 - 320))
       auto
-      minmax(5px, auto);
+      calc(40px + (120 - 40) * (100vw - 320px) / (900 - 320));
     grid-template-rows:
       minmax(95px, auto)
       auto
@@ -29,58 +34,21 @@ const Wrapper = styled.div`
 `;
 
 const TopText = styled.h3`
-  grid-column: 2/3;
-  grid-row: 2/3;
-  justify-self: end;
-  transform: translate(50%, -25px);
   margin-bottom: 50px;
   font-weight: bold;
   letter-spacing: 5px;
   color: #565656;
-
-  @media (max-width: 900px) {
-    grid-column: 2/3;
-    grid-row: 2/3;
-    justify-self: start;
-    transform: translate(0%, -28px);
-    font-size: calc(
-      8px + (25 - 8) * (${props => props.scale} - 320px) / (900 - 320)
-    );
-  }
 `;
 
-const SideText = styled.h3`
-  white-space: nowrap;
-  font-weight: bold;
-  color: #565656;
-  font-size: calc(
-    10px + (25 - 10) * (${props => props.scale} - 320px) / (1400 - 320)
-  );
-  writing-mode: vertical-rl;
-  text-orientation: upright;
-  grid-column: 1/2;
-  grid-row: 2/3;
-  justify-self: end;
-  align-self: start;
-  padding: 20px;
-  z-index: 5;
-
-  @media (max-width: 900px) {
-    padding: 0;
-    grid-column: 2/3;
-    grid-row: 3/4;
-    align-self: end;
-    writing-mode: vertical-lr;
-    padding-bottom: 30px;
-    padding-right: calc(20px + (40 - 20) * (100vw - 320px) / (900 - 320));
-  }
+const SideText = TopText.extend`
+  margin: 0;
+  position: absolute;
+  top: 31%;
+  left: 0;
+  transform: rotate(90deg);
 `;
 
 const CircleLogo = styled.div`
-  grid-column: 3/4;
-  grid-row: 2/3;
-  justify-self: end;
-  transform: translate(-50%, -35px);
   width: 50px;
   height: 50px;
   border-radius: 50%;
@@ -91,38 +59,35 @@ const CircleLogo = styled.div`
   letter-spacing: 8px;
   padding-left: 8px;
   text-align: center;
-
-  @media (max-width: 900px) {
-    grid-column: 2/3;
-    grid-row: 2/3;
-    transform: translate(
-      calc(-12px + (-20 - -12) * (100vw - 320px) / (900 - 320)),
-      -35px
-    );
-  }
+  position: absolute;
+  right: 12%;
+  top: 15%;
 `;
 
 const OutlineBox = styled.div`
   grid-column: 2/4;
   grid-row: 2/3;
   border: 2px solid #d4d4d4;
+  display: grid;
+  grid-template-columns: auto auto;
 
   @media (max-width: 900px) {
+    grid-template-columns: auto;
+    grid-template-rows: auto auto;
     grid-column: 2/3;
     grid-row: 2/4;
   }
 `;
 
 const ImagesSection = styled.section`
-  grid-column: 2/3;
-  grid-row: 2/3;
   display: grid;
-  grid-template-columns: auto;
   grid-template-rows: auto auto;
-
-  @media (max-width: 900px) {
-    transform: translate(0, 0);
-  }
+  transform: translate(
+    calc(
+      -25px + (-60 - -25) * (${props => props.scale} - 320px) / (1400 - 320)
+    ),
+    calc(15px + (0 - 15) * (${props => props.scale} - 320px) / (1400 - 320))
+  );
 `;
 
 const LargeImgWrapper = styled.div`
@@ -135,10 +100,10 @@ const LargeImgWrapper = styled.div`
   grid-column: 1/2;
   grid-row: 1/2;
   width: calc(
-    220px + (600 - 220) * (${props => props.scale} - 320px) / (1400 - 320)
+    220px + (580 - 220) * (${props => props.scale} - 320px) / (1400 - 320)
   );
   height: calc(
-    220px + (600 - 220) * (${props => props.scale} - 320px) / (1400 - 320)
+    220px + (580 - 220) * (${props => props.scale} - 320px) / (1400 - 320)
   );
   align-self: center;
   justify-self: center;
@@ -152,10 +117,10 @@ const LargeImgWrapper = styled.div`
 
   @media (max-width: 900px) {
     width: calc(
-      163px + (430 - 163) * (${props => props.scale} - 320px) / (900 - 320)
+      163px + (450 - 163) * (${props => props.scale} - 320px) / (900 - 320)
     );
     height: calc(
-      163px + (430 - 163) * (${props => props.scale} - 320px) / (900 - 320)
+      163px + (450 - 163) * (${props => props.scale} - 320px) / (900 - 320)
     );
   }
 `;
@@ -197,7 +162,7 @@ const ContentBox = styled.div`
   padding: 10px 20px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
   transform: translateY(
-    calc(-40px + (-10 - -40) * (${props => props.scale} - 320px) / (1400 - 320))
+    calc(-50px + (-10 - -50) * (${props => props.scale} - 320px) / (1400 - 320))
   );
   font-size: calc(
     15px + (30 - 15) * (${props => props.scale} - 320px) / (1400 - 320)
@@ -214,11 +179,10 @@ const ContentBox = styled.div`
 `;
 
 const ContentSection = styled.section`
-  grid-column: 3/4;
-  grid-row: 2/3;
   display: grid;
   grid-template-rows: auto auto auto;
-  grid-template-columns: auto;
+  grid-template-columns: min-content;
+  /* grid-template-columns: auto; */
   text-align: right;
   padding: 20px 20px 20px 0;
 
@@ -228,13 +192,16 @@ const ContentSection = styled.section`
     justify-self: end;
     align-content: center;
     padding: calc(
-      8px + (30 - 8) * (${props => props.scale} - 320px) / (1400 - 320)
+      10px + (30 - 10) * (${props => props.scale} - 320px) / (1400 - 320)
     );
     background: white;
+    /* transform: translateX(
+      calc(60px + (40 - 60) * (${props => props.scale} - 320px) / (1400 - 320))
+    ); */
     transform: translateX(
-      calc(60px + (0 - 60) * (${props => props.scale} - 320px) / (1400 - 320))
+      calc(80px + (30 - 80) * (${props => props.scale} - 320px) / (1400 - 320))
     );
-    background: white;
+    background: pink;
   }
 
   p {
@@ -250,7 +217,7 @@ const ContentSection = styled.section`
       6px + (1 - 6) * (${props => props.scale} - 320px) / (1400 - 320)
     );
     font-size: calc(
-      40px + (45 - 40) * (${props => props.scale} - 320px) / (1400 - 320)
+      40px + (60 - 40) * (${props => props.scale} - 320px) / (1400 - 320)
     );
     font-weight: bold;
   }
@@ -260,43 +227,31 @@ const ContentSection = styled.section`
     );
     color: #888888;
     width: calc(200px + (400 - 200) * (100vw - 901px) / (1400 - 901));
+    /* justify-self: end; */
   }
 
   @media (max-width: 900px) {
-    grid-column: 2/3;
-    grid-row: 3/4;
-    text-align: left;
-    padding: 0;
-
-    p,
-    h2,
-    h6 {
-      justify-self: start;
-      align-content: start;
-      padding: 0;
-      background: transparent;
-      transform: translateX(0);
-    }
-
+    /* grid-column: 1/2;
+      grid-row: 2/3; */
     p {
-      text-align: right;
-      justify-self: right;
       padding: calc(20px + (30 - 20) * (100vw - 320px) / (900 - 320)) 20px 20px
         20px;
       font-size: calc(12px + (20 - 12) * (100vw - 320px) / (900 - 320));
-      margin-right: calc(0px + (40 - 0) * (100vw - 320px) / (900 - 320));
+      margin-right: calc(0px + (50 - 0) * (100vw - 320px) / (900 - 320));
     }
     h2 {
-      margin-left: calc(0px + (20 - 0) * (100vw - 320px) / (900 - 320));
-      font-size: calc(25px + (60 - 25) * (100vw - 320px) / (900 - 320));
+      margin-left: calc(0px + (50 - 0) * (100vw - 320px) / (900 - 320));
+      font-size: calc(25px + (70 - 25) * (100vw - 320px) / (900 - 320));
+      line-height: 0.9;
       padding: 20px 20px calc(20px + (60 - 20) * (100vw - 320px) / (900 - 320))
         20px;
-      letter-spacing: -1px;
+      text-align: left;
     }
     h6 {
       font-size: calc(12px + (20 - 12) * (100vw - 320px) / (900 - 320));
-      margin-left: calc(0px + (40 - 0) * (100vw - 320px) / (900 - 320));
+      margin-left: calc(0px + (50 - 0) * (100vw - 320px) / (900 - 320));
       width: calc(170px + (400 - 170) * (100vw - 320px) / (900 - 320));
+      text-align: left;
       padding: 20px 20px calc(20px + (60 - 20) * (100vw - 320px) / (900 - 320))
         20px;
     }
@@ -332,42 +287,43 @@ class BoxyLanding extends Component {
   render() {
     return (
       <Wrapper>
-        <TopText scale={this.state.scale}>We're Lost</TopText>
-        <SideText scale={this.state.scale}>
-          aaron<br />casanova
-        </SideText>
-        <CircleLogo scale={this.state.scale}>LA</CircleLogo>
-        <OutlineBox />
-        <ImagesSection scale={this.state.scale}>
-          <LargeImgWrapper scale={this.state.scale}>
-            <img
-              src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=92b82a18bf4bfbdfe1bd7eed8cd4ba49&auto=format&fit=crop&w=675&q=80"
-              alt="dog"
-            />
-            <SmallImgWrapper scale={this.state.scale}>
+        <OutlineBox>
+          <ImagesSection scale={this.state.scale}>
+            <LargeImgWrapper scale={this.state.scale}>
               <img
-                src="https://images.unsplash.com/photo-1517213849290-bbbfffdc6da3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=943dfad4aa75252116f83032204a5608&auto=format&fit=crop&w=800&q=80"
-                alt="cat"
+                src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=92b82a18bf4bfbdfe1bd7eed8cd4ba49&auto=format&fit=crop&w=675&q=80"
+                alt="dog"
               />
-            </SmallImgWrapper>
-          </LargeImgWrapper>
-          <ContentBox scale={this.state.scale}>
-            CREATE A SHARED RITUAL
-          </ContentBox>
-        </ImagesSection>
-        <ContentSection scale={this.state.scale}>
-          <p>
-            Friday 20 April<br />AM
-          </p>
-          <h2>
-            To Build<br />Relationships
-          </h2>
-          <h6>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-            voluptatibus ut eveniet soluta ipsum quam enim libero obcaecati cum
-            architecto nisi
-          </h6>
-        </ContentSection>
+              <SmallImgWrapper scale={this.state.scale}>
+                <img
+                  src="https://images.unsplash.com/photo-1517213849290-bbbfffdc6da3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=943dfad4aa75252116f83032204a5608&auto=format&fit=crop&w=800&q=80"
+                  alt="cat"
+                />
+              </SmallImgWrapper>
+            </LargeImgWrapper>
+            <ContentBox scale={this.state.scale}>
+              CREATE A SHARED RITUAL
+            </ContentBox>
+          </ImagesSection>
+          <ContentSection scale={this.state.scale}>
+            <p>
+              Friday 20 April<br />AM
+            </p>
+            <h2>
+              To Build<br />Relationships
+            </h2>
+            <h6>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+              voluptatibus ut eveniet soluta ipsum quam enim libero obcaecati
+              cum architecto nisi
+            </h6>
+          </ContentSection>
+        </OutlineBox>
+        {/* <TopText>We're Lost</TopText> */}
+        {/* <SideText>
+          Thank God<br />I Found You
+        </SideText> */}
+        {/* <CircleLogo>LA</CircleLogo> */}
         {/* <OutlineBox>
           <ImagesSection>
             <ImagesWrapper scale={this.state.scale}>
