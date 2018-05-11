@@ -44,7 +44,7 @@ const TopText = styled.h3`
     justify-self: start;
     transform: translate(0%, -28px);
     font-size: calc(
-      14px + (25 - 14) * (${props => props.scale} - 320px) / (900 - 320)
+      10px + (25 - 10) * (${props => props.scale} - 320px) / (900 - 320)
     );
   }
 `;
@@ -120,7 +120,8 @@ const ImagesSection = styled.section`
   grid-row: 2/3;
   display: grid;
   grid-template-columns: auto;
-  grid-template-rows: auto auto;
+  grid-template-rows: 1fr min-content 1fr;
+  /* grid-template-rows: auto; */
 
   @media (max-width: 900px) {
     transform: translate(0, 0);
@@ -135,12 +136,12 @@ const LargeImgWrapper = styled.div`
   overflow: hidden;
   transform: rotate(-45deg);
   grid-column: 1/2;
-  grid-row: 1/2;
+  grid-row: 2/3;
   width: calc(
-    220px + (460 - 220) * (${props => props.scale} - 320px) / (1400 - 320)
+    190px + (460 - 190) * (${props => props.scale} - 320px) / (1400 - 320)
   );
   height: calc(
-    220px + (460 - 220) * (${props => props.scale} - 320px) / (1400 - 320)
+    190px + (460 - 190) * (${props => props.scale} - 320px) / (1400 - 320)
   );
   align-self: center;
   justify-self: center;
@@ -190,7 +191,7 @@ const SmallImgWrapper = styled.div`
 const ContentBox = styled.div`
   grid-column: 1/2;
   grid-row: 2/3;
-  align-self: center;
+  align-self: end;
   justify-self: center;
   z-index: 1;
   white-space: nowrap;
@@ -198,19 +199,16 @@ const ContentBox = styled.div`
   text-align: center;
   padding: 10px 20px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-  transform: translateY(
-    calc(
-      -20px + (-170 - -20) * (${props => props.scale} - 320px) / (1400 - 320)
-    )
-  );
+  transform: translateY(50%);
   font-size: calc(
-    15px + (30 - 15) * (${props => props.scale} - 320px) / (1400 - 320)
+    12px + (30 - 12) * (${props => props.scale} - 320px) / (1400 - 320)
   );
 
   @media (max-width: 900px) {
-    transform: translateY(
-      calc(0px + (-40 - 0) * (${props => props.scale} - 320px) / (900 - 320))
-    );
+    transform: translateY(50%);
+    grid-column: 1/2;
+    grid-row: 2/3;
+    align-self: end;
     font-size: calc(
       12px + (50 - 12) * (${props => props.scale} - 320px) / (2500 - 320)
     );
@@ -221,10 +219,10 @@ const ContentSection = styled.section`
   grid-column: 3/4;
   grid-row: 2/3;
   display: grid;
-  grid-template-rows: auto auto auto;
+  grid-template-rows: 1fr auto auto auto 1fr;
   grid-template-columns: auto;
   text-align: right;
-  padding: 20px 20px 20px 0;
+  padding: 30px 30px 30px 0;
 
   p,
   h2,
@@ -232,16 +230,18 @@ const ContentSection = styled.section`
     justify-self: end;
     align-content: center;
     padding: calc(
-      8px + (30 - 8) * (${props => props.scale} - 320px) / (1400 - 320)
-    );
+        8px + (60 - 8) * (${props => props.scale} - 320px) / (1400 - 320)
+      )
+      0;
     background: white;
     transform: translateX(
-      calc(60px + (60 - 60) * (${props => props.scale} - 320px) / (1400 - 320))
+      calc(50px + (50 - 50) * (${props => props.scale} - 320px) / (1400 - 320))
     );
     background: white;
   }
 
   p {
+    grid-row: 2/3;
     font-weight: bold;
     color: slategrey;
     font-size: calc(
@@ -249,6 +249,7 @@ const ContentSection = styled.section`
     );
   }
   h2 {
+    grid-row: 3/4;
     font-family: 'Libre Baskerville', serif;
     letter-spacing: calc(
       15px + (1 - 15) * (${props => props.scale} - 320px) / (1400 - 320)
@@ -259,11 +260,12 @@ const ContentSection = styled.section`
     font-weight: bold;
   }
   h6 {
+    grid-row: 4/5;
     font-size: calc(
       10px + (15 - 10) * (${props => props.scale} - 320px) / (1400 - 320)
     );
     color: #888888;
-    width: calc(200px + (400 - 200) * (100vw - 901px) / (1400 - 901));
+    width: calc(300px + (400 - 300) * (100vw - 901px) / (1400 - 901));
   }
 
   @media (max-width: 900px) {
@@ -283,6 +285,7 @@ const ContentSection = styled.section`
     }
 
     p {
+      grid-row: 2/3;
       text-align: right;
       justify-self: right;
       padding: calc(20px + (30 - 20) * (100vw - 320px) / (900 - 320)) 20px 20px
@@ -291,6 +294,7 @@ const ContentSection = styled.section`
       margin-right: calc(0px + (40 - 0) * (100vw - 320px) / (900 - 320));
     }
     h2 {
+      grid-row: 3/4;
       margin-left: calc(0px + (20 - 0) * (100vw - 320px) / (900 - 320));
       font-size: calc(25px + (60 - 25) * (100vw - 320px) / (900 - 320));
       padding: 20px 20px calc(20px + (60 - 20) * (100vw - 320px) / (900 - 320))
@@ -298,6 +302,7 @@ const ContentSection = styled.section`
       letter-spacing: -1px;
     }
     h6 {
+      grid-row: 4/5;
       font-size: calc(12px + (20 - 12) * (100vw - 320px) / (900 - 320));
       margin-left: calc(0px + (40 - 0) * (100vw - 320px) / (900 - 320));
       width: calc(170px + (400 - 170) * (100vw - 320px) / (900 - 320));
