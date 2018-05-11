@@ -43,10 +43,10 @@ const LandingPages = () => {
         <BoxyLanding />
         <ViewExampleBtn href="https://dribbble.com/shots/4495009-Web-Design" />
       </div>
-      {/* <div>
+      <div>
         <FinnyLanding />
         <ViewExampleBtn href="https://dribbble.com/shots/2613990-Finnerztaffen" />
-      </div> */}
+      </div>
       {/* <HourGlassText /> */}
       {/* <Transitions /> */}
     </div>
