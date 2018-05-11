@@ -44,7 +44,7 @@ const TopText = styled.h3`
     justify-self: start;
     transform: translate(0%, -28px);
     font-size: calc(
-      8px + (25 - 8) * (${props => props.scale} - 320px) / (900 - 320)
+      14px + (25 - 14) * (${props => props.scale} - 320px) / (900 - 320)
     );
   }
 `;
@@ -54,7 +54,7 @@ const SideText = styled.h3`
   font-weight: bold;
   color: #565656;
   font-size: calc(
-    10px + (25 - 10) * (${props => props.scale} - 320px) / (1400 - 320)
+    14px + (25 - 14) * (${props => props.scale} - 320px) / (1400 - 320)
   );
   writing-mode: vertical-rl;
   text-orientation: upright;
@@ -62,7 +62,9 @@ const SideText = styled.h3`
   grid-row: 2/3;
   justify-self: end;
   align-self: start;
-  padding: 20px;
+  padding: calc(
+    8px + (5 - 8) * (${props => props.scale} - 320px) / (1400 - 320)
+  );
   z-index: 5;
 
   @media (max-width: 900px) {
@@ -135,10 +137,10 @@ const LargeImgWrapper = styled.div`
   grid-column: 1/2;
   grid-row: 1/2;
   width: calc(
-    220px + (600 - 220) * (${props => props.scale} - 320px) / (1400 - 320)
+    220px + (460 - 220) * (${props => props.scale} - 320px) / (1400 - 320)
   );
   height: calc(
-    220px + (600 - 220) * (${props => props.scale} - 320px) / (1400 - 320)
+    220px + (460 - 220) * (${props => props.scale} - 320px) / (1400 - 320)
   );
   align-self: center;
   justify-self: center;
@@ -152,10 +154,10 @@ const LargeImgWrapper = styled.div`
 
   @media (max-width: 900px) {
     width: calc(
-      163px + (430 - 163) * (${props => props.scale} - 320px) / (900 - 320)
+      163px + (425 - 163) * (${props => props.scale} - 320px) / (900 - 320)
     );
     height: calc(
-      163px + (430 - 163) * (${props => props.scale} - 320px) / (900 - 320)
+      163px + (425 - 163) * (${props => props.scale} - 320px) / (900 - 320)
     );
   }
 `;
@@ -197,7 +199,9 @@ const ContentBox = styled.div`
   padding: 10px 20px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
   transform: translateY(
-    calc(-40px + (-10 - -40) * (${props => props.scale} - 320px) / (1400 - 320))
+    calc(
+      -20px + (-170 - -20) * (${props => props.scale} - 320px) / (1400 - 320)
+    )
   );
   font-size: calc(
     15px + (30 - 15) * (${props => props.scale} - 320px) / (1400 - 320)
@@ -205,7 +209,7 @@ const ContentBox = styled.div`
 
   @media (max-width: 900px) {
     transform: translateY(
-      calc(0px + (-10 - 0) * (${props => props.scale} - 320px) / (900 - 320))
+      calc(0px + (-40 - 0) * (${props => props.scale} - 320px) / (900 - 320))
     );
     font-size: calc(
       12px + (50 - 12) * (${props => props.scale} - 320px) / (2500 - 320)
@@ -232,7 +236,7 @@ const ContentSection = styled.section`
     );
     background: white;
     transform: translateX(
-      calc(60px + (0 - 60) * (${props => props.scale} - 320px) / (1400 - 320))
+      calc(60px + (60 - 60) * (${props => props.scale} - 320px) / (1400 - 320))
     );
     background: white;
   }
@@ -247,7 +251,7 @@ const ContentSection = styled.section`
   h2 {
     font-family: 'Libre Baskerville', serif;
     letter-spacing: calc(
-      6px + (1 - 6) * (${props => props.scale} - 320px) / (1400 - 320)
+      15px + (1 - 15) * (${props => props.scale} - 320px) / (1400 - 320)
     );
     font-size: calc(
       40px + (45 - 40) * (${props => props.scale} - 320px) / (1400 - 320)
