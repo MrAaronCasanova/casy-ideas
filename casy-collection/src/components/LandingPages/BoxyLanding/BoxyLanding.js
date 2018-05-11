@@ -65,7 +65,6 @@ const SideText = styled.h3`
   padding: calc(
     8px + (5 - 8) * (${props => props.scale} - 320px) / (1400 - 320)
   );
-  z-index: 5;
 
   @media (max-width: 900px) {
     padding: 0;
@@ -121,7 +120,6 @@ const ImagesSection = styled.section`
   display: grid;
   grid-template-columns: auto;
   grid-template-rows: 1fr min-content 1fr;
-  /* grid-template-rows: auto; */
 
   @media (max-width: 900px) {
     transform: translate(0, 0);
@@ -146,7 +144,7 @@ const LargeImgWrapper = styled.div`
   align-self: center;
   justify-self: center;
 
-  img {
+  & > img {
     width: 150%;
     height: 150%;
     object-fit: cover;
@@ -164,7 +162,7 @@ const LargeImgWrapper = styled.div`
 `;
 
 const SmallImgWrapper = styled.div`
-  background: #dada00;
+  background: white;
   border-top: calc(
       10px + (100 - 10) * (${props => props.scale} - 320px) / (2500 - 320)
     )
@@ -180,7 +178,20 @@ const SmallImgWrapper = styled.div`
   top: 50%;
   left: 50%;
 
-  img {
+  &::after {
+    content: '';
+    position: absolute;
+    background: #dada00;
+    top: -5%;
+    left: -5%;
+    right: -5%;
+    bottom: -5%;
+    z-index: 1;
+  }
+
+  & > img {
+    position: relative;
+    z-index: 2;
     transform: rotate(45deg) translate(-24%, -7%);
     width: 150%;
     height: 150%;
@@ -271,6 +282,10 @@ const ContentSection = styled.section`
   @media (max-width: 900px) {
     grid-column: 2/3;
     grid-row: 3/4;
+    grid-template-rows:
+      calc(50px + (40 - 50) * (${props => props.scale} - 320px) / (1400 - 320))
+      auto auto auto 1fr;
+    grid-template-columns: auto;
     text-align: left;
     padding: 0;
 
@@ -288,26 +303,37 @@ const ContentSection = styled.section`
       grid-row: 2/3;
       text-align: right;
       justify-self: right;
-      padding: calc(20px + (30 - 20) * (100vw - 320px) / (900 - 320)) 20px 20px
-        20px;
-      font-size: calc(12px + (20 - 12) * (100vw - 320px) / (900 - 320));
-      margin-right: calc(0px + (40 - 0) * (100vw - 320px) / (900 - 320));
+      padding: 0 20px 20px 20px;
+      font-size: calc(
+        12px + (20 - 12) * (${props => props.scale} - 320px) / (900 - 320)
+      );
+      margin-right: calc(
+        0px + (40 - 0) * (${props => props.scale} - 320px) / (900 - 320)
+      );
     }
     h2 {
       grid-row: 3/4;
-      margin-left: calc(0px + (20 - 0) * (100vw - 320px) / (900 - 320));
-      font-size: calc(25px + (60 - 25) * (100vw - 320px) / (900 - 320));
-      padding: 20px 20px calc(20px + (60 - 20) * (100vw - 320px) / (900 - 320))
-        20px;
+      margin-left: calc(
+        0px + (20 - 0) * (${props => props.scale} - 320px) / (900 - 320)
+      );
+      font-size: calc(
+        25px + (60 - 25) * (${props => props.scale} - 320px) / (900 - 320)
+      );
+      padding: 0 20px 40px 20px;
       letter-spacing: -1px;
     }
     h6 {
       grid-row: 4/5;
-      font-size: calc(12px + (20 - 12) * (100vw - 320px) / (900 - 320));
-      margin-left: calc(0px + (40 - 0) * (100vw - 320px) / (900 - 320));
-      width: calc(170px + (400 - 170) * (100vw - 320px) / (900 - 320));
-      padding: 20px 20px calc(20px + (60 - 20) * (100vw - 320px) / (900 - 320))
-        20px;
+      font-size: calc(
+        12px + (20 - 12) * (${props => props.scale} - 320px) / (900 - 320)
+      );
+      margin-left: calc(
+        0px + (40 - 0) * (${props => props.scale} - 320px) / (900 - 320)
+      );
+      width: calc(
+        170px + (400 - 170) * (${props => props.scale} - 320px) / (900 - 320)
+      );
+      padding: 0 20px 60px 20px;
     }
   }
 `;
@@ -377,42 +403,6 @@ class BoxyLanding extends Component {
             architecto nisi
           </h6>
         </ContentSection>
-        {/* <OutlineBox>
-          <ImagesSection>
-            <ImagesWrapper scale={this.state.scale}>
-              <LargeImgWrapper scale={this.state.scale}>
-                <img
-                  src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=92b82a18bf4bfbdfe1bd7eed8cd4ba49&auto=format&fit=crop&w=675&q=80"
-                  alt="dog"
-                />
-                <SmallImgWrapper scale={this.state.scale}>
-                  <img
-                    src="https://images.unsplash.com/photo-1517213849290-bbbfffdc6da3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=943dfad4aa75252116f83032204a5608&auto=format&fit=crop&w=800&q=80"
-                    alt="cat"
-                  />
-                </SmallImgWrapper>
-              </LargeImgWrapper>
-              <ContentBox scale={this.state.scale}>
-                CREATE A SHARED RITUAL
-              </ContentBox>
-            </ImagesWrapper>
-          </ImagesSection>
-          <ContentSection scale={this.state.scale}>
-            <div>
-              <p>
-                Friday 20 April<br />AM
-              </p>
-              <h2>
-                To Build<br />Relationships
-              </h2>
-              <h6>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-                voluptatibus ut eveniet soluta ipsum quam enim libero obcaecati
-                cum architecto nisi
-              </h6>
-            </div>
-          </ContentSection>
-        </OutlineBox> */}
       </Wrapper>
     );
   }
