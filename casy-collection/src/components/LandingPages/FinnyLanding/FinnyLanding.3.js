@@ -12,68 +12,52 @@ const Wrapper = styled.div`
   grid-template-rows: repeat(9 1fr); */
 
   @media (max-width: 900px) {
-    /* margin: 20px 0; */
-    margin: 20px;
+    margin: 20px 0;
     grid-template-columns:
-      [Img2-start] 1fr
-      [Img1-start] 4fr
-      [Img1-end Img2Gap-start] 2fr
-      [Img2Gap-end Img3-start] 4fr
-      [Img3-end Img2-end];
+      [spacing-start] minmax(20px, 1fr)
+      minmax(10px, 50px)
+      repeat(3, minmax(25px, 120px))
+      minmax(20px, 120px)
+      repeat(2, minmax(40px, 190px))
+      minmax(20px, 1fr) [spacing-end];
     grid-template-rows:
-      [Logo-start]
-      calc(50px + (80 - 50) * (${props => props.scale} - 320px) / (900 - 320))
-      /* 3fr */
-      [Logo-end Nav-start]
-      calc(55px + (85 - 55) * (${props => props.scale} - 320px) / (900 - 320))
-      /* 2fr */
-      [Nav-end Img1-start]
-      calc(
-        110px + (190 - 110) * (${props => props.scale} - 320px) / (900 - 320)
-      )
-      /* 4fr */
-      [Img2-start]
-      calc(30px + (80 - 30) * (${props => props.scale} - 320px) / (900 - 320))
-      /* 1fr */
-      [Img1-end Img2Mid-start]
-      calc(70px + (240 - 70) * (${props => props.scale} - 320px) / (900 - 320))
-      /* 5fr */
-      [Img2Mid-end Img3-start]
-      calc(50px + (105 - 50) * (${props => props.scale} - 320px) / (900 - 320))
-      /* 3fr */
-      [Img2-end]
-      calc(
-        120px + (190 - 120) * (${props => props.scale} - 320px) / (900 - 320)
-      )
-      /* 5fr */
-      [Img3-end Email-start]
-      calc(50px + (100 - 50) * (${props => props.scale} - 320px) / (900 - 320))
-      /* 2fr */
-      [Email-end Button-start]
       auto
-      /* 2fr */
-      [Button-end];
-    grid-auto-rows: 50px;
+      auto
+      repeat(2, minmax(25px, 80px))
+      minmax(20px, 40px)
+      repeat(2, minmax(20px, 90px))
+      repeat(2, minmax(20px, 45px))
+      repeat(3, minmax(15px, 45px))
+      auto
+      auto;
 
     justify-items: center;
+
+    grid-template-areas:
+      '. LT   LT   LT   LT   LT   LT   LT   .'
+      '. NC   NC   NC   NC   NC   NC   NC   .'
+      '. .    I1x3   .    .    MHx3 .    .    .'
+      '. .    I1x3   .    .    MHx3 .    .    .'
+      '. I2   I1x3   .    .    .    .    .    .'
+      '. 12   .    .    .    .    .    .    .'
+      '. 12   .    .    .    .    .    .    .'
+      '. 12   .    .    .    .    I3   .    .'
+      '. 12   .    .    .    .    I3   .    .'
+      '. DT   .    .    .    .    I3   .    .'
+      '. DT   .    .    .    .    I3   .    .'
+      '. DT   .    .    .    .    I3   .    .'
+      '. E    E    E    E    E    E    E    .'
+      '. B    B    B    B    B    B    B    .';
   }
 `;
 
 const LogoText = styled.h2`
-  /* ---------For Editing Layout---------- */
-  border: 2px solid lightcoral;
-  width: 100%;
-  height: 100%;
-  /* ------------------------------------- */
-  grid-column: Img2-start / Img2-end;
-  grid-row: Logo-start / Logo-end;
+  grid-column: space-start / space-end;
+  grid-area: LT;
   font-size: 25px;
   font-weight: bold;
 
   @media (max-width: 900px) {
-    display: flex;
-    justify-content: center;
-    align-items: center;
     font-size: calc(
       28px + (42 - 28) * (${props => props.scale} - 350px) / (900 - 350)
     );
@@ -81,17 +65,11 @@ const LogoText = styled.h2`
 `;
 
 const MainHeading = styled.h2`
-  /* ---------For Editing Layout---------- */
-  border: 2px solid mediumaquamarine;
+  grid-area: MHx3;
+  grid-column: 6 / span 3;
+  grid-row: 3 / span 2;
   width: 100%;
   height: 100%;
-  /* ------------------------------------- */
-  grid-column: Img1-end / Img2-end;
-  grid-row: Nav-end / Img2-start;
-  /* grid-column: 6 / span 3; */
-  /* grid-row: 3 / span 2; */
-  /* width: 100%;
-  height: 100%; */
   font-family: 'Josefin Sans', sans-serif;
   font-size: 160px;
   line-height: 0.9;
@@ -102,9 +80,7 @@ const MainHeading = styled.h2`
     position: absolute;
     top: 85%;
     left: 50%;
-    width: calc(
-      40px + (70 - 40) * (${props => props.scale} - 320px) / (900 - 320)
-    );
+    width: 33%;
     height: 3px;
     background: #000;
   }
@@ -115,18 +91,14 @@ const MainHeading = styled.h2`
     align-items: center;
     text-align: center;
     font-size: calc(
-      40px + (70 - 40) * (${props => props.scale} - 320px) / (900 - 320)
+      55px + (70 - 55) * (${props => props.scale} - 350px) / (900 - 350)
     );
   }
 `;
 
 const DescText = styled.p`
-  /* ---------For Editing Layout---------- */
-  border: 2px solid darkcyan;
-  /* ------------------------------------- */
-  grid-column: Img2-start / Img3-start;
-  grid-row: Img2-end / Img3-end;
-  /* grid-column: 2 / span 5; */
+  grid-area: DT;
+  grid-column: 2 / span 5;
   width: 100%;
   height: 100%;
   color: #9e9e9e;
@@ -140,9 +112,9 @@ const DescText = styled.p`
     font-size: calc(
       10px + (16 - 10) * (${props => props.scale} - 350px) / (900 - 350)
     );
-    /* width: calc(
+    width: calc(
       130px + (420 - 130) * (${props => props.scale} - 320px) / (900 - 320)
-    ); */
+    );
   }
 `;
 
@@ -158,11 +130,7 @@ const VerticalNums = styled.ul`
 `;
 
 const CTAButton = styled.button`
-  /* ---------For Editing Layout---------- */
-  border: 2px solid coral;
-  grid-column: Img2-start / Img2-end;
-  grid-row: Button-start / Button-end;
-  /* ------------------------------------- */
+  grid-area: B;
   border: 3px solid black;
   font-size: 20px;
   font-weight: bold;
@@ -186,11 +154,7 @@ const CTAButton = styled.button`
 `;
 
 const NavContainer = styled.ul`
-  /* ---------For Editing Layout---------- */
-  border: 2px solid navy;
-  /* ------------------------------------- */
-  grid-column: Img2-start / Img2-end;
-  grid-row: Nav-start / Nav-end;
+  grid-area: NC;
   width: 100%;
   height: 100%;
   list-style: none;
@@ -203,8 +167,7 @@ const NavContainer = styled.ul`
   }
 
   @media (max-width: 900px) {
-    display: flex;
-    justify-content: center;
+    margin-bottom: 20px;
     font-size: calc(
       13px + (23 - 13) * (${props => props.scale} - 350px) / (900 - 350)
     );
@@ -212,17 +175,13 @@ const NavContainer = styled.ul`
 `;
 
 const Email = styled.p`
-  /* ---------For Editing Layout---------- */
-  border: 2px solid maroon;
-  /* ------------------------------------- */
-  grid-column: Img2-start / Img2-end;
-  grid-row: Email-start / Email-end;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
   width: 100%;
   height: 100%;
+  grid-area: E;
   /* grid-column: 2/3;
   grid-row: 9/10; */
   color: #9e9e9e;
@@ -230,23 +189,19 @@ const Email = styled.p`
   @media (max-width: 900px) {
     /* grid-column: 2/3;
     grid-row: 8/9; */
-    /* padding: 30px; */
+    padding: 30px;
     font-size: calc(
-      16px + (30 - 16) * (${props => props.scale} - 350px) / (900 - 350)
+      19px + (30 - 19) * (${props => props.scale} - 350px) / (900 - 350)
     );
   }
 `;
 
 const ImgOne = styled.img`
-  /* ---------For Editing Layout---------- */
-  border: 2px solid orange;
-  /* ------------------------------------- */
-  grid-column: Img1-start / Img1-end;
-  grid-row: Img1-start / Img1-end;
   width: 100%;
   height: 100%;
-  /* grid-column: 3 / span 3; */
-  /* grid-row: 3 / span 3; */
+  grid-area: I1x3;
+  grid-column: 3 / span 3;
+  grid-row: 3 / span 3;
   position: relative;
   z-index: 1;
   /* grid-column: 4/7;
@@ -277,15 +232,11 @@ const ImgOne = styled.img`
 `;
 
 const ImgTwo = styled.img`
-/* ---------For Editing Layout---------- */
-border: 2px solid turquoise;
-/* ------------------------------------- */
-grid-column: Img2-start / Img2-end;
-grid-row: Img2-start / Img2-end;
   width: 100%;
   height: 100%;
-  /* grid-column: 2/ span 7; */
-  /* grid-row: 5 / span 5; */
+  grid-area: I2;
+  grid-column: 2/ span 7;
+  grid-row: 5 / span 5;
   /* grid-column: 3/8;
   grid-row: 3/8; */
   width: 100%;
@@ -311,15 +262,11 @@ grid-row: Img2-start / Img2-end;
 `;
 
 const ImgThree = styled.img`
-/* ---------For Editing Layout---------- */
-border: 2px solid teal;
-/* ------------------------------------- */
-grid-column: Img3-start / Img3-end;
-grid-row: Img3-start / Img3-end;
   width: 100%;
   height: 100%;
-  /* grid-column: 7 / span 2; */
-  /* grid-row: 8 / span 5; */
+  grid-area: I3;
+  grid-column: 7 / span 2;
+  grid-row: 8 / span 5;
   /* grid-column: 5/8;
   grid-row: 7/ 10; */
   width: 100%;
@@ -379,7 +326,7 @@ class FinnyLanding extends Component {
 
   render() {
     return (
-      <Wrapper scale={this.state.scale}>
+      <Wrapper>
         <LogoText scale={this.state.scale}>Finnerztaffen.</LogoText>
         <MainHeading scale={this.state.scale}>
           Ayo<br />River
