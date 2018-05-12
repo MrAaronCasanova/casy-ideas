@@ -18,37 +18,24 @@ const Wrapper = styled.div`
   @media (max-width: 900px) {
     margin: 20px 0;
     grid-template-columns:
-      minmax(5px, 1fr)
-      repeat(7, 1fr)
-      minmax(5px, 1fr);
-    grid-template-rows: 1fr;
-    /* grid-template-rows: repeat(10 auto); */
+      minmax(5px, auto)
+      auto
+      minmax(5px, auto);
+    grid-template-rows: repeat(10 auto);
     justify-items: center;
-
-    grid-template-areas:
-      '. ${'LogoText '.repeat(7)} .'
-      '. ${'NavContainer '.repeat(7)} .'
-      '. . ${'ImgOne '.repeat(3)} . . . .'
-      '. ${'ImgTwo '.repeat(7)} .'
-      '. . . . . . ${'ImgThree '.repeat(2)} .'
-      '. . . . ${'MainHeading '.repeat(4)} .'
-      '. ${'DescText '.repeat(3)} . . . . .'
-      '. ${'Email '.repeat(7)} .'
-      '. ${'CTAButton '.repeat(7)} .';
   }
 `;
 
 const LogoText = styled.h2`
-  grid-area: LogoText;
-  /* grid-column: 1/2;
-  grid-row: 2/3; */
+  grid-column: 1/2;
+  grid-row: 2/3;
   /* margin: 120px 0; */
   font-size: 25px;
   font-weight: bold;
 
   @media (max-width: 900px) {
-    /* grid-column: 2/3;
-    grid-row: 1/2; */
+    grid-column: 2/3;
+    grid-row: 1/2;
     font-size: calc(
       28px + (42 - 28) * (${props => props.scale} - 350px) / (900 - 350)
     );
@@ -56,9 +43,8 @@ const LogoText = styled.h2`
 `;
 
 const MainHeading = styled.h2`
-  grid-area: MainHeading;
-  /* grid-column: 1/2;
-  grid-row: 3/6; */
+  grid-column: 1/2;
+  grid-row: 3/6;
   font-family: 'Josefin Sans', sans-serif;
   font-size: 160px;
   line-height: 0.9;
@@ -76,8 +62,8 @@ const MainHeading = styled.h2`
   }
 
   @media (max-width: 900px) {
-    /* grid-column: 2/3;
-    grid-row: 4/5; */
+    grid-column: 2/3;
+    grid-row: 4/5;
     font-size: calc(
       70px + (120 - 70) * (${props => props.scale} - 350px) / (900 - 350)
     );
@@ -85,17 +71,16 @@ const MainHeading = styled.h2`
 `;
 
 const DescText = styled.p`
-  grid-area: DescText;
-  /* grid-column: 1/2;
-  grid-row: 6/8; */
+  grid-column: 1/2;
+  grid-row: 6/8;
   color: #9e9e9e;
   width: 400px;
   /* margin-bottom: 80px; */
 
   @media (max-width: 900px) {
     text-align: center;
-    /* grid-column: 2/3;
-    grid-row: 5/6; */
+    grid-column: 2/3;
+    grid-row: 5/6;
     font-size: calc(
       15px + (25 - 15) * (${props => props.scale} - 350px) / (900 - 350)
     );
@@ -106,11 +91,10 @@ const DescText = styled.p`
 `;
 
 const VerticalNums = styled.ul`
-  grid-area: VerticalNums;
   place-self: center;
   list-style: none;
-  /* grid-column: 2/3;
-  grid-row: 3/6; */
+  grid-column: 2/3;
+  grid-row: 3/6;
   color: red;
 
   @media (max-width: 900px) {
@@ -119,9 +103,8 @@ const VerticalNums = styled.ul`
 `;
 
 const CTAButton = styled.button`
-  grid-area: CTAButton;
-  /* grid-column: 1/2;
-  grid-row: 8/9; */
+  grid-column: 1/2;
+  grid-row: 8/9;
   border: 3px solid black;
   font-size: 20px;
   font-weight: bold;
@@ -135,8 +118,8 @@ const CTAButton = styled.button`
   }
 
   @media (max-width: 900px) {
-    /* grid-column: 2/3;
-    grid-row: 9/10; */
+    grid-column: 2/3;
+    grid-row: 9/10;
     font-size: calc(
       20px + (55 - 20) * (${props => props.scale} - 350px) / (900 - 350)
     );
@@ -144,10 +127,8 @@ const CTAButton = styled.button`
 `;
 
 const NavContainer = styled.ul`
-  grid-area: NavContainer;
-  grid-area: NavContainer;
-  /* grid-column: 1/2;
-  grid-row: 9/10; */
+  grid-column: 1/2;
+  grid-row: 9/10;
   list-style: none;
   width: 50%;
   display: flex;
@@ -160,8 +141,8 @@ const NavContainer = styled.ul`
   }
 
   @media (max-width: 900px) {
-    /* grid-column: 2/3;
-    grid-row: 2/3; */
+    grid-column: 2/3;
+    grid-row: 2/3;
     font-size: calc(
       13px + (23 - 13) * (${props => props.scale} - 350px) / (900 - 350)
     );
@@ -169,14 +150,13 @@ const NavContainer = styled.ul`
 `;
 
 const Email = styled.p`
-  grid-area: Email;
-  /* grid-column: 2/3;
-  grid-row: 9/10; */
+  grid-column: 2/3;
+  grid-row: 9/10;
   color: #9e9e9e;
 
   @media (max-width: 900px) {
-    /* grid-column: 2/3;
-    grid-row: 8/9; */
+    grid-column: 2/3;
+    grid-row: 8/9;
     font-size: calc(
       19px + (40 - 19) * (${props => props.scale} - 350px) / (900 - 350)
     );
@@ -184,14 +164,10 @@ const Email = styled.p`
 `;
 
 const ImgOne = styled.img`
-  /* ---------For Editing Layout---------- */
-  border: 2px solid seagreen;
-  /* ------------------------------------- */
-  grid-area: ImgOne;
   position: relative;
   z-index: 1;
-  /* grid-column: 4/7;
-  grid-row: 1/4; */
+  grid-column: 4/7;
+  grid-row: 1/4;
   /* border: 2px solid red; */
   width: 100%;
   height: 100%;
@@ -205,24 +181,20 @@ const ImgOne = styled.img`
   object-fit: cover;
 
   @media (max-width: 900px) {
-    /* grid-column: 2/3;
-    grid-row: 3/4; */
-    /* width: calc(
+    grid-column: 2/3;
+    grid-row: 3/4;
+    width: calc(
       280px + (680 - 280) * (${props => props.scale} - 320px) / (900 - 320)
     );
     height: calc(
       220px + (500 - 220) * (${props => props.scale} - 320px) / (900 - 320)
-    ); */
+    );
   }
 `;
 
 const ImgTwo = styled.img`
-  /* ---------For Editing Layout---------- */
-  border: 2px solid seagreen;
-  /* ------------------------------------- */
-  grid-area: ImgTwo;
-  /* grid-column: 3/8;
-  grid-row: 3/8; */
+  grid-column: 3/8;
+  grid-row: 3/8;
   width: 100%;
   /* filter: grayscale(90%) invert(10%) sepia(80%) brightness(60%); */
   /* right: 10vw;
@@ -233,25 +205,21 @@ const ImgTwo = styled.img`
   object-fit: cover;
 
   @media (max-width: 900px) {
-    /* grid-column: 2/3;
-    grid-row: 6/7; */
-    /* width: calc(
+    grid-column: 2/3;
+    grid-row: 6/7;
+    width: calc(
       280px + (680 - 280) * (${props => props.scale} - 320px) / (900 - 320)
     );
     height: calc(
-      190px + (400 - 190) * (${props => props.scale} - 320px) / (900 - 320) */
+      190px + (400 - 190) * (${props => props.scale} - 320px) / (900 - 320)
     );
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.5);
   }
 `;
 
 const ImgThree = styled.img`
-  /* ---------For Editing Layout---------- */
-  border: 2px solid seagreen;
-  /* ------------------------------------- */
-  grid-area: ImgThree;
-  /* grid-column: 5/8;
-  grid-row: 7/ 10; */
+  grid-column: 5/8;
+  grid-row: 7/ 10;
   width: 100%;
   height: 100%;
   filter: grayscale(90%) invert(10%) sepia(80%) brightness(50%);
@@ -264,18 +232,18 @@ const ImgThree = styled.img`
   /* object-position: 0 -150px; */
 
   @media (max-width: 900px) {
-    /* grid-column: 2/3;
-    grid-row: 7/8; */
-    /* transform: translateY(
+    grid-column: 2/3;
+    grid-row: 7/8;
+    transform: translateY(
       calc(
         -33px + (-52 - -33) * (${props => props.scale} - 320px) / (900 - 320)
       )
-    ); */
-    /* width: calc(
+    );
+    width: calc(
       200px + (480 - 200) * (${props => props.scale} - 320px) / (900 - 320)
     );
     height: calc(
-      150px + (340 - 150) * (${props => props.scale} - 320px) / (900 - 320) */
+      150px + (340 - 150) * (${props => props.scale} - 320px) / (900 - 320)
     );
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.34);
   }
@@ -334,17 +302,17 @@ class FinnyLanding extends Component {
         <Email scale={this.state.scale}>mraaroncasanova@gmail.com</Email>
         <ImgOne
           scale={this.state.scale}
-          // src="https://images.pexels.com/photos/127567/pexels-photo-127567.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+          src="https://images.pexels.com/photos/127567/pexels-photo-127567.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
           alt="rocks"
         />
         <ImgTwo
           scale={this.state.scale}
-          // src="https://images.pexels.com/photos/267858/pexels-photo-267858.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+          src="https://images.pexels.com/photos/267858/pexels-photo-267858.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
           alt="boy"
         />
         <ImgThree
           scale={this.state.scale}
-          // src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLpL8c3Mi1DjbjGLNxYvn7c_wpUq-mjUzmGbtSjlbdbASkvpZ64w"
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLpL8c3Mi1DjbjGLNxYvn7c_wpUq-mjUzmGbtSjlbdbASkvpZ64w"
           // src="https://c1.staticflickr.com/6/5089/5337671824_a18daf19de_b.jpg"
           alt="man"
         />
