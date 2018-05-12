@@ -15,11 +15,24 @@ const Wrapper = styled.div`
     /* margin: 20px 0; */
     margin: 20px;
     grid-template-columns:
-      [Img2-start] 1fr
-      [Img1-start] 4fr
-      [Img1-end Img2Gap-start] 2fr
-      [Img2Gap-end Img3-start] 4fr
+      [Img2-start]
+      calc(20px + (80 - 20) * (${props => props.scale} - 320px) / (900 - 320))
+      /* 1fr */
+      [Img1-start]
+      calc(
+        120px + (240 - 120) * (${props => props.scale} - 320px) / (900 - 320)
+      )
+      /* 4fr */
+      [Img1-end Img2Gap-start]
+      calc(40px + (180 - 40) * (${props => props.scale} - 320px) / (900 - 320))
+      /* 2fr */
+      [Img2Gap-end Img3-start]
+      calc(
+        120px + (240 - 120) * (${props => props.scale} - 320px) / (900 - 320)
+      )
+      /* 4fr */
       [Img3-end Img2-end];
+
     grid-template-rows:
       [Logo-start]
       calc(50px + (80 - 50) * (${props => props.scale} - 320px) / (900 - 320))
@@ -53,15 +66,15 @@ const Wrapper = styled.div`
       auto
       /* 2fr */
       [Button-end];
-    grid-auto-rows: 50px;
 
+    justify-content: center;
     justify-items: center;
   }
 `;
 
 const LogoText = styled.h2`
   /* ---------For Editing Layout---------- */
-  border: 2px solid lightcoral;
+  /* border: 2px solid lightcoral; */
   width: 100%;
   height: 100%;
   /* ------------------------------------- */
@@ -82,7 +95,7 @@ const LogoText = styled.h2`
 
 const MainHeading = styled.h2`
   /* ---------For Editing Layout---------- */
-  border: 2px solid mediumaquamarine;
+  /* border: 2px solid mediumaquamarine; */
   width: 100%;
   height: 100%;
   /* ------------------------------------- */
@@ -122,7 +135,7 @@ const MainHeading = styled.h2`
 
 const DescText = styled.p`
   /* ---------For Editing Layout---------- */
-  border: 2px solid darkcyan;
+  /* border: 2px solid darkcyan; */
   /* ------------------------------------- */
   grid-column: Img2-start / Img3-start;
   grid-row: Img2-end / Img3-end;
@@ -140,9 +153,9 @@ const DescText = styled.p`
     font-size: calc(
       10px + (16 - 10) * (${props => props.scale} - 350px) / (900 - 350)
     );
-    /* width: calc(
+    width: calc(
       130px + (420 - 130) * (${props => props.scale} - 320px) / (900 - 320)
-    ); */
+    );
   }
 `;
 
@@ -159,7 +172,7 @@ const VerticalNums = styled.ul`
 
 const CTAButton = styled.button`
   /* ---------For Editing Layout---------- */
-  border: 2px solid coral;
+  /* border: 2px solid coral; */
   grid-column: Img2-start / Img2-end;
   grid-row: Button-start / Button-end;
   /* ------------------------------------- */
@@ -187,7 +200,7 @@ const CTAButton = styled.button`
 
 const NavContainer = styled.ul`
   /* ---------For Editing Layout---------- */
-  border: 2px solid navy;
+  /* border: 2px solid navy; */
   /* ------------------------------------- */
   grid-column: Img2-start / Img2-end;
   grid-row: Nav-start / Nav-end;
@@ -213,7 +226,7 @@ const NavContainer = styled.ul`
 
 const Email = styled.p`
   /* ---------For Editing Layout---------- */
-  border: 2px solid maroon;
+  /* border: 2px solid maroon; */
   /* ------------------------------------- */
   grid-column: Img2-start / Img2-end;
   grid-row: Email-start / Email-end;
@@ -239,7 +252,7 @@ const Email = styled.p`
 
 const ImgOne = styled.img`
   /* ---------For Editing Layout---------- */
-  border: 2px solid orange;
+  /* border: 2px solid orange; */
   /* ------------------------------------- */
   grid-column: Img1-start / Img1-end;
   grid-row: Img1-start / Img1-end;
@@ -278,7 +291,7 @@ const ImgOne = styled.img`
 
 const ImgTwo = styled.img`
 /* ---------For Editing Layout---------- */
-border: 2px solid turquoise;
+/* border: 2px solid turquoise; */
 /* ------------------------------------- */
 grid-column: Img2-start / Img2-end;
 grid-row: Img2-start / Img2-end;
@@ -312,7 +325,7 @@ grid-row: Img2-start / Img2-end;
 
 const ImgThree = styled.img`
 /* ---------For Editing Layout---------- */
-border: 2px solid teal;
+/* border: 2px solid teal; */
 /* ------------------------------------- */
 grid-column: Img3-start / Img3-end;
 grid-row: Img3-start / Img3-end;
