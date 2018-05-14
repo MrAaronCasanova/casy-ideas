@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   /* ---- CSS Variables Section ----- */
-  --grid-brdr: ${1 ? 'red' : 'none'};
+  --grid-brdr: ${0 ? 'red' : 'none'};
   /* -------------------------------- */
   /* ---------For Editing Layout---------- */
   border: 2px solid var(--grid-brdr);
@@ -16,113 +16,33 @@ const Wrapper = styled.div`
   display: grid;
   grid-template-columns:
     [LeftGutter-start]
-    /* 20px */
-    minmax(20px, 2fr)
+    1fr
     [LeftGutter-end Img2-start]
-    minmax(20px, 2fr)
-    /* minmax(20px, 2fr) */
-    /* 2fr */
+    calc(
+      calc(3.2px * 7) + (calc(7.5 * 4) - calc(3.2 * 7)) * (100vw - 320px) /
+        (750 - 320)
+    )
     [Img1-start]
-    minmax(90px, 13fr)
-    /* minmax(180px, 7fr) */
-    /* 7fr */
+    calc(
+      calc(3.2px * 33) + (calc(7.5 * 33) - calc(3.2 * 33)) * (100vw - 320px) /
+        (750 - 320)
+    )
     [Img1-end]
-    minmax(60px, 8fr)
-    /* minmax(20px, 5fr) */
-    /* 5fr */
+    calc(
+      calc(3.2px * 13) + (calc(7.5 * 26) - calc(3.2 * 13)) * (100vw - 320px) /
+        (750 - 320)
+    )
     [Img3-start]
-    minmax(110px, 12fr)
-    /* minmax(20px, 9fr) */
-    /* 9fr */
+    calc(
+      calc(3.2px * 41) + (calc(7.5 * 31) - calc(3.2 * 41)) * (100vw - 320px) /
+        (750 - 320)
+    )
     [Img2-end Img3-end RightGutter-start]
-    /* 20px */
-    minmax(20px, 2fr)
+    1fr
     [RightGutter-end];
   grid-template-rows:
-    /* Maybe just use resh for template rows */
     [TopGutter-start]
-    20px
-    /* minmax(50px, 1fr) */
-    [TopGutter-end Logo-start]
-    calc(
-      calc(3.2px * 15) + (calc(7.5 * 7) - calc(3.2 * 15)) * (100vh - 320px) /
-        (750 - 320)
-    )
-    /* minmax(40px, 0) */
-    /* 15vh */
-    /* 2fr */
-    [Logo-end Nav-start]
-    calc(
-      calc(3.2px * 20) + (calc(7.5 * 9) - calc(3.2 * 20)) * (100vh - 320px) /
-        (750 - 320)
-    )
-    /* minmax(55px, 0) */
-    /* 20vh */
-    /* 4fr */
-    [Nav-end Img1-start MainHeading-start]
-    calc(
-      calc(3.2px * 25) + (calc(7.5 * 18) - calc(3.2 * 25)) * (100vh - 320px) /
-        (750 - 320)
-    )
-    /* minmax(80px, 0) */
-    /* 25vh */
-    /* 6fr */
-    [MainHeading-end Img2-start]
-    calc(
-      calc(3.2px * 10) + (calc(7.5 * 7) - calc(3.2 * 10)) * (100vh - 320px) /
-        (750 - 320)
-    )
-    /* minmax(30px, 0) */
-    /* 10vh */
-    /* 2fr */
-    [Img1-end]
-    calc(
-      calc(3.2px * 20) + (calc(7.5 * 22) - calc(3.2 * 20)) * (100vh - 320px) /
-        (750 - 320)
-    )
-    /* minmax(80px, 0) */
-    /* 20vh */
-    /* 5fr */
-    [Img3-start]
-    calc(
-      calc(3.2px * 18) + (calc(7.5 * 11) - calc(3.2 * 18)) * (100vh - 320px) /
-        (750 - 320)
-    )
-    /* minmax(50px, 0) */
-    /* 18vh */
-    /* 3fr */
-    [Img2-end]
-    calc(
-      calc(3.2px * 38) + (calc(7.5 * 24) - calc(3.2 * 38)) * (100vh - 320px) /
-        (750 - 320)
-    )
-    /* minmax(80px, 0) */
-    /* 38vh */
-    /* 7fr */
-    [Img3-end Email-start]
-    calc(
-      calc(3.2px * 20) + (calc(7.5 * 9) - calc(3.2 * 20)) * (100vh - 320px) /
-        (750 - 320)
-    )
-    /* minmax(50px, 0) */
-    /* 20vh */
-    /* 3fr */
-    [Email-end Button-start]
-    calc(
-      calc(3.2px * 20) + (calc(7.5 * 9) - calc(3.2 * 20)) * (100vh - 320px) /
-        (750 - 320)
-    )
-    /* minmax(50px, 0) */
-    /* 20vh */
-    /* 3fr */
-    [Button-end BottomGutter-start]
-    20px
-    /* minmax(50px, 1fr) */
-    [BottomGutter-end];
-  grid-template-rows:
-    /* Maybe just use resh for template rows */
-    [TopGutter-start]
-    20px
+    minmax(20px, 1fr)
     [TopGutter-end Logo-start]
     calc(
       calc(3.2px * 15) + (calc(13 * 7) - calc(3.2 * 15)) * (100vh - 320px) /
@@ -169,10 +89,87 @@ const Wrapper = styled.div`
         (1300 - 320)
     )
     [Button-end BottomGutter-start]
-    20px
+    minmax(20px, 1fr)
     [BottomGutter-end];
 
   @media (min-width: 750px) {
+    grid-template-columns:
+      [LeftGutter-start]
+      1fr
+      [LeftGutter-end Img2-start]
+      calc(
+        calc(3.2px * 7) + (calc(7.5 * 4) - calc(3.2 * 7)) * (100vw - 320px) /
+          (750 - 320)
+      )
+      [Img1-start]
+      calc(
+        calc(3.2px * 33) + (calc(7.5 * 33) - calc(3.2 * 33)) * (100vw - 320px) /
+          (750 - 320)
+      )
+      [Img1-end]
+      calc(
+        calc(3.2px * 13) + (calc(7.5 * 26) - calc(3.2 * 13)) * (100vw - 320px) /
+          (750 - 320)
+      )
+      [Img3-start]
+      calc(
+        calc(3.2px * 41) + (calc(7.5 * 31) - calc(3.2 * 41)) * (100vw - 320px) /
+          (750 - 320)
+      )
+      [Img2-end Img3-end RightGutter-start]
+      1fr
+      [RightGutter-end];
+    grid-template-rows:
+      [TopGutter-start]
+      minmax(20px, 1fr)
+      [TopGutter-end Logo-start]
+      calc(
+        calc(3.2px * 15) + (calc(13 * 7) - calc(3.2 * 15)) * (100vh - 320px) /
+          (1300 - 320)
+      )
+      [Logo-end Nav-start]
+      calc(
+        calc(3.2px * 20) + (calc(13 * 8) - calc(3.2 * 20)) * (100vh - 320px) /
+          (1300 - 320)
+      )
+      [Nav-end Img1-start MainHeading-start]
+      calc(
+        calc(3.2px * 25) + (calc(13 * 15) - calc(3.2 * 25)) * (100vh - 320px) /
+          (1300 - 320)
+      )
+      [MainHeading-end Img2-start]
+      calc(
+        calc(3.2px * 10) + (calc(13 * 6) - calc(3.2 * 10)) * (100vh - 320px) /
+          (1300 - 320)
+      )
+      [Img1-end]
+      calc(
+        calc(3.2px * 20) + (calc(13 * 19) - calc(3.2 * 20)) * (100vh - 320px) /
+          (1300 - 320)
+      )
+      [Img3-start]
+      calc(
+        calc(3.2px * 18) + (calc(13 * 7) - calc(3.2 * 18)) * (100vh - 320px) /
+          (1300 - 320)
+      )
+      [Img2-end]
+      calc(
+        calc(3.2px * 38) + (calc(13 * 20) - calc(3.2 * 38)) * (100vh - 320px) /
+          (1300 - 320)
+      )
+      [Img3-end Email-start]
+      calc(
+        calc(3.2px * 20) + (calc(13 * 7) - calc(3.2 * 20)) * (100vh - 320px) /
+          (1300 - 320)
+      )
+      [Email-end Button-start]
+      calc(
+        calc(3.2px * 20) + (calc(13 * 7) - calc(3.2 * 20)) * (100vh - 320px) /
+          (1300 - 320)
+      )
+      [Button-end BottomGutter-start]
+      minmax(20px, 1fr)
+      [BottomGutter-end];
   }
 `;
 
@@ -189,7 +186,7 @@ const Logo = styled.h2`
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
   font-size: calc(
-    23px + (60 - 23) * (${props => props.scale} - 320px) / (750 - 320)
+    28px + (46 - 28) * (${props => props.scale} - 320px) / (750 - 320)
   );
 
   @media (min-width: 750px) {
@@ -207,7 +204,7 @@ const Nav = styled.ul`
 
   list-style: none;
   font-size: calc(
-    15px + (27 - 15) * (${props => props.scale} - 320px) / (750 - 320)
+    17px + (27 - 17) * (${props => props.scale} - 320px) / (750 - 320)
   );
 
   li {
@@ -232,7 +229,7 @@ const MainHeading = styled.h2`
 
   font-family: 'Josefin Sans', sans-serif;
   font-size: calc(
-    30px + (50 - 30) * (${props => props.scale} - 320px) / (750 - 320)
+    32px + (56 - 32) * (${props => props.scale} - 320px) / (750 - 320)
   );
   font-weight: bold;
 
@@ -252,9 +249,12 @@ const DescText = styled.p`
   align-items: center;
 
   text-align: center;
-  width: calc(150px + (300 - 150) * (100vw - 320px) / (750 - 320));
+  width: calc(
+    calc(3.2px * 45) + (calc(7.5 * 50) - calc(3.2 * 45)) * (100vw - 320px) /
+      (750 - 320)
+  );
   font-size: calc(
-    11px + (21 - 11) * (${props => props.scale} - 320px) / (750 - 320)
+    10px + (19 - 10) * (${props => props.scale} - 320px) / (750 - 320)
   );
 
   @media (min-width: 750px) {
@@ -273,6 +273,7 @@ const Img1 = styled.img`
   object-fit: cover;
   position: relative;
   z-index: 1;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
 
   @media (min-width: 750px) {
   }
@@ -287,6 +288,7 @@ const Img2 = styled.img`
   width: 100%;
   height: 100%;
   object-fit: cover;
+  box-shadow: 1px 5px 20px rgba(0, 0, 0, 0.3);
 
   @media (min-width: 750px) {
   }
@@ -302,6 +304,7 @@ const Img3 = styled.img`
   height: 100%;
   object-fit: cover;
   filter: grayscale(90%) invert(10%) sepia(80%) brightness(50%);
+  box-shadow: 3px 7px 25px rgba(0, 0, 0, 0.2);
 
   @media (min-width: 750px) {
   }
@@ -318,7 +321,7 @@ const Email = styled.h6`
   align-items: center;
 
   font-size: calc(
-    15px + (35 - 15) * (${props => props.scale} - 320px) / (750 - 320)
+    14px + (27 - 14) * (${props => props.scale} - 320px) / (750 - 320)
   );
   font-weight: bold;
 
@@ -338,9 +341,11 @@ const CTAButton = styled.button`
   justify-content: center;
   align-items: center;
 
+  border: 2px solid #000;
+  background: #fff;
   padding: 10px;
   font-size: calc(
-    18px + (26 - 18) * (${props => props.scale} - 320px) / (750 - 320)
+    14px + (22 - 14) * (${props => props.scale} - 320px) / (750 - 320)
   );
   font-weight: bold;
   transition: 250ms;
