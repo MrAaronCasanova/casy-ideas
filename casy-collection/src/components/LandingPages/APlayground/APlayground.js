@@ -2,121 +2,213 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
+  /* ---- CSS Variables Section ----- */
+  --grid-brdr: ${1 ? 'red' : 'none'};
+  /* -------------------------------- */
   /* ---------For Editing Layout---------- */
-  border: 2px solid red;
+  border: 2px solid var(--grid-brdr);
   /* ------------------------------------- */
   @import url('https://fonts.googleapis.com/css?family=Poppins:400,700');
   /* @import url('https://fonts.googleapis.com/css?family=Poppins'); */
 
   @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
-  /* padding: 40px 0; */
-  /* background: #efe9ef;
-  color: slategray; */
   min-height: 100vh;
   display: grid;
-
-  @media (max-width: 750px) {
-    grid-template-columns:
-      [LeftGutter-start]
-      /* 20px */
-      minmax(20px, 2fr)
-      [LeftGutter-end Img2-start]
-      minmax(20px, 2fr)
-      /* minmax(20px, 2fr) */
-      /* 2fr */
-      [Img1-start]
-      minmax(90px, 13fr)
-      /* minmax(180px, 7fr) */
-      /* 7fr */
-      [Img1-end]
-      minmax(60px, 8fr)
-      /* minmax(20px, 5fr) */
-      /* 5fr */
-      [Img3-start]
-      minmax(110px, 12fr)
-      /* minmax(20px, 9fr) */
-      /* 9fr */
-      [Img2-end Img3-end RightGutter-start]
-      /* 20px */
-      minmax(20px, 2fr)
-      [RightGutter-end];
-  }
+  grid-template-columns:
+    [LeftGutter-start]
+    /* 20px */
+    minmax(20px, 2fr)
+    [LeftGutter-end Img2-start]
+    minmax(20px, 2fr)
+    /* minmax(20px, 2fr) */
+    /* 2fr */
+    [Img1-start]
+    minmax(90px, 13fr)
+    /* minmax(180px, 7fr) */
+    /* 7fr */
+    [Img1-end]
+    minmax(60px, 8fr)
+    /* minmax(20px, 5fr) */
+    /* 5fr */
+    [Img3-start]
+    minmax(110px, 12fr)
+    /* minmax(20px, 9fr) */
+    /* 9fr */
+    [Img2-end Img3-end RightGutter-start]
+    /* 20px */
+    minmax(20px, 2fr)
+    [RightGutter-end];
   grid-template-rows:
+    /* Maybe just use resh for template rows */
     [TopGutter-start]
     20px
     /* minmax(50px, 1fr) */
     [TopGutter-end Logo-start]
-    minmax(40px, 0)
+    calc(
+      calc(3.2px * 15) + (calc(7.5 * 7) - calc(3.2 * 15)) * (100vh - 320px) /
+        (750 - 320)
+    )
+    /* minmax(40px, 0) */
     /* 15vh */
     /* 2fr */
     [Logo-end Nav-start]
-    minmax(55px, 0)
+    calc(
+      calc(3.2px * 20) + (calc(7.5 * 9) - calc(3.2 * 20)) * (100vh - 320px) /
+        (750 - 320)
+    )
+    /* minmax(55px, 0) */
     /* 20vh */
     /* 4fr */
     [Nav-end Img1-start MainHeading-start]
-    minmax(80px, 0)
+    calc(
+      calc(3.2px * 25) + (calc(7.5 * 18) - calc(3.2 * 25)) * (100vh - 320px) /
+        (750 - 320)
+    )
+    /* minmax(80px, 0) */
     /* 25vh */
     /* 6fr */
     [MainHeading-end Img2-start]
-    minmax(30px, 0)
+    calc(
+      calc(3.2px * 10) + (calc(7.5 * 7) - calc(3.2 * 10)) * (100vh - 320px) /
+        (750 - 320)
+    )
+    /* minmax(30px, 0) */
     /* 10vh */
     /* 2fr */
     [Img1-end]
-    minmax(80px, 0)
+    calc(
+      calc(3.2px * 20) + (calc(7.5 * 22) - calc(3.2 * 20)) * (100vh - 320px) /
+        (750 - 320)
+    )
+    /* minmax(80px, 0) */
     /* 20vh */
     /* 5fr */
     [Img3-start]
-    minmax(50px, 0)
+    calc(
+      calc(3.2px * 18) + (calc(7.5 * 11) - calc(3.2 * 18)) * (100vh - 320px) /
+        (750 - 320)
+    )
+    /* minmax(50px, 0) */
     /* 18vh */
     /* 3fr */
     [Img2-end]
-    minmax(80px, 0)
+    calc(
+      calc(3.2px * 38) + (calc(7.5 * 24) - calc(3.2 * 38)) * (100vh - 320px) /
+        (750 - 320)
+    )
+    /* minmax(80px, 0) */
     /* 38vh */
     /* 7fr */
     [Img3-end Email-start]
-    minmax(50px, 0)
+    calc(
+      calc(3.2px * 20) + (calc(7.5 * 9) - calc(3.2 * 20)) * (100vh - 320px) /
+        (750 - 320)
+    )
+    /* minmax(50px, 0) */
     /* 20vh */
     /* 3fr */
     [Email-end Button-start]
-    minmax(50px, 0)
+    calc(
+      calc(3.2px * 20) + (calc(7.5 * 9) - calc(3.2 * 20)) * (100vh - 320px) /
+        (750 - 320)
+    )
+    /* minmax(50px, 0) */
     /* 20vh */
     /* 3fr */
     [Button-end BottomGutter-start]
     20px
     /* minmax(50px, 1fr) */
     [BottomGutter-end];
+  grid-template-rows:
+    /* Maybe just use resh for template rows */
+    [TopGutter-start]
+    20px
+    [TopGutter-end Logo-start]
+    calc(
+      calc(3.2px * 15) + (calc(13 * 7) - calc(3.2 * 15)) * (100vh - 320px) /
+        (1300 - 320)
+    )
+    [Logo-end Nav-start]
+    calc(
+      calc(3.2px * 20) + (calc(13 * 8) - calc(3.2 * 20)) * (100vh - 320px) /
+        (1300 - 320)
+    )
+    [Nav-end Img1-start MainHeading-start]
+    calc(
+      calc(3.2px * 25) + (calc(13 * 15) - calc(3.2 * 25)) * (100vh - 320px) /
+        (1300 - 320)
+    )
+    [MainHeading-end Img2-start]
+    calc(
+      calc(3.2px * 10) + (calc(13 * 6) - calc(3.2 * 10)) * (100vh - 320px) /
+        (1300 - 320)
+    )
+    [Img1-end]
+    calc(
+      calc(3.2px * 20) + (calc(13 * 19) - calc(3.2 * 20)) * (100vh - 320px) /
+        (1300 - 320)
+    )
+    [Img3-start]
+    calc(
+      calc(3.2px * 18) + (calc(13 * 7) - calc(3.2 * 18)) * (100vh - 320px) /
+        (1300 - 320)
+    )
+    [Img2-end]
+    calc(
+      calc(3.2px * 38) + (calc(13 * 20) - calc(3.2 * 38)) * (100vh - 320px) /
+        (1300 - 320)
+    )
+    [Img3-end Email-start]
+    calc(
+      calc(3.2px * 20) + (calc(13 * 7) - calc(3.2 * 20)) * (100vh - 320px) /
+        (1300 - 320)
+    )
+    [Email-end Button-start]
+    calc(
+      calc(3.2px * 20) + (calc(13 * 7) - calc(3.2 * 20)) * (100vh - 320px) /
+        (1300 - 320)
+    )
+    [Button-end BottomGutter-start]
+    20px
+    [BottomGutter-end];
+
+  @media (min-width: 750px) {
+  }
 `;
 
 const Logo = styled.h2`
   /* ---------For Editing Layout---------- */
-  border: 2px solid #48628c;
+  border: 2px solid var(--grid-brdr);
   /* ------------------------------------- */
+  grid-column: LeftGutter-end / RightGutter-start;
+  grid-row: Logo-start / Logo-end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
+  font-size: calc(
+    23px + (60 - 23) * (${props => props.scale} - 320px) / (750 - 320)
+  );
 
-  @media (max-width: 750px) {
-    grid-column: LeftGutter-end / RightGutter-start;
-    grid-row: Logo-start / Logo-end;
-    /* align-self: center; */
-    /* justify-self: center; */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    /* font-size: calc(
-      45px + (60 - 45) * (${props => props.scale} - 320px) / (750 - 320)
-    ); */
-    font-size: calc(
-      23px + (60 - 23) * (${props => props.scale} - 320px) / (750 - 320)
-    );
+  @media (min-width: 750px) {
   }
 `;
 
 const Nav = styled.ul`
   /* ---------For Editing Layout---------- */
-  border: 2px solid #488c7e;
+  border: 2px solid var(--grid-brdr);
   /* ------------------------------------- */
+  grid-column: LeftGutter-end / RightGutter-start;
+  grid-row: Nav-start / Nav-end;
+  display: flex;
+  justify-content: center;
+
   list-style: none;
+  font-size: calc(
+    15px + (27 - 15) * (${props => props.scale} - 320px) / (750 - 320)
+  );
 
   li {
     font-family: 'Poppins', sans-serif;
@@ -124,162 +216,141 @@ const Nav = styled.ul`
     padding: 10px;
   }
 
-  @media (max-width: 750px) {
-    grid-column: LeftGutter-end / RightGutter-start;
-    grid-row: Nav-start / Nav-end;
-    display: flex;
-    justify-content: center;
-
-    font-size: calc(
-      15px + (27 - 15) * (${props => props.scale} - 320px) / (750 - 320)
-    );
+  @media (min-width: 750px) {
   }
 `;
 
 const MainHeading = styled.h2`
   /* ---------For Editing Layout---------- */
-  border: 2px solid #48558c;
+  border: 2px solid var(--grid-brdr);
   /* ------------------------------------- */
+  grid-column: Img1-end / RightGutter-start;
+  grid-row: MainHeading-start / MainHeading-end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   font-family: 'Josefin Sans', sans-serif;
-  @media (max-width: 750px) {
-    grid-column: Img1-end / RightGutter-start;
-    grid-row: MainHeading-start / MainHeading-end;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: calc(
-      30px + (50 - 30) * (${props => props.scale} - 320px) / (750 - 320)
-    );
-    font-weight: bold;
+  font-size: calc(
+    30px + (50 - 30) * (${props => props.scale} - 320px) / (750 - 320)
+  );
+  font-weight: bold;
+
+  @media (min-width: 750px) {
   }
 `;
 
 const DescText = styled.p`
   /* ---------For Editing Layout---------- */
-  border: 2px solid #8c4d47;
+  border: 2px solid var(--grid-brdr);
   /* ------------------------------------- */
-  @media (max-width: 750px) {
-    width: calc(150px + (300 - 150) * (100vw - 320px) / (750 - 320));
-    grid-column: LeftGutter-end / Img3-start;
-    grid-row: Img2-end / Img3-end;
-    justify-self: center;
+  grid-column: LeftGutter-end / Img3-start;
+  grid-row: Img2-end / Img3-end;
+  justify-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  text-align: center;
+  width: calc(150px + (300 - 150) * (100vw - 320px) / (750 - 320));
+  font-size: calc(
+    11px + (21 - 11) * (${props => props.scale} - 320px) / (750 - 320)
+  );
 
-    text-align: center;
-    font-size: calc(
-      12px + (30 - 12) * (${props => props.scale} - 320px) / (750 - 320)
-    );
+  @media (min-width: 750px) {
   }
 `;
 
 const Img1 = styled.img`
   /* ---------For Editing Layout---------- */
-  border: 2px solid #488c6d;
+  border: 2px solid var(--grid-brdr);
+  /* ------------------------------------- */
+  grid-column: Img1-start / Img1-end;
+  grid-row: Img1-start / Img1-end;
+
   width: 100%;
   height: 100%;
+  object-fit: cover;
   position: relative;
   z-index: 1;
-  /* ------------------------------------- */
-  object-fit: cover;
-  /* width: calc(
-    270px + (550 - 270) * (${props => props.scale} - 320px) / (750 - 320)
-  );
-  height: calc(
-    300px + (590 - 300) * (${props => props.scale} - 320px) / (750 - 320)
-  ); */
-  @media (max-width: 750px) {
-    grid-column: Img1-start / Img1-end;
-    grid-row: Img1-start / Img1-end;
+
+  @media (min-width: 750px) {
   }
 `;
 const Img2 = styled.img`
   /* ---------For Editing Layout---------- */
-  border: 2px solid #8c8648;
+  border: 2px solid var(--grid-brdr);
+  /* ------------------------------------- */
+  grid-column: Img2-start / Img2-end;
+  grid-row: Img2-start / Img2-end;
+
   width: 100%;
   height: 100%;
-  /* ------------------------------------- */
   object-fit: cover;
-  /* width: calc(
-    270px + (550 - 270) * (${props => props.scale} - 320px) / (750 - 320)
-  );
-  height: calc(
-    300px + (590 - 300) * (${props => props.scale} - 320px) / (750 - 320)
-  ); */
-  @media (max-width: 750px) {
-    grid-column: Img2-start / Img2-end;
-    grid-row: Img2-start / Img2-end;
+
+  @media (min-width: 750px) {
   }
 `;
 const Img3 = styled.img`
   /* ---------For Editing Layout---------- */
-  border: 2px solid #47828c;
+  border: 2px solid var(--grid-brdr);
+  /* ------------------------------------- */
+  grid-column: Img3-start / Img3-end;
+  grid-row: Img3-start / Img3-end;
+
   width: 100%;
   height: 100%;
-  /* ------------------------------------- */
   object-fit: cover;
-  /* width: calc(
-    270px + (550 - 270) * (${props => props.scale} - 320px) / (750 - 320)
-  );
-  height: calc(
-    300px + (590 - 300) * (${props => props.scale} - 320px) / (750 - 320)
-  ); */
-  @media (max-width: 750px) {
-    grid-column: Img3-start / Img3-end;
-    grid-row: Img3-start / Img3-end;
+  filter: grayscale(90%) invert(10%) sepia(80%) brightness(50%);
+
+  @media (min-width: 750px) {
   }
 `;
 
 const Email = styled.h6`
   /* ---------For Editing Layout---------- */
-  border: 2px solid #66448c;
+  border: 2px solid var(--grid-brdr);
   /* ------------------------------------- */
-  @media (max-width: 750px) {
-    grid-column: LeftGutter-end / RightGutter-start;
-    grid-row: Email-start / Email-end;
+  grid-column: LeftGutter-end / RightGutter-start;
+  grid-row: Email-start / Email-end;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  font-size: calc(
+    15px + (35 - 15) * (${props => props.scale} - 320px) / (750 - 320)
+  );
+  font-weight: bold;
 
-    font-size: calc(
-      15px + (50 - 15) * (${props => props.scale} - 320px) / (750 - 320)
-    );
-    font-weight: bold;
+  @media (min-width: 750px) {
   }
 `;
 
 const CTAButton = styled.button`
   /* ---------For Editing Layout---------- */
-  border: 2px solid #8c4462;
+  border: 2px solid var(--grid-brdr);
   /* ------------------------------------- */
+  grid-column: LeftGutter-end / RightGutter-start;
+  grid-row: Button-start / Button-end;
+  justify-self: center;
+  align-self: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  padding: 10px;
+  font-size: calc(
+    18px + (26 - 18) * (${props => props.scale} - 320px) / (750 - 320)
+  );
+  font-weight: bold;
   transition: 250ms;
 
   &:hover {
     background: #000;
     color: white;
   }
-  @media (max-width: 750px) {
-    /* width: calc(120px + (130 - 100) * (100vw - 320px) / (750 - 320));
-    height: calc(50px + (60 - 50) * (100vh - 320px) / (750 - 320)); */
-    /* width: 25vw;
-    height: 6vh; */
-    grid-column: LeftGutter-end / RightGutter-start;
-    grid-row: Button-start / Button-end;
-    justify-self: center;
-    align-self: center;
 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px;
-
-    font-size: calc(
-      18px + (30 - 18) * (${props => props.scale} - 320px) / (750 - 320)
-    );
-    font-weight: bold;
+  @media (min-width: 750px) {
   }
 `;
 
@@ -308,6 +379,7 @@ class APlayground extends Component {
       });
     });
   }
+
   render() {
     return (
       <Wrapper>
