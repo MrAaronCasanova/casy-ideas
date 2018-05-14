@@ -9,12 +9,16 @@ import WhiskeyLanding from './../../LandingPages/WhiskeyLanding/WhiskeyLanding';
 import LifeLanding from './../../LandingPages/LifeLanding/LifeLanding';
 import BoxyLanding from './../../LandingPages/BoxyLanding/BoxyLanding';
 import FinnyLanding from './../../LandingPages/FinnyLanding/FinnyLanding';
+import APlayground from '../../LandingPages/APlayground/APlayground';
 // import HourGlassText from '../../LandingPages/HourGlassText/HourGlassText';
 // import Transitions from './Transitions/Transitions';
 
 const LandingPages = () => {
   return (
     <div className={styles.LandingPages}>
+      <div>
+        <APlayground />
+      </div>
       <div>
         <LayeredText />
         <ViewExampleBtn href="https://www.allposters.com/-sp/Arts-et-Metiers-Graphiques-Paris-34-Posters_i14354497_.htm?UPI=F8JO010&sOrigID=106509" />
