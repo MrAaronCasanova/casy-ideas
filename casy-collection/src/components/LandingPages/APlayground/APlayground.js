@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   /* ---- CSS Variables Section ----- */
-  --grid-brdr: ${0 ? 'red' : 'none'};
+  --grid-brdr: ${1 ? 'red' : 'none'};
   /* -------------------------------- */
   /* ---------For Editing Layout---------- */
   border: 2px solid var(--grid-brdr);
@@ -92,29 +92,30 @@ const Wrapper = styled.div`
     minmax(20px, 1fr)
     [BottomGutter-end];
 
+  /* ------------------------- @media - Wrapper ------- */
   @media (min-width: 750px) {
     grid-template-columns:
       [LeftGutter-start]
       1fr
       [LeftGutter-end Img2-start]
       calc(
-        calc(3.2px * 7) + (calc(7.5 * 4) - calc(3.2 * 7)) * (100vw - 320px) /
-          (750 - 320)
+        calc(7.5px * 4) + (calc(10.5 * 9) - calc(7.5 * 4)) * (100vw - 750px) /
+          (1050 - 750)
       )
       [Img1-start]
       calc(
-        calc(3.2px * 33) + (calc(7.5 * 33) - calc(3.2 * 33)) * (100vw - 320px) /
-          (750 - 320)
+        calc(7.5px * 33) + (calc(10.5 * 25) - calc(7.5 * 33)) * (100vw - 750px) /
+          (1050 - 750)
       )
       [Img1-end]
       calc(
-        calc(3.2px * 13) + (calc(7.5 * 26) - calc(3.2 * 13)) * (100vw - 320px) /
-          (750 - 320)
+        calc(7.5px * 26) + (calc(10.5 * 22) - calc(7.5 * 26)) * (100vw - 750px) /
+          (1050 - 750)
       )
       [Img3-start]
       calc(
-        calc(3.2px * 41) + (calc(7.5 * 31) - calc(3.2 * 41)) * (100vw - 320px) /
-          (750 - 320)
+        calc(7.5px * 31) + (calc(10.5 * 25) - calc(7.5 * 31)) * (100vw - 750px) /
+          (1050 - 750)
       )
       [Img2-end Img3-end RightGutter-start]
       1fr
@@ -124,48 +125,48 @@ const Wrapper = styled.div`
       minmax(20px, 1fr)
       [TopGutter-end Logo-start]
       calc(
-        calc(3.2px * 15) + (calc(13 * 7) - calc(3.2 * 15)) * (100vh - 320px) /
-          (1300 - 320)
+        calc(6px * 11) + (calc(13 * 7) - calc(6 * 11)) * (100vh - 600px) /
+          (1300 - 600)
       )
       [Logo-end Nav-start]
       calc(
-        calc(3.2px * 20) + (calc(13 * 8) - calc(3.2 * 20)) * (100vh - 320px) /
-          (1300 - 320)
+        calc(6px * 15) + (calc(13 * 9) - calc(6 * 15)) * (100vh - 600px) /
+          (1300 - 600)
       )
       [Nav-end Img1-start MainHeading-start]
       calc(
-        calc(3.2px * 25) + (calc(13 * 15) - calc(3.2 * 25)) * (100vh - 320px) /
-          (1300 - 320)
+        calc(6px * 25) + (calc(13 * 15) - calc(6 * 25)) * (100vh - 600px) /
+          (1300 - 600)
       )
       [MainHeading-end Img2-start]
       calc(
-        calc(3.2px * 10) + (calc(13 * 6) - calc(3.2 * 10)) * (100vh - 320px) /
-          (1300 - 320)
+        calc(6px * 10) + (calc(13 * 6) - calc(6 * 10)) * (100vh - 600px) /
+          (1300 - 600)
       )
       [Img1-end]
       calc(
-        calc(3.2px * 20) + (calc(13 * 19) - calc(3.2 * 20)) * (100vh - 320px) /
-          (1300 - 320)
+        calc(6px * 30) + (calc(13 * 19) - calc(6 * 30)) * (100vh - 600px) /
+          (1300 - 600)
       )
       [Img3-start]
       calc(
-        calc(3.2px * 18) + (calc(13 * 7) - calc(3.2 * 18)) * (100vh - 320px) /
-          (1300 - 320)
+        calc(6px * 14) + (calc(13 * 7) - calc(6 * 14)) * (100vh - 600px) /
+          (1300 - 600)
       )
       [Img2-end]
       calc(
-        calc(3.2px * 38) + (calc(13 * 20) - calc(3.2 * 38)) * (100vh - 320px) /
-          (1300 - 320)
+        calc(6px * 42) + (calc(13 * 20) - calc(6 * 42)) * (100vh - 600px) /
+          (1300 - 600)
       )
       [Img3-end Email-start]
       calc(
-        calc(3.2px * 20) + (calc(13 * 7) - calc(3.2 * 20)) * (100vh - 320px) /
-          (1300 - 320)
+        calc(6px * 13) + (calc(13 * 7) - calc(6 * 13)) * (100vh - 600px) /
+          (1300 - 600)
       )
       [Email-end Button-start]
       calc(
-        calc(3.2px * 20) + (calc(13 * 7) - calc(3.2 * 20)) * (100vh - 320px) /
-          (1300 - 320)
+        calc(6px * 13) + (calc(13 * 7) - calc(6 * 13)) * (100vh - 600px) /
+          (1300 - 600)
       )
       [Button-end BottomGutter-start]
       minmax(20px, 1fr)
@@ -190,6 +191,9 @@ const Logo = styled.h2`
   );
 
   @media (min-width: 750px) {
+    font-size: calc(
+      30px + (46 - 30) * (${props => props.scale} - 320px) / (1050 - 320)
+    );
   }
 `;
 
@@ -214,6 +218,9 @@ const Nav = styled.ul`
   }
 
   @media (min-width: 750px) {
+    font-size: calc(
+      18px + (27 - 18) * (${props => props.scale} - 320px) / (1050 - 320)
+    );
   }
 `;
 
@@ -234,6 +241,9 @@ const MainHeading = styled.h2`
   font-weight: bold;
 
   @media (min-width: 750px) {
+    font-size: calc(
+      40px + (56 - 40) * (${props => props.scale} - 320px) / (1050 - 320)
+    );
   }
 `;
 
@@ -258,6 +268,13 @@ const DescText = styled.p`
   );
 
   @media (min-width: 750px) {
+    width: calc(
+      calc(7.5px * 50) + (calc(10.5 * 44) - calc(7.5 * 50)) * (100vw - 750px) /
+        (1050 - 750)
+    );
+    font-size: calc(
+      19px + (22 - 19) * (${props => props.scale} - 320px) / (1050 - 320)
+    );
   }
 `;
 
@@ -326,6 +343,9 @@ const Email = styled.h6`
   font-weight: bold;
 
   @media (min-width: 750px) {
+    font-size: calc(
+      17px + (27 - 17) * (${props => props.scale} - 320px) / (1050 - 320)
+    );
   }
 `;
 
@@ -356,6 +376,9 @@ const CTAButton = styled.button`
   }
 
   @media (min-width: 750px) {
+    font-size: calc(
+      16px + (22 - 16) * (${props => props.scale} - 320px) / (1050 - 320)
+    );
   }
 `;
 
