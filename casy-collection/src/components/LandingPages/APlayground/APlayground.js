@@ -1,9 +1,26 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 
+const vpScale = (minSize, maxSize, minScreen, maxScreen, viewportUnit) => {
+  let viewport =
+    viewportUnit === 'vw'
+      ? '100vw'
+      : viewportUnit === 'vh'
+        ? '100vh'
+        : viewportUnit === 'scale'
+          ? '${props => props.scale}'
+          : null;
+  return `calc(
+      calc(${minScreen / 100}px * ${minSize}) + (calc(${maxScreen /
+    100} * ${maxSize}) - calc(${minScreen /
+    100} * ${minSize})) * (${viewport} - ${minScreen}px) /
+        (${maxScreen} - ${minScreen})
+    )`;
+};
+
 const Wrapper = styled.div`
   /* ---- CSS Variables Section ----- */
-  --grid-brdr: ${1 ? 'red' : 'none'};
+  --grid-brdr: ${0 ? 'red' : 'none'};
   /* -------------------------------- */
   /* ---------For Editing Layout---------- */
   border: 2px solid var(--grid-brdr);
@@ -15,31 +32,17 @@ const Wrapper = styled.div`
   min-height: 100vh;
   display: grid;
   grid-template-columns:
-    [LeftGutter-start]
     1fr
-    [LeftGutter-end Img2-start]
-    calc(
-      calc(3.2px * 7) + (calc(7.5 * 4) - calc(3.2 * 7)) * (100vw - 320px) /
-        (750 - 320)
-    )
+    [Content-start Img2-start]
+    ${vpScale(7, 4, 320, 750, 'vw')}
     [Img1-start]
-    calc(
-      calc(3.2px * 33) + (calc(7.5 * 33) - calc(3.2 * 33)) * (100vw - 320px) /
-        (750 - 320)
-    )
+    ${vpScale(33, 33, 320, 750, 'vw')}
     [Img1-end]
-    calc(
-      calc(3.2px * 13) + (calc(7.5 * 26) - calc(3.2 * 13)) * (100vw - 320px) /
-        (750 - 320)
-    )
+    ${vpScale(13, 26, 320, 750, 'vw')}
     [Img3-start]
-    calc(
-      calc(3.2px * 41) + (calc(7.5 * 31) - calc(3.2 * 41)) * (100vw - 320px) /
-        (750 - 320)
-    )
-    [Img2-end Img3-end RightGutter-start]
-    1fr
-    [RightGutter-end];
+    ${vpScale(41, 31, 320, 750, 'vw')}
+    [Img2-end Img3-end Content-end]
+    1fr;
   grid-template-rows:
     [TopGutter-start]
     minmax(20px, 1fr)
@@ -95,9 +98,8 @@ const Wrapper = styled.div`
   /* ------------------------- @media - Wrapper ------- */
   @media (min-width: 750px) {
     grid-template-columns:
-      [LeftGutter-start]
       1fr
-      [LeftGutter-end Img2-start]
+      [Content-start Img2-start]
       calc(
         calc(7.5px * 4) + (calc(10.5 * 9) - calc(7.5 * 4)) * (100vw - 750px) /
           (1050 - 750)
@@ -117,9 +119,8 @@ const Wrapper = styled.div`
         calc(7.5px * 31) + (calc(10.5 * 25) - calc(7.5 * 31)) * (100vw - 750px) /
           (1050 - 750)
       )
-      [Img2-end Img3-end RightGutter-start]
-      1fr
-      [RightGutter-end];
+      [Img2-end Img3-end Content-end]
+      1fr;
     grid-template-rows:
       [TopGutter-start]
       minmax(20px, 1fr)
@@ -172,13 +173,79 @@ const Wrapper = styled.div`
       minmax(20px, 1fr)
       [BottomGutter-end];
   }
+  /* ------------------------- @media - Wrapper ------- */
+  @media (min-width: 1050px) {
+    grid-template-columns:
+      1fr
+      [Content-start]
+      calc(
+        calc(10.5px * 33) + (calc(19.2 * 24) - calc(10.5 * 33)) *
+          (100vw - 1050px) / (1920 - 1050)
+      )
+      [VertNums-start]
+      calc(
+        calc(10.5px * 8) + (calc(19.2 * 6) - calc(10.5 * 8)) * (100vw - 1050px) /
+          (1920 - 1050)
+      )
+      [Img2-start]
+      calc(
+        calc(10.5px * 7) + (calc(19.2 * 7) - calc(10.5 * 7)) * (100vw - 1050px) /
+          (1920 - 1050)
+      )
+      [Img1-start]
+      calc(
+        calc(10.5px * 12) + (calc(19.2 * 8) - calc(10.5 * 12)) *
+          (100vw - 1050px) / (1920 - 1050)
+      )
+      [Img3-start]
+      calc(
+        calc(10.5px * 22) + (calc(19.2 * 18) - calc(10.5 * 22)) *
+          (100vw - 1050px) / (1920 - 1050)
+      )
+      [Img1-end]
+      calc(
+        calc(10.5px * 8) + (calc(19.2 * 8) - calc(10.5 * 8)) * (100vw - 1050px) /
+          (1920 - 1050)
+      )
+      [Content-end]
+      1fr;
+    grid-template-rows:
+      minmax(20px, 1fr)
+      [Img1-start]
+      calc(
+        calc(7.2px * 19) + (calc(19.2 * 13) - calc(7.2 * 19)) * (100vh - 720px) /
+          (1920 - 720)
+      )
+      [Img2-start]
+      calc(
+        calc(7.2px * 8) + (calc(19.2 * 6) - calc(7.2 * 8)) * (100vh - 720px) /
+          (1920 - 720)
+      )
+      [Img1-end]
+      calc(
+        calc(7.2px * 30) + (calc(19.2 * 23) - calc(7.2 * 30)) * (100vh - 720px) /
+          (1920 - 720)
+      )
+      [Img3-start]
+      calc(
+        calc(7.2px * 10) + (calc(19.2 * 8) - calc(7.2 * 10)) * (100vh - 720px) /
+          (1920 - 720)
+      )
+      [Img2-end]
+      calc(
+        calc(7.2px * 30) + (calc(19.2 * 16) - calc(7.2 * 30)) * (100vh - 720px) /
+          (1920 - 720)
+      )
+      [Img3-end]
+      minmax(20px, 1fr);
+  }
 `;
 
 const Logo = styled.h2`
   /* ---------For Editing Layout---------- */
   border: 2px solid var(--grid-brdr);
   /* ------------------------------------- */
-  grid-column: LeftGutter-end / RightGutter-start;
+  grid-column: Content-start / Content-end;
   grid-row: Logo-start / Logo-end;
   display: flex;
   justify-content: center;
@@ -195,13 +262,23 @@ const Logo = styled.h2`
       30px + (46 - 30) * (${props => props.scale} - 320px) / (1050 - 320)
     );
   }
+  @media (min-width: 1050px) {
+    justify-content: flex-start;
+
+    font-weight: normal;
+    font-size: calc(
+      30px + (60 - 30) * (${props => props.scale} - 320px) / (1920 - 320)
+    );
+    grid-column: Content-start / VertNums-start;
+    grid-row: Img1-start / Img2-start;
+  }
 `;
 
 const Nav = styled.ul`
   /* ---------For Editing Layout---------- */
   border: 2px solid var(--grid-brdr);
   /* ------------------------------------- */
-  grid-column: LeftGutter-end / RightGutter-start;
+  grid-column: Content-start / Content-end;
   grid-row: Nav-start / Nav-end;
   display: flex;
   justify-content: center;
@@ -222,13 +299,23 @@ const Nav = styled.ul`
       18px + (27 - 18) * (${props => props.scale} - 320px) / (1050 - 320)
     );
   }
+  @media (min-width: 1050px) {
+    grid-column: Content-start / VertNums-start;
+    grid-row: Img2-end / Img3-end;
+    justify-content: flex-start;
+    align-items: center;
+
+    font-size: calc(
+      15px + (23 - 15) * (${props => props.scale} - 320px) / (1920 - 320)
+    );
+  }
 `;
 
 const MainHeading = styled.h2`
   /* ---------For Editing Layout---------- */
   border: 2px solid var(--grid-brdr);
   /* ------------------------------------- */
-  grid-column: Img1-end / RightGutter-start;
+  grid-column: Img1-end / Content-end;
   grid-row: MainHeading-start / MainHeading-end;
   display: flex;
   justify-content: center;
@@ -245,13 +332,40 @@ const MainHeading = styled.h2`
       40px + (56 - 40) * (${props => props.scale} - 320px) / (1050 - 320)
     );
   }
+  @media (min-width: 1050px) {
+    grid-column: Content-start / VertNums-start;
+    grid-row: Img2-start / Img2-end;
+    justify-content: flex-start;
+    align-items: flex-start;
+    font-size: calc(
+      45px + (140 - 45) * (${props => props.scale} - 320px) / (1920 - 320)
+    );
+    position: relative;
+    &::after {
+      content: '';
+      position: absolute;
+      background: #000;
+      top: calc(
+        -9px + (-40 - -9) * (${props => props.scale} - 320px) / (1920 - 320)
+      );
+      left: calc(
+        29px + (92 - 29) * (${props => props.scale} - 320px) / (1920 - 320)
+      );
+      width: calc(
+        48px + (130 - 48) * (${props => props.scale} - 320px) / (1920 - 320)
+      );
+      height: calc(
+        2px + (6 - 2) * (${props => props.scale} - 320px) / (1920 - 320)
+      );
+    }
+  }
 `;
 
 const DescText = styled.p`
   /* ---------For Editing Layout---------- */
   border: 2px solid var(--grid-brdr);
   /* ------------------------------------- */
-  grid-column: LeftGutter-end / Img3-start;
+  grid-column: Content-start / Img3-start;
   grid-row: Img2-end / Img3-end;
   justify-self: center;
   display: flex;
@@ -259,6 +373,7 @@ const DescText = styled.p`
   align-items: center;
 
   text-align: center;
+  color: #9e9e9e;
   width: calc(
     calc(3.2px * 45) + (calc(7.5 * 50) - calc(3.2 * 45)) * (100vw - 320px) /
       (750 - 320)
@@ -275,6 +390,48 @@ const DescText = styled.p`
     font-size: calc(
       19px + (22 - 19) * (${props => props.scale} - 320px) / (1050 - 320)
     );
+  }
+  @media (min-width: 1050px) {
+    grid-column: Content-start / VertNums-start;
+    grid-row: Img2-start / Img2-end;
+    justify-self: start;
+    justify-content: flex-start;
+    align-items: flex-end;
+
+    text-align: left;
+
+    width: 100%;
+    /* width: calc(
+      calc(10.5px * 31) + (calc(10.5 * 44) - calc(10.5 * 31)) * (100vw - 1050px) /
+        (1920 - 1050)
+    ); */
+    font-size: calc(
+      12px + (30 - 12) * (${props => props.scale} - 320px) / (1920 - 320)
+    );
+    padding-bottom: 20px;
+  }
+`;
+
+const VerticalNums = styled.ul`
+  /* ---------For Editing Layout---------- */
+  border: 2px solid var(--grid-brdr);
+  /* ------------------------------------- */
+  display: none;
+  list-style: none;
+
+  @media (min-width: 1050px) {
+    display: block;
+    grid-column: VertNums-start / Img2-start;
+    grid-row: Img1-end / Img3-start;
+
+    line-height: 2;
+    font-size: calc(
+      16px + (40 - 16) * (${props => props.scale} - 320px) / (1920 - 320)
+    );
+
+    li:nth-of-type(2) {
+      text-decoration: underline;
+    }
   }
 `;
 
@@ -294,6 +451,8 @@ const Img1 = styled.img`
 
   @media (min-width: 750px) {
   }
+  @media (min-width: 1050px) {
+  }
 `;
 const Img2 = styled.img`
   /* ---------For Editing Layout---------- */
@@ -308,6 +467,9 @@ const Img2 = styled.img`
   box-shadow: 1px 5px 20px rgba(0, 0, 0, 0.3);
 
   @media (min-width: 750px) {
+  }
+  @media (min-width: 1050px) {
+    grid-column: Img2-start / Content-end;
   }
 `;
 const Img3 = styled.img`
@@ -325,18 +487,22 @@ const Img3 = styled.img`
 
   @media (min-width: 750px) {
   }
+  @media (min-width: 1050px) {
+    grid-column: Img3-start / Content-end;
+  }
 `;
 
 const Email = styled.h6`
   /* ---------For Editing Layout---------- */
   border: 2px solid var(--grid-brdr);
   /* ------------------------------------- */
-  grid-column: LeftGutter-end / RightGutter-start;
+  grid-column: Content-start / Content-end;
   grid-row: Email-start / Email-end;
   display: flex;
   justify-content: center;
   align-items: center;
 
+  color: #9e9e9e;
   font-size: calc(
     14px + (27 - 14) * (${props => props.scale} - 320px) / (750 - 320)
   );
@@ -347,13 +513,22 @@ const Email = styled.h6`
       17px + (27 - 17) * (${props => props.scale} - 320px) / (1050 - 320)
     );
   }
+  @media (min-width: 1050px) {
+    grid-column: VertNums-start / Img3-start;
+    grid-row: Img2-end / Img3-end;
+    align-items: center;
+
+    font-size: calc(
+      14px + (20 - 14) * (${props => props.scale} - 320px) / (1920 - 320)
+    );
+  }
 `;
 
 const CTAButton = styled.button`
   /* ---------For Editing Layout---------- */
   border: 2px solid var(--grid-brdr);
   /* ------------------------------------- */
-  grid-column: LeftGutter-end / RightGutter-start;
+  grid-column: Content-start / Content-end;
   grid-row: Button-start / Button-end;
   justify-self: center;
   align-self: center;
@@ -378,6 +553,18 @@ const CTAButton = styled.button`
   @media (min-width: 750px) {
     font-size: calc(
       16px + (22 - 16) * (${props => props.scale} - 320px) / (1050 - 320)
+    );
+  }
+  @media (min-width: 1050px) {
+    grid-column: Content-start / VertNums-start;
+    grid-row: Img2-end / Img3-end;
+    justify-self: start;
+    align-self: start;
+    justify-content: flex-start;
+    align-items: flex-start;
+
+    font-size: calc(
+      13px + (28 - 13) * (${props => props.scale} - 320px) / (1920 - 320)
     );
   }
 `;
@@ -426,6 +613,11 @@ class APlayground extends Component {
           blanditiis illum architecto eius! Nemo, sapiente! Perspiciatis id aut
           velit labore molestias minima natus necessitatibus.
         </DescText>
+        <VerticalNums scale={this.state.scale}>
+          <li>01</li>
+          <li>02</li>
+          <li>03</li>
+        </VerticalNums>
         <Img1
           scale={this.state.scale}
           // src="https://images.pexels.com/photos/776390/pexels-photo-776390.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
