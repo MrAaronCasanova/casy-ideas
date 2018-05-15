@@ -44,198 +44,95 @@ const Wrapper = styled.div`
     [Img2-end Img3-end Content-end]
     1fr;
   grid-template-rows:
-    [TopGutter-start]
     minmax(20px, 1fr)
-    [TopGutter-end Logo-start]
-    calc(
-      calc(3.2px * 15) + (calc(13 * 7) - calc(3.2 * 15)) * (100vh - 320px) /
-        (1300 - 320)
-    )
+    [Content-start Logo-start]
+    ${vpScale(15, 7, 320, 1300, 'vh')}
     [Logo-end Nav-start]
-    calc(
-      calc(3.2px * 20) + (calc(13 * 8) - calc(3.2 * 20)) * (100vh - 320px) /
-        (1300 - 320)
-    )
+    ${vpScale(20, 8, 320, 1300, 'vh')}
     [Nav-end Img1-start MainHeading-start]
-    calc(
-      calc(3.2px * 25) + (calc(13 * 15) - calc(3.2 * 25)) * (100vh - 320px) /
-        (1300 - 320)
-    )
+    ${vpScale(25, 15, 320, 1300, 'vh')}
     [MainHeading-end Img2-start]
-    calc(
-      calc(3.2px * 10) + (calc(13 * 6) - calc(3.2 * 10)) * (100vh - 320px) /
-        (1300 - 320)
-    )
+    ${vpScale(10, 6, 320, 1300, 'vh')}
     [Img1-end]
-    calc(
-      calc(3.2px * 20) + (calc(13 * 19) - calc(3.2 * 20)) * (100vh - 320px) /
-        (1300 - 320)
-    )
+    ${vpScale(20, 19, 320, 1300, 'vh')}
     [Img3-start]
-    calc(
-      calc(3.2px * 18) + (calc(13 * 7) - calc(3.2 * 18)) * (100vh - 320px) /
-        (1300 - 320)
-    )
+    ${vpScale(18, 7, 320, 1300, 'vh')}
     [Img2-end]
-    calc(
-      calc(3.2px * 38) + (calc(13 * 20) - calc(3.2 * 38)) * (100vh - 320px) /
-        (1300 - 320)
-    )
+    ${vpScale(38, 20, 320, 1300, 'vh')}
     [Img3-end Email-start]
-    calc(
-      calc(3.2px * 20) + (calc(13 * 7) - calc(3.2 * 20)) * (100vh - 320px) /
-        (1300 - 320)
-    )
+    ${vpScale(20, 7, 320, 1300, 'vh')}
     [Email-end Button-start]
-    calc(
-      calc(3.2px * 20) + (calc(13 * 7) - calc(3.2 * 20)) * (100vh - 320px) /
-        (1300 - 320)
-    )
-    [Button-end BottomGutter-start]
-    minmax(20px, 1fr)
-    [BottomGutter-end];
+    ${vpScale(20, 7, 320, 1300, 'vh')}
+    [Button-end Content-end]
+    minmax(20px, 1fr);
 
   /* ------------------------- @media - Wrapper ------- */
   @media (min-width: 750px) {
     grid-template-columns:
       1fr
       [Content-start Img2-start]
-      calc(
-        calc(7.5px * 4) + (calc(10.5 * 9) - calc(7.5 * 4)) * (100vw - 750px) /
-          (1050 - 750)
-      )
+      ${vpScale(4, 9, 750, 1050, 'vw')}
       [Img1-start]
-      calc(
-        calc(7.5px * 33) + (calc(10.5 * 25) - calc(7.5 * 33)) * (100vw - 750px) /
-          (1050 - 750)
-      )
+      ${vpScale(33, 25, 750, 1050, 'vw')}
       [Img1-end]
-      calc(
-        calc(7.5px * 26) + (calc(10.5 * 22) - calc(7.5 * 26)) * (100vw - 750px) /
-          (1050 - 750)
-      )
+      ${vpScale(26, 22, 750, 1050, 'vw')}
       [Img3-start]
-      calc(
-        calc(7.5px * 31) + (calc(10.5 * 25) - calc(7.5 * 31)) * (100vw - 750px) /
-          (1050 - 750)
-      )
+      ${vpScale(31, 25, 750, 1050, 'vw')}
       [Img2-end Img3-end Content-end]
       1fr;
     grid-template-rows:
-      [TopGutter-start]
       minmax(20px, 1fr)
-      [TopGutter-end Logo-start]
-      calc(
-        calc(6px * 11) + (calc(13 * 7) - calc(6 * 11)) * (100vh - 600px) /
-          (1300 - 600)
-      )
+      [Content-start Logo-start]
+      ${vpScale(11, 7, 600, 1300, 'vh')}
       [Logo-end Nav-start]
-      calc(
-        calc(6px * 15) + (calc(13 * 9) - calc(6 * 15)) * (100vh - 600px) /
-          (1300 - 600)
-      )
+      ${vpScale(15, 9, 600, 1300, 'vh')}
       [Nav-end Img1-start MainHeading-start]
-      calc(
-        calc(6px * 25) + (calc(13 * 15) - calc(6 * 25)) * (100vh - 600px) /
-          (1300 - 600)
-      )
+      ${vpScale(25, 15, 600, 1300, 'vh')}
       [MainHeading-end Img2-start]
-      calc(
-        calc(6px * 10) + (calc(13 * 6) - calc(6 * 10)) * (100vh - 600px) /
-          (1300 - 600)
-      )
+      ${vpScale(10, 6, 600, 1300, 'vh')}
       [Img1-end]
-      calc(
-        calc(6px * 30) + (calc(13 * 19) - calc(6 * 30)) * (100vh - 600px) /
-          (1300 - 600)
-      )
+      ${vpScale(30, 19, 600, 1300, 'vh')}
       [Img3-start]
-      calc(
-        calc(6px * 14) + (calc(13 * 7) - calc(6 * 14)) * (100vh - 600px) /
-          (1300 - 600)
-      )
+      ${vpScale(14, 7, 600, 1300, 'vh')}
       [Img2-end]
-      calc(
-        calc(6px * 42) + (calc(13 * 20) - calc(6 * 42)) * (100vh - 600px) /
-          (1300 - 600)
-      )
+      ${vpScale(42, 20, 600, 1300, 'vh')}
       [Img3-end Email-start]
-      calc(
-        calc(6px * 13) + (calc(13 * 7) - calc(6 * 13)) * (100vh - 600px) /
-          (1300 - 600)
-      )
+      ${vpScale(13, 7, 600, 1300, 'vh')}
       [Email-end Button-start]
-      calc(
-        calc(6px * 13) + (calc(13 * 7) - calc(6 * 13)) * (100vh - 600px) /
-          (1300 - 600)
-      )
-      [Button-end BottomGutter-start]
-      minmax(20px, 1fr)
-      [BottomGutter-end];
+      ${vpScale(13, 7, 600, 1300, 'vh')}
+      [Button-end Content-end]
+      minmax(20px, 1fr);
   }
   /* ------------------------- @media - Wrapper ------- */
   @media (min-width: 1050px) {
     grid-template-columns:
       1fr
       [Content-start]
-      calc(
-        calc(10.5px * 33) + (calc(19.2 * 24) - calc(10.5 * 33)) *
-          (100vw - 1050px) / (1920 - 1050)
-      )
+      ${vpScale(33, 24, 1050, 1920, 'vw')}
       [VertNums-start]
-      calc(
-        calc(10.5px * 8) + (calc(19.2 * 6) - calc(10.5 * 8)) * (100vw - 1050px) /
-          (1920 - 1050)
-      )
+      ${vpScale(8, 6, 1050, 1920, 'vw')}
       [Img2-start]
-      calc(
-        calc(10.5px * 7) + (calc(19.2 * 7) - calc(10.5 * 7)) * (100vw - 1050px) /
-          (1920 - 1050)
-      )
+      ${vpScale(7, 7, 1050, 1920, 'vw')}
       [Img1-start]
-      calc(
-        calc(10.5px * 12) + (calc(19.2 * 8) - calc(10.5 * 12)) *
-          (100vw - 1050px) / (1920 - 1050)
-      )
+      ${vpScale(12, 8, 1050, 1920, 'vw')}
       [Img3-start]
-      calc(
-        calc(10.5px * 22) + (calc(19.2 * 18) - calc(10.5 * 22)) *
-          (100vw - 1050px) / (1920 - 1050)
-      )
+      ${vpScale(22, 18, 1050, 1920, 'vw')}
       [Img1-end]
-      calc(
-        calc(10.5px * 8) + (calc(19.2 * 8) - calc(10.5 * 8)) * (100vw - 1050px) /
-          (1920 - 1050)
-      )
+      ${vpScale(8, 8, 1050, 1920, 'vw')}
       [Content-end]
       1fr;
     grid-template-rows:
       minmax(20px, 1fr)
       [Img1-start]
-      calc(
-        calc(7.2px * 19) + (calc(19.2 * 13) - calc(7.2 * 19)) * (100vh - 720px) /
-          (1920 - 720)
-      )
+      ${vpScale(19, 13, 720, 1920, 'vh')}
       [Img2-start]
-      calc(
-        calc(7.2px * 8) + (calc(19.2 * 6) - calc(7.2 * 8)) * (100vh - 720px) /
-          (1920 - 720)
-      )
+      ${vpScale(8, 6, 720, 1920, 'vh')}
       [Img1-end]
-      calc(
-        calc(7.2px * 30) + (calc(19.2 * 23) - calc(7.2 * 30)) * (100vh - 720px) /
-          (1920 - 720)
-      )
+      ${vpScale(30, 23, 720, 1920, 'vh')}
       [Img3-start]
-      calc(
-        calc(7.2px * 10) + (calc(19.2 * 8) - calc(7.2 * 10)) * (100vh - 720px) /
-          (1920 - 720)
-      )
+      ${vpScale(10, 8, 720, 1920, 'vh')}
       [Img2-end]
-      calc(
-        calc(7.2px * 30) + (calc(19.2 * 16) - calc(7.2 * 30)) * (100vh - 720px) /
-          (1920 - 720)
-      )
+      ${vpScale(30, 16, 720, 1920, 'vh')}
       [Img3-end]
       minmax(20px, 1fr);
   }
