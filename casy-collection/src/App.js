@@ -3,6 +3,7 @@ import { BrowserRouter } from 'react-router-dom';
 // ------ Components ------ //
 import CenteredDropNav from './components/NavigationComponents/Navbars/CenteredDropNav/CenteredDropNav';
 import Routes from './components/Routes/Routes';
+import BasicFooter from './components/NavigationComponents/Footers/BasicFooter';
 // ------------------------ //
 // ------ Styles ------ //
 import styles from './App.css';
@@ -24,7 +25,7 @@ class App extends Component {
             {/* ------ Routes ------ */}
             <Routes />
             {/* ------ Footer ------ */}
-            Footer
+            <BasicFooter />
           </div>
         </BrowserRouter>
       </ScaleProvider>
