@@ -46,3 +46,5 @@ export default App;
 // tidy up LayeredText Component on LandingPages
 // finish ressiz text on apiccoLanding
 // cleaned up layered text
+// add ScaleWithState (sws) to App.js and pass down to all componenets
+// ^^^ (currently a ton of resize event listener going on)
