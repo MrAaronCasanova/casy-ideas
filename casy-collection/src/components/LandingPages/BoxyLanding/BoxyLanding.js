@@ -45,7 +45,7 @@ const TopText = styled.h3`
     justify-self: start;
     transform: translate(0%, -28px);
     font-size: calc(
-      10px + (25 - 10) * (${props => props.scale} - 320px) / (900 - 320)
+      10px + (25 - 10) * (${props => `${props.scale}px`} - 320px) / (900 - 320)
     );
   }
 `;
@@ -55,7 +55,7 @@ const SideText = styled.h3`
   font-weight: bold;
   color: #565656;
   font-size: calc(
-    14px + (25 - 14) * (${props => props.scale} - 320px) / (1400 - 320)
+    14px + (25 - 14) * (${props => `${props.scale}px`} - 320px) / (1400 - 320)
   );
   writing-mode: vertical-rl;
   text-orientation: upright;
@@ -64,7 +64,7 @@ const SideText = styled.h3`
   justify-self: end;
   align-self: start;
   padding: calc(
-    8px + (5 - 8) * (${props => props.scale} - 320px) / (1400 - 320)
+    8px + (5 - 8) * (${props => `${props.scale}px`} - 320px) / (1400 - 320)
   );
 
   @media (max-width: 900px) {
@@ -129,7 +129,8 @@ const ImagesSection = styled.section`
 
 const LargeImgWrapper = styled.div`
   border: calc(
-      10px + (100 - 10) * (${props => props.scale} - 320px) / (2500 - 320)
+      10px + (100 - 10) * (${props => `${props.scale}px`} - 320px) /
+        (2500 - 320)
     )
     solid white;
   overflow: hidden;
@@ -137,10 +138,12 @@ const LargeImgWrapper = styled.div`
   grid-column: 1/2;
   grid-row: 2/3;
   width: calc(
-    190px + (460 - 190) * (${props => props.scale} - 320px) / (1400 - 320)
+    190px + (460 - 190) * (${props => `${props.scale}px`} - 320px) /
+      (1400 - 320)
   );
   height: calc(
-    190px + (460 - 190) * (${props => props.scale} - 320px) / (1400 - 320)
+    190px + (460 - 190) * (${props => `${props.scale}px`} - 320px) /
+      (1400 - 320)
   );
   align-self: center;
   justify-self: center;
@@ -154,10 +157,12 @@ const LargeImgWrapper = styled.div`
 
   @media (max-width: 900px) {
     width: calc(
-      163px + (425 - 163) * (${props => props.scale} - 320px) / (900 - 320)
+      163px + (425 - 163) * (${props => `${props.scale}px`} - 320px) /
+        (900 - 320)
     );
     height: calc(
-      163px + (425 - 163) * (${props => props.scale} - 320px) / (900 - 320)
+      163px + (425 - 163) * (${props => `${props.scale}px`} - 320px) /
+        (900 - 320)
     );
   }
 `;
@@ -165,11 +170,13 @@ const LargeImgWrapper = styled.div`
 const SmallImgWrapper = styled.div`
   background: white;
   border-top: calc(
-      10px + (100 - 10) * (${props => props.scale} - 320px) / (2500 - 320)
+      10px + (100 - 10) * (${props => `${props.scale}px`} - 320px) /
+        (2500 - 320)
     )
     solid white;
   border-left: calc(
-      10px + (100 - 10) * (${props => props.scale} - 320px) / (2500 - 320)
+      10px + (100 - 10) * (${props => `${props.scale}px`} - 320px) /
+        (2500 - 320)
     )
     solid white;
   width: 50%;
@@ -213,7 +220,7 @@ const ContentBox = styled.div`
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
   transform: translateY(50%);
   font-size: calc(
-    12px + (30 - 12) * (${props => props.scale} - 320px) / (1400 - 320)
+    12px + (30 - 12) * (${props => `${props.scale}px`} - 320px) / (1400 - 320)
   );
 
   @media (max-width: 900px) {
@@ -222,7 +229,7 @@ const ContentBox = styled.div`
     grid-row: 2/3;
     align-self: end;
     font-size: calc(
-      12px + (50 - 12) * (${props => props.scale} - 320px) / (2500 - 320)
+      12px + (50 - 12) * (${props => `${props.scale}px`} - 320px) / (2500 - 320)
     );
   }
 `;
@@ -242,12 +249,15 @@ const ContentSection = styled.section`
     justify-self: end;
     align-content: center;
     padding: calc(
-        8px + (60 - 8) * (${props => props.scale} - 320px) / (1400 - 320)
+        8px + (60 - 8) * (${props => `${props.scale}px`} - 320px) / (1400 - 320)
       )
       0;
     background: white;
     transform: translateX(
-      calc(50px + (50 - 50) * (${props => props.scale} - 320px) / (1400 - 320))
+      calc(
+        50px + (50 - 50) * (${props => `${props.scale}px`} - 320px) /
+          (1400 - 320)
+      )
     );
     background: white;
   }
@@ -257,24 +267,24 @@ const ContentSection = styled.section`
     font-weight: bold;
     color: slategrey;
     font-size: calc(
-      16px + (25 - 16) * (${props => props.scale} - 320px) / (1400 - 320)
+      16px + (25 - 16) * (${props => `${props.scale}px`} - 320px) / (1400 - 320)
     );
   }
   h2 {
     grid-row: 3/4;
     font-family: 'Libre Baskerville', serif;
     letter-spacing: calc(
-      15px + (1 - 15) * (${props => props.scale} - 320px) / (1400 - 320)
+      15px + (1 - 15) * (${props => `${props.scale}px`} - 320px) / (1400 - 320)
     );
     font-size: calc(
-      40px + (45 - 40) * (${props => props.scale} - 320px) / (1400 - 320)
+      40px + (45 - 40) * (${props => `${props.scale}px`} - 320px) / (1400 - 320)
     );
     font-weight: bold;
   }
   h6 {
     grid-row: 4/5;
     font-size: calc(
-      10px + (15 - 10) * (${props => props.scale} - 320px) / (1400 - 320)
+      10px + (15 - 10) * (${props => `${props.scale}px`} - 320px) / (1400 - 320)
     );
     color: #888888;
     width: calc(300px + (400 - 300) * (100vw - 901px) / (1400 - 901));
@@ -284,7 +294,10 @@ const ContentSection = styled.section`
     grid-column: 2/3;
     grid-row: 3/4;
     grid-template-rows:
-      calc(50px + (40 - 50) * (${props => props.scale} - 320px) / (1400 - 320))
+      calc(
+        50px + (40 - 50) * (${props => `${props.scale}px`} - 320px) /
+          (1400 - 320)
+      )
       auto auto auto 1fr;
     grid-template-columns: auto;
     text-align: left;
@@ -306,19 +319,21 @@ const ContentSection = styled.section`
       justify-self: right;
       padding: 0 20px 20px 20px;
       font-size: calc(
-        12px + (20 - 12) * (${props => props.scale} - 320px) / (900 - 320)
+        12px + (20 - 12) * (${props => `${props.scale}px`} - 320px) /
+          (900 - 320)
       );
       margin-right: calc(
-        0px + (40 - 0) * (${props => props.scale} - 320px) / (900 - 320)
+        0px + (40 - 0) * (${props => `${props.scale}px`} - 320px) / (900 - 320)
       );
     }
     h2 {
       grid-row: 3/4;
       margin-left: calc(
-        0px + (20 - 0) * (${props => props.scale} - 320px) / (900 - 320)
+        0px + (20 - 0) * (${props => `${props.scale}px`} - 320px) / (900 - 320)
       );
       font-size: calc(
-        25px + (60 - 25) * (${props => props.scale} - 320px) / (900 - 320)
+        25px + (60 - 25) * (${props => `${props.scale}px`} - 320px) /
+          (900 - 320)
       );
       padding: 0 20px 40px 20px;
       letter-spacing: -1px;
@@ -326,13 +341,15 @@ const ContentSection = styled.section`
     h6 {
       grid-row: 4/5;
       font-size: calc(
-        12px + (20 - 12) * (${props => props.scale} - 320px) / (900 - 320)
+        12px + (20 - 12) * (${props => `${props.scale}px`} - 320px) /
+          (900 - 320)
       );
       margin-left: calc(
-        0px + (40 - 0) * (${props => props.scale} - 320px) / (900 - 320)
+        0px + (40 - 0) * (${props => `${props.scale}px`} - 320px) / (900 - 320)
       );
       width: calc(
-        170px + (400 - 170) * (${props => props.scale} - 320px) / (900 - 320)
+        170px + (400 - 170) * (${props => `${props.scale}px`} - 320px) /
+          (900 - 320)
       );
       padding: 0 20px 60px 20px;
     }

@@ -28,12 +28,8 @@ class SpacedLandingPage extends Component {
             <div
               className={styles.circle}
               style={{
-                width: `${this.circleSizeScale(
-                  context.state.scale.slice(0, -2)
-                )}px`,
-                height: `${this.circleSizeScale(
-                  context.state.scale.slice(0, -2)
-                )}px`
+                width: `${this.circleSizeScale(context.state.scale)}px`,
+                height: `${this.circleSizeScale(context.state.scale)}px`
               }}
             >
               <div className={styles.boxOne}>
@@ -42,7 +38,7 @@ class SpacedLandingPage extends Component {
                     className={styles.circleHeading}
                     style={{
                       fontSize: `${this.circleHeadingScale(
-                        context.state.scale.slice(0, -2)
+                        context.state.scale
                       )}px`
                     }}
                   >
@@ -51,9 +47,7 @@ class SpacedLandingPage extends Component {
                   <p
                     className={styles.circleText}
                     style={{
-                      fontSize: `${this.circleTextScale(
-                        context.state.scale.slice(0, -2)
-                      )}px`
+                      fontSize: `${this.circleTextScale(context.state.scale)}px`
                     }}
                   >
                     To space and back, safely

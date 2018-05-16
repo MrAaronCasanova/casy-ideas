@@ -37,10 +37,12 @@ const slideOut = keyframes`
 
 const Bottle = styled.img`
   width: calc(
-    200px + (600 - 200) * (${props => props.scale} - 320px) / (1000 - 320)
+    200px + (600 - 200) * (${props => `${props.scale}px`} - 320px) /
+      (1000 - 320)
   );
   height: calc(
-    200px + (600 - 200) * (${props => props.scale} - 320px) / (1000 - 320)
+    200px + (600 - 200) * (${props => `${props.scale}px`} - 320px) /
+      (1000 - 320)
   );
   object-fit: cover;
   position: absolute;
@@ -56,10 +58,12 @@ const Bottle = styled.img`
 
 const Glass = Bottle.extend`
   width: calc(
-    150px + (500 - 150) * (${props => props.scale} - 320px) / (1000 - 320)
+    150px + (500 - 150) * (${props => `${props.scale}px`} - 320px) /
+      (1000 - 320)
   );
   height: calc(
-    150px + (500 - 150) * (${props => props.scale} - 320px) / (1000 - 320)
+    150px + (500 - 150) * (${props => `${props.scale}px`} - 320px) /
+      (1000 - 320)
   );
 `;
 
@@ -68,7 +72,7 @@ const Title = styled.h2`
   z-index: 1;
   align-self: ${props => props.align};
   font-size: calc(
-    33px + (85 - 33) * (${props => props.scale} - 320px) / (960 - 320)
+    33px + (85 - 33) * (${props => `${props.scale}px`} - 320px) / (960 - 320)
   );
   color: #2c2828;
   font-family: 'Playfair Display', serif;

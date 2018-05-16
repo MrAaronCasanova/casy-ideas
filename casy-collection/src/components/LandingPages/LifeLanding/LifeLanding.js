@@ -19,7 +19,8 @@ const Wrapper = styled.div`
 const Os = styled.div`
   z-index: -1;
   font-size: calc(
-    280px + (2500 - 280) * (${props => props.scale} - 320px) / (2500 - 320)
+    280px + (2500 - 280) * (${props => `${props.scale}px`} - 320px) /
+      (2500 - 320)
   );
   font-weight: bold;
   color: #dce7e1;
