@@ -1,64 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-
-const vpScale = (
-  minSize,
-  maxSize,
-  minScreen,
-  maxScreen,
-  viewportUnit,
-  scaleProp
-) => {
-  let minmaxScale = {
-    withPx(viewport) {
-      return `calc(${minSize}px + (${maxSize} - ${minSize}) * (${viewport} - ${minScreen}px) /
-        (${maxScreen} - ${minScreen}));`;
-    },
-    withVp(viewport) {
-      return `calc(
-        calc(${minScreen / 100}px * ${minSize}) + (calc(${maxScreen /
-        100} * ${maxSize}) - calc(${minScreen /
-        100} * ${minSize})) * (${viewport} - ${minScreen}px) /
-          (${maxScreen} - ${minScreen})
-      )`;
-    }
-  };
-
-  switch (viewportUnit) {
-    case 'vwUnit':
-      return minmaxScale.withVp('100vw');
-    case 'vhUnit':
-      return minmaxScale.withVp('100vh');
-    case 'vwPx':
-      return minmaxScale.withPx('100vw');
-    case 'vhPx':
-      return minmaxScale.withPx('100vh');
-    case 'sUnit':
-      return minmaxScale.withVp(scaleProp);
-    case 'sPx':
-      return minmaxScale.withPx(scaleProp);
-    default:
-      console.log('vpScale - recieved invalid scale type');
-  }
-  // let viewport =
-  //   viewportUnit === 'vw'
-  //     ? '100vw'
-  //     : viewportUnit === 'vh'
-  //       ? '100vh'
-  //       : viewportUnit === 'scale'
-  //         ? '${props => props.scale}'
-  //         : null;
-  // return `calc(
-  //     calc(${minScreen / 100}px * ${minSize}) + (calc(${maxScreen /
-  //   100} * ${maxSize}) - calc(${minScreen /
-  //   100} * ${minSize})) * (${viewportUnit} - ${minScreen}px) /
-  //       (${maxScreen} - ${minScreen})
-  //   )`;
-  // return `calc(
-  //     ${minmaxScale} * (${viewport} - ${minScreen}px) /
-  //       (${maxScreen} - ${minScreen})
-  //   )`;
-};
+import { vpScale } from './../../../helpers';
 
 const Wrapper = styled.div`
   /* ---- CSS Variables Section ----- */
@@ -194,15 +136,9 @@ const Logo = styled.h2`
   font-weight: bold;
 
   font-size: ${props => vpScale(28, 46, 320, 750, 'sPx', props.scale)};
-  /* font-size: calc(
-    28px + (46 - 28) * (${props => props.scale} - 320px) / (750 - 320)
-  ); */
 
   @media (min-width: 750px) {
     font-size: ${props => vpScale(30, 46, 320, 1050, 'sPx', props.scale)};
-    /* font-size: calc(
-      30px + (46 - 30) * (${props => props.scale} - 320px) / (1050 - 320)
-    ); */
   }
   @media (min-width: 1050px) {
     grid-column: Content-start / VertNums-start;
@@ -211,9 +147,6 @@ const Logo = styled.h2`
 
     font-weight: normal;
     font-size: ${props => vpScale(30, 60, 320, 1920, 'sPx', props.scale)};
-    /* font-size: calc(
-      30px + (60 - 30) * (${props => props.scale} - 320px) / (1920 - 320)
-    ); */
   }
 `;
 
@@ -228,9 +161,6 @@ const Nav = styled.ul`
 
   list-style: none;
   font-size: ${props => vpScale(17, 27, 320, 750, 'sPx', props.scale)};
-  /* font-size: calc(
-    17px + (27 - 17) * (${props => props.scale} - 320px) / (750 - 320)
-  ); */
 
   li {
     font-family: 'Poppins', sans-serif;
@@ -240,9 +170,6 @@ const Nav = styled.ul`
 
   @media (min-width: 750px) {
     font-size: ${props => vpScale(18, 27, 320, 1050, 'sPx', props.scale)};
-    /* font-size: calc(
-      18px + (27 - 18) * (${props => props.scale} - 320px) / (1050 - 320)
-    ); */
   }
   @media (min-width: 1050px) {
     grid-column: Content-start / VertNums-start;
@@ -251,9 +178,6 @@ const Nav = styled.ul`
     align-items: center;
 
     font-size: ${props => vpScale(15, 23, 320, 1920, 'sPx', props.scale)};
-    /* font-size: calc(
-      15px + (23 - 15) * (${props => props.scale} - 320px) / (1920 - 320)
-    ); */
   }
 `;
 
@@ -269,16 +193,10 @@ const MainHeading = styled.h2`
 
   font-family: 'Josefin Sans', sans-serif;
   font-size: ${props => vpScale(32, 56, 320, 750, 'sPx', props.scale)};
-  /* font-size: calc(
-    32px + (56 - 32) * (${props => props.scale} - 320px) / (750 - 320)
-  ); */
   font-weight: bold;
 
   @media (min-width: 750px) {
     font-size: ${props => vpScale(40, 56, 320, 1050, 'sPx', props.scale)};
-    /* font-size: calc(
-      40px + (56 - 40) * (${props => props.scale} - 320px) / (1050 - 320)
-    ); */
   }
   @media (min-width: 1050px) {
     grid-column: Content-start / VertNums-start;
@@ -287,30 +205,16 @@ const MainHeading = styled.h2`
     align-items: flex-start;
 
     font-size: ${props => vpScale(45, 140, 320, 1920, 'sPx', props.scale)};
-    /* font-size: calc(
-      45px + (140 - 45) * (${props => props.scale} - 320px) / (1920 - 320)
-    ); */
+
     position: relative;
     &::after {
       content: '';
       position: absolute;
       background: #000;
       top: ${props => vpScale(-9, -40, 320, 1920, 'sPx', props.scale)};
-      /* top: calc(
-        -9px + (-40 - -9) * (${props => props.scale} - 320px) / (1920 - 320)
-      ); */
       left: ${props => vpScale(29, 92, 320, 1920, 'sPx', props.scale)};
-      /* left: calc(
-        29px + (92 - 29) * (${props => props.scale} - 320px) / (1920 - 320)
-      ); */
       width: ${props => vpScale(48, 130, 320, 1920, 'sPx', props.scale)};
-      /* width: calc(
-        48px + (130 - 48) * (${props => props.scale} - 320px) / (1920 - 320)
-      ); */
       height: ${props => vpScale(2, 6, 320, 1920, 'sPx', props.scale)};
-      /* height: calc(
-        2px + (6 - 2) * (${props => props.scale} - 320px) / (1920 - 320)
-      ); */
     }
   }
 `;
@@ -329,25 +233,11 @@ const DescText = styled.p`
   text-align: center;
   color: #9e9e9e;
   width: ${vpScale(45, 50, 320, 750, 'vwUnit')};
-  /* width: calc(
-    calc(3.2px * 45) + (calc(7.5 * 50) - calc(3.2 * 45)) * (100vw - 320px) /
-      (750 - 320)
-  ); */
   font-size: ${props => vpScale(10, 19, 320, 750, 'sPx', props.scale)};
-  /* font-size: calc(
-    10px + (19 - 10) * (${props => props.scale} - 320px) / (750 - 320)
-  ); */
 
   @media (min-width: 750px) {
     width: ${vpScale(50, 44, 750, 1050, 'vwUnit')};
-    /* width: calc(
-      calc(7.5px * 50) + (calc(10.5 * 44) - calc(7.5 * 50)) * (100vw - 750px) /
-        (1050 - 750)
-    ); */
     font-size: ${props => vpScale(19, 22, 320, 1050, 'sPx', props.scale)};
-    /* font-size: calc(
-      19px + (22 - 19) * (${props => props.scale} - 320px) / (1050 - 320)
-    ); */
   }
   @media (min-width: 1050px) {
     grid-column: Content-start / VertNums-start;
@@ -359,14 +249,7 @@ const DescText = styled.p`
     text-align: left;
 
     width: 100%;
-    /* width: calc(
-      calc(10.5px * 31) + (calc(10.5 * 44) - calc(10.5 * 31)) * (100vw - 1050px) /
-        (1920 - 1050)
-    ); */
     font-size: ${props => vpScale(12, 30, 320, 1920, 'sPx', props.scale)};
-    /* font-size: calc(
-      12px + (30 - 12) * (${props => props.scale} - 320px) / (1920 - 320)
-    ); */
     padding-bottom: 20px;
   }
 `;
@@ -385,9 +268,6 @@ const VerticalNums = styled.ul`
 
     line-height: 2;
     font-size: ${props => vpScale(16, 40, 320, 1920, 'sPx', props.scale)};
-    /* font-size: calc(
-      16px + (40 - 16) * (${props => props.scale} - 320px) / (1920 - 320)
-    ); */
 
     li:nth-of-type(2) {
       text-decoration: underline;
@@ -455,16 +335,10 @@ const Email = styled.h6`
 
   color: #9e9e9e;
   font-size: ${props => vpScale(14, 27, 320, 750, 'sPx', props.scale)};
-  /* font-size: calc(
-    14px + (27 - 14) * (${props => props.scale} - 320px) / (750 - 320)
-  ); */
   font-weight: bold;
 
   @media (min-width: 750px) {
     font-size: ${props => vpScale(17, 27, 320, 1050, 'sPx', props.scale)};
-    /* font-size: calc(
-      17px + (27 - 17) * (${props => props.scale} - 320px) / (1050 - 320)
-    ); */
   }
   @media (min-width: 1050px) {
     grid-column: VertNums-start / Img3-start;
@@ -472,9 +346,6 @@ const Email = styled.h6`
     align-items: center;
 
     font-size: ${props => vpScale(14, 20, 320, 1920, 'sPx', props.scale)};
-    /* font-size: calc(
-      14px + (20 - 14) * (${props => props.scale} - 320px) / (1920 - 320)
-    ); */
   }
 `;
 
@@ -494,9 +365,6 @@ const CTAButton = styled.button`
   background: #fff;
   padding: 10px;
   font-size: ${props => vpScale(14, 22, 320, 750, 'sPx', props.scale)};
-  /* font-size: calc(
-    14px + (22 - 14) * (${props => props.scale} - 320px) / (750 - 320)
-  ); */
   font-weight: bold;
   transition: 250ms;
 
@@ -507,9 +375,6 @@ const CTAButton = styled.button`
 
   @media (min-width: 750px) {
     font-size: ${props => vpScale(16, 22, 320, 1050, 'sPx', props.scale)};
-    /* font-size: calc(
-      16px + (22 - 16) * (${props => props.scale} - 320px) / (1050 - 320)
-    ); */
   }
   @media (min-width: 1050px) {
     grid-column: Content-start / VertNums-start;
@@ -520,9 +385,6 @@ const CTAButton = styled.button`
     align-items: flex-start;
 
     font-size: ${props => vpScale(13, 28, 320, 1920, 'sPx', props.scale)};
-    /* font-size: calc(
-      13px + (28 - 13) * (${props => props.scale} - 320px) / (1920 - 320)
-    ); */
   }
 `;
 
