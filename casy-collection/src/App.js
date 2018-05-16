@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-// BroswerRouter is an object that interacts with the url history
-// Route executes whatever the BrowserRouter passes
 // ------ Components ------ //
 import CenteredDropNav from './components/NavigationComponents/Navbars/CenteredDropNav/CenteredDropNav';
 import Routes from './components/Routes/Routes';
@@ -12,21 +10,27 @@ import styles from './App.css';
 
 import { RoutesData } from './DumbyData';
 import { CompanyInfo } from './DumbyData';
+import { ScaleProvider, ScaleContext } from './ScaleContext';
 
 class App extends Component {
   render() {
     return (
-      <BrowserRouter>
-        {/* ------ Page Wrapper ------ */}
-        <div className={styles.pageWrapper}>
-          {/* ------ Header ------ */}
-          <CenteredDropNav logo={CompanyInfo.name} routes={RoutesData} />
-          {/* ------ Routes ------ */}
-          <Routes />
-          {/* ------ Footer ------ */}
-          Footer
-        </div>
-      </BrowserRouter>
+      <ScaleProvider>
+        <BrowserRouter>
+          {/* ------ Page Wrapper ------ */}
+          <div className={styles.pageWrapper}>
+            <ScaleContext.Consumer>
+              {context => <p>The Scale is {context.state.scale}</p>}
+            </ScaleContext.Consumer>
+            {/* ------ Header ------ */}
+            <CenteredDropNav logo={CompanyInfo.name} routes={RoutesData} />
+            {/* ------ Routes ------ */}
+            <Routes />
+            {/* ------ Footer ------ */}
+            Footer
+          </div>
+        </BrowserRouter>
+      </ScaleProvider>
     );
   }
 }
@@ -48,3 +52,4 @@ export default App;
 // cleaned up layered text
 // add ScaleWithState (sws) to App.js and pass down to all componenets
 // ^^^ (currently a ton of resize event listener going on)
+// search for all class components and see if they can refactor to functional comp

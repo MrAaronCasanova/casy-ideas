@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { ScaleContext } from './../../../ScaleContext';
 
 const Wrapper = styled.div`
   position: relative;
@@ -261,86 +262,65 @@ const CardSide = styled.div`
 `;
 
 class LifeLanding extends Component {
-  state = {
-    scale: null
-  };
-
-  getScale = () => {
-    let scaleWidth = window.innerWidth;
-    let scaleHeight = window.innerHeight;
-    let scale = scaleWidth > scaleHeight ? scaleHeight : scaleWidth;
-    return `${scale}px`;
-  };
-
-  componentWillMount() {
-    let scale = this.getScale();
-    this.setState({
-      scale
-    });
-
-    window.addEventListener('resize', () => {
-      let scale = this.getScale();
-      this.setState({
-        scale
-      });
-    });
-  }
-
   render() {
     return (
-      <Wrapper>
-        <Os scale={this.state.scale}>O</Os>
-        <CardWrapper>
-          <LeftWrap>
-            <NavWrapper>
-              <NavItemsWrapper>
-                <Logo>LIFE</Logo>
-                <NavItems>
-                  <li>Life</li>
-                  <li>Outdoor</li>
-                  <li>Prize</li>
-                </NavItems>
-              </NavItemsWrapper>
-              <NavSearch>
-                <span>
-                  Search...<MagGlass>🔍</MagGlass>
-                </span>
-              </NavSearch>
-            </NavWrapper>
-            <CardBody>
-              <BodyContentWrapper>
-                <h2>
-                  Life<br />
-                  Is Art.
-                </h2>
-                <p>Love the life you live. Live the life you love.</p>
-                <ArrowWrapper>
-                  <div>◀</div>
-                  <div>▶</div>
-                </ArrowWrapper>
-              </BodyContentWrapper>
-              <BodyImgWrapper>
-                <img
-                  src="https://images.pexels.com/photos/301614/pexels-photo-301614.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                  alt="open water"
-                />
-                <NumberBox>03</NumberBox>
-              </BodyImgWrapper>
-            </CardBody>
-            <CardFooter>
-              <li>Facebook</li>
-              <li>Instagram</li>
-              <li>Twitter</li>
-            </CardFooter>
-          </LeftWrap>
-          <RightWrap>
-            <CardSide>
-              Login <span>☰</span>
-            </CardSide>
-          </RightWrap>
-        </CardWrapper>
-        <Os scale={this.state.scale}>O</Os>
-      </Wrapper>
+      <ScaleContext.Consumer>
+        {context => (
+          <Wrapper>
+            <Os scale={context.state.scale}>O</Os>
+            <CardWrapper>
+              <LeftWrap>
+                <NavWrapper>
+                  <NavItemsWrapper>
+                    <Logo>LIFE</Logo>
+                    <NavItems>
+                      <li>Life</li>
+                      <li>Outdoor</li>
+                      <li>Prize</li>
+                    </NavItems>
+                  </NavItemsWrapper>
+                  <NavSearch>
+                    <span>
+                      Search...<MagGlass>🔍</MagGlass>
+                    </span>
+                  </NavSearch>
+                </NavWrapper>
+                <CardBody>
+                  <BodyContentWrapper>
+                    <h2>
+                      Life<br />
+                      Is Art.
+                    </h2>
+                    <p>Love the life you live. Live the life you love.</p>
+                    <ArrowWrapper>
+                      <div>◀</div>
+                      <div>▶</div>
+                    </ArrowWrapper>
+                  </BodyContentWrapper>
+                  <BodyImgWrapper>
+                    <img
+                      src="https://images.pexels.com/photos/301614/pexels-photo-301614.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                      alt="open water"
+                    />
+                    <NumberBox>03</NumberBox>
+                  </BodyImgWrapper>
+                </CardBody>
+                <CardFooter>
+                  <li>Facebook</li>
+                  <li>Instagram</li>
+                  <li>Twitter</li>
+                </CardFooter>
+              </LeftWrap>
+              <RightWrap>
+                <CardSide>
+                  Login <span>☰</span>
+                </CardSide>
+              </RightWrap>
+            </CardWrapper>
+            <Os scale={context.state.scale}>O</Os>
+          </Wrapper>
+        )}
+      </ScaleContext.Consumer>
     );
   }
 }

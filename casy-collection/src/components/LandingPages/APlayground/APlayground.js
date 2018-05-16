@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { vpScale } from './../../../helpers';
+import { ScaleContext } from './../../../ScaleContext';
 
 const Wrapper = styled.div`
   /* ---- CSS Variables Section ----- */
@@ -389,75 +390,55 @@ const CTAButton = styled.button`
 `;
 
 class APlayground extends Component {
-  state = {
-    scale: null
-  };
-
-  getScale = () => {
-    let scaleWidth = window.innerWidth;
-    let scaleHeight = window.innerHeight;
-    let scale = scaleWidth > scaleHeight ? scaleHeight : scaleWidth;
-    return `${scale}px`;
-  };
-
-  componentWillMount() {
-    let scale = this.getScale();
-    this.setState({
-      scale
-    });
-
-    window.addEventListener('resize', () => {
-      let scale = this.getScale();
-      this.setState({
-        scale
-      });
-    });
-  }
-
   render() {
     return (
-      <Wrapper>
-        <Logo scale={this.state.scale}>Play Time</Logo>
-        <Nav scale={this.state.scale}>
-          <li>here</li>
-          <li>comes</li>
-          <li>the</li>
-          <li>funCooker</li>
-        </Nav>
-        <MainHeading scale={this.state.scale}>
-          Ayo<br />River
-        </MainHeading>
-        <DescText scale={this.state.scale}>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore in
-          blanditiis illum architecto eius! Nemo, sapiente! Perspiciatis id aut
-          velit labore molestias minima natus necessitatibus.
-        </DescText>
-        <VerticalNums scale={this.state.scale}>
-          <li>01</li>
-          <li>02</li>
-          <li>03</li>
-        </VerticalNums>
-        <Img1
-          scale={this.state.scale}
-          // src="https://images.pexels.com/photos/776390/pexels-photo-776390.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-          src="https://images.pexels.com/photos/127567/pexels-photo-127567.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-          alt="fun"
-        />
-        <Img2
-          scale={this.state.scale}
-          // src="https://c1.staticflickr.com/1/898/40555338765_8998d37c16_k.jpg"
-          src="https://images.pexels.com/photos/267858/pexels-photo-267858.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-          alt="fun"
-        />
-        <Img3
-          scale={this.state.scale}
-          // src="https://images.pexels.com/photos/922608/pexels-photo-922608.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350"
-          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLpL8c3Mi1DjbjGLNxYvn7c_wpUq-mjUzmGbtSjlbdbASkvpZ64w"
-          alt="fun"
-        />
-        <Email scale={this.state.scale}>mraaroncasanova@gmail.com</Email>
-        <CTAButton scale={this.state.scale}>get more</CTAButton>
-      </Wrapper>
+      <ScaleContext.Consumer>
+        {context => (
+          <Wrapper>
+            <Logo scale={context.state.scale}>Play Time</Logo>
+            <Nav scale={context.state.scale}>
+              <li>here</li>
+              <li>comes</li>
+              <li>the</li>
+              <li>funCooker</li>
+            </Nav>
+            <MainHeading scale={context.state.scale}>
+              Ayo<br />River
+            </MainHeading>
+            <DescText scale={context.state.scale}>
+              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+              Inventore in blanditiis illum architecto eius! Nemo, sapiente!
+              Perspiciatis id aut velit labore molestias minima natus
+              necessitatibus.
+            </DescText>
+            <VerticalNums scale={context.state.scale}>
+              <li>01</li>
+              <li>02</li>
+              <li>03</li>
+            </VerticalNums>
+            <Img1
+              scale={context.state.scale}
+              // src="https://images.pexels.com/photos/776390/pexels-photo-776390.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
+              src="https://images.pexels.com/photos/127567/pexels-photo-127567.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+              alt="fun"
+            />
+            <Img2
+              scale={context.state.scale}
+              // src="https://c1.staticflickr.com/1/898/40555338765_8998d37c16_k.jpg"
+              src="https://images.pexels.com/photos/267858/pexels-photo-267858.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+              alt="fun"
+            />
+            <Img3
+              scale={context.state.scale}
+              // src="https://images.pexels.com/photos/922608/pexels-photo-922608.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLpL8c3Mi1DjbjGLNxYvn7c_wpUq-mjUzmGbtSjlbdbASkvpZ64w"
+              alt="fun"
+            />
+            <Email scale={context.state.scale}>mraaroncasanova@gmail.com</Email>
+            <CTAButton scale={context.state.scale}>get more</CTAButton>
+          </Wrapper>
+        )}
+      </ScaleContext.Consumer>
     );
   }
 }

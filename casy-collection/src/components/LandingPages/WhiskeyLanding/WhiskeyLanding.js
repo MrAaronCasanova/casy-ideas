@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-
 import styled, { keyframes } from 'styled-components';
+import { ScaleContext } from './../../../ScaleContext';
 
 const Wrapper = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Playfair+Display');
@@ -76,15 +76,7 @@ const Title = styled.h2`
 
 class WhiskeyLanding extends Component {
   state = {
-    scale: null,
     whiskeyAni: false
-  };
-
-  getScale = () => {
-    let scaleWidth = window.innerWidth;
-    let scaleHeight = window.innerHeight;
-    let scale = scaleWidth > scaleHeight ? scaleHeight : scaleWidth;
-    return `${scale}px`;
   };
 
   whiskeyAni = () => {
@@ -101,18 +93,6 @@ class WhiskeyLanding extends Component {
         whiskeyAni
       });
     }, 2900);
-
-    let scale = this.getScale();
-    this.setState({
-      scale
-    });
-
-    window.addEventListener('resize', () => {
-      let scale = this.getScale();
-      this.setState({
-        scale
-      });
-    });
   }
 
   componentWillUnmount() {
@@ -121,26 +101,30 @@ class WhiskeyLanding extends Component {
 
   render() {
     return (
-      <Wrapper>
-        <Title scale={this.state.scale} align={'flex-start'}>
-          Whiskey...
-        </Title>
-        <Bottle
-          scale={this.state.scale}
-          whiskeyAni={this.state.whiskeyAni}
-          src="https://png.pngtree.com/element_origin_min_pic/16/08/19/1957b6ee8468341.jpg"
-          alt="whiskey bottle"
-        />
-        <Glass
-          scale={this.state.scale}
-          whiskeyAni={!this.state.whiskeyAni}
-          src="https://png.pngtree.com/element_origin_min_pic/17/07/19/ef06fd4633838842b5634cfbde4b43a4.jpg"
-          alt="whiskey glass"
-        />
-        <Title scale={this.state.scale} align={'flex-end'}>
-          ...for all
-        </Title>
-      </Wrapper>
+      <ScaleContext.Consumer>
+        {context => (
+          <Wrapper>
+            <Title scale={context.state.scale} align={'flex-start'}>
+              Whiskey...
+            </Title>
+            <Bottle
+              scale={context.state.scale}
+              whiskeyAni={this.state.whiskeyAni}
+              src="https://png.pngtree.com/element_origin_min_pic/16/08/19/1957b6ee8468341.jpg"
+              alt="whiskey bottle"
+            />
+            <Glass
+              scale={context.state.scale}
+              whiskeyAni={!this.state.whiskeyAni}
+              src="https://png.pngtree.com/element_origin_min_pic/17/07/19/ef06fd4633838842b5634cfbde4b43a4.jpg"
+              alt="whiskey glass"
+            />
+            <Title scale={context.state.scale} align={'flex-end'}>
+              ...for all
+            </Title>
+          </Wrapper>
+        )}
+      </ScaleContext.Consumer>
     );
   }
 }

@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
+import { ScaleContext } from './../../../ScaleContext';
 
 const Wrapper = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
@@ -339,71 +340,50 @@ const ContentSection = styled.section`
 `;
 
 class BoxyLanding extends Component {
-  state = {
-    scale: null
-  };
-
-  getScale = () => {
-    let scaleWidth = window.innerWidth;
-    let scaleHeight = window.innerHeight;
-    let scale = scaleWidth > scaleHeight ? scaleHeight : scaleWidth;
-    return `${scale}px`;
-  };
-
-  componentWillMount() {
-    let scale = this.getScale();
-    this.setState({
-      scale
-    });
-
-    window.addEventListener('resize', () => {
-      let scale = this.getScale();
-      this.setState({
-        scale
-      });
-    });
-  }
-
   render() {
     return (
-      <Wrapper>
-        <TopText scale={this.state.scale}>We're Lost</TopText>
-        <SideText scale={this.state.scale}>
-          aaron<br />casanova
-        </SideText>
-        <CircleLogo scale={this.state.scale}>LA</CircleLogo>
-        <OutlineBox />
-        <ImagesSection scale={this.state.scale}>
-          <LargeImgWrapper scale={this.state.scale}>
-            <img
-              src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=92b82a18bf4bfbdfe1bd7eed8cd4ba49&auto=format&fit=crop&w=675&q=80"
-              alt="dog"
-            />
-            <SmallImgWrapper scale={this.state.scale}>
-              <img
-                src="https://images.unsplash.com/photo-1517213849290-bbbfffdc6da3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=943dfad4aa75252116f83032204a5608&auto=format&fit=crop&w=800&q=80"
-                alt="cat"
-              />
-            </SmallImgWrapper>
-          </LargeImgWrapper>
-          <ContentBox scale={this.state.scale}>
-            CREATE A SHARED RITUAL
-          </ContentBox>
-        </ImagesSection>
-        <ContentSection scale={this.state.scale}>
-          <p>
-            Friday 20 April<br />AM
-          </p>
-          <h2>
-            To Build<br />Relationships
-          </h2>
-          <h6>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-            voluptatibus ut eveniet soluta ipsum quam enim libero obcaecati cum
-            architecto nisi
-          </h6>
-        </ContentSection>
-      </Wrapper>
+      <ScaleContext.Consumer>
+        {context => (
+          <Wrapper>
+            <TopText scale={context.state.scale}>We're Lost</TopText>
+            <SideText scale={context.state.scale}>
+              aaron<br />casanova
+            </SideText>
+            <CircleLogo scale={context.state.scale}>LA</CircleLogo>
+            <OutlineBox />
+            <ImagesSection scale={context.state.scale}>
+              <LargeImgWrapper scale={context.state.scale}>
+                <img
+                  src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=92b82a18bf4bfbdfe1bd7eed8cd4ba49&auto=format&fit=crop&w=675&q=80"
+                  alt="dog"
+                />
+                <SmallImgWrapper scale={context.state.scale}>
+                  <img
+                    src="https://images.unsplash.com/photo-1517213849290-bbbfffdc6da3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=943dfad4aa75252116f83032204a5608&auto=format&fit=crop&w=800&q=80"
+                    alt="cat"
+                  />
+                </SmallImgWrapper>
+              </LargeImgWrapper>
+              <ContentBox scale={context.state.scale}>
+                CREATE A SHARED RITUAL
+              </ContentBox>
+            </ImagesSection>
+            <ContentSection scale={context.state.scale}>
+              <p>
+                Friday 20 April<br />AM
+              </p>
+              <h2>
+                To Build<br />Relationships
+              </h2>
+              <h6>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+                voluptatibus ut eveniet soluta ipsum quam enim libero obcaecati
+                cum architecto nisi
+              </h6>
+            </ContentSection>
+          </Wrapper>
+        )}
+      </ScaleContext.Consumer>
     );
   }
 }
