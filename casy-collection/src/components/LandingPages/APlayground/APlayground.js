@@ -2,20 +2,55 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 
 const vpScale = (minSize, maxSize, minScreen, maxScreen, viewportUnit) => {
-  let viewport =
-    viewportUnit === 'vw'
-      ? '100vw'
-      : viewportUnit === 'vh'
-        ? '100vh'
-        : viewportUnit === 'scale'
-          ? '${props => props.scale}'
-          : null;
-  return `calc(
-      calc(${minScreen / 100}px * ${minSize}) + (calc(${maxScreen /
-    100} * ${maxSize}) - calc(${minScreen /
-    100} * ${minSize})) * (${viewport} - ${minScreen}px) /
-        (${maxScreen} - ${minScreen})
-    )`;
+  let minmaxScale = {
+    withPx(viewport) {
+      return `calc(${minSize}px + (${maxSize} - ${minSize}) * (${viewport} - ${minScreen}px) /
+        (${maxScreen} - ${minScreen}));`;
+    },
+    withVp(viewport) {
+      return `calc(
+        calc(${minScreen / 100}px * ${minSize}) + (calc(${maxScreen /
+        100} * ${maxSize}) - calc(${minScreen /
+        100} * ${minSize})) * (${viewport} - ${minScreen}px) /
+          (${maxScreen} - ${minScreen})
+      )`;
+    }
+  };
+
+  switch (viewportUnit) {
+    case 'vwUnit':
+      return minmaxScale.withVp('100vw');
+    case 'vhUnit':
+      return minmaxScale.withVp('100vh');
+    case 'vwPx':
+      return minmaxScale.withPx('100vw');
+    case 'vhPx':
+      return minmaxScale.withPx('100vh');
+    case 'sUnit':
+      return minmaxScale.withVp('props => props.scale');
+    case 'sPx':
+      return minmaxScale.withPx('${props => props.scale}');
+    default:
+      console.log('vpScale - recieved invalid scale type');
+  }
+  // let viewport =
+  //   viewportUnit === 'vw'
+  //     ? '100vw'
+  //     : viewportUnit === 'vh'
+  //       ? '100vh'
+  //       : viewportUnit === 'scale'
+  //         ? '${props => props.scale}'
+  //         : null;
+  // return `calc(
+  //     calc(${minScreen / 100}px * ${minSize}) + (calc(${maxScreen /
+  //   100} * ${maxSize}) - calc(${minScreen /
+  //   100} * ${minSize})) * (${viewportUnit} - ${minScreen}px) /
+  //       (${maxScreen} - ${minScreen})
+  //   )`;
+  // return `calc(
+  //     ${minmaxScale} * (${viewport} - ${minScreen}px) /
+  //       (${maxScreen} - ${minScreen})
+  //   )`;
 };
 
 const Wrapper = styled.div`
@@ -34,35 +69,35 @@ const Wrapper = styled.div`
   grid-template-columns:
     1fr
     [Content-start Img2-start]
-    ${vpScale(7, 4, 320, 750, 'vw')}
+    ${vpScale(7, 4, 320, 750, 'vwUnit')}
     [Img1-start]
-    ${vpScale(33, 33, 320, 750, 'vw')}
+    ${vpScale(33, 33, 320, 750, 'vwUnit')}
     [Img1-end]
-    ${vpScale(13, 26, 320, 750, 'vw')}
+    ${vpScale(13, 26, 320, 750, 'vwUnit')}
     [Img3-start]
-    ${vpScale(41, 31, 320, 750, 'vw')}
+    ${vpScale(41, 31, 320, 750, 'vwUnit')}
     [Img2-end Img3-end Content-end]
     1fr;
   grid-template-rows:
     minmax(20px, 1fr)
     [Content-start Logo-start]
-    ${vpScale(15, 7, 320, 1300, 'vh')}
+    ${vpScale(15, 7, 320, 1300, 'vhUnit')}
     [Logo-end Nav-start]
-    ${vpScale(20, 8, 320, 1300, 'vh')}
+    ${vpScale(20, 8, 320, 1300, 'vhUnit')}
     [Nav-end Img1-start MainHeading-start]
-    ${vpScale(25, 15, 320, 1300, 'vh')}
+    ${vpScale(25, 15, 320, 1300, 'vhUnit')}
     [MainHeading-end Img2-start]
-    ${vpScale(10, 6, 320, 1300, 'vh')}
+    ${vpScale(10, 6, 320, 1300, 'vhUnit')}
     [Img1-end]
-    ${vpScale(20, 19, 320, 1300, 'vh')}
+    ${vpScale(20, 19, 320, 1300, 'vhUnit')}
     [Img3-start]
-    ${vpScale(18, 7, 320, 1300, 'vh')}
+    ${vpScale(18, 7, 320, 1300, 'vhUnit')}
     [Img2-end]
-    ${vpScale(38, 20, 320, 1300, 'vh')}
+    ${vpScale(38, 20, 320, 1300, 'vhUnit')}
     [Img3-end Email-start]
-    ${vpScale(20, 7, 320, 1300, 'vh')}
+    ${vpScale(20, 7, 320, 1300, 'vhUnit')}
     [Email-end Button-start]
-    ${vpScale(20, 7, 320, 1300, 'vh')}
+    ${vpScale(20, 7, 320, 1300, 'vhUnit')}
     [Button-end Content-end]
     minmax(20px, 1fr);
 
@@ -71,35 +106,35 @@ const Wrapper = styled.div`
     grid-template-columns:
       1fr
       [Content-start Img2-start]
-      ${vpScale(4, 9, 750, 1050, 'vw')}
+      ${vpScale(4, 9, 750, 1050, 'vwUnit')}
       [Img1-start]
-      ${vpScale(33, 25, 750, 1050, 'vw')}
+      ${vpScale(33, 25, 750, 1050, 'vwUnit')}
       [Img1-end]
-      ${vpScale(26, 22, 750, 1050, 'vw')}
+      ${vpScale(26, 22, 750, 1050, 'vwUnit')}
       [Img3-start]
-      ${vpScale(31, 25, 750, 1050, 'vw')}
+      ${vpScale(31, 25, 750, 1050, 'vwUnit')}
       [Img2-end Img3-end Content-end]
       1fr;
     grid-template-rows:
       minmax(20px, 1fr)
       [Content-start Logo-start]
-      ${vpScale(11, 7, 600, 1300, 'vh')}
+      ${vpScale(11, 7, 600, 1300, 'vhUnit')}
       [Logo-end Nav-start]
-      ${vpScale(15, 9, 600, 1300, 'vh')}
+      ${vpScale(15, 9, 600, 1300, 'vhUnit')}
       [Nav-end Img1-start MainHeading-start]
-      ${vpScale(25, 15, 600, 1300, 'vh')}
+      ${vpScale(25, 15, 600, 1300, 'vhUnit')}
       [MainHeading-end Img2-start]
-      ${vpScale(10, 6, 600, 1300, 'vh')}
+      ${vpScale(10, 6, 600, 1300, 'vhUnit')}
       [Img1-end]
-      ${vpScale(30, 19, 600, 1300, 'vh')}
+      ${vpScale(30, 19, 600, 1300, 'vhUnit')}
       [Img3-start]
-      ${vpScale(14, 7, 600, 1300, 'vh')}
+      ${vpScale(14, 7, 600, 1300, 'vhUnit')}
       [Img2-end]
-      ${vpScale(42, 20, 600, 1300, 'vh')}
+      ${vpScale(42, 20, 600, 1300, 'vhUnit')}
       [Img3-end Email-start]
-      ${vpScale(13, 7, 600, 1300, 'vh')}
+      ${vpScale(13, 7, 600, 1300, 'vhUnit')}
       [Email-end Button-start]
-      ${vpScale(13, 7, 600, 1300, 'vh')}
+      ${vpScale(13, 7, 600, 1300, 'vhUnit')}
       [Button-end Content-end]
       minmax(20px, 1fr);
   }
@@ -108,31 +143,31 @@ const Wrapper = styled.div`
     grid-template-columns:
       1fr
       [Content-start]
-      ${vpScale(33, 24, 1050, 1920, 'vw')}
+      ${vpScale(33, 24, 1050, 1920, 'vwUnit')}
       [VertNums-start]
-      ${vpScale(8, 6, 1050, 1920, 'vw')}
+      ${vpScale(8, 6, 1050, 1920, 'vwUnit')}
       [Img2-start]
-      ${vpScale(7, 7, 1050, 1920, 'vw')}
+      ${vpScale(7, 7, 1050, 1920, 'vwUnit')}
       [Img1-start]
-      ${vpScale(12, 8, 1050, 1920, 'vw')}
+      ${vpScale(12, 8, 1050, 1920, 'vwUnit')}
       [Img3-start]
-      ${vpScale(22, 18, 1050, 1920, 'vw')}
+      ${vpScale(22, 18, 1050, 1920, 'vwUnit')}
       [Img1-end]
-      ${vpScale(8, 8, 1050, 1920, 'vw')}
+      ${vpScale(8, 8, 1050, 1920, 'vwUnit')}
       [Content-end]
       1fr;
     grid-template-rows:
       minmax(20px, 1fr)
       [Img1-start]
-      ${vpScale(19, 13, 720, 1920, 'vh')}
+      ${vpScale(19, 13, 720, 1920, 'vhUnit')}
       [Img2-start]
-      ${vpScale(8, 6, 720, 1920, 'vh')}
+      ${vpScale(8, 6, 720, 1920, 'vhUnit')}
       [Img1-end]
-      ${vpScale(30, 23, 720, 1920, 'vh')}
+      ${vpScale(30, 23, 720, 1920, 'vhUnit')}
       [Img3-start]
-      ${vpScale(10, 8, 720, 1920, 'vh')}
+      ${vpScale(10, 8, 720, 1920, 'vhUnit')}
       [Img2-end]
-      ${vpScale(30, 16, 720, 1920, 'vh')}
+      ${vpScale(30, 16, 720, 1920, 'vhUnit')}
       [Img3-end]
       minmax(20px, 1fr);
   }
@@ -150,9 +185,10 @@ const Logo = styled.h2`
 
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
-  font-size: calc(
+  font-size: ${vpScale(28, 46, 320, 750, 'sPx')};
+  /* font-size: calc(
     28px + (46 - 28) * (${props => props.scale} - 320px) / (750 - 320)
-  );
+  ); */
 
   @media (min-width: 750px) {
     font-size: calc(
