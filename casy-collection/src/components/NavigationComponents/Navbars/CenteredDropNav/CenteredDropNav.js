@@ -5,9 +5,12 @@ import { CSSTransition } from 'react-transition-group';
 import styles from './CenteredDropNav.css';
 
 import HamToX from '../../NavTogglers/HamToX/HamToX';
+
 class CenteredDropNav extends Component {
   state = {
-    showDropdown: false
+    showDropdown: false,
+    highBreakCounter: 0,
+    lowBreakCounter: 0
   };
 
   toggleBtn = () => {
@@ -47,7 +50,18 @@ class CenteredDropNav extends Component {
   componentDidMount() {
     window.addEventListener('resize', () => {
       if (window.innerWidth > 960) {
-        this.hideDropdown();
+        if (this.state.highBreakCounter === 0) {
+          this.setState({ lowBreakCounter: 0 });
+          this.setState({ highBreakCounter: 1 });
+          this.hideDropdown();
+        }
+      }
+      if (window.innerWidth < 960) {
+        if (this.state.lowBreakCounter === 0) {
+          this.setState({ highBreakCounter: 0 });
+          this.setState({ lowBreakCounter: 1 });
+          this.hideDropdown();
+        }
       }
     });
   }

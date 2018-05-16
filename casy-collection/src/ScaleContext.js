@@ -31,30 +31,6 @@ export class ScaleProvider extends Component {
         ...scale
       });
     });
-
-    // state = {
-    //   scale: null
-    // };
-
-    // getScale = () => {
-    //   let scaleWidth = window.innerWidth;
-    //   let scaleHeight = window.innerHeight;
-    //   let scale = scaleWidth > scaleHeight ? scaleHeight : scaleWidth;
-    //   return `${scale}px`;
-    // };
-
-    // componentWillMount() {
-    //   let scale = this.getScale();
-    //   this.setState({
-    //     scale
-    //   });
-
-    //   window.addEventListener('resize', () => {
-    //     let scale = this.getScale();
-    //     this.setState({
-    //       scale
-    //     });
-    //   });
   }
 
   render() {
@@ -64,7 +40,6 @@ export class ScaleProvider extends Component {
           state: this.state
         }}
       >
-        {console.log(this.state)}
         {this.props.children}
       </ScaleContext.Provider>
     );

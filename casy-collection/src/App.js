@@ -10,7 +10,7 @@ import styles from './App.css';
 
 import { RoutesData } from './DumbyData';
 import { CompanyInfo } from './DumbyData';
-import { ScaleProvider, ScaleContext } from './ScaleContext';
+import { ScaleProvider } from './ScaleContext';
 
 class App extends Component {
   render() {
@@ -19,9 +19,6 @@ class App extends Component {
         <BrowserRouter>
           {/* ------ Page Wrapper ------ */}
           <div className={styles.pageWrapper}>
-            <ScaleContext.Consumer>
-              {context => <p>The Scale is {context.state.scale}</p>}
-            </ScaleContext.Consumer>
             {/* ------ Header ------ */}
             <CenteredDropNav logo={CompanyInfo.name} routes={RoutesData} />
             {/* ------ Routes ------ */}
@@ -53,3 +50,5 @@ export default App;
 // add ScaleWithState (sws) to App.js and pass down to all componenets
 // ^^^ (currently a ton of resize event listener going on)
 // search for all class components and see if they can refactor to functional comp
+// could probably move ScaleProvider inside routes or ...
+// eventually add ScaleContext or completely seperate provider for CenterDropNav (high/lowBreak)
