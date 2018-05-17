@@ -23,7 +23,9 @@ class App extends Component {
             {/* ------ Header ------ */}
             <CenteredDropNav logo={CompanyInfo.name} routes={RoutesData} />
             {/* ------ Routes ------ */}
-            <Routes />
+            <div className={styles.Routes}>
+              <Routes />
+            </div>
             {/* ------ Footer ------ */}
             <BasicFooter />
           </div>

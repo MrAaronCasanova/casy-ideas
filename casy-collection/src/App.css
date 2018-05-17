@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500|Raleway:300,400,500');
-
 :root {
   --gallery-gap: 15px;
   box-sizing: border-box;
@@ -29,6 +28,10 @@
   min-height: 100vh;
 }
 
+.Routes {
+  min-height: 100vh;
+}
+
 .HomeLink {
   text-decoration: none;
   color: inherit;
@@ -51,6 +54,7 @@
   box-shadow: 0 -10px 10px -10px rgba(0, 0, 0, 0.12) inset;
   margin-bottom: 20px;
 }
+
 .flexLink {
   text-decoration: none;
   color: inherit;
