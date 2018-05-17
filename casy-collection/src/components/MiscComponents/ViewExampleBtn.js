@@ -4,6 +4,7 @@ import styled from 'styled-components';
 const Link = styled.a`
   text-decoration: none;
   color: #040404;
+  background: white;
   width: 100%;
   display: flex;
   justify-content: center;
