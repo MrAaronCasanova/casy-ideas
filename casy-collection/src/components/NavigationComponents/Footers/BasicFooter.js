@@ -99,7 +99,6 @@ const Link = styled.a`
     grid-row: 2 / 3;
     align-self: start;
     margin-top: 7px;
-    /* transform: translateY(50%); */
   }
   &:nth-of-type(3) {
     grid-column: Link3-start / Link3-end;
@@ -169,10 +168,7 @@ const BasicFooter = () => {
     <ScaleContext.Consumer>
       {context => (
         <Wrapper>
-          <Email scale={context.state.scale}>
-            mraaroncasanova@gmail.com
-            {/* <span>&#9993;</span> mraaroncasanova@gmail.com */}
-          </Email>
+          <Email scale={context.state.scale}>mraaroncasanova@gmail.com</Email>
           <Link
             href="https://instagram.com/casyjs"
             target="_blank"

@@ -16,7 +16,7 @@
 
 .icon {
   color: var(--sec-color);
-  font-size: calc(30px + (60 - 30) * (100vw - 320px) / (750 - 320));
+  font-size: calc(30px + (40 - 30) * (100vw - 320px) / (750 - 320));
   margin: 15px;
 }
 

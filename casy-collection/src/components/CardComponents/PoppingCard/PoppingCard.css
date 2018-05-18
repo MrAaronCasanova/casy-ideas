@@ -8,8 +8,8 @@
   --pop-distance: 12px;
   /* -------------------------------- */
   overflow: hidden;
-  width: calc(225px + (350 - 225) * (100vw - 320px) / (750 - 320));
-  height: 350px;
+  width: calc(225px + (312 - 225) * (100vw - 320px) / (750 - 320));
+  height: 370px;
   border: var(--brdr-width) solid var(--brdr-color);
   border-radius: var(--brdr-radius);
   transition: all var(--trans-speed) ease-in;

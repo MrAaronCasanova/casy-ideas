@@ -35,10 +35,12 @@
 .text {
   position: absolute;
   bottom: var(--bottom-left-dist);
-  left: var(--bottom-left-dist);
+  left: calc(10px + (20 - 10) * (100vw - 320px) / (750 - 320));
+  /* left: var(--bottom-left-dist); */
   padding-bottom: var(--underline-gap);
   z-index: 1;
   color: snow;
+  font-size: calc(14px + (18 - 14) * (100vw - 320px) / (750 - 320));
 }
 
 .text::before {
