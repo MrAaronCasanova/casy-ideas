@@ -61,4 +61,6 @@ export default App;
 // create styled element snippet with essential starting point props  // const ${name} = styled.${type} etc...
 // feed vpScale to top wrapper --scale: custom prop
 // start from placeholder 9 halving gallery on home page
-//
+
+// ====== open sources ideas ======
+// apicco.com side nav / link animation in nav
