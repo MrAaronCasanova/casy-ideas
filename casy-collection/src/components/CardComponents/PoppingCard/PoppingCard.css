@@ -1,7 +1,5 @@
 .PoppingCard {
   /* ---- CSS Variables Section ----- */
-  --card-width: 400px;
-  --card-height: 400px;
   --brdr-color: #c8c8c8;
   --brdr-width: 1px;
   --brdr-radius: 5px;
@@ -10,8 +8,8 @@
   --pop-distance: 12px;
   /* -------------------------------- */
   overflow: hidden;
-  width: var(--card-width);
-  height: var(--card-height);
+  width: calc(225px + (350 - 225) * (100vw - 320px) / (750 - 320));
+  height: 350px;
   border: var(--brdr-width) solid var(--brdr-color);
   border-radius: var(--brdr-radius);
   transition: all var(--trans-speed) ease-in;
@@ -27,16 +25,25 @@
   object-fit: cover;
   width: 100%;
   height: 100%;
-  display: block;
+  vertical-align: middle;
 }
 
 .textHalf {
   width: 100%;
   height: 50%;
 }
+
 .textHalf h2,
 .textHalf p {
-  margin: 20px;
+  margin: 15px;
+}
+
+.textHalf h2 {
+  font-size: calc(28px + (30 - 28) * (100vw - 320px) / (750 - 320));
+}
+
+.textHalf p {
+  font-size: calc(13px + (13 - 13) * (100vw - 320px) / (750 - 320));
 }
 
 .PoppingCard:hover {

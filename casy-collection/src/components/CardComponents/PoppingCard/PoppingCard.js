@@ -16,8 +16,7 @@ const PoppingCard = () => {
         <p>
           Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
           doloribus perspiciatis quidem nesciunt hic libero incidunt vero iusto
-          dolor! Deserunt, optio aut. Obcaecati veniam architecto illum saepe
-          doloremque, qui reiciendis.
+          dolor!
         </p>
       </div>
     </div>

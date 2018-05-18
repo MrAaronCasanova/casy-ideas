@@ -4,6 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import CenteredDropNav from './components/NavigationComponents/Navbars/CenteredDropNav/CenteredDropNav';
 import Routes from './components/Routes/Routes';
 import BasicFooter from './components/NavigationComponents/Footers/BasicFooter';
+import ScrollToTop from './components/Widgets/ScrollToTop';
 // ------------------------ //
 // ------ Styles ------ //
 import styles from './App.css';
@@ -24,7 +25,9 @@ class App extends Component {
             <CenteredDropNav logo={CompanyInfo.name} routes={RoutesData} />
             {/* ------ Routes ------ */}
             <div className={styles.Routes}>
-              <Routes />
+              <ScrollToTop>
+                <Routes />
+              </ScrollToTop>
             </div>
             {/* ------ Footer ------ */}
             <BasicFooter />
@@ -57,3 +60,5 @@ export default App;
 // eventually add ScaleContext or completely seperate provider for CenterDropNav (high/lowBreak)
 // create styled element snippet with essential starting point props  // const ${name} = styled.${type} etc...
 // feed vpScale to top wrapper --scale: custom prop
+// start from placeholder 9 halving gallery on home page
+//
