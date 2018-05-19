@@ -7,8 +7,8 @@ import { ScaleContext } from './../../ScaleContext';
 
 const Test = styled.div`
   background: lightsteelblue;
-  width: ${props => vpScale(75, 175, 320, 750, 'sPx', props.scale)};
-  height: ${props => vpScale(75, 175, 320, 750, 'sPx', props.scale)};
+  width: ${props => vpScale(75, 400, 320, 750, 'sPx', props.scale)};
+  height: ${vpScale(20, 60, 320, 750, 'vhUnit')};
   color: red;
   text-align: center;
 `;
