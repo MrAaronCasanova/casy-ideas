@@ -8,7 +8,7 @@ import { ScaleContext } from './../../ScaleContext';
 const Test = styled.div`
   background: lightsteelblue;
   width: ${props => vpScale(75, 400, 320, 750, 'sPx', props.scale)};
-  height: ${vpScale(20, 60, 320, 750, 'vhUnit')};
+  height: ${props => vpScale(75, 400, 320, 750, 'sPx', props.scale)};
   color: red;
   text-align: center;
 `;
@@ -19,7 +19,7 @@ const Home = () => {
       {context => (
         <div>
           <HalvingGallery />
-          <Test scale={context.state.scale}>Test</Test>
+          <Test scale={context.state.scaleHeight}>Test</Test>
         </div>
       )}
     </ScaleContext.Consumer>
