@@ -15,7 +15,6 @@
   box-sizing: border-box;
   font-family: Montserrat, Arial, Helvetica, sans-serif;
   font-weight: 100;
-  transition: height 999999s;
 }
 
 *::before,
