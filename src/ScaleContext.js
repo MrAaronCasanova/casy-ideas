@@ -10,8 +10,10 @@ export class ScaleProvider extends Component {
   };
 
   getScale = () => {
-    let scaleWidth = window.innerWidth;
-    let scaleHeight = window.innerHeight;
+    // let scaleWidth = window.innerWidth;
+    // let scaleHeight = window.innerHeight;
+    let scaleWidth = window.outerWidth;
+    let scaleHeight = window.outerHeight;
     let scale = scaleWidth > scaleHeight ? scaleHeight : scaleWidth;
     return {
       scaleWidth,
