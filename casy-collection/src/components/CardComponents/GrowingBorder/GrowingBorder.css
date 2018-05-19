@@ -1,6 +1,7 @@
 .GrowingBorder {
   /* ---- CSS Variables Section ----- */
-  --trans-speed: 150ms;
+  --trans-speed: 600ms;
+  --cubic-curve: cubic-bezier(0.43, -0.06, 0, 1.07);
   --pri-color: #9dc9f3;
   --brdr-width: 55%;
   --arrow-size: 40px;
@@ -21,7 +22,8 @@
   top: 0;
   left: 0;
   z-index: -1;
-  transition: background-color var(--trans-speed) ease-in, width var(--trans-speed) ease-in;
+  transition: background-color var(--trans-speed) var(--cubic-curve), width var(--trans-speed) var(--cubic-curve);
+  /* transition: background-color var(--trans-speed) ease-in, width var(--trans-speed) ease-in; */
 }
 
 .GrowingBorder:hover::before {
@@ -50,7 +52,7 @@
   padding: 0;
   transform: translate(calc(var(--brdr-width) - var(--arrow-size)));
   font-size: var(--arrow-size);
-  transition: transform var(--trans-speed) ease-in;
+  transition: transform var(--trans-speed) var(--cubic-curve);
 }
 
 .GrowingBorder:hover .rightArrow {
