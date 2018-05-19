@@ -3,7 +3,7 @@
 
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0, user-scalable=0, minimal-ui">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, maximum-scale=1.0, user-scalable=0">
   <meta name="theme-color" content="#000000">
   <!--
       manifest.json provides metadata used when your web app is added to the
@@ -21,6 +21,27 @@
       Learn how to configure a non-root public URL by running `npm run build`.
     -->
   <title>React App</title>
+  <script>
+    function hideAddressBar() {
+      if (!window.location.hash) {
+        if (document.height < window.outerHeight) {
+          document.body.style.height = (
+            window.outerHeight + 50) + 'px';
+        }
+        setTimeout(function () {
+          window.scrollTo(0, 1);
+        }, 50);
+      }
+    }
+    window.addEventListener(
+      "load",
+      function () {
+        if (!window.pageYOffset) {
+          hideAddressBar();
+        }
+      });
+    window.addEventListener("orientationchange", hideAddressBar);
+  </script>
 </head>
 
 <body>
