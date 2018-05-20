@@ -6,9 +6,17 @@ export class ScaleProvider extends Component {
   state = {
     scale: null,
     scaleWidth: null,
-    scaleHeight: null
+    scaleHeight: null,
+    isMobileDevice: null
   };
-  z;
+
+  isMobileDevice = () => {
+    return (
+      typeof window.orientation !== 'undefined' ||
+      navigator.userAgent.indexOf('IEMobile') !== -1
+    );
+  };
+
   getScale = () => {
     let scaleWidth = window.innerWidth;
     let scaleHeight = window.innerHeight;
@@ -19,10 +27,13 @@ export class ScaleProvider extends Component {
       scale
     };
   };
+
   componentWillMount() {
+    let mobile = this.isMobileDevice();
     let scale = this.getScale();
     this.setState({
-      ...scale
+      ...scale,
+      isMobileDevice: mobile
     });
 
     window.addEventListener('resize', () => {
@@ -40,6 +51,7 @@ export class ScaleProvider extends Component {
           state: this.state
         }}
       >
+        {console.log(this.state.isMobileDevice)}
         {this.props.children}
       </ScaleContext.Provider>
     );
