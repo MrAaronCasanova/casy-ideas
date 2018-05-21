@@ -6,7 +6,6 @@ import styled from 'styled-components';
 
 const SpacedLandingWrapper = styled.div`
   height: ${vpScale(100, 100, 320, 1300, 'vhUnit')};
-  /* color: ${props => console.log(vpScale(100, 100, 320, 1300, 'vhUnit'))}; */
 `;
 
 const imageY = vpScale(100, 200, 320, 960, 'vhPx');
@@ -47,14 +46,13 @@ const Heading = styled.h2`
 const Text = styled.p`
   font-size: ${props => vpScale(16, 32, 320, 960, 'sPx', props.scale)};
 `;
-
 class SpacedLandingPage extends Component {
   render() {
     return (
       <ScaleContext.Consumer>
         {context => (
           <SpacedLandingWrapper
-            scale={context.state.scale}
+            // scale={context.state.scaleHeight}
             className={styles.SpacedLandingPage}
           >
             <Image
