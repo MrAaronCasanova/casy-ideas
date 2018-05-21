@@ -2,9 +2,9 @@
   /* ---- CSS Variables Section ----- */
   --circle-color: #d6d6d6;
   /* -------------------------------- */
-  height: 100vh;
   overflow: hidden;
-  background: #060606;
+  /* background: #060606; */
+  background: #030303;
   position: relative;
 }
 

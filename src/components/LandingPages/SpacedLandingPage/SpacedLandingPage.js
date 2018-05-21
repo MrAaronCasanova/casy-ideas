@@ -4,6 +4,10 @@ import { ScaleContext } from './../../../ScaleContext';
 import { vpScale } from './../../../helpers';
 import styled from 'styled-components';
 
+const SpacedLandingWrapper = styled.div`
+  height: ${vpScale(100, 100, 320, 1300, 'vhUnit')};
+`;
+
 const imageY = vpScale(100, 200, 320, 960, 'vhPx');
 
 const Image = styled.img`
@@ -48,7 +52,10 @@ class SpacedLandingPage extends Component {
     return (
       <ScaleContext.Consumer>
         {context => (
-          <div className={styles.SpacedLandingPage}>
+          <SpacedLandingWrapper
+            scale={context.state.scale}
+            className={styles.SpacedLandingPage}
+          >
             <Image
               src="https://images.pexels.com/photos/347761/pexels-photo-347761.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
               alt="moon"
@@ -79,7 +86,7 @@ class SpacedLandingPage extends Component {
               <p>1st space airline company</p>
               <p>few steps to the moon</p>
             </div>
-          </div>
+          </SpacedLandingWrapper>
         )}
       </ScaleContext.Consumer>
     );
