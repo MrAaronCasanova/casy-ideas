@@ -5,6 +5,10 @@ import { vpScale } from './../../../helpers';
 
 import { Link } from 'react-router-dom';
 
+const PokeWrapper = styled.div`
+  height: ${vpScale(110, 110, 320, 1300, 'vhUnit')};
+`;
+
 const BgColorContainer = styled.div`
   padding: 20px;
   height: ${vpScale(300, 720, 320, 960, 'vhPx')};
@@ -108,7 +112,7 @@ const RagLink = styled(Link)`
 
 const PokeLandingPage = () => {
   return (
-    <div className={styles.PokeLandingPage}>
+    <PokeWrapper className={styles.PokeLandingPage}>
       <BgColorContainer>
         <ul className={styles.navContainer}>
           <li>News</li>
@@ -138,7 +142,7 @@ const PokeLandingPage = () => {
           </h3>
         </div>
       </BgColorContainer>
-    </div>
+    </PokeWrapper>
   );
 };
 

@@ -15,7 +15,7 @@ import APlayground from '../../LandingPages/APlayground/APlayground';
 
 const LandingWrapper = styled.div`
   /* min-height: ${vpScale(100, 100, 320, 320, 'vhUnit')}; */
-  height: ${vpScale(100, 100, 320, 1300, 'vhUnit')};
+  min-height: ${vpScale(100, 100, 320, 1300, 'vhUnit')};
   /* min-height: 100vh; */
 `;
 
