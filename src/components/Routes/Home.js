@@ -15,7 +15,16 @@ const Test = styled.div`
   /* height: ${props => vpScale(20, 25, 320, 750, 'sUnit', props.scale)}; */
   color: red;
   text-align: center;
+
+  /* @media () {
+
+  } */
 `;
+
+// setTimeout(() => {
+//   forceUpdate();
+//   console.log('hey you guys');
+// }, 5000);
 
 const Home = () => {
   return (
