@@ -6,6 +6,7 @@ import styled from 'styled-components';
 
 const SpacedLandingWrapper = styled.div`
   height: ${vpScale(100, 100, 320, 1300, 'vhUnit')};
+  /* color: ${props => console.log(vpScale(100, 100, 320, 1300, 'vhUnit'))}; */
 `;
 
 const imageY = vpScale(100, 200, 320, 960, 'vhPx');
