@@ -14,9 +14,7 @@ import APlayground from '../../LandingPages/APlayground/APlayground';
 // import Transitions from './Transitions/Transitions';
 
 const LandingWrapper = styled.div`
-  /* min-height: ${vpScale(100, 100, 320, 320, 'vhUnit')}; */
   min-height: ${vpScale(100, 100, 320, 1300, 'vhUnit')};
-  /* min-height: 100vh; */
 `;
 
 const LandingPages = () => {

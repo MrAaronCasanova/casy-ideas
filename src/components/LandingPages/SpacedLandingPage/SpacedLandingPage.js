@@ -8,21 +8,20 @@ const SpacedLandingWrapper = styled.div`
   height: ${vpScale(100, 100, 320, 1300, 'vhUnit')};
 `;
 
+// because I couldn't use vpScale function (or any JS) inside styled components transform: translate(***)
 const imageY = vpScale(100, 200, 320, 960, 'vhPx');
+const imageX = vpScale(-50, -200, 320, 960, 'vwPx');
 
 const Image = styled.img`
   --y: ${imageY}
+  --x: ${imageX}
   width: 100%;
   height: 100%;
   object-fit: cover;
   transform: translate(
-    calc(-50px + (-200 - -50) * (100vw - 320px) / (960 - 320)),
+    var(--x),
     var(--y)
-  );
-  /* transform: translate(
-    calc(-50px + (-200 - -50) * (100vw - 320px) / (960 - 320)),
-    calc(100px + (200 - 100) * (100vh - 360px) / (960 - 360))
-  ); */
+    );
 `;
 
 const Circle = styled.div`

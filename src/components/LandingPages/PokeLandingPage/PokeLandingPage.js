@@ -6,7 +6,7 @@ import { vpScale } from './../../../helpers';
 import { Link } from 'react-router-dom';
 
 const PokeWrapper = styled.div`
-  height: ${vpScale(110, 110, 320, 1300, 'vhUnit')};
+  height: ${vpScale(150, 110, 320, 1300, 'vhUnit')};
 `;
 
 const BgColorContainer = styled.div`
@@ -80,7 +80,7 @@ const RagLink = styled(Link)`
   white-space: nowrap;
   font-size: calc(16px + (35 - 16) * (100vw - 320px) / (1360 - 320));
   position: absolute;
-  top: ${vpScale(20, 560, 320, 960, 'vhPx')};
+  top: ${vpScale(225, 560, 320, 960, 'vhPx')};
   left: calc(460px + (670 - 460) * (100vw - 600px) / (960 - 600));
 
   &::after {
