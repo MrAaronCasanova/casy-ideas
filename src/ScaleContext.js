@@ -51,9 +51,13 @@ export class ScaleProvider extends Component {
           state: this.state
         }}
       >
-        {console.log(this.state.isMobileDevice)}
+        {/* {console.log(this.state.isMobileDevice)} */}
         {this.props.children}
       </ScaleContext.Provider>
     );
   }
 }
+
+export let scaleWidth = window.innerWidth;
+export let scaleHeight = window.innerHeight;
+export let scale = scaleWidth > scaleHeight ? scaleHeight : scaleWidth;
