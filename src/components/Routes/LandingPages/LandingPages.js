@@ -1,5 +1,6 @@
 import React from 'react';
-import styles from './LandingPages.css';
+import styled from 'styled-components';
+import { vpScale } from './../../../helpers';
 import ViewExampleBtn from './../../MiscComponents/ViewExampleBtn';
 import LayeredText from '../../LandingPages/LayeredText/LayeredText';
 import ApiccoLanding from '../../LandingPages/ApiccoLanding/ApiccoLanding';
@@ -12,9 +13,15 @@ import APlayground from '../../LandingPages/APlayground/APlayground';
 // import HourGlassText from '../../LandingPages/HourGlassText/HourGlassText';
 // import Transitions from './Transitions/Transitions';
 
+const LandingWrapper = styled.div`
+  /* min-height: ${vpScale(100, 100, 320, 320, 'vhUnit')}; */
+  height: ${vpScale(100, 100, 320, 1300, 'vhUnit')};
+  /* min-height: 100vh; */
+`;
+
 const LandingPages = () => {
   return (
-    <div className={styles.LandingPages}>
+    <LandingWrapper>
       <div>
         <APlayground />
         <ViewExampleBtn href="https://dribbble.com/shots/2613990-Finnerztaffen" />
@@ -49,7 +56,7 @@ const LandingPages = () => {
       </div>
       {/* <HourGlassText /> */}
       {/* <Transitions /> */}
-    </div>
+    </LandingWrapper>
   );
 };
 

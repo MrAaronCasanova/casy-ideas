@@ -52,7 +52,7 @@ class SpacedLandingPage extends Component {
       <ScaleContext.Consumer>
         {context => (
           <SpacedLandingWrapper
-            // scale={context.state.scaleHeight}
+            scale={context.state.scale}
             className={styles.SpacedLandingPage}
           >
             <Image

@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { ScaleContext } from './../../../ScaleContext';
+import { vpScale } from './../../../helpers';
 
 const Wrapper = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Playfair+Display');
   overflow: hidden;
   background: #f6f6f6;
   padding: 30px;
-  height: 100vh;
+  height: ${vpScale(100, 100, 320, 1300, 'vhUnit')};
+  /* height: 100vh; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
