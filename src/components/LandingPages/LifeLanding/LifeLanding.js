@@ -147,7 +147,8 @@ const BodyContentWrapper = styled.div`
 
   p {
     padding: 40px 0;
-    color: #cecece;
+    color: #aaa;
+    /* color: #cecece; */
     font-weight: bold;
     font-size: ${vpScale(16, 24, 320, 2500, 'vwPx')};
   }
@@ -179,6 +180,23 @@ const ArrowWrapper = styled.div`
       align-self: center;
     }
   }
+`;
+
+const RightArrow = styled.div`
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+
+  border-left: 10px solid green;
+`;
+const LeftArrow = styled.div`
+  width: 0;
+  height: 0;
+  border-top: 10px solid transparent;
+  border-bottom: 10px solid transparent;
+
+  border-right: 10px solid blue;
 `;
 
 const transX = vpScale(100, 300, 1210, 2500, 'vwPx');
@@ -288,8 +306,10 @@ class LifeLanding extends Component {
                 </h2>
                 <p>Love the life you live. Live the life you love.</p>
                 <ArrowWrapper>
-                  <div>◀</div>
-                  <div>▶</div>
+                  <LeftArrow />
+                  <RightArrow />
+                  {/* <div>◀</div>
+                  <div>▶</div> */}
                 </ArrowWrapper>
               </BodyContentWrapper>
               <BodyImgWrapper>
