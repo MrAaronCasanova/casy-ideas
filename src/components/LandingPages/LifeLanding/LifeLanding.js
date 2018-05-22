@@ -191,6 +191,7 @@ const BodyImgWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 90px;
 
   img {
     display: block;
