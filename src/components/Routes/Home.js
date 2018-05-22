@@ -7,10 +7,11 @@ import { ScaleContext } from './../../ScaleContext';
 
 const Test = styled.div`
   background: lightsteelblue;
-  width: ${props => vpScale(20, 250, 320, 750, 'sPx', props.scale)};
-  height: 50vh;
+  width: 100px;
+  height: 40vh;
   color: red;
   text-align: center;
+  transition: height 1111ms;
 `;
 
 const Home = () => {
