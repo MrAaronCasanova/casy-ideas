@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styles from './SpacedLandingPage.css';
-import { ScaleContext } from './../../../ScaleContext';
 import { vpScale } from './../../../helpers';
 import styled from 'styled-components';
 
@@ -30,63 +29,48 @@ const Circle = styled.div`
   background: transparent;
   position: absolute;
   top: ${vpScale(19, 230, 320, 960, 'vhPx')};
-  left: calc(20px + (260 - 20) * (100vw - 320px) / (960 - 320));
-  width: ${props => vpScale(275, 500, 360, 960, 'sPx', props.scale)};
-  height: ${props => vpScale(275, 500, 360, 960, 'sPx', props.scale)};
+  left: ${vpScale(20, 260, 320, 960, 'vwPx')};
+  width: ${vpScale(275, 500, 360, 960, 'sPx')};
+  height: ${vpScale(275, 500, 360, 960, 'sPx')};
   border-radius: 50%;
   overflow: hidden;
   z-index: 1;
 `;
 
 const Heading = styled.h2`
-  font-size: ${props => vpScale(27, 40, 320, 960, 'sPx', props.scale)};
+  font-size: ${vpScale(27, 40, 320, 960, 'sPx')};
 `;
 
 const Text = styled.p`
-  font-size: ${props => vpScale(16, 32, 320, 960, 'sPx', props.scale)};
+  font-size: ${vpScale(16, 32, 320, 960, 'sPx')};
 `;
 class SpacedLandingPage extends Component {
   render() {
     return (
-      <ScaleContext.Consumer>
-        {context => (
-          <SpacedLandingWrapper
-            scale={context.state.scale}
-            className={styles.SpacedLandingPage}
-          >
-            <Image
-              src="https://images.pexels.com/photos/347761/pexels-photo-347761.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              alt="moon"
-            />
-            <Circle scale={context.state.scale}>
-              <div className={styles.boxOne}>
-                <div className={styles.circleContent}>
-                  <Heading
-                    scale={context.state.scale}
-                    className={styles.circleHeading}
-                  >
-                    SPACED
-                  </Heading>
-                  <Text
-                    scale={context.state.scale}
-                    className={styles.circleText}
-                  >
-                    To space and back, safely
-                  </Text>
-                </div>
-              </div>
-            </Circle>
-            <div className={styles.flipText}>
-              <p>1st space airline company</p>
-              <p>few steps to the moon</p>
+      <SpacedLandingWrapper className={styles.SpacedLandingPage}>
+        <Image
+          src="https://images.pexels.com/photos/347761/pexels-photo-347761.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+          alt="moon"
+        />
+        <Circle>
+          <div className={styles.boxOne}>
+            <div className={styles.circleContent}>
+              <Heading className={styles.circleHeading}>SPACED</Heading>
+              <Text className={styles.circleText}>
+                To space and back, safely
+              </Text>
             </div>
-            <div className={styles.horzText}>
-              <p>1st space airline company</p>
-              <p>few steps to the moon</p>
-            </div>
-          </SpacedLandingWrapper>
-        )}
-      </ScaleContext.Consumer>
+          </div>
+        </Circle>
+        <div className={styles.flipText}>
+          <p>1st space airline company</p>
+          <p>few steps to the moon</p>
+        </div>
+        <div className={styles.horzText}>
+          <p>1st space airline company</p>
+          <p>few steps to the moon</p>
+        </div>
+      </SpacedLandingWrapper>
     );
   }
 }

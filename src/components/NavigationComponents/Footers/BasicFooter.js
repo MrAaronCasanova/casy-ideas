@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import { vpScale } from './../../../helpers';
-import { ScaleContext } from './../../../ScaleContext';
 
 const Wrapper = styled.footer`
   /* ---- CSS Variables Section ----- */
@@ -47,10 +46,10 @@ const Email = styled.p`
   justify-content: center;
   padding-bottom: 30px;
 
-  font-size: ${props => vpScale(12, 26, 320, 1300, 'sPx', props.scale)};
+  font-size: ${vpScale(12, 26, 320, 1300, 'sPx')};
 
   span {
-    font-size: ${props => vpScale(20, 20, 320, 1300, 'sPx', props.scale)};
+    font-size: ${vpScale(20, 20, 320, 1300, 'sPx')};
     padding-right: 8px;
   }
 `;
@@ -60,10 +59,10 @@ const Link = styled.a`
   align-self: end;
 
   border: 1px solid var(--line-color);
-  width: ${props => vpScale(30, 40, 320, 750, 'sPx', props.scale)};
-  height: ${props => vpScale(30, 40, 320, 750, 'sPx', props.scale)};
-  font-size: ${props => vpScale(12, 16, 320, 750, 'sPx', props.scale)};
-  line-height: ${props => vpScale(27, 40, 320, 750, 'sPx', props.scale)};
+  width: ${vpScale(30, 40, 320, 750, 'sPx')};
+  height: ${vpScale(30, 40, 320, 750, 'sPx')};
+  font-size: ${vpScale(12, 16, 320, 750, 'sPx')};
+  line-height: ${vpScale(27, 40, 320, 750, 'sPx')};
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   border-radius: 50%;
   text-align: center;
@@ -119,7 +118,7 @@ const Copyright = styled.p`
   align-items: flex-end;
   padding: 20px;
 
-  font-size: ${props => vpScale(13, 21, 320, 750, 'sPx', props.scale)};
+  font-size: ${vpScale(13, 21, 320, 750, 'sPx')};
   transform: translateY(
     calc(20px + (30 - 20) * (100vh - 320px) / (1300 - 320))
   );
@@ -165,44 +164,27 @@ const LowLine = styled.div`
 
 const BasicFooter = () => {
   return (
-    <ScaleContext.Consumer>
-      {context => (
-        <Wrapper>
-          <Email scale={context.state.scale}>mraaroncasanova@gmail.com</Email>
-          <Link
-            href="https://instagram.com/casyjs"
-            target="_blank"
-            color="Instagram"
-            scale={context.state.scale}
-          >
-            I
-          </Link>
-          <Link
-            href="https://twitter.com/casyjs"
-            target="_blank"
-            color="Twitter"
-            scale={context.state.scale}
-          >
-            T
-          </Link>
-          <Link
-            href="https://facebook.com/casyjs"
-            target="_blank"
-            color="Facebook"
-            scale={context.state.scale}
-          >
-            F
-          </Link>
-          <Copyright scale={context.state.scale}>
-            © 2018 Casy.js All Rights Reserved
-          </Copyright>
-          <MainLine scale={context.state.scale} />
-          <HighLine scale={context.state.scale} />
-          <MidLine scale={context.state.scale} />
-          <LowLine scale={context.state.scale} />
-        </Wrapper>
-      )}
-    </ScaleContext.Consumer>
+    <Wrapper>
+      <Email>mraaroncasanova@gmail.com</Email>
+      <Link
+        href="https://instagram.com/casyjs"
+        target="_blank"
+        color="Instagram"
+      >
+        I
+      </Link>
+      <Link href="https://twitter.com/casyjs" target="_blank" color="Twitter">
+        T
+      </Link>
+      <Link href="https://facebook.com/casyjs" target="_blank" color="Facebook">
+        F
+      </Link>
+      <Copyright>© 2018 Casy.js All Rights Reserved</Copyright>
+      <MainLine />
+      <HighLine />
+      <MidLine />
+      <LowLine />
+    </Wrapper>
   );
 };
 

@@ -12,28 +12,25 @@ import styles from './App.css';
 
 import { RoutesData } from './DumbyData';
 import { CompanyInfo } from './DumbyData';
-import { ScaleProvider } from './ScaleContext';
 
 class App extends Component {
   render() {
     return (
-      <ScaleProvider>
-        <BrowserRouter>
-          {/* ------ Page Wrapper ------ */}
-          <div className={styles.pageWrapper}>
-            {/* ------ Header ------ */}
-            <CenteredDropNav logo={CompanyInfo.name} routes={RoutesData} />
-            {/* ------ Routes ------ */}
-            <div className={styles.Routes}>
-              <ScrollToTop>
-                <Routes />
-              </ScrollToTop>
-            </div>
-            {/* ------ Footer ------ */}
-            <BasicFooter />
+      <BrowserRouter>
+        {/* ------ Page Wrapper ------ */}
+        <div className={styles.pageWrapper}>
+          {/* ------ Header ------ */}
+          <CenteredDropNav logo={CompanyInfo.name} routes={RoutesData} />
+          {/* ------ Routes ------ */}
+          <div className={styles.Routes}>
+            <ScrollToTop>
+              <Routes />
+            </ScrollToTop>
           </div>
-        </BrowserRouter>
-      </ScaleProvider>
+          {/* ------ Footer ------ */}
+          <BasicFooter />
+        </div>
+      </BrowserRouter>
     );
   }
 }
@@ -56,11 +53,8 @@ export default App;
 // add ScaleWithState (sws) to App.js and pass down to all componenets
 // ^^^ (currently a ton of resize event listener going on)
 // search for all class components and see if they can refactor to functional comp
-// could probably move ScaleProvider inside routes or ...
-// eventually add ScaleContext or completely seperate provider for CenterDropNav (high/lowBreak)
 // create styled element snippet with essential starting point props  // const ${name} = styled.${type} etc...
 // feed vpScale to top wrapper --scale: custom prop
-// start from placeholder 9 halving gallery on home page
 // do ress vpScale all with javascript and provide static units to @media(devices)
 
 // ====== open sources ideas ======

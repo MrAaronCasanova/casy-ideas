@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
-import { ScaleContext } from './../../../ScaleContext';
 import { vpScale } from './../../../helpers';
 
 const Wrapper = styled.div`
@@ -38,14 +37,8 @@ const slideOut = keyframes`
 `;
 
 const Bottle = styled.img`
-  width: calc(
-    200px + (600 - 200) * (${props => `${props.scale}px`} - 320px) /
-      (1000 - 320)
-  );
-  height: calc(
-    200px + (600 - 200) * (${props => `${props.scale}px`} - 320px) /
-      (1000 - 320)
-  );
+  width: ${vpScale(200, 600, 320, 1000, 'sPx')};
+  height: ${vpScale(200, 600, 320, 1000, 'sPx')};
   object-fit: cover;
   position: absolute;
   top: 50%;
@@ -59,23 +52,15 @@ const Bottle = styled.img`
 `;
 
 const Glass = Bottle.extend`
-  width: calc(
-    150px + (500 - 150) * (${props => `${props.scale}px`} - 320px) /
-      (1000 - 320)
-  );
-  height: calc(
-    150px + (500 - 150) * (${props => `${props.scale}px`} - 320px) /
-      (1000 - 320)
-  );
+  width: ${vpScale(150, 500, 320, 1000, 'sPx')};
+  height: ${vpScale(150, 500, 320, 1000, 'sPx')};
 `;
 
 const Title = styled.h2`
   position: relative;
   z-index: 1;
   align-self: ${props => props.align};
-  font-size: calc(
-    33px + (85 - 33) * (${props => `${props.scale}px`} - 320px) / (960 - 320)
-  );
+  font-size: ${vpScale(33, 85, 320, 960, 'sPx')};
   color: #2c2828;
   font-family: 'Playfair Display', serif;
 `;
@@ -107,34 +92,22 @@ class WhiskeyLanding extends Component {
 
   render() {
     return (
-      <ScaleContext.Consumer>
-        {context => (
-          <Wrapper>
-            <Title scale={context.state.scale} align={'flex-start'}>
-              Whiskey...
-            </Title>
-            <Bottle
-              scale={context.state.scale}
-              whiskeyAni={this.state.whiskeyAni}
-              src="https://png.pngtree.com/element_origin_min_pic/16/08/19/1957b6ee8468341.jpg"
-              alt="whiskey bottle"
-            />
-            <Glass
-              scale={context.state.scale}
-              whiskeyAni={!this.state.whiskeyAni}
-              src="https://png.pngtree.com/element_origin_min_pic/17/07/19/ef06fd4633838842b5634cfbde4b43a4.jpg"
-              alt="whiskey glass"
-            />
-            <Title scale={context.state.scale} align={'flex-end'}>
-              ...for all
-            </Title>
-          </Wrapper>
-        )}
-      </ScaleContext.Consumer>
+      <Wrapper>
+        <Title align={'flex-start'}>Whiskey...</Title>
+        <Bottle
+          whiskeyAni={this.state.whiskeyAni}
+          src="https://png.pngtree.com/element_origin_min_pic/16/08/19/1957b6ee8468341.jpg"
+          alt="whiskey bottle"
+        />
+        <Glass
+          whiskeyAni={!this.state.whiskeyAni}
+          src="https://png.pngtree.com/element_origin_min_pic/17/07/19/ef06fd4633838842b5634cfbde4b43a4.jpg"
+          alt="whiskey glass"
+        />
+        <Title align={'flex-end'}>...for all</Title>
+      </Wrapper>
     );
   }
 }
 
 export default WhiskeyLanding;
-
-// ----------------------------------------------------

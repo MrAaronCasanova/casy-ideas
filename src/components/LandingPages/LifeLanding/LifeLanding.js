@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { ScaleContext } from './../../../ScaleContext';
+import { vpScale } from './../../../helpers';
 
 const Wrapper = styled.div`
   position: relative;
   z-index: -2;
   min-height: 100%;
-  padding: calc(50px + (300 - 50) * (100vw - 320px) / (2500 - 320)) 0;
+  padding: ${vpScale(50, 300, 320, 2500, 'vwPx')} 0;
   background: #cfdcd3;
   overflow: hidden;
   position: relative;
@@ -18,10 +18,7 @@ const Wrapper = styled.div`
 
 const Os = styled.div`
   z-index: -1;
-  font-size: calc(
-    280px + (2500 - 280) * (${props => `${props.scale}px`} - 320px) /
-      (2500 - 320)
-  );
+  font-size: ${vpScale(280, 2500, 320, 2500, 'sPx')};
   font-weight: bold;
   color: #dce7e1;
 
@@ -40,7 +37,7 @@ const Os = styled.div`
 `;
 
 const CardWrapper = styled.div`
-  width: calc(300px + (2200 - 300) * (100vw - 320px) / (2500 - 320));
+  width: ${vpScale(300, 2200, 320, 2500, 'vwPx')};
   min-height: 100%;
   background: #fff;
   border-radius: 8px;
@@ -58,7 +55,7 @@ const LeftWrap = styled.div`
   justify-content: space-between;
 `;
 const RightWrap = styled.div`
-  width: calc(600px + (1000 - 600) * (100vw - 1210px) / (2500 - 1210));
+  width: ${vpScale(600, 1000, 1210, 2500, 'vwPx')};
   @media (max-width: 1210px) {
     width: 100%;
   }
@@ -96,12 +93,12 @@ const NavItems = styled.ul`
 
   li {
     padding: 20px 0 20px 20px;
-    font-size: calc(18px + (32 - 20) * (100vw - 320px) / (2500 - 320));
+    font-size: ${vpScale(18, 32, 320, 2500, 'vwPx')};
   }
 `;
 
 const NavSearch = styled.div`
-  font-size: calc(18px + (30 - 20) * (100vw - 320px) / (2500 - 320));
+  font-size: ${vpScale(18, 30, 320, 2500, 'vwPx')};
   padding: 20px 40px;
   text-align: bottom;
   width: 100%;
@@ -122,11 +119,11 @@ const NavSearch = styled.div`
 `;
 
 const MagGlass = styled.span`
-  margin-left: calc(150px + (400 - 150) * (100vw - 320px) / (2500 - 320));
+  margin-left: ${vpScale(150, 400, 320, 2500, 'vwPx')};
 `;
 
 const CardBody = styled.div`
-  padding: calc(20px + (60 - 20) * (100vw - 320px) / (2500 - 320)) 20px;
+  padding: ${vpScale(20, 60, 320, 2500, 'vwPx')};
   display: flex;
   @media (max-width: 600px) {
     flex-direction: column;
@@ -138,12 +135,12 @@ const BodyContentWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   padding-top: 30px;
-  padding-left: calc(0px + (200 - 0) * (100vw - 320px) / (2500 - 320));
+  padding-left: ${vpScale(0, 200, 320, 2500, 'vwPx')};
   padding-right: 50px;
 
   h2 {
     line-height: 0.85;
-    font-size: calc(60px + (100 - 60) * (100vw - 320px) / (2500 - 320));
+    font-size: ${vpScale(60, 100, 320, 2500, 'vwPx')};
     color: #4e7e64;
     font-weight: bold;
   }
@@ -152,7 +149,7 @@ const BodyContentWrapper = styled.div`
     padding: 40px 0;
     color: #cecece;
     font-weight: bold;
-    font-size: calc(16px + (24 - 16) * (100vw - 320px) / (2500 - 320));
+    font-size: ${vpScale(16, 24, 320, 2500, 'vwPx')};
   }
 
   @media (max-width: 600px) {
@@ -180,12 +177,13 @@ const ArrowWrapper = styled.div`
   @media (max-width: 600px) {
     & {
       align-self: center;
-      margin-bottom: calc(80px + (110 - 80) * (100vw - 320px) / (600 - 320));
     }
   }
 `;
 
+const transX = vpScale(100, 300, 1210, 2500, 'vwPx');
 const BodyImgWrapper = styled.div`
+  --transX: ${transX};
   flex: 1 1 50%;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.15);
   width: 100%;
@@ -202,9 +200,7 @@ const BodyImgWrapper = styled.div`
   }
   @media (min-width: 1210px) {
     & {
-      transform: translateX(
-        calc(100px + (300 - 100) * (100vw - 1210px) / (2500 - 1210))
-      );
+      transform: translateX(var(--transX));
     }
   }
 `;
@@ -213,12 +209,12 @@ const NumberBox = styled.div`
   position: absolute;
   bottom: 60px;
   left: -40px;
-  width: calc(80px + (250 - 80) * (100vw - 320px) / (2500 - 320));
-  height: calc(80px + (250 - 80) * (100vw - 320px) / (2500 - 320));
+  width: ${vpScale(80, 250, 320, 2500, 'vwPx')};
+  height: ${vpScale(80, 250, 320, 2500, 'vwPx')};
   background: #4e7e64;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
   color: #ffffff;
-  font-size: calc(50px + (150 - 50) * (100vw - 320px) / (2500 - 320));
+  font-size: ${vpScale(50, 150, 320, 2500, 'vwPx')};
   font-weight: bold;
   display: flex;
   justify-content: center;
@@ -234,13 +230,12 @@ const NumberBox = styled.div`
 const CardFooter = styled.ul`
   list-style: none;
   display: flex;
-  margin-left: calc(0px + (200 - 0) * (100vw - 320px) / (2500 - 320));
+  margin-left: ${vpScale(0, 200, 320, 2500, 'vwPx')};
 
   & > * {
     font-weight: bold;
-    padding: 20px 20px calc(20px + (60 - 20) * (100vw - 320px) / (2500 - 320))
-      20px;
-    font-size: calc(14px + (20 - 14) * (100vw - 320px) / (2500 - 320));
+    padding: 20px 20px ${vpScale(20, 60, 320, 2500, 'vwPx')} 20px;
+    font-size: ${vpScale(14, 20, 320, 2500, 'vwPx')};
   }
 
   @media (max-width: 1210px) {
@@ -252,7 +247,7 @@ const CardFooter = styled.ul`
 const CardSide = styled.div`
   padding: 20px;
   text-align: center;
-  font-size: calc(20px + (40 - 20) * (100vw - 320px) / (2500 - 320));
+  font-size: ${vpScale(20, 40, 320, 2500, 'vwPx')};
   color: #fff;
   background: #4e7e64;
   height: 100%;
@@ -265,63 +260,59 @@ const CardSide = styled.div`
 class LifeLanding extends Component {
   render() {
     return (
-      <ScaleContext.Consumer>
-        {context => (
-          <Wrapper>
-            <Os scale={context.state.scale}>O</Os>
-            <CardWrapper>
-              <LeftWrap>
-                <NavWrapper>
-                  <NavItemsWrapper>
-                    <Logo>LIFE</Logo>
-                    <NavItems>
-                      <li>Life</li>
-                      <li>Outdoor</li>
-                      <li>Prize</li>
-                    </NavItems>
-                  </NavItemsWrapper>
-                  <NavSearch>
-                    <span>
-                      Search...<MagGlass>🔍</MagGlass>
-                    </span>
-                  </NavSearch>
-                </NavWrapper>
-                <CardBody>
-                  <BodyContentWrapper>
-                    <h2>
-                      Life<br />
-                      Is Art.
-                    </h2>
-                    <p>Love the life you live. Live the life you love.</p>
-                    <ArrowWrapper>
-                      <div>◀</div>
-                      <div>▶</div>
-                    </ArrowWrapper>
-                  </BodyContentWrapper>
-                  <BodyImgWrapper>
-                    <img
-                      src="https://images.pexels.com/photos/301614/pexels-photo-301614.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-                      alt="open water"
-                    />
-                    <NumberBox>03</NumberBox>
-                  </BodyImgWrapper>
-                </CardBody>
-                <CardFooter>
-                  <li>Facebook</li>
-                  <li>Instagram</li>
-                  <li>Twitter</li>
-                </CardFooter>
-              </LeftWrap>
-              <RightWrap>
-                <CardSide>
-                  Login <span>☰</span>
-                </CardSide>
-              </RightWrap>
-            </CardWrapper>
-            <Os scale={context.state.scale}>O</Os>
-          </Wrapper>
-        )}
-      </ScaleContext.Consumer>
+      <Wrapper>
+        <Os>O</Os>
+        <CardWrapper>
+          <LeftWrap>
+            <NavWrapper>
+              <NavItemsWrapper>
+                <Logo>LIFE</Logo>
+                <NavItems>
+                  <li>Life</li>
+                  <li>Outdoor</li>
+                  <li>Prize</li>
+                </NavItems>
+              </NavItemsWrapper>
+              <NavSearch>
+                <span>
+                  Search...<MagGlass>🔍</MagGlass>
+                </span>
+              </NavSearch>
+            </NavWrapper>
+            <CardBody>
+              <BodyContentWrapper>
+                <h2>
+                  Life<br />
+                  Is Art.
+                </h2>
+                <p>Love the life you live. Live the life you love.</p>
+                <ArrowWrapper>
+                  <div>◀</div>
+                  <div>▶</div>
+                </ArrowWrapper>
+              </BodyContentWrapper>
+              <BodyImgWrapper>
+                <img
+                  src="https://images.pexels.com/photos/301614/pexels-photo-301614.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+                  alt="open water"
+                />
+                <NumberBox>03</NumberBox>
+              </BodyImgWrapper>
+            </CardBody>
+            <CardFooter>
+              <li>Facebook</li>
+              <li>Instagram</li>
+              <li>Twitter</li>
+            </CardFooter>
+          </LeftWrap>
+          <RightWrap>
+            <CardSide>
+              Login <span>☰</span>
+            </CardSide>
+          </RightWrap>
+        </CardWrapper>
+        <Os>O</Os>
+      </Wrapper>
     );
   }
 }

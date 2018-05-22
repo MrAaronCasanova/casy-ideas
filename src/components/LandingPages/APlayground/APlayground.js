@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
 import { vpScale } from './../../../helpers';
-import { ScaleContext } from './../../../ScaleContext';
 
 const Wrapper = styled.div`
   /* ---- CSS Variables Section ----- */
@@ -136,10 +135,10 @@ const Logo = styled.h2`
   font-family: 'Poppins', sans-serif;
   font-weight: bold;
 
-  font-size: ${props => vpScale(28, 46, 320, 750, 'sPx', props.scale)};
+  font-size: ${vpScale(28, 46, 320, 750, 'sPx')};
 
   @media (min-width: 750px) {
-    font-size: ${props => vpScale(30, 46, 320, 1050, 'sPx', props.scale)};
+    font-size: ${vpScale(30, 46, 320, 1050, 'sPx')};
   }
   @media (min-width: 1050px) {
     grid-column: Content-start / VertNums-start;
@@ -147,7 +146,7 @@ const Logo = styled.h2`
     justify-content: flex-start;
 
     font-weight: normal;
-    font-size: ${props => vpScale(30, 60, 320, 1920, 'sPx', props.scale)};
+    font-size: ${vpScale(30, 60, 320, 1920, 'sPx')};
   }
 `;
 
@@ -161,7 +160,7 @@ const Nav = styled.ul`
   justify-content: center;
 
   list-style: none;
-  font-size: ${props => vpScale(17, 27, 320, 750, 'sPx', props.scale)};
+  font-size: ${vpScale(17, 27, 320, 750, 'sPx')};
 
   li {
     font-family: 'Poppins', sans-serif;
@@ -170,7 +169,7 @@ const Nav = styled.ul`
   }
 
   @media (min-width: 750px) {
-    font-size: ${props => vpScale(18, 27, 320, 1050, 'sPx', props.scale)};
+    font-size: ${vpScale(18, 27, 320, 1050, 'sPx')};
   }
   @media (min-width: 1050px) {
     grid-column: Content-start / VertNums-start;
@@ -178,7 +177,7 @@ const Nav = styled.ul`
     justify-content: flex-start;
     align-items: center;
 
-    font-size: ${props => vpScale(15, 23, 320, 1920, 'sPx', props.scale)};
+    font-size: ${vpScale(15, 23, 320, 1920, 'sPx')};
   }
 `;
 
@@ -193,11 +192,11 @@ const MainHeading = styled.h2`
   align-items: center;
 
   font-family: 'Josefin Sans', sans-serif;
-  font-size: ${props => vpScale(32, 56, 320, 750, 'sPx', props.scale)};
+  font-size: ${vpScale(32, 56, 320, 750, 'sPx')};
   font-weight: bold;
 
   @media (min-width: 750px) {
-    font-size: ${props => vpScale(40, 56, 320, 1050, 'sPx', props.scale)};
+    font-size: ${vpScale(40, 56, 320, 1050, 'sPx')};
   }
   @media (min-width: 1050px) {
     grid-column: Content-start / VertNums-start;
@@ -205,17 +204,17 @@ const MainHeading = styled.h2`
     justify-content: flex-start;
     align-items: flex-start;
 
-    font-size: ${props => vpScale(45, 140, 320, 1920, 'sPx', props.scale)};
+    font-size: ${vpScale(45, 140, 320, 1920, 'sPx')};
 
     position: relative;
     &::after {
       content: '';
       position: absolute;
       background: #000;
-      top: ${props => vpScale(-9, -40, 320, 1920, 'sPx', props.scale)};
-      left: ${props => vpScale(29, 92, 320, 1920, 'sPx', props.scale)};
-      width: ${props => vpScale(48, 130, 320, 1920, 'sPx', props.scale)};
-      height: ${props => vpScale(2, 6, 320, 1920, 'sPx', props.scale)};
+      top: ${vpScale(-9, -40, 320, 1920, 'sPx')};
+      left: ${vpScale(29, 92, 320, 1920, 'sPx')};
+      width: ${vpScale(48, 130, 320, 1920, 'sPx')};
+      height: ${vpScale(2, 6, 320, 1920, 'sPx')};
     }
   }
 `;
@@ -234,11 +233,11 @@ const DescText = styled.p`
   text-align: center;
   color: #9e9e9e;
   width: ${vpScale(45, 50, 320, 750, 'vwUnit')};
-  font-size: ${props => vpScale(10, 19, 320, 750, 'sPx', props.scale)};
+  font-size: ${vpScale(10, 19, 320, 750, 'sPx')};
 
   @media (min-width: 750px) {
     width: ${vpScale(50, 44, 750, 1050, 'vwUnit')};
-    font-size: ${props => vpScale(19, 22, 320, 1050, 'sPx', props.scale)};
+    font-size: ${vpScale(19, 22, 320, 1050, 'sPx')};
   }
   @media (min-width: 1050px) {
     grid-column: Content-start / VertNums-start;
@@ -250,7 +249,7 @@ const DescText = styled.p`
     text-align: left;
 
     width: 100%;
-    font-size: ${props => vpScale(12, 30, 320, 1920, 'sPx', props.scale)};
+    font-size: ${vpScale(12, 30, 320, 1920, 'sPx')};
     padding-bottom: 20px;
   }
 `;
@@ -268,7 +267,7 @@ const VerticalNums = styled.ul`
     grid-row: Img1-end / Img3-start;
 
     line-height: 2;
-    font-size: ${props => vpScale(16, 40, 320, 1920, 'sPx', props.scale)};
+    font-size: ${vpScale(16, 40, 320, 1920, 'sPx')};
 
     li:nth-of-type(2) {
       text-decoration: underline;
@@ -290,6 +289,7 @@ const Img1 = styled.img`
   z-index: 1;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.2);
 `;
+
 const Img2 = styled.img`
   /* ---------For Editing Layout---------- */
   border: 2px solid var(--grid-brdr);
@@ -335,18 +335,18 @@ const Email = styled.h6`
   align-items: center;
 
   color: #9e9e9e;
-  font-size: ${props => vpScale(14, 27, 320, 750, 'sPx', props.scale)};
+  font-size: ${vpScale(14, 27, 320, 750, 'sPx')};
   font-weight: bold;
 
   @media (min-width: 750px) {
-    font-size: ${props => vpScale(17, 27, 320, 1050, 'sPx', props.scale)};
+    font-size: ${vpScale(17, 27, 320, 1050, 'sPx')};
   }
   @media (min-width: 1050px) {
     grid-column: VertNums-start / Img3-start;
     grid-row: Img2-end / Img3-end;
     align-items: center;
 
-    font-size: ${props => vpScale(14, 20, 320, 1920, 'sPx', props.scale)};
+    font-size: ${vpScale(14, 20, 320, 1920, 'sPx')};
   }
 `;
 
@@ -365,7 +365,7 @@ const CTAButton = styled.button`
   border: 2px solid #000;
   background: #fff;
   padding: 10px;
-  font-size: ${props => vpScale(14, 22, 320, 750, 'sPx', props.scale)};
+  font-size: ${vpScale(14, 22, 320, 750, 'sPx')};
   font-weight: bold;
   transition: 250ms;
 
@@ -375,7 +375,7 @@ const CTAButton = styled.button`
   }
 
   @media (min-width: 750px) {
-    font-size: ${props => vpScale(16, 22, 320, 1050, 'sPx', props.scale)};
+    font-size: ${vpScale(16, 22, 320, 1050, 'sPx')};
   }
   @media (min-width: 1050px) {
     grid-column: Content-start / VertNums-start;
@@ -385,60 +385,49 @@ const CTAButton = styled.button`
     justify-content: flex-start;
     align-items: flex-start;
 
-    font-size: ${props => vpScale(13, 28, 320, 1920, 'sPx', props.scale)};
+    font-size: ${vpScale(13, 28, 320, 1920, 'sPx')};
   }
 `;
 
 class APlayground extends Component {
   render() {
     return (
-      <ScaleContext.Consumer>
-        {context => (
-          <Wrapper>
-            <Logo scale={context.state.scale}>Play Time</Logo>
-            <Nav scale={context.state.scale}>
-              <li>here</li>
-              <li>comes</li>
-              <li>the</li>
-              <li>funCooker</li>
-            </Nav>
-            <MainHeading scale={context.state.scale}>
-              Ayo<br />River
-            </MainHeading>
-            <DescText scale={context.state.scale}>
-              Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-              Inventore in blanditiis illum architecto eius! Nemo, sapiente!
-              Perspiciatis id aut velit labore molestias minima natus
-              necessitatibus.
-            </DescText>
-            <VerticalNums scale={context.state.scale}>
-              <li>01</li>
-              <li>02</li>
-              <li>03</li>
-            </VerticalNums>
-            <Img1
-              scale={context.state.scale}
-              // src="https://images.pexels.com/photos/776390/pexels-photo-776390.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
-              src="https://images.pexels.com/photos/127567/pexels-photo-127567.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              alt="fun"
-            />
-            <Img2
-              scale={context.state.scale}
-              // src="https://c1.staticflickr.com/1/898/40555338765_8998d37c16_k.jpg"
-              src="https://images.pexels.com/photos/267858/pexels-photo-267858.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
-              alt="fun"
-            />
-            <Img3
-              scale={context.state.scale}
-              // src="https://images.pexels.com/photos/922608/pexels-photo-922608.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350"
-              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLpL8c3Mi1DjbjGLNxYvn7c_wpUq-mjUzmGbtSjlbdbASkvpZ64w"
-              alt="fun"
-            />
-            <Email scale={context.state.scale}>mraaroncasanova@gmail.com</Email>
-            <CTAButton scale={context.state.scale}>get more</CTAButton>
-          </Wrapper>
-        )}
-      </ScaleContext.Consumer>
+      <Wrapper>
+        <Logo>Play Time</Logo>
+        <Nav>
+          <li>here</li>
+          <li>comes</li>
+          <li>the</li>
+          <li>funCooker</li>
+        </Nav>
+        <MainHeading>
+          Ayo<br />River
+        </MainHeading>
+        <DescText>
+          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Inventore in
+          blanditiis illum architecto eius! Nemo, sapiente! Perspiciatis id aut
+          velit labore molestias minima natus necessitatibus.
+        </DescText>
+        <VerticalNums>
+          <li>01</li>
+          <li>02</li>
+          <li>03</li>
+        </VerticalNums>
+        <Img1
+          src="https://images.pexels.com/photos/127567/pexels-photo-127567.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+          alt="fun"
+        />
+        <Img2
+          src="https://images.pexels.com/photos/267858/pexels-photo-267858.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
+          alt="fun"
+        />
+        <Img3
+          src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLpL8c3Mi1DjbjGLNxYvn7c_wpUq-mjUzmGbtSjlbdbASkvpZ64w"
+          alt="fun"
+        />
+        <Email>mraaroncasanova@gmail.com</Email>
+        <CTAButton>get more</CTAButton>
+      </Wrapper>
     );
   }
 }

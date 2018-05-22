@@ -3,8 +3,7 @@ export const vpScale = (
   maxSize,
   minScreen,
   maxScreen,
-  viewportUnit,
-  scaleProp
+  viewportUnit
 ) => {
   let minmaxScale = {
     withPx(viewport) {
@@ -32,11 +31,12 @@ export const vpScale = (
       return minmaxScale.withPx('100vh');
     case 'sUnit':
       return minmaxScale.withVp('100vmin');
-    // return minmaxScale.withVp(`${scaleProp}px`);
     case 'sPx':
       return minmaxScale.withPx('100vmin');
-    // return minmaxScale.withPx(`${scaleProp}px`);
     default:
-      console.log('vpScale - recieved invalid scale type');
+      console.log('vpScale - recieved invalid scale type vvv');
+      console.log(
+        `${minSize}, ${maxSize}, ${minScreen}, ${maxScreen}, '${viewportUnit}'`
+      );
   }
 };

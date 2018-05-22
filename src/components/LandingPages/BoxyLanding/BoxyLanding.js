@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import styled from 'styled-components';
-import { ScaleContext } from './../../../ScaleContext';
+import { vpScale } from './../../../helpers';
 
 const Wrapper = styled.div`
   @import url('https://fonts.googleapis.com/css?family=Libre+Baskerville');
@@ -44,9 +44,7 @@ const TopText = styled.h3`
     grid-row: 2/3;
     justify-self: start;
     transform: translate(0%, -28px);
-    font-size: calc(
-      10px + (25 - 10) * (${props => `${props.scale}px`} - 320px) / (900 - 320)
-    );
+    font-size: ${vpScale(10, 25, 320, 900, 'sPx')};
   }
 `;
 
@@ -54,18 +52,14 @@ const SideText = styled.h3`
   white-space: nowrap;
   font-weight: bold;
   color: #565656;
-  font-size: calc(
-    14px + (25 - 14) * (${props => `${props.scale}px`} - 320px) / (1400 - 320)
-  );
+  font-size: ${vpScale(14, 25, 320, 1400, 'sPx')};
   writing-mode: vertical-rl;
   text-orientation: upright;
   grid-column: 1/2;
   grid-row: 2/3;
   justify-self: end;
   align-self: start;
-  padding: calc(
-    8px + (5 - 8) * (${props => `${props.scale}px`} - 320px) / (1400 - 320)
-  );
+  padding: ${vpScale(8, 5, 320, 1400, 'sPx')};
 
   @media (max-width: 900px) {
     padding: 0;
@@ -74,11 +68,12 @@ const SideText = styled.h3`
     align-self: end;
     writing-mode: vertical-lr;
     padding-bottom: 30px;
-    padding-right: calc(20px + (40 - 20) * (100vw - 320px) / (900 - 320));
+    padding-right: ${vpScale(20, 40, 320, 900, 'vwPx')};
   }
 `;
-
+const transX = vpScale(-12, -20, 320, 900, 'vwPx');
 const CircleLogo = styled.div`
+  --transX: ${transX};
   grid-column: 3/4;
   grid-row: 2/3;
   justify-self: end;
@@ -97,10 +92,7 @@ const CircleLogo = styled.div`
   @media (max-width: 900px) {
     grid-column: 2/3;
     grid-row: 2/3;
-    transform: translate(
-      calc(-12px + (-20 - -12) * (100vw - 320px) / (900 - 320)),
-      -35px
-    );
+    transform: translate(var(--transX), -35px);
   }
 `;
 
@@ -128,23 +120,15 @@ const ImagesSection = styled.section`
 `;
 
 const LargeImgWrapper = styled.div`
-  border: calc(
-      10px + (100 - 10) * (${props => `${props.scale}px`} - 320px) /
-        (2500 - 320)
-    )
-    solid white;
+  border-color: white;
+  border-style: solid;
+  border-width: ${vpScale(10, 100, 320, 2500, 'sPx')};
   overflow: hidden;
   transform: rotate(-45deg);
   grid-column: 1/2;
   grid-row: 2/3;
-  width: calc(
-    190px + (460 - 190) * (${props => `${props.scale}px`} - 320px) /
-      (1400 - 320)
-  );
-  height: calc(
-    190px + (460 - 190) * (${props => `${props.scale}px`} - 320px) /
-      (1400 - 320)
-  );
+  width: ${vpScale(190, 460, 320, 1400, 'sPx')};
+  height: ${vpScale(190, 460, 320, 1400, 'sPx')};
   align-self: center;
   justify-self: center;
 
@@ -156,29 +140,19 @@ const LargeImgWrapper = styled.div`
   }
 
   @media (max-width: 900px) {
-    width: calc(
-      163px + (425 - 163) * (${props => `${props.scale}px`} - 320px) /
-        (900 - 320)
-    );
-    height: calc(
-      163px + (425 - 163) * (${props => `${props.scale}px`} - 320px) /
-        (900 - 320)
-    );
+    width: ${vpScale(163, 425, 320, 900, 'sPx')};
+    height: ${vpScale(163, 425, 320, 900, 'sPx')};
   }
 `;
 
 const SmallImgWrapper = styled.div`
   background: white;
-  border-top: calc(
-      10px + (100 - 10) * (${props => `${props.scale}px`} - 320px) /
-        (2500 - 320)
-    )
-    solid white;
-  border-left: calc(
-      10px + (100 - 10) * (${props => `${props.scale}px`} - 320px) /
-        (2500 - 320)
-    )
-    solid white;
+  border-top-style: solid;
+  border-top-color: white;
+  border-top-width: ${vpScale(10, 100, 320, 2500, 'sPx')};
+  border-left-style: solid;
+  border-left-color: white;
+  border-left-width: ${vpScale(10, 100, 320, 2500, 'sPx')};
   width: 50%;
   height: 50%;
   overflow: hidden;
@@ -219,22 +193,20 @@ const ContentBox = styled.div`
   padding: 10px 20px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
   transform: translateY(50%);
-  font-size: calc(
-    12px + (30 - 12) * (${props => `${props.scale}px`} - 320px) / (1400 - 320)
-  );
+  font-size: ${vpScale(12, 30, 320, 1400, 'sPx')};
 
   @media (max-width: 900px) {
     transform: translateY(50%);
     grid-column: 1/2;
     grid-row: 2/3;
     align-self: end;
-    font-size: calc(
-      12px + (50 - 12) * (${props => `${props.scale}px`} - 320px) / (2500 - 320)
-    );
+    font-size: ${vpScale(12, 50, 320, 2500, 'sPx')};
   }
 `;
 
+const textTransX = vpScale(50, 50, 320, 1400, 'sPx');
 const ContentSection = styled.section`
+  --textTransX: ${textTransX};
   grid-column: 3/4;
   grid-row: 2/3;
   display: grid;
@@ -248,17 +220,9 @@ const ContentSection = styled.section`
   h6 {
     justify-self: end;
     align-content: center;
-    padding: calc(
-        8px + (60 - 8) * (${props => `${props.scale}px`} - 320px) / (1400 - 320)
-      )
-      0;
+    padding: ${vpScale(8, 60, 320, 1400, 'sPx')} 0;
     background: white;
-    transform: translateX(
-      calc(
-        50px + (50 - 50) * (${props => `${props.scale}px`} - 320px) /
-          (1400 - 320)
-      )
-    );
+    transform: translateX(var(--textTransX));
     background: white;
   }
 
@@ -266,38 +230,27 @@ const ContentSection = styled.section`
     grid-row: 2/3;
     font-weight: bold;
     color: slategrey;
-    font-size: calc(
-      16px + (25 - 16) * (${props => `${props.scale}px`} - 320px) / (1400 - 320)
-    );
+    font-size: ${vpScale(16, 25, 320, 1400, 'sPx')};
   }
   h2 {
     grid-row: 3/4;
     font-family: 'Libre Baskerville', serif;
-    letter-spacing: calc(
-      15px + (1 - 15) * (${props => `${props.scale}px`} - 320px) / (1400 - 320)
-    );
-    font-size: calc(
-      40px + (45 - 40) * (${props => `${props.scale}px`} - 320px) / (1400 - 320)
-    );
+    letter-spacing: ${vpScale(15, 1, 320, 1400, 'sPx')};
+    font-size: ${vpScale(40, 45, 320, 1400, 'sPx')};
     font-weight: bold;
   }
   h6 {
     grid-row: 4/5;
-    font-size: calc(
-      10px + (15 - 10) * (${props => `${props.scale}px`} - 320px) / (1400 - 320)
-    );
+    font-size: ${vpScale(10, 15, 320, 1400, 'sPx')};
     color: #888888;
-    width: calc(300px + (400 - 300) * (100vw - 901px) / (1400 - 901));
+    width: ${vpScale(300, 400, 901, 1400, 'vwPx')};
   }
 
   @media (max-width: 900px) {
     grid-column: 2/3;
     grid-row: 3/4;
     grid-template-rows:
-      calc(
-        50px + (40 - 50) * (${props => `${props.scale}px`} - 320px) /
-          (1400 - 320)
-      )
+      ${vpScale(50, 40, 320, 1400, 'sPx')}
       auto auto auto 1fr;
     grid-template-columns: auto;
     text-align: left;
@@ -318,39 +271,21 @@ const ContentSection = styled.section`
       text-align: right;
       justify-self: right;
       padding: 0 20px 20px 20px;
-      font-size: calc(
-        12px + (20 - 12) * (${props => `${props.scale}px`} - 320px) /
-          (900 - 320)
-      );
-      margin-right: calc(
-        0px + (40 - 0) * (${props => `${props.scale}px`} - 320px) / (900 - 320)
-      );
+      font-size: ${vpScale(12, 20, 320, 900, 'sPx')};
+      margin-right: ${vpScale(0, 40, 320, 900, 'sPx')};
     }
     h2 {
       grid-row: 3/4;
-      margin-left: calc(
-        0px + (20 - 0) * (${props => `${props.scale}px`} - 320px) / (900 - 320)
-      );
-      font-size: calc(
-        25px + (60 - 25) * (${props => `${props.scale}px`} - 320px) /
-          (900 - 320)
-      );
+      margin-left: ${vpScale(0, 20, 320, 900, 'sPx')};
+      font-size: ${vpScale(25, 60, 320, 900, 'sPx')};
       padding: 0 20px 40px 20px;
       letter-spacing: -1px;
     }
     h6 {
       grid-row: 4/5;
-      font-size: calc(
-        12px + (20 - 12) * (${props => `${props.scale}px`} - 320px) /
-          (900 - 320)
-      );
-      margin-left: calc(
-        0px + (40 - 0) * (${props => `${props.scale}px`} - 320px) / (900 - 320)
-      );
-      width: calc(
-        170px + (400 - 170) * (${props => `${props.scale}px`} - 320px) /
-          (900 - 320)
-      );
+      font-size: ${vpScale(12, 20, 320, 900, 'sPx')};
+      margin-left: ${vpScale(0, 40, 320, 900, 'sPx')};
+      width: ${vpScale(170, 400, 320, 900, 'sPx')};
       padding: 0 20px 60px 20px;
     }
   }
@@ -359,48 +294,42 @@ const ContentSection = styled.section`
 class BoxyLanding extends Component {
   render() {
     return (
-      <ScaleContext.Consumer>
-        {context => (
-          <Wrapper>
-            <TopText scale={context.state.scale}>We're Lost</TopText>
-            <SideText scale={context.state.scale}>
-              aaron<br />casanova
-            </SideText>
-            <CircleLogo scale={context.state.scale}>LA</CircleLogo>
-            <OutlineBox />
-            <ImagesSection scale={context.state.scale}>
-              <LargeImgWrapper scale={context.state.scale}>
-                <img
-                  src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=92b82a18bf4bfbdfe1bd7eed8cd4ba49&auto=format&fit=crop&w=675&q=80"
-                  alt="dog"
-                />
-                <SmallImgWrapper scale={context.state.scale}>
-                  <img
-                    src="https://images.unsplash.com/photo-1517213849290-bbbfffdc6da3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=943dfad4aa75252116f83032204a5608&auto=format&fit=crop&w=800&q=80"
-                    alt="cat"
-                  />
-                </SmallImgWrapper>
-              </LargeImgWrapper>
-              <ContentBox scale={context.state.scale}>
-                CREATE A SHARED RITUAL
-              </ContentBox>
-            </ImagesSection>
-            <ContentSection scale={context.state.scale}>
-              <p>
-                Friday 20 April<br />AM
-              </p>
-              <h2>
-                To Build<br />Relationships
-              </h2>
-              <h6>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
-                voluptatibus ut eveniet soluta ipsum quam enim libero obcaecati
-                cum architecto nisi
-              </h6>
-            </ContentSection>
-          </Wrapper>
-        )}
-      </ScaleContext.Consumer>
+      <Wrapper>
+        <TopText>We're Lost</TopText>
+        <SideText>
+          aaron<br />casanova
+        </SideText>
+        <CircleLogo>LA</CircleLogo>
+        <OutlineBox />
+        <ImagesSection>
+          <LargeImgWrapper>
+            <img
+              src="https://images.unsplash.com/photo-1517423568366-8b83523034fd?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=92b82a18bf4bfbdfe1bd7eed8cd4ba49&auto=format&fit=crop&w=675&q=80"
+              alt="dog"
+            />
+            <SmallImgWrapper>
+              <img
+                src="https://images.unsplash.com/photo-1517213849290-bbbfffdc6da3?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=943dfad4aa75252116f83032204a5608&auto=format&fit=crop&w=800&q=80"
+                alt="cat"
+              />
+            </SmallImgWrapper>
+          </LargeImgWrapper>
+          <ContentBox>CREATE A SHARED RITUAL</ContentBox>
+        </ImagesSection>
+        <ContentSection>
+          <p>
+            Friday 20 April<br />AM
+          </p>
+          <h2>
+            To Build<br />Relationships
+          </h2>
+          <h6>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsam
+            voluptatibus ut eveniet soluta ipsum quam enim libero obcaecati cum
+            architecto nisi
+          </h6>
+        </ContentSection>
+      </Wrapper>
     );
   }
 }
