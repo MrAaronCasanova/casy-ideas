@@ -7,8 +7,8 @@ export class ScaleProvider extends Component {
     scale: null,
     scaleWidth: null,
     scaleHeight: null,
-    isMobileDevice: null,
-    orientation: false
+    isMobileDevice: null
+    // orientation: false
   };
 
   isMobileDevice = () => {

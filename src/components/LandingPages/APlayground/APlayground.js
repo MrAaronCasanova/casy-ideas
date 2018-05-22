@@ -418,19 +418,16 @@ class APlayground extends Component {
             </VerticalNums>
             <Img1
               scale={context.state.scale}
-              // src="https://images.pexels.com/photos/776390/pexels-photo-776390.jpeg?auto=compress&cs=tinysrgb&h=650&w=940"
               src="https://images.pexels.com/photos/127567/pexels-photo-127567.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
               alt="fun"
             />
             <Img2
               scale={context.state.scale}
-              // src="https://c1.staticflickr.com/1/898/40555338765_8998d37c16_k.jpg"
               src="https://images.pexels.com/photos/267858/pexels-photo-267858.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260"
               alt="fun"
             />
             <Img3
               scale={context.state.scale}
-              // src="https://images.pexels.com/photos/922608/pexels-photo-922608.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=350"
               src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQLpL8c3Mi1DjbjGLNxYvn7c_wpUq-mjUzmGbtSjlbdbASkvpZ64w"
               alt="fun"
             />
