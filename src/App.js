@@ -15,17 +15,6 @@ import { CompanyInfo } from './DumbyData';
 import { ScaleProvider } from './ScaleContext';
 
 class App extends Component {
-
-  componentWillMount() {
-    window.addEventListener("load", function () {
-      // Set a timeout...
-      setTimeout(function () {
-        // Hide the address bar!
-        window.scrollTo(0, 1);
-      }, 0);
-    });
-  }
-
   render() {
     return (
       <ScaleProvider>
