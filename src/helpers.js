@@ -1,14 +1,3 @@
-import { scaleWidth, scaleHeight, scale } from './ScaleContext';
-
-function isMobileDevice() {
-  return (
-    typeof window.orientation !== 'undefined' ||
-    navigator.userAgent.indexOf('IEMobile') !== -1
-  );
-}
-
-const isMobile = isMobileDevice();
-
 export const vpScale = (
   minSize,
   maxSize,
@@ -18,65 +7,33 @@ export const vpScale = (
   scaleProp
 ) => {
   let minmaxScale = {
-    withPx(viewport, w, h, s) {
-      if (isMobile) {
-        // console.log(`${minmaxScale.devicePx(scaleProp)}-test`);
-        console.log(
-          `${minmaxScale.devicePx(w ? w : h || s)}-testPx-${
-            w ? scaleWidth : scaleHeight
-          }`
-        );
-        return minmaxScale.devicePx(w ? w : h || s);
-      }
+    withPx(viewport) {
       return `calc(${minSize}px + (${maxSize} - ${minSize}) * (${viewport} - ${minScreen}px) /
         (${maxScreen} - ${minScreen}));`;
     },
-    withVp(viewport, w, h, s) {
-      if (isMobile) {
-        // console.log(minmaxScale.deviceVp(scaleHeight));
-        console.log(
-          `${minmaxScale.deviceVp(w ? w : h || s)}-testVp-${
-            w ? scaleWidth : scaleHeight
-          }`
-        );
-        return minmaxScale.deviceVp(w ? w : h || s);
-      }
+    withVp(viewport) {
       return `calc(
         calc(${minScreen / 100}px * ${minSize}) + (calc(${maxScreen /
         100} * ${maxSize}) - calc(${minScreen /
         100} * ${minSize})) * (${viewport} - ${minScreen}px) /
         (${maxScreen} - ${minScreen})
       )`;
-    },
-    deviceVp(viewport) {
-      return `${Math.floor(
-        minScreen / 100 * minSize +
-          (maxScreen / 100 * maxSize - minScreen / 100 * minSize) *
-            (viewport - minScreen) /
-            (maxScreen - minScreen)
-      )}px`;
-    },
-    devicePx(viewport) {
-      return `${Math.floor(
-        minSize +
-          (maxSize - minSize) * (viewport - minScreen) / (maxScreen - minScreen)
-      )}px`;
     }
   };
 
   switch (viewportUnit) {
     case 'vwUnit':
-      return minmaxScale.withVp('100vw', scaleWidth);
+      return minmaxScale.withVp('100vw');
     case 'vhUnit':
-      return minmaxScale.withVp('100vh', false, scaleHeight);
+      return minmaxScale.withVp('100vh');
     case 'vwPx':
-      return minmaxScale.withPx('100vw', scaleWidth);
+      return minmaxScale.withPx('100vw');
     case 'vhPx':
-      return minmaxScale.withPx('100vh', false, scaleHeight);
+      return minmaxScale.withPx('100vh');
     case 'sUnit':
-      return minmaxScale.withVp(`${scaleProp}px`, false, false, scale);
+      return minmaxScale.withVp(`${scaleProp}px`);
     case 'sPx':
-      return minmaxScale.withPx(`${scaleProp}px`, false, false, scale);
+      return minmaxScale.withPx(`${scaleProp}px`);
     default:
       console.log('vpScale - recieved invalid scale type');
   }
