@@ -31,9 +31,11 @@ export const vpScale = (
     case 'vhPx':
       return minmaxScale.withPx('100vh');
     case 'sUnit':
-      return minmaxScale.withVp(`${scaleProp}px`);
+      return minmaxScale.withVp('100vmin');
+    // return minmaxScale.withVp(`${scaleProp}px`);
     case 'sPx':
-      return minmaxScale.withPx(`${scaleProp}px`);
+      return minmaxScale.withPx('100vmin');
+    // return minmaxScale.withPx(`${scaleProp}px`);
     default:
       console.log('vpScale - recieved invalid scale type');
   }
