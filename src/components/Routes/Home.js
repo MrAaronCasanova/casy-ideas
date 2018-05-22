@@ -11,7 +11,7 @@ const Test = styled.div`
   height: 40vh;
   color: red;
   text-align: center;
-  transition: height 1111ms;
+  transition: height 2222ms;
 `;
 
 const Home = () => {
