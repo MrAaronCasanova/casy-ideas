@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import { vpScale } from './../../../helpers';
 import ViewExampleBtn from './../../MiscComponents/ViewExampleBtn';
@@ -17,82 +17,45 @@ const LandingWrapper = styled.div`
   min-height: ${vpScale(100, 100, 320, 1300, 'vhUnit')};
 `;
 
-class LandingPages extends Component {
-  state = {
-    orientation: false
-  };
-
-  handleChange = () => {
-    if ('onorientationchange' in window) {
-      window.addEventListener(
-        'orientationchange',
-        () => {
-          this.setState({
-            orientation: !this.state.orientation
-          });
-          console.log('onorientationchange');
-        },
-        false
-      );
-    } else if ('onresize' in window) {
-      window.addEventListener(
-        'resize',
-        () => {
-          this.setState({
-            orientation: !this.state.orientation
-          });
-          console.log('resize-this');
-        },
-        false
-      );
-    }
-  };
-
-  componentDidMount() {
-    this.handleChange();
-  }
-
-  render() {
-    return (
-      <LandingWrapper>
-        <p>{`${this.state.orientation}`}</p>
-        <div>
-          <APlayground />
-          <ViewExampleBtn href="https://dribbble.com/shots/2613990-Finnerztaffen" />
-        </div>
-        <div>
-          <LayeredText />
-          <ViewExampleBtn href="https://www.allposters.com/-sp/Arts-et-Metiers-Graphiques-Paris-34-Posters_i14354497_.htm?UPI=F8JO010&sOrigID=106509" />
-        </div>
-        <div>
-          <ApiccoLanding />
-          <ViewExampleBtn href="https://appico.com/" />
-        </div>
-        <div>
-          <PokeLandingPage />
-          <ViewExampleBtn href="https://dribbble.com/shots/3078965-Poke-Header-Panel" />
-        </div>
-        <div>
-          <SpacedLandingPage />
-          <ViewExampleBtn href="https://dribbble.com/shots/4209495-SPACED" />
-        </div>
-        <div>
-          <WhiskeyLanding />
-          <ViewExampleBtn href="https://dribbble.com/shots/4526027-Foundation-Marketplace-Product-Transition-Animation" />
-        </div>
-        <div>
-          <LifeLanding />
-          <ViewExampleBtn href="https://dribbble.com/shots/4495118-Conceptual-Web-UI-Concept-Product" />
-        </div>
-        <div>
-          <BoxyLanding />
-          <ViewExampleBtn href="https://dribbble.com/shots/4495009-Web-Design" />
-        </div>
-        {/* <HourGlassText /> */}
-        {/* <Transitions /> */}
-      </LandingWrapper>
-    );
-  }
-}
+const LandingPages = () => {
+  return (
+    <LandingWrapper>
+      <div>
+        <APlayground />
+        <ViewExampleBtn href="https://dribbble.com/shots/2613990-Finnerztaffen" />
+      </div>
+      <div>
+        <LayeredText />
+        <ViewExampleBtn href="https://www.allposters.com/-sp/Arts-et-Metiers-Graphiques-Paris-34-Posters_i14354497_.htm?UPI=F8JO010&sOrigID=106509" />
+      </div>
+      <div>
+        <ApiccoLanding />
+        <ViewExampleBtn href="https://appico.com/" />
+      </div>
+      <div>
+        <PokeLandingPage />
+        <ViewExampleBtn href="https://dribbble.com/shots/3078965-Poke-Header-Panel" />
+      </div>
+      <div>
+        <SpacedLandingPage />
+        <ViewExampleBtn href="https://dribbble.com/shots/4209495-SPACED" />
+      </div>
+      <div>
+        <WhiskeyLanding />
+        <ViewExampleBtn href="https://dribbble.com/shots/4526027-Foundation-Marketplace-Product-Transition-Animation" />
+      </div>
+      <div>
+        <LifeLanding />
+        <ViewExampleBtn href="https://dribbble.com/shots/4495118-Conceptual-Web-UI-Concept-Product" />
+      </div>
+      <div>
+        <BoxyLanding />
+        <ViewExampleBtn href="https://dribbble.com/shots/4495009-Web-Design" />
+      </div>
+      {/* <HourGlassText /> */}
+      {/* <Transitions /> */}
+    </LandingWrapper>
+  );
+};
 
 export default LandingPages;
