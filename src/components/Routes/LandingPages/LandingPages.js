@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from 'styled-components';
-import { vpScale } from './../../../helpers';
 import ViewExampleBtn from './../../MiscComponents/ViewExampleBtn';
 import LayeredText from '../../LandingPages/LayeredText/LayeredText';
 import ApiccoLanding from '../../LandingPages/ApiccoLanding/ApiccoLanding';
@@ -14,44 +13,48 @@ import APlayground from '../../LandingPages/APlayground/APlayground';
 // import Transitions from './Transitions/Transitions';
 
 const LandingWrapper = styled.div`
-  min-height: ${vpScale(100, 100, 320, 1300, 'vh-vp')};
+  min-height: 100vh;
+`;
+
+const Page = styled.div`
+  height: 100%;
 `;
 
 const LandingPages = () => {
   return (
     <LandingWrapper>
-      <div>
+      <Page>
         <APlayground />
         <ViewExampleBtn href="https://dribbble.com/shots/2613990-Finnerztaffen" />
-      </div>
-      <div>
+      </Page>
+      <Page>
         <LayeredText />
         <ViewExampleBtn href="https://www.allposters.com/-sp/Arts-et-Metiers-Graphiques-Paris-34-Posters_i14354497_.htm?UPI=F8JO010&sOrigID=106509" />
-      </div>
-      <div>
+      </Page>
+      <Page>
         <ApiccoLanding />
         <ViewExampleBtn href="https://appico.com/" />
-      </div>
-      <div>
+      </Page>
+      <Page>
         <PokeLandingPage />
         <ViewExampleBtn href="https://dribbble.com/shots/3078965-Poke-Header-Panel" />
-      </div>
-      <div>
+      </Page>
+      <Page>
         <SpacedLandingPage />
         <ViewExampleBtn href="https://dribbble.com/shots/4209495-SPACED" />
-      </div>
-      <div>
+      </Page>
+      <Page>
         <WhiskeyLanding />
         <ViewExampleBtn href="https://dribbble.com/shots/4526027-Foundation-Marketplace-Product-Transition-Animation" />
-      </div>
-      <div>
+      </Page>
+      <Page>
         <LifeLanding />
         <ViewExampleBtn href="https://dribbble.com/shots/4495118-Conceptual-Web-UI-Concept-Product" />
-      </div>
-      <div>
+      </Page>
+      <Page>
         <BoxyLanding />
         <ViewExampleBtn href="https://dribbble.com/shots/4495009-Web-Design" />
-      </div>
+      </Page>
       {/* <HourGlassText /> */}
       {/* <Transitions /> */}
     </LandingWrapper>

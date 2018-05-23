@@ -16,7 +16,6 @@ class CenteredDropNav extends Component {
   toggleBtn = () => {
     this.setState({
       showDropdown: !this.state.showDropdown
-      // showDropdown: !this.state.showDropdown ? true : false
     });
   };
 
@@ -30,7 +29,7 @@ class CenteredDropNav extends Component {
     return this.props.routes.map((route, i) => {
       if (route.path) {
         return (
-          <li key={i} className={styles.link}>
+          <li key={i}>
             <Link
               className={styles.a}
               to={`${route.path}`}

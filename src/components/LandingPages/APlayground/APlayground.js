@@ -306,6 +306,7 @@ const Img2 = styled.img`
     grid-column: Img2-start / Content-end;
   }
 `;
+
 const Img3 = styled.img`
   /* ---------For Editing Layout---------- */
   border: 2px solid var(--grid-brdr);
