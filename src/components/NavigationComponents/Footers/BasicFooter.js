@@ -54,31 +54,26 @@ const Email = styled.p`
   }
 `;
 
-const Link = styled.a`
+const LinkWrap = styled.div`
   justify-self: center;
   align-self: end;
 
+  overflow: hidden;
   border: 1px solid var(--line-color);
   width: ${vpScale(30, 40, 320, 750, 'vmin-px')};
   height: ${vpScale(30, 40, 320, 750, 'vmin-px')};
-  font-size: ${vpScale(12, 16, 320, 750, 'vmin-px')};
-  line-height: ${vpScale(27, 40, 320, 750, 'vmin-px')};
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   border-radius: 50%;
-  text-align: center;
-  text-decoration: none;
-  font-weight: bold;
-  color: white;
   background: ${props =>
     props.color === 'Instagram'
       ? `radial-gradient(
-    circle at 30% 107%,
-    #fdf497 0%,
-    #fdf497 5%,
-    #fd5949 45%,
-    #d6249f 60%,
-    #285aeb 90%
-  )`
+      circle at 30% 107%,
+      #fdf497 0%,
+      #fdf497 5%,
+      #fd5949 45%,
+      #d6249f 60%,
+      #285aeb 90%
+      )`
       : props.color === 'Twitter'
         ? ' #1DA1F2'
         : props.color === 'Facebook'
@@ -104,6 +99,31 @@ const Link = styled.a`
     grid-row: 2 / 3;
     align-self: start;
     margin-top: 7px;
+  }
+
+  display: flex;
+
+  div {
+    flex: 1;
+    text-align: center;
+
+    display: flex;
+  }
+`;
+
+const Link = styled.a`
+  flex-basis: 100%;
+  text-decoration: none;
+  font-weight: bold;
+  color: white;
+  font-size: ${vpScale(12, 16, 320, 750, 'vmin-px')};
+
+  display: flex;
+  align-items: center;
+
+  span {
+    display: block;
+    width: 100%;
   }
 `;
 
@@ -166,19 +186,31 @@ const BasicFooter = () => {
   return (
     <Wrapper>
       <Email>mraaroncasanova@gmail.com</Email>
-      <Link
-        href="https://instagram.com/casyjs"
-        target="_blank"
-        color="Instagram"
-      >
-        I
-      </Link>
-      <Link href="https://twitter.com/casyjs" target="_blank" color="Twitter">
-        T
-      </Link>
-      <Link href="https://facebook.com/casyjs" target="_blank" color="Facebook">
-        F
-      </Link>
+      <LinkWrap color="Instagram">
+        <div>
+          <Link
+            href="https://instagram.com/casyjs"
+            target="_blank"
+            color="Instagram"
+          >
+            <span>I</span>
+          </Link>
+        </div>
+      </LinkWrap>
+      <LinkWrap color="Twitter">
+        <div>
+          <Link href="https://twitter.com/casyjs" target="_blank">
+            <span>T</span>
+          </Link>
+        </div>
+      </LinkWrap>
+      <LinkWrap color="Facebook">
+        <div>
+          <Link href="https://facebook.com/casyjs" target="_blank">
+            <span>F</span>
+          </Link>
+        </div>
+      </LinkWrap>
       <Copyright>© 2018 Casy.js All Rights Reserved</Copyright>
       <MainLine />
       <HighLine />
