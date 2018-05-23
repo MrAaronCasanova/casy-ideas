@@ -17,6 +17,7 @@ const LandingWrapper = styled.div`
 `;
 
 const Page = styled.div`
+  /* min-height: 100vh; */
   height: 100%;
 `;
 
