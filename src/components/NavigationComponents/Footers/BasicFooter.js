@@ -114,9 +114,6 @@ const LinkWrap = styled.div`
 const Link = styled.a`
   flex-basis: 100%;
   text-decoration: none;
-  font-weight: bold;
-  color: white;
-  font-size: ${vpScale(12, 16, 320, 750, 'vmin-px')};
 
   display: flex;
   align-items: center;
@@ -124,6 +121,9 @@ const Link = styled.a`
   span {
     display: block;
     width: 100%;
+    font-weight: bold;
+    color: white;
+    font-size: ${vpScale(12, 16, 320, 750, 'vmin-px')};
   }
 `;
 
