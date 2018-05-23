@@ -15,22 +15,22 @@ const Wrapper = styled.footer`
   /* ------------------------------------- */
   display: grid;
   grid-template-columns:
-    ${vpScale(28, 32, 320, 750, 'vwUnit')}
+    ${vpScale(28, 32, 320, 750, 'vw-vp')}
     [Content-start Link1-start ]
-    ${vpScale(15, 11, 320, 750, 'vwUnit')}
+    ${vpScale(15, 11, 320, 750, 'vw-vp')}
     [Link1-end Link2-start]
-    ${vpScale(15, 11, 320, 750, 'vwUnit')}
+    ${vpScale(15, 11, 320, 750, 'vw-vp')}
     [Link2-end Link3-start]
-    ${vpScale(15, 11, 320, 750, 'vwUnit')}
+    ${vpScale(15, 11, 320, 750, 'vw-vp')}
     [Link3-end Email-start]
-    ${vpScale(7, 11, 320, 750, 'vwUnit')}
+    ${vpScale(7, 11, 320, 750, 'vw-vp')}
     [Email-end Content-end]
-    ${vpScale(20, 24, 320, 750, 'vwUnit')};
+    ${vpScale(20, 24, 320, 750, 'vw-vp')};
 
   grid-template-rows:
-    ${vpScale(30, 9, 320, 1300, 'vhUnit')}
+    ${vpScale(30, 9, 320, 1300, 'vh-vp')}
     [ContentLine]
-    ${vpScale(52, 15, 320, 1300, 'vhUnit')};
+    ${vpScale(52, 15, 320, 1300, 'vh-vp')};
   min-height: 100%;
   padding-bottom: 35px;
 `;
@@ -46,10 +46,10 @@ const Email = styled.p`
   justify-content: center;
   padding-bottom: 30px;
 
-  font-size: ${vpScale(12, 26, 320, 1300, 'sPx')};
+  font-size: ${vpScale(12, 26, 320, 1300, 'vmin-px')};
 
   span {
-    font-size: ${vpScale(20, 20, 320, 1300, 'sPx')};
+    font-size: ${vpScale(20, 20, 320, 1300, 'vmin-px')};
     padding-right: 8px;
   }
 `;
@@ -59,10 +59,10 @@ const Link = styled.a`
   align-self: end;
 
   border: 1px solid var(--line-color);
-  width: ${vpScale(30, 40, 320, 750, 'sPx')};
-  height: ${vpScale(30, 40, 320, 750, 'sPx')};
-  font-size: ${vpScale(12, 16, 320, 750, 'sPx')};
-  line-height: ${vpScale(27, 40, 320, 750, 'sPx')};
+  width: ${vpScale(30, 40, 320, 750, 'vmin-px')};
+  height: ${vpScale(30, 40, 320, 750, 'vmin-px')};
+  font-size: ${vpScale(12, 16, 320, 750, 'vmin-px')};
+  line-height: ${vpScale(27, 40, 320, 750, 'vmin-px')};
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
   border-radius: 50%;
   text-align: center;
@@ -118,7 +118,7 @@ const Copyright = styled.p`
   align-items: flex-end;
   padding: 20px;
 
-  font-size: ${vpScale(13, 21, 320, 750, 'sPx')};
+  font-size: ${vpScale(13, 21, 320, 750, 'vmin-px')};
   transform: translateY(
     calc(20px + (30 - 20) * (100vh - 320px) / (1300 - 320))
   );

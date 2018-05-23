@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   overflow: hidden;
   background: #f6f6f6;
   padding: 30px;
-  height: ${vpScale(100, 100, 320, 1300, 'vhUnit')};
+  height: ${vpScale(100, 100, 320, 1300, 'vh-vp')};
   /* height: 100vh; */
   display: flex;
   flex-direction: column;
@@ -37,8 +37,8 @@ const slideOut = keyframes`
 `;
 
 const Bottle = styled.img`
-  width: ${vpScale(200, 600, 320, 1000, 'sPx')};
-  height: ${vpScale(200, 600, 320, 1000, 'sPx')};
+  width: ${vpScale(200, 600, 320, 1000, 'vmin-px')};
+  height: ${vpScale(200, 600, 320, 1000, 'vmin-px')};
   object-fit: cover;
   position: absolute;
   top: 50%;
@@ -52,15 +52,15 @@ const Bottle = styled.img`
 `;
 
 const Glass = Bottle.extend`
-  width: ${vpScale(150, 500, 320, 1000, 'sPx')};
-  height: ${vpScale(150, 500, 320, 1000, 'sPx')};
+  width: ${vpScale(150, 500, 320, 1000, 'vmin-px')};
+  height: ${vpScale(150, 500, 320, 1000, 'vmin-px')};
 `;
 
 const Title = styled.h2`
   position: relative;
   z-index: 1;
   align-self: ${props => props.align};
-  font-size: ${vpScale(33, 85, 320, 960, 'sPx')};
+  font-size: ${vpScale(33, 85, 320, 960, 'vmin-px')};
   color: #2c2828;
   font-family: 'Playfair Display', serif;
 `;

@@ -44,7 +44,7 @@ const TopText = styled.h3`
     grid-row: 2/3;
     justify-self: start;
     transform: translate(0%, -28px);
-    font-size: ${vpScale(10, 25, 320, 900, 'sPx')};
+    font-size: ${vpScale(10, 25, 320, 900, 'vmin-px')};
   }
 `;
 
@@ -52,14 +52,14 @@ const SideText = styled.h3`
   white-space: nowrap;
   font-weight: bold;
   color: #565656;
-  font-size: ${vpScale(14, 25, 320, 1400, 'sPx')};
+  font-size: ${vpScale(14, 25, 320, 1400, 'vmin-px')};
   writing-mode: vertical-rl;
   text-orientation: upright;
   grid-column: 1/2;
   grid-row: 2/3;
   justify-self: end;
   align-self: start;
-  padding: ${vpScale(8, 5, 320, 1400, 'sPx')};
+  padding: ${vpScale(8, 5, 320, 1400, 'vmin-px')};
 
   @media (max-width: 900px) {
     padding: 0;
@@ -68,10 +68,10 @@ const SideText = styled.h3`
     align-self: end;
     writing-mode: vertical-lr;
     padding-bottom: 30px;
-    padding-right: ${vpScale(20, 40, 320, 900, 'vwPx')};
+    padding-right: ${vpScale(20, 40, 320, 900, 'vw-px')};
   }
 `;
-const transX = vpScale(-12, -20, 320, 900, 'vwPx');
+const transX = vpScale(-12, -20, 320, 900, 'vw-px');
 const CircleLogo = styled.div`
   --transX: ${transX};
   grid-column: 3/4;
@@ -122,13 +122,13 @@ const ImagesSection = styled.section`
 const LargeImgWrapper = styled.div`
   border-color: white;
   border-style: solid;
-  border-width: ${vpScale(10, 100, 320, 2500, 'sPx')};
+  border-width: ${vpScale(10, 100, 320, 2500, 'vmin-px')};
   overflow: hidden;
   transform: rotate(-45deg);
   grid-column: 1/2;
   grid-row: 2/3;
-  width: ${vpScale(190, 460, 320, 1400, 'sPx')};
-  height: ${vpScale(190, 460, 320, 1400, 'sPx')};
+  width: ${vpScale(190, 460, 320, 1400, 'vmin-px')};
+  height: ${vpScale(190, 460, 320, 1400, 'vmin-px')};
   align-self: center;
   justify-self: center;
 
@@ -140,8 +140,8 @@ const LargeImgWrapper = styled.div`
   }
 
   @media (max-width: 900px) {
-    width: ${vpScale(163, 425, 320, 900, 'sPx')};
-    height: ${vpScale(163, 425, 320, 900, 'sPx')};
+    width: ${vpScale(163, 425, 320, 900, 'vmin-px')};
+    height: ${vpScale(163, 425, 320, 900, 'vmin-px')};
   }
 `;
 
@@ -149,10 +149,10 @@ const SmallImgWrapper = styled.div`
   background: white;
   border-top-style: solid;
   border-top-color: white;
-  border-top-width: ${vpScale(10, 100, 320, 2500, 'sPx')};
+  border-top-width: ${vpScale(10, 100, 320, 2500, 'vmin-px')};
   border-left-style: solid;
   border-left-color: white;
-  border-left-width: ${vpScale(10, 100, 320, 2500, 'sPx')};
+  border-left-width: ${vpScale(10, 100, 320, 2500, 'vmin-px')};
   width: 50%;
   height: 50%;
   overflow: hidden;
@@ -193,18 +193,18 @@ const ContentBox = styled.div`
   padding: 10px 20px;
   box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
   transform: translateY(50%);
-  font-size: ${vpScale(12, 30, 320, 1400, 'sPx')};
+  font-size: ${vpScale(12, 30, 320, 1400, 'vmin-px')};
 
   @media (max-width: 900px) {
     transform: translateY(50%);
     grid-column: 1/2;
     grid-row: 2/3;
     align-self: end;
-    font-size: ${vpScale(12, 50, 320, 2500, 'sPx')};
+    font-size: ${vpScale(12, 50, 320, 2500, 'vmin-px')};
   }
 `;
 
-const textTransX = vpScale(50, 50, 320, 1400, 'sPx');
+const textTransX = vpScale(50, 50, 320, 1400, 'vmin-px');
 const ContentSection = styled.section`
   --textTransX: ${textTransX};
   grid-column: 3/4;
@@ -220,7 +220,7 @@ const ContentSection = styled.section`
   h6 {
     justify-self: end;
     align-content: center;
-    padding: ${vpScale(8, 60, 320, 1400, 'sPx')} 0;
+    padding: ${vpScale(8, 60, 320, 1400, 'vmin-px')} 0;
     background: white;
     transform: translateX(var(--textTransX));
     background: white;
@@ -230,27 +230,27 @@ const ContentSection = styled.section`
     grid-row: 2/3;
     font-weight: bold;
     color: slategrey;
-    font-size: ${vpScale(16, 25, 320, 1400, 'sPx')};
+    font-size: ${vpScale(16, 25, 320, 1400, 'vmin-px')};
   }
   h2 {
     grid-row: 3/4;
     font-family: 'Libre Baskerville', serif;
-    letter-spacing: ${vpScale(15, 1, 320, 1400, 'sPx')};
-    font-size: ${vpScale(40, 45, 320, 1400, 'sPx')};
+    letter-spacing: ${vpScale(15, 1, 320, 1400, 'vmin-px')};
+    font-size: ${vpScale(40, 45, 320, 1400, 'vmin-px')};
     font-weight: bold;
   }
   h6 {
     grid-row: 4/5;
-    font-size: ${vpScale(10, 15, 320, 1400, 'sPx')};
+    font-size: ${vpScale(10, 15, 320, 1400, 'vmin-px')};
     color: #888888;
-    width: ${vpScale(300, 400, 901, 1400, 'vwPx')};
+    width: ${vpScale(300, 400, 901, 1400, 'vw-px')};
   }
 
   @media (max-width: 900px) {
     grid-column: 2/3;
     grid-row: 3/4;
     grid-template-rows:
-      ${vpScale(50, 40, 320, 1400, 'sPx')}
+      ${vpScale(50, 40, 320, 1400, 'vmin-px')}
       auto auto auto 1fr;
     grid-template-columns: auto;
     text-align: left;
@@ -271,21 +271,21 @@ const ContentSection = styled.section`
       text-align: right;
       justify-self: right;
       padding: 0 20px 20px 20px;
-      font-size: ${vpScale(12, 20, 320, 900, 'sPx')};
-      margin-right: ${vpScale(0, 40, 320, 900, 'sPx')};
+      font-size: ${vpScale(12, 20, 320, 900, 'vmin-px')};
+      margin-right: ${vpScale(0, 40, 320, 900, 'vmin-px')};
     }
     h2 {
       grid-row: 3/4;
-      margin-left: ${vpScale(0, 20, 320, 900, 'sPx')};
-      font-size: ${vpScale(25, 60, 320, 900, 'sPx')};
+      margin-left: ${vpScale(0, 20, 320, 900, 'vmin-px')};
+      font-size: ${vpScale(25, 60, 320, 900, 'vmin-px')};
       padding: 0 20px 40px 20px;
       letter-spacing: -1px;
     }
     h6 {
       grid-row: 4/5;
-      font-size: ${vpScale(12, 20, 320, 900, 'sPx')};
-      margin-left: ${vpScale(0, 40, 320, 900, 'sPx')};
-      width: ${vpScale(170, 400, 320, 900, 'sPx')};
+      font-size: ${vpScale(12, 20, 320, 900, 'vmin-px')};
+      margin-left: ${vpScale(0, 40, 320, 900, 'vmin-px')};
+      width: ${vpScale(170, 400, 320, 900, 'vmin-px')};
       padding: 0 20px 60px 20px;
     }
   }

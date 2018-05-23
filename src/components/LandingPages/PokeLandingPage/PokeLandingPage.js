@@ -6,12 +6,12 @@ import { vpScale } from './../../../helpers';
 import { Link } from 'react-router-dom';
 
 const PokeWrapper = styled.div`
-  height: ${vpScale(150, 110, 320, 1300, 'vhUnit')};
+  height: ${vpScale(150, 110, 320, 1300, 'vh-vp')};
 `;
 
 const BgColorContainer = styled.div`
   padding: 20px;
-  height: ${vpScale(300, 720, 320, 960, 'vhPx')};
+  height: ${vpScale(300, 720, 320, 960, 'vh-px')};
   background: rgba(255, 192, 155, 0.452);
   position: relative;
 `;
@@ -23,7 +23,7 @@ const MainHeading = styled.h2`
   margin: 0;
   position: absolute;
   font-size: calc(30px + (70 - 30) * (100vw - 320px) / (960 - 320));
-  top: ${vpScale(20, 80, 320, 960, 'vhPx')};
+  top: ${vpScale(20, 80, 320, 960, 'vh-px')};
   left: calc(20px + (80 - 20) * (100vw - 320px) / (960 - 320));
 
   &::after {
@@ -42,7 +42,7 @@ const MainHeading = styled.h2`
 const Circle = styled.img`
   --circle-size: calc(150px + (200 - 150) * (100vw - 320px) / (960 - 320));
   position: absolute;
-  top: ${vpScale(20, 85, 320, 960, 'vhPx')};
+  top: ${vpScale(20, 85, 320, 960, 'vh-px')};
   left: calc(125px + (650 - 125) * (100vw - 320px) / (960 - 320));
   width: var(--circle-size);
   height: var(--circle-size);
@@ -52,20 +52,20 @@ const Circle = styled.img`
 
 const Img = styled.img`
   width: calc(120px + (250 - 120) * (100vw - 320px) / (960 - 320));
-  height: ${vpScale(170, 400, 320, 960, 'vhPx')};
+  height: ${vpScale(170, 400, 320, 960, 'vh-px')};
   display: inline-block;
   object-fit: cover;
   position: absolute;
 `;
 
 const Man = Img.extend`
-  top: ${vpScale(135, 300, 320, 960, 'vhPx')};
+  top: ${vpScale(135, 300, 320, 960, 'vh-px')};
   left: calc(10px + (100 - 10) * (100vw - 320px) / (960 - 320));
   filter: brightness(130 %);
 `;
 
 const Piano = Img.extend`
-  top: ${vpScale(200, 450, 320, 960, 'vhPx')};
+  top: ${vpScale(200, 450, 320, 960, 'vh-px')};
   left: calc(160px + (400 - 160) * (100vw - 320px) / (960 - 320));
   z-index: -1;
 `;
@@ -80,7 +80,7 @@ const RagLink = styled(Link)`
   white-space: nowrap;
   font-size: calc(16px + (35 - 16) * (100vw - 320px) / (1360 - 320));
   position: absolute;
-  top: ${vpScale(225, 560, 320, 960, 'vhPx')};
+  top: ${vpScale(225, 560, 320, 960, 'vh-px')};
   left: calc(460px + (670 - 460) * (100vw - 600px) / (960 - 600));
 
   &::after {
@@ -101,7 +101,7 @@ const RagLink = styled(Link)`
 
   @media (max-width: 600px) {
     & {
-      top: ${vpScale(180, 340, 360, 960, 'vhPx')};
+      top: ${vpScale(180, 340, 360, 960, 'vh-px')};
       left: calc(160px + (265 - 160) * (100vw - 320px) / (600 - 320));
     }
     &::after {

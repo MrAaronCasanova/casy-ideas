@@ -4,12 +4,12 @@ import { vpScale } from './../../../helpers';
 import styled from 'styled-components';
 
 const SpacedLandingWrapper = styled.div`
-  height: ${vpScale(100, 100, 320, 1300, 'vhUnit')};
+  height: ${vpScale(100, 100, 320, 1300, 'vh-vp')};
 `;
 
 // because I couldn't use vpScale function (or any JS) inside styled components transform: translate(***)
-const imageY = vpScale(100, 200, 320, 960, 'vhPx');
-const imageX = vpScale(-50, -200, 320, 960, 'vwPx');
+const imageY = vpScale(100, 200, 320, 960, 'vh-px');
+const imageX = vpScale(-50, -200, 320, 960, 'vw-px');
 
 const Image = styled.img`
   --y: ${imageY}
@@ -28,21 +28,21 @@ const Circle = styled.div`
   border: 5px solid;
   background: transparent;
   position: absolute;
-  top: ${vpScale(19, 230, 320, 960, 'vhPx')};
-  left: ${vpScale(20, 260, 320, 960, 'vwPx')};
-  width: ${vpScale(275, 500, 360, 960, 'sPx')};
-  height: ${vpScale(275, 500, 360, 960, 'sPx')};
+  top: ${vpScale(19, 230, 320, 960, 'vh-px')};
+  left: ${vpScale(20, 260, 320, 960, 'vw-px')};
+  width: ${vpScale(275, 500, 360, 960, 'vmin-px')};
+  height: ${vpScale(275, 500, 360, 960, 'vmin-px')};
   border-radius: 50%;
   overflow: hidden;
   z-index: 1;
 `;
 
 const Heading = styled.h2`
-  font-size: ${vpScale(27, 40, 320, 960, 'sPx')};
+  font-size: ${vpScale(27, 40, 320, 960, 'vmin-px')};
 `;
 
 const Text = styled.p`
-  font-size: ${vpScale(16, 32, 320, 960, 'sPx')};
+  font-size: ${vpScale(16, 32, 320, 960, 'vmin-px')};
 `;
 class SpacedLandingPage extends Component {
   render() {

@@ -6,7 +6,7 @@ const Wrapper = styled.div`
   position: relative;
   z-index: -2;
   min-height: 100%;
-  padding: ${vpScale(50, 300, 320, 2500, 'vwPx')} 0;
+  padding: ${vpScale(50, 300, 320, 2500, 'vw-px')} 0;
   background: #cfdcd3;
   overflow: hidden;
   position: relative;
@@ -18,7 +18,7 @@ const Wrapper = styled.div`
 
 const Os = styled.div`
   z-index: -1;
-  font-size: ${vpScale(280, 2500, 320, 2500, 'sPx')};
+  font-size: ${vpScale(280, 2500, 320, 2500, 'vmin-px')};
   font-weight: bold;
   color: #dce7e1;
 
@@ -37,7 +37,7 @@ const Os = styled.div`
 `;
 
 const CardWrapper = styled.div`
-  width: ${vpScale(300, 2200, 320, 2500, 'vwPx')};
+  width: ${vpScale(300, 2200, 320, 2500, 'vw-px')};
   min-height: 100%;
   background: #fff;
   border-radius: 8px;
@@ -55,7 +55,7 @@ const LeftWrap = styled.div`
   justify-content: space-between;
 `;
 const RightWrap = styled.div`
-  width: ${vpScale(600, 1000, 1210, 2500, 'vwPx')};
+  width: ${vpScale(600, 1000, 1210, 2500, 'vw-px')};
   @media (max-width: 1210px) {
     width: 100%;
   }
@@ -93,12 +93,12 @@ const NavItems = styled.ul`
 
   li {
     padding: 20px 0 20px 20px;
-    font-size: ${vpScale(18, 32, 320, 2500, 'vwPx')};
+    font-size: ${vpScale(18, 32, 320, 2500, 'vw-px')};
   }
 `;
 
 const NavSearch = styled.div`
-  font-size: ${vpScale(18, 30, 320, 2500, 'vwPx')};
+  font-size: ${vpScale(18, 30, 320, 2500, 'vw-px')};
   padding: 20px 40px;
   text-align: bottom;
   width: 100%;
@@ -119,11 +119,11 @@ const NavSearch = styled.div`
 `;
 
 const MagGlass = styled.span`
-  margin-left: ${vpScale(150, 400, 320, 2500, 'vwPx')};
+  margin-left: ${vpScale(150, 400, 320, 2500, 'vw-px')};
 `;
 
 const CardBody = styled.div`
-  padding: ${vpScale(20, 60, 320, 2500, 'vwPx')};
+  padding: ${vpScale(20, 60, 320, 2500, 'vw-px')};
   display: flex;
   @media (max-width: 600px) {
     flex-direction: column;
@@ -135,12 +135,12 @@ const BodyContentWrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   padding-top: 30px;
-  padding-left: ${vpScale(0, 200, 320, 2500, 'vwPx')};
+  padding-left: ${vpScale(0, 200, 320, 2500, 'vw-px')};
   padding-right: 50px;
 
   h2 {
     line-height: 0.85;
-    font-size: ${vpScale(60, 100, 320, 2500, 'vwPx')};
+    font-size: ${vpScale(60, 100, 320, 2500, 'vw-px')};
     color: #4e7e64;
     font-weight: bold;
   }
@@ -150,7 +150,7 @@ const BodyContentWrapper = styled.div`
     color: #aaa;
     /* color: #cecece; */
     font-weight: bold;
-    font-size: ${vpScale(16, 24, 320, 2500, 'vwPx')};
+    font-size: ${vpScale(16, 24, 320, 2500, 'vw-px')};
   }
 
   @media (max-width: 600px) {
@@ -202,7 +202,7 @@ const LeftArrow = styled.div`
   border-right: 10px solid white;
 `;
 
-const transX = vpScale(100, 300, 1210, 2500, 'vwPx');
+const transX = vpScale(100, 300, 1210, 2500, 'vw-px');
 const BodyImgWrapper = styled.div`
   --transX: ${transX};
   flex: 1 1 50%;
@@ -231,12 +231,12 @@ const NumberBox = styled.div`
   position: absolute;
   bottom: 60px;
   left: -40px;
-  width: ${vpScale(80, 250, 320, 2500, 'vwPx')};
-  height: ${vpScale(80, 250, 320, 2500, 'vwPx')};
+  width: ${vpScale(80, 250, 320, 2500, 'vw-px')};
+  height: ${vpScale(80, 250, 320, 2500, 'vw-px')};
   background: #4e7e64;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.25);
   color: #ffffff;
-  font-size: ${vpScale(50, 150, 320, 2500, 'vwPx')};
+  font-size: ${vpScale(50, 150, 320, 2500, 'vw-px')};
   font-weight: bold;
   display: flex;
   justify-content: center;
@@ -252,12 +252,12 @@ const NumberBox = styled.div`
 const CardFooter = styled.ul`
   list-style: none;
   display: flex;
-  margin-left: ${vpScale(0, 200, 320, 2500, 'vwPx')};
+  margin-left: ${vpScale(0, 200, 320, 2500, 'vw-px')};
 
   & > * {
     font-weight: bold;
-    padding: 20px 20px ${vpScale(20, 60, 320, 2500, 'vwPx')} 20px;
-    font-size: ${vpScale(14, 20, 320, 2500, 'vwPx')};
+    padding: 20px 20px ${vpScale(20, 60, 320, 2500, 'vw-px')} 20px;
+    font-size: ${vpScale(14, 20, 320, 2500, 'vw-px')};
   }
 
   @media (max-width: 1210px) {
@@ -269,7 +269,7 @@ const CardFooter = styled.ul`
 const CardSide = styled.div`
   padding: 20px;
   text-align: center;
-  font-size: ${vpScale(20, 40, 320, 2500, 'vwPx')};
+  font-size: ${vpScale(20, 40, 320, 2500, 'vw-px')};
   color: #fff;
   background: #4e7e64;
   height: 100%;
