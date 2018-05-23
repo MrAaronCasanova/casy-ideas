@@ -162,7 +162,10 @@ const BodyContentWrapper = styled.div`
 
 const ArrowWrapper = styled.div`
   display: flex;
-  div {
+  & > div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: #dddddd;
     width: 50px;
     height: 50px;
@@ -188,7 +191,7 @@ const RightArrow = styled.div`
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
 
-  border-left: 10px solid green;
+  border-left: 10px solid white;
 `;
 const LeftArrow = styled.div`
   width: 0;
@@ -196,7 +199,7 @@ const LeftArrow = styled.div`
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
 
-  border-right: 10px solid blue;
+  border-right: 10px solid white;
 `;
 
 const transX = vpScale(100, 300, 1210, 2500, 'vwPx');
@@ -306,8 +309,12 @@ class LifeLanding extends Component {
                 </h2>
                 <p>Love the life you live. Live the life you love.</p>
                 <ArrowWrapper>
-                  <LeftArrow />
-                  <RightArrow />
+                  <div>
+                    <LeftArrow />
+                  </div>
+                  <div>
+                    <RightArrow />
+                  </div>
                   {/* <div>◀</div>
                   <div>▶</div> */}
                 </ArrowWrapper>
