@@ -20,7 +20,8 @@ const Buttons = () => {
           {context => (
             <div>
               <div onClick={context.fetchCode}>click me to fetchCode</div>
-              <CopyButton code={context.state.test} />
+              <CopyButton id="quotes" />
+              {/* <CopyButton code={context.state.test} /> */}
             </div>
           )}
         </CodeContext.Consumer>
