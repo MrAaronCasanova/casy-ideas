@@ -8,9 +8,23 @@ import DarkenButtonGroup from '../../ButtonComponents/DarkenButtonGroup/DarkenBu
 import OutlineButtonGroup from '../../ButtonComponents/OutlineButtonGroup/OutlineButtonGroup';
 import SlideArrowButton from '../../ButtonComponents/SlideArrowButton/SlideArrowButton';
 
+import { CodeProvider, CodeContext } from './../../../CodeContext';
+
+import CopyButton from './../../Widgets/CopyButton';
+
 const Buttons = () => {
   return (
     <div className={styles.Buttons}>
+      <CodeProvider>
+        <CodeContext.Consumer>
+          {context => (
+            <div>
+              <div onClick={context.fetchCode}>click me to fetchCode</div>
+              <CopyButton code={context.state.test} />
+            </div>
+          )}
+        </CodeContext.Consumer>
+      </CodeProvider>
       <div>
         <h2>DownButton</h2>
         <DownButton />
