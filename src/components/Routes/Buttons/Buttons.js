@@ -16,6 +16,8 @@ const Buttons = () => {
       <div>
         <CopyButton id="trivia" />
         <CopyButton id="year" />
+        <CopyButton id="date" />
+        <CopyButton id="math" />
       </div>
       <div>
         <h2>DownButton</h2>
