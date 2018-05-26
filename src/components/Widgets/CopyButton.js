@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 const FormWrapper = styled.form`
-  background: lightsteelblue;
+  background: white;
   width: 200px;
   height: 60px;
   margin: 50px;
@@ -18,29 +18,44 @@ const FormWrapper = styled.form`
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+    background: #efefef;
   }
 `;
 
-const HiddenInput = styled.input``;
+const HiddenInput = styled.input`
+  color: #efefef;
+`;
 
 const Button = styled.button`
   font-size: 20px;
   width: 100%;
   height: 100%;
+
+  &:hover {
+    background: #e4e4e4;
+  }
 `;
 class CopyButton extends Component {
   state = {
     id: '',
-    code: ''
+    code: '',
+    status: 'Copy'
   };
 
   componentWillMount() {
     let id = this.props.id;
     if (id !== this.state.id) {
       axios
-        .get(`http://numbersapi.com/random/${id}`)
+        .get(
+          `https://raw.githubusercontent.com/cpcomponents/cpcomponents/master/src/components/${id}.js`
+        )
         .then(res => {
-          let code = res.data;
+          let code = res.data
+            .replace(/\s+/g, ' ')
+            .replace(/\s</g, '<')
+            .replace(/>\s/g, '>')
+            .replace(/>\s</g, '><');
+          // console.log(code);
           this.setState({
             id: this.props.id,
             code
@@ -53,16 +68,18 @@ class CopyButton extends Component {
   copyToClipboard = (id, e) => {
     e.preventDefault();
     let input = e.target.children[0];
-    let button = e.target.children[1];
     input.select();
     document.execCommand('copy');
-    button.innerText = 'Copied';
+    this.setState({
+      status: 'Copied'
+    });
   };
 
   componentWillUnmount() {
     this.setState({
       id: '',
-      code: ''
+      code: '',
+      status: 'Copy'
     });
   }
 
@@ -71,7 +88,7 @@ class CopyButton extends Component {
       <div>
         <FormWrapper onSubmit={e => this.copyToClipboard(this.props.id, e)}>
           <HiddenInput type="text" value={this.state.code} readOnly />
-          <Button>Copy</Button>
+          <Button>{this.state.status}</Button>
         </FormWrapper>
       </div>
     );

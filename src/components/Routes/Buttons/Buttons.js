@@ -14,10 +14,10 @@ const Buttons = () => {
   return (
     <div className={styles.Buttons}>
       <div>
-        <CopyButton id="trivia" />
-        <CopyButton id="year" />
-        <CopyButton id="date" />
-        <CopyButton id="math" />
+        <CopyButton id="LandingPages/LifeLanding" />
+        <CopyButton id="LandingPages/LifeLanding" />
+        <CopyButton id="LandingPages/LifeLanding" />
+        <CopyButton id="LandingPages/LifeLanding" />
       </div>
       <div>
         <h2>DownButton</h2>
