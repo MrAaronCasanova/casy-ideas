@@ -22,7 +22,7 @@ const FormWrapper = styled.form`
   }
 `;
 
-const HiddenInput = styled.input`
+const HiddenInput = styled.textarea`
   color: #efefef;
 `;
 
@@ -50,11 +50,7 @@ class CopyButton extends Component {
           `https://raw.githubusercontent.com/cpcomponents/cpcomponents/master/src/components/${id}.js`
         )
         .then(res => {
-          let code = res.data
-            .replace(/\s+/g, ' ')
-            .replace(/\s</g, '<')
-            .replace(/>\s/g, '>')
-            .replace(/>\s</g, '><');
+          let code = res.data;
           // console.log(code);
           this.setState({
             id: this.props.id,

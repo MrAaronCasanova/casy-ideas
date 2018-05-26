@@ -8,17 +8,9 @@ import DarkenButtonGroup from '../../ButtonComponents/DarkenButtonGroup/DarkenBu
 import OutlineButtonGroup from '../../ButtonComponents/OutlineButtonGroup/OutlineButtonGroup';
 import SlideArrowButton from '../../ButtonComponents/SlideArrowButton/SlideArrowButton';
 
-import CopyButton from './../../Widgets/CopyButton';
-
 const Buttons = () => {
   return (
     <div className={styles.Buttons}>
-      <div>
-        <CopyButton id="LandingPages/LifeLanding" />
-        <CopyButton id="LandingPages/LifeLanding" />
-        <CopyButton id="LandingPages/LifeLanding" />
-        <CopyButton id="LandingPages/LifeLanding" />
-      </div>
       <div>
         <h2>DownButton</h2>
         <DownButton />

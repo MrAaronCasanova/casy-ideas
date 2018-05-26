@@ -185,7 +185,8 @@ const LowLine = styled.div`
 const BasicFooter = () => {
   return (
     <Wrapper>
-      <Email>mraaroncasanova@gmail.com</Email>
+      <Email>copypastecomponents@gmail.com</Email>
+      {/* <Email>mraaroncasanova@gmail.com</Email> */}
       <LinkWrap color="Instagram">
         <div>
           <Link

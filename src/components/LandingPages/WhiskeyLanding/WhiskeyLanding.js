@@ -8,7 +8,6 @@ const Wrapper = styled.div`
   background: #f6f6f6;
   padding: 30px;
   height: ${vpScale(100, 100, 320, 1300, 'vh-vp')};
-  /* height: 100vh; */
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -44,7 +43,6 @@ const Bottle = styled.img`
   top: 50%;
   left: 50%;
   transform: translate(-100vw, -50%);
-  /* transform: translate(-50%, -50%); */
   animation: ${props =>
     props.whiskeyAni
       ? `1500ms cubic-bezier(0, 0, 0.37, 0.98) 500ms forwards ${slideIn}`

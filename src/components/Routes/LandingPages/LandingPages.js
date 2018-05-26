@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import CopyButton from './../../Widgets/CopyButton';
 import ViewExampleBtn from './../../MiscComponents/ViewExampleBtn';
 import LayeredText from '../../LandingPages/LayeredText/LayeredText';
 import ApiccoLanding from '../../LandingPages/ApiccoLanding/ApiccoLanding';
@@ -19,6 +20,12 @@ const LandingWrapper = styled.div`
 const Page = styled.div`
   /* min-height: 100vh; */
   height: 100%;
+
+  > :nth-of-type(2) {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const LandingPages = () => {
@@ -26,6 +33,7 @@ const LandingPages = () => {
     <LandingWrapper>
       <Page>
         <APlayground />
+        <CopyButton id="LandingPages/APlayground" />
         <ViewExampleBtn href="https://dribbble.com/shots/2613990-Finnerztaffen" />
       </Page>
       <Page>
@@ -46,14 +54,17 @@ const LandingPages = () => {
       </Page>
       <Page>
         <WhiskeyLanding />
+        <CopyButton id="LandingPages/WhiskeyLanding" />
         <ViewExampleBtn href="https://dribbble.com/shots/4526027-Foundation-Marketplace-Product-Transition-Animation" />
       </Page>
       <Page>
         <LifeLanding />
+        <CopyButton id="LandingPages/LifeLanding" />
         <ViewExampleBtn href="https://dribbble.com/shots/4495118-Conceptual-Web-UI-Concept-Product" />
       </Page>
       <Page>
         <BoxyLanding />
+        <CopyButton id="LandingPages/BoxyLanding" />
         <ViewExampleBtn href="https://dribbble.com/shots/4495009-Web-Design" />
       </Page>
       {/* <HourGlassText /> */}

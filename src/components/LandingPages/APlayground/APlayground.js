@@ -3,14 +3,7 @@ import styled from 'styled-components';
 import { vpScale } from './../../../helpers';
 
 const Wrapper = styled.div`
-  /* ---- CSS Variables Section ----- */
-  --grid-brdr: ${0 ? 'red' : 'none'};
-  /* -------------------------------- */
-  /* ---------For Editing Layout---------- */
-  border: 2px solid var(--grid-brdr);
-  /* ------------------------------------- */
   @import url('https://fonts.googleapis.com/css?family=Poppins:400,700');
-  /* @import url('https://fonts.googleapis.com/css?family=Poppins'); */
 
   @import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
   min-height: 100vh;
@@ -123,9 +116,6 @@ const Wrapper = styled.div`
 `;
 
 const Logo = styled.h2`
-  /* ---------For Editing Layout---------- */
-  border: 2px solid var(--grid-brdr);
-  /* ------------------------------------- */
   grid-column: Content-start / Content-end;
   grid-row: Logo-start / Logo-end;
   display: flex;
@@ -151,9 +141,6 @@ const Logo = styled.h2`
 `;
 
 const Nav = styled.ul`
-  /* ---------For Editing Layout---------- */
-  border: 2px solid var(--grid-brdr);
-  /* ------------------------------------- */
   grid-column: Content-start / Content-end;
   grid-row: Nav-start / Nav-end;
   display: flex;
@@ -182,9 +169,6 @@ const Nav = styled.ul`
 `;
 
 const MainHeading = styled.h2`
-  /* ---------For Editing Layout---------- */
-  border: 2px solid var(--grid-brdr);
-  /* ------------------------------------- */
   grid-column: Img1-end / Content-end;
   grid-row: MainHeading-start / MainHeading-end;
   display: flex;
@@ -220,9 +204,6 @@ const MainHeading = styled.h2`
 `;
 
 const DescText = styled.p`
-  /* ---------For Editing Layout---------- */
-  border: 2px solid var(--grid-brdr);
-  /* ------------------------------------- */
   grid-column: Content-start / Img3-start;
   grid-row: Img2-end / Img3-end;
   justify-self: center;
@@ -255,9 +236,6 @@ const DescText = styled.p`
 `;
 
 const VerticalNums = styled.ul`
-  /* ---------For Editing Layout---------- */
-  border: 2px solid var(--grid-brdr);
-  /* ------------------------------------- */
   display: none;
   list-style: none;
 
@@ -276,9 +254,6 @@ const VerticalNums = styled.ul`
 `;
 
 const Img1 = styled.img`
-  /* ---------For Editing Layout---------- */
-  border: 2px solid var(--grid-brdr);
-  /* ------------------------------------- */
   grid-column: Img1-start / Img1-end;
   grid-row: Img1-start / Img1-end;
 
@@ -291,9 +266,6 @@ const Img1 = styled.img`
 `;
 
 const Img2 = styled.img`
-  /* ---------For Editing Layout---------- */
-  border: 2px solid var(--grid-brdr);
-  /* ------------------------------------- */
   grid-column: Img2-start / Img2-end;
   grid-row: Img2-start / Img2-end;
 
@@ -308,9 +280,6 @@ const Img2 = styled.img`
 `;
 
 const Img3 = styled.img`
-  /* ---------For Editing Layout---------- */
-  border: 2px solid var(--grid-brdr);
-  /* ------------------------------------- */
   grid-column: Img3-start / Img3-end;
   grid-row: Img3-start / Img3-end;
 
@@ -326,9 +295,6 @@ const Img3 = styled.img`
 `;
 
 const Email = styled.h6`
-  /* ---------For Editing Layout---------- */
-  border: 2px solid var(--grid-brdr);
-  /* ------------------------------------- */
   grid-column: Content-start / Content-end;
   grid-row: Email-start / Email-end;
   display: flex;
@@ -352,9 +318,6 @@ const Email = styled.h6`
 `;
 
 const CTAButton = styled.button`
-  /* ---------For Editing Layout---------- */
-  border: 2px solid var(--grid-brdr);
-  /* ------------------------------------- */
   grid-column: Content-start / Content-end;
   grid-row: Button-start / Button-end;
   justify-self: center;

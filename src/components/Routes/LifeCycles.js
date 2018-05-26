@@ -29,7 +29,7 @@ class LifeCycles extends Component {
     );
   }
 
-  // 5. after JSX
+  // 5. after JSX renders
   componentDidMount() {
     console.log('after first render');
   }

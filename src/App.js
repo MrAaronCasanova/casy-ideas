@@ -59,3 +59,5 @@ export default App;
 
 // ====== open sources ideas ======
 // apicco.com side nav / link animation in nav
+
+// copybutton, buttons, test, home, lifelanding
